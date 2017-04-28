@@ -1,0 +1,212 @@
+[
+    {
+        "field": "id",
+        "title": "主键",
+        "width": "100",
+        "align": "center",
+        "editor": {
+            "type": "text"
+        }
+    },
+    {
+        "field": "ztdmj",
+        "title": "总土地面积(亩)",
+        "width": "100",
+        "align": "center",
+        "editor": {
+            "type": "text"
+        }
+    },
+    {
+        "field": "zzmj",
+        "title": "种植面积(亩)",
+        "width": "100",
+        "align": "center",
+        "editor": {
+            "type": "text"
+        }
+    },
+    {
+        "field": "xzmj",
+        "title": "闲置面积(亩)",
+        "width": "100",
+        "align": "center",
+        "editor": {
+            "type": "text"
+        }
+    },
+    {
+        "field": "ghsymj",
+        "title": "规划使用面积(亩)",
+        "width": "100",
+        "align": "center",
+        "editor": {
+            "type": "text"
+        }
+    },
+    {
+        "field": "ldmj",
+        "title": "林地面积(亩)",
+        "width": "100",
+        "align": "center",
+        "editor": {
+            "type": "text"
+        }
+    },
+    {
+        "field": "cdmj",
+        "title": "草地面积(亩)",
+        "width": "100",
+        "align": "center",
+        "editor": {
+            "type": "text"
+        }
+    },
+    {
+        "field": "zcydmj",
+        "title": "住宅用地面积(亩)",
+        "width": "100",
+        "align": "center",
+        "editor": {
+            "type": "text"
+        }
+    },
+    {
+        "field": "tdlcmj",
+        "title": "土地流转面积(亩)",
+        "width": "100",
+        "align": "center",
+        "editor": {
+            "type": "text"
+        }
+    },
+    {
+        "field": "zzy",
+        "title": "种植业(亩)",
+        "width": "100",
+        "align": "center",
+        "editor": {
+            "type": "text"
+        }
+    },
+    {
+        "field": "yzy",
+        "title": "养殖业(头,只)",
+        "width": "100",
+        "align": "center",
+        "editor": {
+            "type": "text"
+        }
+    },
+    {
+        "field": "qtcy",
+        "title": "其他产业",
+        "width": "100",
+        "align": "center",
+        "editor": {
+            "type": "text"
+        }
+    },
+    {
+        "field": "jnjl",
+        "title": "集体农家乐(家)",
+        "width": "100",
+        "align": "center",
+        "editor": {
+            "type": "text"
+        }
+    },
+    {
+        "field": "jsd",
+        "title": "集体商店(家)",
+        "width": "100",
+        "align": "center",
+        "editor": {
+            "type": "text"
+        }
+    },
+    {
+        "field": "jjgqy",
+        "title": "集体加工企业(家)",
+        "width": "100",
+        "align": "center",
+        "editor": {
+            "type": "text"
+        }
+    },
+    {
+        "field": "jxclg",
+        "title": "集体乡村旅店(家)",
+        "width": "100",
+        "align": "center",
+        "editor": {
+            "type": "text"
+        }
+    },
+    {
+        "field": "gnjl",
+        "title": "个体农家乐(家)",
+        "width": "100",
+        "align": "center",
+        "editor": {
+            "type": "text"
+        }
+    },
+    {
+        "field": "gsd",
+        "title": "个体商店(家)",
+        "width": "100",
+        "align": "center",
+        "editor": {
+            "type": "text"
+        }
+    },
+    {
+        "field": "gjgqy",
+        "title": "个体加工企业(家)",
+        "width": "100",
+        "align": "center",
+        "editor": {
+            "type": "text"
+        }
+    },
+    {
+        "field": "gxclg",
+        "title": "个体乡村旅店(家)",
+        "width": "100",
+        "align": "center",
+        "editor": {
+            "type": "text"
+        }
+    },
+    {
+        "field": "xdny",
+        "title": "现代农业奖补情况",
+        "width": "150",
+        "align": "center",
+        "editor": {
+            "type": "text"
+        }
+    },
+    {
+        "field": "cid",
+        "title": "村id",
+        "width": "100",
+        "align": "center",
+        "editor": {
+            "type": "text"
+        }
+    },
+    {
+        "field": "operator",
+        "title": "操作人",
+        "width": "100",
+        "align": "center"
+    },
+    {
+        "field": "operate_time",
+        "title": "操作时间",
+        "width": "200",
+        "align": "center"
+    }
+]

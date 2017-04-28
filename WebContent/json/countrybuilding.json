@@ -1,0 +1,82 @@
+[
+    {
+        "field": "id",
+        "title": "主键",
+        "width": "100",
+        "align": "center"
+    },
+    {
+        "field": "ylyh",
+        "title": "油路硬化(公里)",
+        "width": "100",
+        "editor": {
+            "type": "text"
+        },
+        "align": "center"
+    },
+    {
+        "field": "snyh",
+        "title": "水泥硬化(公里)",
+        "width": "100",
+        "editor": {
+            "type": "text"
+        },
+        "align": "center"
+    },
+    {
+        "field": "slsyh",
+        "title": "砂砾石硬化(公里)",
+        "width": "100",
+        "editor": {
+            "type": "text"
+        },
+        "align": "center"
+    },
+    {
+        "field": "cl",
+        "title": "土路(公里)",
+        "width": "100",
+        "editor": {
+            "type": "text"
+        },
+        "align": "center"
+    },
+    {
+        "field": "ql",
+        "title": "桥梁(座)",
+        "width": "100",
+        "editor": {
+            "type": "text"
+        },
+        "align": "center"
+    },
+    {
+        "field": "ynb",
+        "title": "清水坝(座)",
+        "width": "100",
+        "editor": {
+            "type": "text"
+        },
+        "align": "center"
+    },
+    {
+        "field": "qsb",
+        "title": "淤地坝(座)",
+        "width": "100",
+        "editor": {
+            "type": "text"
+        },
+        "align": "center"
+    },
+    {"field":"operate_time","title":"操作时间","width":"100","align":"center","editor":{"type":"text"}},
+	{"field":"operator","title":"操作人","width":"100","align":"center","editor":{"type":"text"}},
+    {
+        "field": "cid",
+        "title": "村id",
+        "width": "100",
+        "editor": {
+            "type": "text"
+        },
+        "align": "center"
+    }
+]

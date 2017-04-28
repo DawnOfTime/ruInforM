@@ -1,0 +1,138 @@
+[
+    {
+        "field": "id",
+        "title": "主键",
+        "width": "150",
+        "align": "center",
+        "editor": {
+            "type": "text"
+        }
+    },
+    {
+        "field": "name",
+        "title": "姓名",
+        "width": "150",
+       	"align": "center",
+        "editor": {
+            "type": "validatebox",
+            "options":{
+										"required":"true",
+										"validType":"length[2,4]",
+										"missingMessage":"不能为空",
+										"invalidMessage":"输入数据应为2--4个字节"
+					}	
+        }
+    },
+    {
+        "field": "sex",
+        "title": "性别",
+        "width": "100",
+        "align": "center",
+        "editor": {
+           "type": "validatebox",
+            "options":{
+										"required":"true",
+										"validType":"length[1,1]",
+										"missingMessage":"不能为空",
+										"invalidMessage":"输入数据应为1个字节的数字格式"
+					}	
+        }
+    },
+    {
+        "field": "birthday",
+        "title": "出生年月日",
+        "width": "200",
+        "align": "center",
+        "editor": {
+           "type": "datebox"
+            
+        }
+    },
+    {
+        "field": "whcd",
+        "title": "文化程度",
+        "width": "100",
+        "align": "center",
+        "editor": {
+             "type": "validatebox",
+            "options":{
+										"required":"true",
+										"validType":"length[1,1]",
+										"missingMessage":"不能为空",
+										"invalidMessage":"输入数据应为1个字节的数字格式"
+					}	
+        }
+    },
+    {
+        "field": "phonenumber",
+        "title": "联系方式",
+        "width": "200",
+        "align": "center",
+        "editor": {
+            "type": "validatebox",
+            "options":{
+										"required":"true",
+										"validType":"length[11,11]",
+										"missingMessage":"不能为空",
+										"invalidMessage":"输入数据应为11个字节的数字格式"
+					}	
+        }
+    },
+      {
+        "field": "intime",
+        "title": "入职时间",
+        "width": "200",
+        "align": "center",
+        "editor": {
+           "type": "datebox"
+            
+        }
+    }
+    ,
+      {
+        "field": "lztime",
+        "title": "离职时间",
+        "width": "200",
+        "align": "center",
+        "editor": {
+           "type": "datebox"
+        }
+    }
+    ,
+      {
+        "field": "state",
+        "title": "状态",
+        "width": "100",
+        "align": "center",
+        "editor": {
+            "type": "validatebox",
+            "options":{
+										"required":"true",
+										"validType":"length[1,1]",
+										"missingMessage":"不能为空",
+										"invalidMessage":"输入数据应为1个字节的数字格式"
+					}
+				}
+    },
+    {
+        "field": "cid",
+        "title": "村id",
+        "width": "150",
+        "align": "center",
+        "editor": {
+            "type": "text"
+        }
+    },
+    {
+        "field": "operator",
+        "title": "操作人",
+        "width": "100",
+        "align": "center"
+    },
+    {
+        "field": "operate_time",
+        "title": "操作时间",
+        "width": "200",
+        "align": "center"
+    }
+]

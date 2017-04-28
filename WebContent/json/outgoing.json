@@ -1,0 +1,9 @@
+[
+	{"field":"id","title":"主键","width":"150","align":"center"},
+	{"field":"name","title":"姓名","width":"100","align":"center","editor":{"type":"text"}},
+	{"field":"age","title":"年龄","width":"100","align":"center","editor":{"type":"text"}},
+	{"field":"sex","title":"性别","width":"100","align":"center","editor":{"type":"text"}},
+	 {"field":"operate_time","title":"操作时间","width":"100","align":"center","editor":{"type":"text"}},
+	{"field":"operator","title":"操作人","width":"100","align":"center","editor":{"type":"text"}},
+	{"field":"cid","title":"村id","width":"100","align":"center","editor":{"type":"text"}}
+]

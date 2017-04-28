@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.buba.rural.pojo.Rule">
+	<!-- <sql id="fenyewhere">
+	  	<where>
+		  	<if test="name!=null and name!=''">
+		  		and name = #{tb_person.name}
+		  	</if>
+	  	</where>
+	</sql> -->
+	<!-- 总记录数 -->
+	<select id="ruleCount" resultType="int">
+		SELECT COUNT(*) from rule
+	</select>
+	<!-- 查询数据 -->
+	<select id="ruleList" resultType="Rule" parameterType="java.util.HashMap">
+		select * from rule ORDER BY rname limit #{pageBean.startNum},#{pageBean.pagesize}
+	</select>
+	
+	<!-- 添加 -->
+	<insert id="insertRule">
+		insert into rule values
+		<foreach item="item" collection="array" separator=",">
+        	(uuid(),#{item.rname},#{item.menucode},#{item.comm})
+  		</foreach>
+	</insert>
+	<!-- 删除 -->
+	<delete id="deleteRule">
+		DELETE from rule WHERE id in
+		<foreach item="item" collection="array" open="(" separator="," close=")">
+			#{item.id}
+		</foreach>
+	</delete>
+	<!-- 修改 -->
+	<update id="updateRule">
+		update rule set rname=#{rname},menucode=#{menucode},comm=#{comm} 
+		where id = #{id}
+	</update>
+	<!-- 获取该角色 -->
+	<select id="getRule" resultType="Rule">
+		select * from rule where id = #{id}
+	</select>
+	<!-- 获取菜单树 -->
+	<select id="getTree" resultType="Menu">
+		select *,1 'checked' from menu where num in 
+		<foreach item="item" collection="array" open="(" close=")" separator=",">
+			#{item}
+		</foreach>
+		UNION ALL
+		select *,0 'checked' from menu where num not in 
+		<foreach item="item" collection="array" open="(" close=")" separator=",">
+			#{item}
+		</foreach>
+		order by num
+	</select>
+	<update id="saveTreeMenu">
+		update rule set menucode = #{menucode} where id = #{id}
+	</update>
+</mapper>

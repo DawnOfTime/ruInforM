@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+		<package name="release" namespace="/" extends="struts-default">
+			<action name="findadd" class="releaseAction" method="findadd">
+				<result name="success">/umed/success.jsp</result>
+			</action>
+			<action name="findquery" class="releaseAction" method="findquery">
+			</action>
+			<action name="findSave" class="releaseAction" method="findSave">
+			</action>
+			<action name="query" class="releaseAction" method="query">
+			</action>
+			<action name="update" class="releaseAction" method="update">
+			</action>
+			<action name="queryExamine" class="releaseAction" method="queryExamine">
+			</action>
+			<action name="UpExamine" class="releaseAction" method="UpExamine">
+			</action>
+			<action name="updateE" class="releaseAction" method="updateE">
+			</action>
+			
+		</package>
+		<package name="releas" namespace="/Examine" extends="struts-default">
+			<action name="findOption" class="releaseAction" method="findOption"></action>
+		</package>
+</struts>

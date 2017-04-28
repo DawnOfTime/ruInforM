@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.buba.rural.pojo.Acc">
+<!-- 总记录数 -->
+	<select id="queryacc" resultType="int">
+		SELECT COUNT(*) from acc
+		<where>
+			<if test="acc!=null">
+				<if test="acc.username!='' and acc.username!=null">
+					and username like #{acc.username}
+				</if>
+				<if test="acc.acccode!='' and acc.acccode!=null">
+					and acccode like #{acc.acccode}
+				</if>
+			</if>
+		</where>
+	</select>
+	<!-- 查询数据 -->
+	<select id="queryList" resultType="Acc" parameterType="java.util.HashMap">
+		select * from acc 
+		<where>
+			<if test="acc!=null">
+				<if test="acc.username!='' and acc.username!=null">
+					and username like #{acc.username}
+				</if>
+				<if test="acc.acccode!='' and acc.acccode!=null">
+					and acccode like #{acc.acccode}
+				</if>
+			</if>
+		</where>
+		 limit #{pageBean.startNum},#{pageBean.pagesize}
+	</select>
+	
+	<!-- 添加 -->
+	<insert id="insertac">
+		insert into acc values
+		<foreach item="item" collection="array" >
+        	(UUID(),#{item.username},#{item.acccode},#{item.password},#{item.isable},#{item.rid})
+  		</foreach>
+	</insert>
+	<!-- 删除 -->
+	<delete id="deleteac">
+		DELETE from acc WHERE id in 
+		<foreach item="item" collection="array" open="(" close=")" separator=",">
+			#{item.id}
+		</foreach>
+	</delete>
+	<!-- 修改 -->
+	<update id="updateac">
+		update acc set isable=#{isable},rid=#{rid}
+		where id = #{id}
+	</update>
+	
+	<update id="uppsw">
+		update acc set password=123456 where id=#{id}
+	</update>
+	
+	
+	<select id="findAcc" resultType="Acc">
+		select a.*,r.rname rulename from acc a LEFT JOIN rule r on a.rid = r.id 
+		where a.isable = '1' and a.acccode = #{acccode}
+	</select>
+	<insert id="addAcc">
+		insert into acc values(uuid(),#{username},#{acccode},#{password},#{isable},#{rid})
+	</insert>
+	<delete id="delAcc">
+		deletes from acc where acccode = #{acccode}
+	</delete>
+	
+	<select id="getRule" resultType="Rule">
+		select * from rule
+	</select>
+	<select id="getAcc" resultType="String">
+		select countryCode from acc where id = #{id}
+	</select>
+	<select id="getCountryTree" resultType="Country">
+		select *,1 checked from county where num in 
+		<foreach collection="array" open="(" close=")" item="code" separator=",">
+			#{code}
+		</foreach>
+		UNION ALL
+		select *,0 checked from county where num not in 
+		<foreach collection="array" open="(" close=")" item="code" separator=",">
+			#{code}
+		</foreach>
+		order by num
+	</select>
+	<update id="saveAcc_Country">
+		update acc set countryCode = #{countryCode} where id = #{id}
+	</update>
+</mapper>

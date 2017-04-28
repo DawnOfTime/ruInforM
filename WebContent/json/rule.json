@@ -1,0 +1,6 @@
+[
+	{"field":"id","title":"主键","width":"100","align":"center"},
+	{"field":"rname","title":"角色名称","width":"100","editor":{"type":"text"},"align":"center"},
+	{"field":"menucode","title":"菜单编号","width":"100","align":"center"},
+	{"field":"comm","title":"描述","width":"100","editor":{"type":"text"},"align":"center"}
+]

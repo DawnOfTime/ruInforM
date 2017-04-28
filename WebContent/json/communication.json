@@ -1,0 +1,85 @@
+[
+    {
+        "field": "id",
+        "title": "主键",
+        "width": "150",
+        "align": "center",
+        "editor": {
+            "type": "text"
+        }
+    },
+    {
+        "field": "is_ydxh",
+        "title": "是否有移动信号",
+        "width": "150",
+        "align": "center",
+        "editor": {
+            "type": "validatebox",
+            "options": {
+                "required": "true",
+                "missingMessage": "该输入项不能为空"
+            }
+        }
+    },
+    {
+        "field": "is_ltxh",
+        "title": "是否有联通信号",
+        "width": "150",
+        "align": "center",
+        "editor": {
+            "type": "validatebox",
+            "options": {
+                "required": "true",
+                "missingMessage": "该输入项不能为空"
+            }
+        }
+    },
+    {
+        "field": "is_dxxh",
+        "title": "是否有电信信号",
+        "width": "150",
+        "align": "center",
+        "editor": {
+            "type": "validatebox",
+            "options": {
+                "required": "true",
+                "missingMessage": "该输入项不能为空"
+            }
+        }
+    },
+    {
+        "field": "is_qcfg",
+        "title": "是否全村覆盖",
+        "width": "150",
+        "align": "center",
+        "editor": {
+            "type": "validatebox",
+            "options": {
+                "required": "true",
+                "missingMessage": "该输入项不能为空"
+            }
+        }
+    },
+    {
+        "field": "cid",
+        "title": "村id",
+        "width": "150",
+        "align": "center",
+        "editor": {
+            "type": "text"
+        }
+    }
+    ,
+    {
+        "field": "operator",
+        "title": "操作人",
+        "width": "100",
+        "align": "center"
+    },
+    {
+        "field": "operate_time",
+        "title": "操作时间",
+        "width": "200",
+        "align": "center"
+    }
+]

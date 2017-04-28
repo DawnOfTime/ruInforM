@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.buba.rural.pojo.Country">
+	<select id="findCountryTree" resultType="Country">
+		select * from county
+	</select>
+	<insert id="addcountry">
+  		insert into county(id,num,name,father_num,level) values (UUID(),#{num},#{name},#{father_num},#{level})
+  	</insert>
+  	<delete id="deletecountry">
+  		delete from county where id=#{id}
+  	</delete>
+  	<update id="updatecounty">
+  		update county set name=#{name},num=#{num}  where id=#{id}
+  	</update>
+</mapper>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.buba.rural.pojo.Menu">
+	<select id="showMenu" resultType="Menu">
+		select * from menu where num in <foreach item="item" collection="array" open="(" close=")" separator=",">#{item}</foreach>
+		UNION
+		select * from menu where num in (select menu.father_num from menu where num in <foreach item="item" collection="array" open="(" close=")" separator=",">#{item}</foreach>)
+		ORDER BY num
+	</select>
+	<select id="findMenu" resultType="Menu">
+		select * from menu
+	</select>
+	<!-- <sql id="fenyewhere">
+	  	<where>
+		  	<if test="name!=null and name!=''">
+		  		and name = #{tb_person.name}
+		  	</if>
+	  	</where>
+	</sql> -->
+	<!-- 总记录数 -->
+	<select id="menuCount" resultType="int">
+		SELECT COUNT(*) from menu
+	</select>
+	<!-- 查询数据 -->
+	<select id="menuList" resultType="Menu" parameterType="java.util.HashMap">
+		select * from menu ORDER BY num limit #{pageBean.startNum},#{pageBean.pagesize}
+	</select>
+	
+	<!-- 添加 -->
+	<insert id="insertMenu">
+		insert into menu values
+		<foreach item="item" collection="array" separator=",">
+        	(uuid(),#{item.num},#{item.name},#{item.father_num},#{item.level},#{item.menuurl})
+  		</foreach>
+	</insert>
+	<!-- 删除 -->
+	<delete id="deleteMenu">
+		DELETE from menu WHERE id in
+		<foreach item="item" collection="array" open="(" separator="," close=")">
+			#{item.id}
+		</foreach>
+	</delete>
+	<!-- 修改 -->
+	<update id="updateMenu">
+		update menu set num=#{num},name=#{name},father_num=#{father_num},level=#{level},menuurl=#{menuurl} 
+		where id = #{id}
+	</update>
+</mapper>

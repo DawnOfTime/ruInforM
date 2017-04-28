@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+   	<package name="statistics" namespace="/statistics" extends="struts-default">
+   		<action name="getCountrybuilding" class="statisticsAction" method="getCountrybuilding"></action>
+   		<action name="getCountryPoverty" class="statisticsAction" method="getCountryPoverty"></action>
+   		<action name="getCountryGroupFinance" class="statisticsAction" method="getCountryGroupFinance"></action>
+   		<action name="getCountryLand_industry" class="statisticsAction" method="getCountryLand_industry"></action>
+   		
+   		<action name="pie_countryBuilding" class="statisticsAction" method="pie_countryBuilding"></action>
+   		<action name="pie_countryPoverty" class="statisticsAction" method="pie_countryPoverty"></action>
+   		<action name="pie_countryLand" class="statisticsAction" method="pie_countryLand"></action>
+   	</package>
+</struts>

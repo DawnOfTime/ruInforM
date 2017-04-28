@@ -1,0 +1,91 @@
+
+body,ul,li{padding: 0;margin: 0;list-style: none;}
+
+
+ .body2_1 .box{
+	margin: 0 auto;
+	padding: 0;
+	width: 820px;
+	height: 390px;
+	/*border: 1px solid red;*/
+	margin: 0 auto;
+	position: relative;
+}
+	img{
+	width:820px;
+	height:390px;
+	}
+
+ .body2_1 .imgbox{
+	width:820px;
+	height:390px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+ .body2_1 .box .btn{
+	width: 820px;
+	height: 69px;
+	/*background: blue;*/
+	position: absolute;
+	top: 50%;
+	left: 0;
+	margin-top: -34px;
+}
+ .body2_1 .btn .left{
+	width: 41px;
+	height: 69px;
+	background:url(../image/lunbo/6.png) no-repeat -84px 0;
+	float: left;
+}
+.body2_1 .btn .left:hover{
+	background: url(../image/lunbo/6.png) no-repeat 0 0;
+}
+.body2_1 .btn .right{
+	width: 41px;
+	height: 69px;
+	background:url(../image/lunbo/6.png)  no-repeat -123px 0;
+	float: right;
+}
+.body2_1 .btn .right:hover{
+	background: url(../image/lunbo/6.png) no-repeat -41px 0;
+}
+.body2_1 .boxx{
+	width: 210px;
+	height: 20px;
+	position: absolute;
+	bottom: 10px;
+	right: 20px;
+}
+.body2_1 .boxx .dj{
+	width: 16px;
+	height: 16px;
+	border: 2px solid rgba(0,0,0,0.6);
+	background: #85744C;
+	border-radius: 50%;
+	float: left;
+	margin-left: 15px;
+}
+h5{
+      margin:0;
+	  padding:0;
+	  list-style:none;
+	  font-weight:normal;
+	  }
+.h5{
+	text-align: left;
+	left:20;
+    font: 24px/50px \5FAE\8F6F\96C5\9ED1,"Microsoft YaHei";
+    color: #fff;
+    font-size: 15px;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    z-index: 3;
+    font-size: 20px;
+    background: #0a0a0a;
+    filter:alpha(opacity=10);  
+    -moz-opacity:0.8;  
+    -khtml-opacity: 0.8;  
+    opacity: 0.8;  
+}

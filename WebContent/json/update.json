@@ -1,0 +1,20 @@
+[
+	{"field":"id","title":"主键","width":"100","align":"center"},
+	{"field":"username","title":"用户名","width":"100","align":"center","editor":{"type":"validatebox",
+									"options":{
+												"required":"true",
+												"validType":"length[1,10]",
+												"missingMessage":"用户名不能为空",
+												"invalidMessage":"输入数据应为1--10个字节"
+											}
+	}},
+	{"field":"acccode","title":"账号","width":"100","align":"center"},
+	{"field":"password","title":"密码","width":"100","align":"center","editor":{"type":"validatebox",
+									"options":{
+												"required":"true",
+												"validType":"length[1,10]",
+												"missingMessage":"密码不能为空",
+												"invalidMessage":"输入数据应为1--10个字节"
+											}
+	}}
+]

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+   	<package name="building" namespace="/" extends="struts-default">
+   		<action name="findbuilding" class="buildingAction" method="searchbuilding">
+   		</action>
+   		<action name="savebuilding" class="buildingAction" method="saveBuilding">
+   		</action>
+   		<action name="addbuilding" class="buildingAction" method="addBuilding">
+   		</action>
+   		
+   		<action name="buildingbg" class="buildingAction" method="seachrecord"></action>
+   		<action name="buildinglishi" class="buildingAction" method="seachlishi"></action>
+   	</package>
+</struts>

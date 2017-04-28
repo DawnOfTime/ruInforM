@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.buba.rural.mapper.Building">
+  	<!-- 总记录数 -->
+	<select id="queryCount" resultType="int">
+		SELECT COUNT(*) from country_building where cid=#{countrybuilding.cid}
+	</select>
+	<!-- 查询数据 -->
+	<select id="queryList" resultType="Country_building" parameterType="java.util.HashMap">
+		select * from country_building where cid=#{countrybuilding.cid} limit #{pageBean.startNum},#{pageBean.pagesize}
+	</select>
+	
+	
+	<!-- 变更 -->
+	<select id="querybg" resultType="Country_building">
+		SELECT * from country_building where id=#{id} and cid=#{cid}
+	</select>
+	<!-- 历史记录 -->
+	<select id="querylishi" resultType="String">
+		SELECT v.context from country_building  c LEFT JOIN version_record v on c.id=v.initialid WHERE c.id=#{id} ORDER BY v.operate_time desc
+	</select>
+	
+	
+	
+	<update id="updatebuilding">
+		update country_building set 
+		ylyh=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.ylyh} 
+		</foreach>
+		,snyh=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.snyh} 
+		</foreach>
+		,slsyh=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.slsyh} 
+		</foreach>
+		,cl=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.cl} 
+		</foreach>
+		,ql=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.ql} 
+		</foreach>
+		,qsb=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.qsb} 
+		</foreach>
+		,ynb=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.ynb} 
+		</foreach>
+		,operate_time=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.operate_time} 
+		</foreach>
+		,operator=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.operator} 
+		</foreach>
+		where id in
+		<foreach item="item" collection="array" open="(" close=")" separator=",">
+			 #{item.id}
+		</foreach>
+	</update>
+	<insert id="addbuilding">
+		insert into country_building values (uuid(),#{ylyh},#{snyh},#{slsyh},#{cl},#{ql},#{qsb},#{ynb},#{operator},#{operate_time},#{cid});
+	</insert>
+	<delete id="deletebuilding">
+		delete from country_building where id in
+		<foreach collection="array" item="item" open="(" separator="," close=")">
+			#{item.id}
+		</foreach>
+	</delete>
+	
+  </mapper>

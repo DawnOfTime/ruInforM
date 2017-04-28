@@ -1,0 +1,19 @@
+[
+	{"field":"id","title":"主键","width":"100","align":"center"},
+	{"field":"type","title":"类型","width":"100","align":"center","editor":{"type":"text"}},
+	{"field":"privce","title":"金额","width":"150","align":"center","editor":{"type":"text"}},
+	{"field":"message","title":"明细","width":"150","align":"center","editor":{"type":"text"}},
+	{"field":"cid","title":"村id","width":"100","align":"center","editor":{"type":"text"}},
+    {
+        "field": "operator",
+        "title": "操作人",
+        "width": "100",
+        "align": "center"
+    },
+    {
+        "field": "operate_time",
+        "title": "操作时间",
+        "width": "200",
+        "align": "center"
+    }
+]

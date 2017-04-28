@@ -1,0 +1,11 @@
+[
+	{"field":"id","title":"主键","width":"150","align":"center"},
+	{"field":"context","title":"版本","width":"100","align":"center"},
+	{"field":"version","title":"版本","width":"100","align":"center"},
+	{"field":"type","title":"操作值","width":"100","align":"center"},
+	{"field":"scope","title":"操作表","width":"100","align":"center"},
+	{"field":"operator","title":"操作人","width":"100","align":"center"},
+	{"field":"operate_time","title":"操作时间","width":"200","align":"center"},
+	{"field":"operate_describe","title":"版本","width":"100","align":"center"},
+	{"field":"initialid","title":"版本","width":"100","align":"center"}
+]

@@ -1,0 +1,149 @@
+[
+    {
+        "field": "id",
+        "title": "主键",
+        "width": "100",
+        "align": "center"
+    },
+    {
+        "field": "cdzbsj",
+        "title": "村党支部书记",
+        "width": "100",
+        "editor": {
+            "type": "validatebox",
+            "options":{
+										"required":"true",
+										"validType":"length[2,4]",
+										"missingMessage":"不能为空",
+										"invalidMessage":"输入数据应为2--4个字节"
+					}	
+        },
+        "align": "center"
+    },
+    {
+        "field": "bpld",
+        "title": "包片领导",
+        "width": "100",
+        "editor": {
+            "type": "validatebox",
+            "options":{
+										"required":"true",
+										"validType":"length[2,4]",
+										"missingMessage":"不能为空",
+										"invalidMessage":"输入数据应为2--4个字节"
+					}	
+        },
+        "align": "center"
+    },
+    {
+        "field": "jswmjsqk",
+        "title": "精神文明建设情况",
+        "width": "200",
+        "editor": {
+             "type": "validatebox",
+           		 "options":{
+										"required":"true",
+										"validType":"length[2,20]",
+										"missingMessage":"不能为空",
+										"invalidMessage":"输入数据应为2--20个字节"
+					}	
+        },
+        "align": "center"
+    },
+    {
+        "field": "cdzzqk",
+        "title": "村党组织情况",
+        "width": "100",
+        "editor": {
+            "type": "validatebox",
+           		 "options":{
+										"required":"true",
+										"validType":"length[2,20]",
+										"missingMessage":"不能为空",
+										"invalidMessage":"输入数据应为2--20个字节"
+					}
+        },
+        "align": "center"
+    },
+    {
+        "field": "cjzdqk",
+        "title": "村级阵地情况",
+        "width": "100",
+        "editor": {
+            "type": "validatebox",
+           		 "options":{
+										"required":"true",
+										"validType":"length[2,20]",
+										"missingMessage":"不能为空",
+										"invalidMessage":"输入数据应为2--20个字节"
+					}
+        },
+        "align": "center"
+    },
+    {
+        "field": "qyhzsqk",
+        "title": "企业，专业合作社情况",
+        "width": "200",
+        "editor": {
+            "type": "validatebox",
+           		 "options":{
+										"required":"true",
+										"validType":"length[2,20]",
+										"missingMessage":"不能为空",
+										"invalidMessage":"输入数据应为2--20个字节"
+					}
+        },
+        "align": "center"
+    },
+    {
+        "field": "cztzqk",
+        "title": "财政投资情况",
+        "width": "100",
+        "editor": {
+            "type": "validatebox",
+           		 "options":{
+										"required":"true",
+										"validType":"length[2,20]",
+										"missingMessage":"不能为空",
+										"invalidMessage":"输入数据应为2--20个字节"
+					}
+        },
+        "align": "center"
+    },
+    {
+        "field": "bcczdzywt",
+        "title": "本村存在的主要问题",
+        "width": "200",
+        "editor": {
+            "type": "validatebox",
+           		 "options":{
+										"required":"true",
+										"validType":"length[2,20]",
+										"missingMessage":"不能为空",
+										"invalidMessage":"输入数据应为2--20个字节"
+					}
+        },
+        "align": "center"
+    },
+    {
+        "field": "cid",
+        "title": "村id",
+        "width": "100",
+        "editor": {
+            "type": "text"
+        },
+        "align": "center"
+    },
+    {
+        "field": "operate_time",
+        "title": "操作时间",
+        "width": "100",
+        "align": "center"
+    },
+    {
+        "field": "operator",
+        "title": "操作人",
+        "width": "100",
+        "align": "center"
+    }
+]

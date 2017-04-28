@@ -1,0 +1,196 @@
+	.bodyone{
+		height:1130px;
+		width: 830px;
+		margin-top:10px;
+	}
+	.body2{
+		height:400px;
+		width: 830px;
+		border: 2px solid #e9e7ef;
+		margin-left:8px;
+		margin-top: 25px;
+	}
+	.bodytwo{
+		height:730px;
+		width: 830px;
+	}
+	.bodytwo_1{
+		height:345px;
+		width: 830px;
+		margin-top:15px;
+	}
+	.bodytwo_2{
+		height:345px;
+		width: 830px;
+		margin-top:15px;
+	}
+	 .body3{
+		height:345px;
+		width: 405px;
+		border: 2px solid #000000;
+    	-moz-border-radius: 15px; 
+    	-webkit-border-radius: 15px; 
+   		border-radius:15px;   
+   		line-height: 43px;
+   		font-size: 17px;
+		/* color: white; */
+		border-bottom-color:#e9e7ef;
+		border-left-color:#e9e7ef;
+		border-right-color:#e9e7ef;
+		border-top-color:#e9e7ef;
+		margin-left: 5px;
+		}
+	.body4{
+		height:345px;
+		width: 405px;
+		margin-left:434px;
+		margin-top:-348px;
+		border: 2px solid #000000;
+    	-moz-border-radius: 15px; 
+    	-webkit-border-radius: 15px; 
+   		border-radius:15px;   
+   		line-height: 43px;
+   		font-size: 17px;
+		color: white;
+		border-bottom-color:#e9e7ef;
+		border-left-color:#e9e7ef;
+		border-right-color:#e9e7ef;
+		border-top-color:#e9e7ef;
+	}
+	.body5{
+		height:345px;
+		width: 405px;
+		border: 2px solid #000000;
+    	-moz-border-radius: 15px; 
+    	-webkit-border-radius: 15px; 
+   		border-radius:15px;   
+   		line-height: 43px;
+   		font-size: 17px;
+		color: white;
+		border-bottom-color:#e9e7ef;
+		border-left-color:#e9e7ef;
+		border-right-color:#e9e7ef;
+		border-top-color:#e9e7ef;
+		margin-left: 5px;
+		}
+	.body6{
+		height:345px;
+		width: 405px;
+		margin-left:434px;
+		margin-top:-348px;
+    	-moz-border-radius: 15px; 
+    	-webkit-border-radius: 15px; 
+   		border-radius:15px;   
+   		line-height: 43px;
+   		font-size: 17px;
+		color: white;
+		border: 2px solid #e9e7ef;
+	}
+	 .body3_1{
+	 	height:45px;
+		width: 405px;
+		/* background:-moz-linear-gradient(left,#6CA6CD,#87CEEB ); */
+		background:url(../image/jianbs.png);
+		background-size: 100%;
+    	-moz-border-radius: 15px; 
+    	-webkit-border-radius: 15px; 
+   		border-radius:15px;   
+   		line-height: 43px;
+   		font-size: 17px;
+		color: white; 
+		border: 2px solid #e9e7ef;
+		margin-top: -1px;
+		margin-left: -2px;
+	 }
+	 .body3_2{
+	 	height:300px;
+		width: 405px;
+	 }
+	  .body4_1{
+	 	height:45px;
+		width: 405px;
+		/* background:-moz-linear-gradient(left,#6CA6CD,#87CEEB ); */
+		background:url(../image/jianbs.png);
+		background-size: 100%;
+    	-moz-border-radius: 15px; 
+    	-webkit-border-radius: 15px; 
+   		border-radius:15px;   
+   		line-height: 43px;
+   		font-size: 17px;
+		color: white;
+		border: 2px solid #e9e7ef;
+		margin-top: -1px;
+		margin-left: -2px;
+	 }
+	 .body4_2{
+	 	height:300px;
+		width: 405px;
+	 }
+	  .body5_1{
+	 	height:45px;
+		width: 405px;
+		/* background:-moz-linear-gradient(left,#6CA6CD,#87CEEB ); */
+		background:url(../image/jianbs.png);
+		background-size: 100%;
+    	-moz-border-radius: 15px; 
+    	-webkit-border-radius: 15px; 
+   		border-radius:15px;   
+   		line-height: 43px;
+   		font-size: 17px;
+		color: white;
+		border: 2px solid #e9e7ef;
+		margin-top: -1px;
+		margin-left: -2px;
+	 }
+	 .body5_2{
+	 	height:300px;
+		width: 405px;
+	 }
+	  .body6_1{
+	 	height:45px;
+		width: 405px;
+		/* background:-moz-linear-gradient(left,#6CA6CD,#87CEEB ); */
+		background:url(../image/jianbs.png);
+		background-size: 100%;
+    	-moz-border-radius: 15px; 
+    	-webkit-border-radius: 15px; 
+   		border-radius:15px;
+   		line-height: 43px;
+   		font-size: 17px;
+		color: white;
+		border: 2px solid #e9e7ef;
+		margin-top:-2px;
+		margin-top: -1px;
+		margin-left: -2px;
+	 }
+	 .body6_2{
+	 	height:300px;
+		width: 405px;
+	 }
+	 a{
+		text-decoration:none;
+	}
+	.body2_1{
+		height:390px;
+		width: 820px;
+		margin-left:5px;
+		margin-top:5px;
+		position: absolute;	
+	}
+	.body3_2_1{
+		height:41px;
+		width: 386px;
+		border-bottom:1px dotted black;
+		margin:0 auto;
+		font-size:14px;
+		color:black;
+	}
+	.hover-element:hover{
+				color:red;
+			}
+	#text-hide{  
+      text-overflow:ellipsis;  
+      white-space:nowrap;  
+      overflow:hidden;  
+      width:386px;
+   }  

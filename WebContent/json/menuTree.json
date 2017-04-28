@@ -1,0 +1,15 @@
+{
+	"total":11,
+	"rows":[
+		{"checked":"","father_num":"root","id":"12335234353452","level":"1","menuurl":"","name":"人口管理","num":"01"},
+		{"checked":"","father_num":"01","id":"12335234353453","level":"2","menuurl":"","name":"各级统计查询","num":"0101"},
+		{"checked":"","father_num":"01","id":"12335234353454","level":"2","menuurl":"","name":"流动人口管理","num":"0102"},
+		{"checked":"","father_num":"root","id":"12335234353455","level":"1","menuurl":"","name":"系统管理","num":"09"},
+		{"checked":"","father_num":"09","id":"12335234353456","level":"2","menuurl":"/jsp/menu.jsp","name":"菜单管理","num":"0901"},
+		{"checked":"","father_num":"09","id":"4b0b9f36-0a4b-11e7-9a4d-00ff823592a5","level":"2","menuurl":"/jsp/rule.jsp","name":"角色管理","num":"0902"},
+		{"checked":"","father_num":"09","id":"808b19b6-0a4b-11e7-9a4d-00ff823592a5","level":"2","menuurl":"/jsp/power","name":"权限管理","num":"0903"},
+		{"checked":"","father_num":"09","id":"8f3b1266-0a4b-11e7-9a4d-00ff823592a5","level":"2","menuurl":"/jsp/acc.jsp","name":"账号管理","num":"0904"},
+		{"checked":"","father_num":"09","id":"a797578d-0a4b-11e7-9a4d-00ff823592a5","level":"2","menuurl":"/jsp/password.jsp","name":"密码管理","num":"0905"},
+		{"checked":"","father_num":"09","id":"ccc78f7a-0a4b-11e7-9a4d-00ff823592a5","level":"2","menuurl":"/jsp/county","name":"组织机构","num":"0906"}
+	]
+}

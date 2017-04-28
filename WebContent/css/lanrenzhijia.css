@@ -1,0 +1,95 @@
+.cls {
+	clear: both;
+}
+a:focus {
+	outline: none;
+}
+.xgsm {
+	padding: 0px;
+	width: 800px;
+	margin-top: 40px;
+	margin-right: auto;
+	margin-bottom: 20px;
+	margin-left: auto;
+}
+.xgsm p {
+	line-height: 1.8em;
+	padding: 0px;
+	margin: 0px;
+	color: #666666;
+}
+.menu {
+	height: 35px;
+	display: block;
+	padding: 0px;
+	width: 1097px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 30px;
+	/* margin-left: 130px;*/	
+}
+.menu ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.menu ul li {
+	float: left;
+	overflow: hidden;
+	position: relative;
+	line-height: 40px;
+	text-align: center;
+	margin-left: 36px;	
+}
+.menu ul li a {
+	position: relative;
+	display: block;
+	width: 90px;
+	height: 40px;
+	font-family: "΢���ź�", "����";
+	font-size: 17px;
+	text-decoration: none;
+	cursor: pointer;
+}
+.menu ul li a span {
+	/* all layers will be absolute positioned */
+			position: absolute;
+	left: 0;
+	width: 90px;
+}
+.menu ul li a span.out {
+	top: 0px;
+}
+.menu ul li a span.over,  .menu ul li a span.bg {
+			top: -40px;
+}
+
+#menu1 {
+	background-color: #e9e7ef;;
+	background-repeat: repeat-x;
+	background-position: 0px 0px;
+}
+#menu1 ul li a {
+	color: #000;
+}
+#menu1 ul li a span.over {
+	color: #FFF;
+}
+#menu1 ul li span.bg {
+			height: 40px;
+	background-image: url(../image/bg_over.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+/** 2nd example **/
+
+#menu2 {
+	background: #000;
+}
+#menu2 ul li a {
+	color: #999999;
+}
+#menu2 ul li a span.over {
+	color: #000;
+	background-color: #f0f0f0;
+}

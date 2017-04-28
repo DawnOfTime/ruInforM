@@ -1,0 +1,17 @@
+eclipse.preferences.version=1
+encoding//WebContent/jsp/management/acc.jsp=UTF-8
+encoding//WebContent/jsp/management/login.jsp=UTF-8
+encoding//WebContent/umed/success.jsp=UTF-8
+encoding//src/com/buba/rural/acc=UTF-8
+encoding//src/com/buba/rural/comm/CountryTreeUtil.java=UTF-8
+encoding//src/com/buba/rural/comm/RuleMenuTreeUtil.java=UTF-8
+encoding//src/com/buba/rural/comm/TreeUtil.java=UTF-8
+encoding//src/com/buba/rural/login=UTF-8
+encoding//src/com/buba/rural/menu=UTF-8
+encoding//src/com/buba/rural/message=UTF-8
+encoding//src/com/buba/rural/pojo/PageBean.java=GBK
+encoding//src/com/buba/rural/release/action/ReleaseAction.java=GBK
+encoding//src/com/buba/rural/release/dao/ReleaseDaoImp.java=GBK
+encoding//src/com/buba/rural/rule=UTF-8
+encoding//src/com/buba/ruralR/article/action/ArticleAction.java=GBK
+encoding//src/com/buba/ruralR/article/dao/ArticleDaoImpl.java=GBK

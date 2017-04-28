@@ -1,0 +1,25 @@
+[
+	{"field":"id","title":"主键","width":"150","align":"center"},
+	{"field":"titles","title":"标题","width":"500","align":"center"},
+	{"field":"riqis","title":"发布时间","width":"200","align":"center"},
+	{"field":"types","title":"类别","width":"100","align":"center"},
+	{"field":"state","title":"状态","width":"100","align":"center"},
+	{
+        "field": "operator",
+        "title": "操作人",
+        "width": "80",
+        "align": "center"
+    },
+    {
+        "field": "operate_time",
+        "title": "操作时间",
+        "width": "200",
+        "align": "center"
+    },
+    {
+        "field": "remarks",
+        "title": "备注",
+        "width": "150",
+        "align": "center"
+    }
+]

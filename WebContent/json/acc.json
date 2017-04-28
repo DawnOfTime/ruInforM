@@ -1,0 +1,8 @@
+[
+	{"field":"id","title":"主键","width":"100","align":"center"},
+	{"field":"username","title":"用户名","width":"100","align":"center"},
+	{"field":"acccode","title":"账号","width":"100","align":"center"},
+	{"field":"password","title":"密码","width":"100","align":"center"},
+	{"field":"isable","title":"是否启用","width":"100","align":"center","editor": {"type": "text"}},
+	{"field":"rid","title":"角色","width":"100","align":"center","editor": {"type": "text"}}
+]

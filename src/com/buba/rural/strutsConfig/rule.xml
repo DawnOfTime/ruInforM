@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+   	<package name="rule" namespace="/rule" extends="struts-default">
+   		<!-- 分页查询菜单 -->
+   		<action name="findRule" class="ruleAction" method="findRuel"></action>
+   		<action name="save" class="ruleAction" method="saveRule"></action>
+   		<!-- 获取菜单列表 -->
+   		<action name="getTree" class="ruleAction" method="getTree"></action>
+   		<!-- 保存该角色对应的菜单code字符串 -->
+   		<action name="saveTreeMenu" class="ruleAction" method="saveTreeMenu"></action>
+   	</package>
+</struts>
