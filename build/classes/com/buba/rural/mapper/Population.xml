@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.buba.rural.mapper.Popilation">
+	<sql id="where_name">
+			<if test="person_message.xm!=null and person_message.xm!=''">
+				and person_message.xm = #{person_message.xm}
+			</if>
+			<if test="person_message.sfzhm!=null and person_message.sfzhm!=''">
+				and person_message.sfzhm = #{person_message.sfzhm}
+			</if>
+	</sql>
+	<sql id="findCountry_Message_where">
+				<if test="country.level==1">
+					select id from county where father_num in(
+						select num from county where father_num in(
+							select num from county where father_num in (
+								select num from county where father_num = (
+									select num from county where num = #{country.num}))))
+				</if>
+				<if test="country.level==2">
+					select id from county where father_num in(
+						select num from county where father_num in (
+							select num from county where father_num = (
+								select num from county where num = #{country.num})))
+				</if>
+				<if test="country.level==3">
+					select id from county where father_num in (
+						select num from county where father_num = (
+							select num from county where num = #{country.num}))
+				</if>
+				<if test="country.level==4">
+					select id from county where father_num = (
+						select num from county where num = #{country.num})
+				</if>
+				<if test="country.level==5">
+					select id from county where num = #{country.num}
+				</if>
+	</sql>
+	<!-- 总记录数 -->
+	<select id="queryone" resultType="int" >
+	select count(*) from person_message where fid in (
+			select id from family_message where cid in (
+					<include refid="findCountry_Message_where"/>
+			)
+		)	<include refid="where_name"/>
+	</select>
+	<!-- 查询数据 -->
+	<select id="queryList" resultType="Person_message" parameterType="java.util.HashMap">
+		select * from person_message where fid in (
+			select id from family_message where cid in (
+					<include refid="findCountry_Message_where"/>
+			)
+		) <include refid="where_name"/>
+		limit #{pageBean.startNum},#{pageBean.pagesize} 
+	</select>
+	
+	<select id="getOption" resultType="Dictionary">
+		select * from dictionary where dictypecode = #{dictypecode}
+	</select>
+</mapper>

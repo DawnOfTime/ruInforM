@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+   	<package name="countypoverty" namespace="/" extends="struts-default">
+   		<action name="seachPoverty" class="povertyAction" method="seachPoverty">
+   		</action>
+   		<action name="savePoverty" class="povertyAction" method="savePoverty">
+   		</action>
+   		<action name="addPoverty" class="povertyAction" method="addPoverty">
+   		</action>
+   		
+   		<action name="povertybg" class="povertyAction" method="seachrecord">
+   		</action>
+   		<action name="povertylishi" class="povertyAction" method="seachlishi">
+   		</action>
+   	</package>
+</struts>

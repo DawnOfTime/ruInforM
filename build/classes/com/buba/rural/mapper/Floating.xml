@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.buba.rural.pojo.Floating">
+	<sql id="where_name">
+		<if test="country_flow.name!=null and country_flow.name!=''">
+			and name = #{country_flow.name}
+		</if>
+		<if test="country_flow.id_card!=null and country_flow.id_card!=''">
+			and id_card = #{country_flow.id_card}
+		</if>
+		<if test="country_flow.state!=null and country_flow.state!=''">
+			and state = #{country_flow.state}
+		</if>
+	</sql>
+		<sql id="findCountry_Flow_where">
+				<if test="country.level==1">
+					select id from county where father_num in(
+						select num from county where father_num in(
+							select num from county where father_num in (
+								select num from county where father_num = (
+									select num from county where num = #{country.num}))))
+				</if>
+				<if test="country.level==2">
+					select id from county where father_num in(
+						select num from county where father_num in (
+							select num from county where father_num = (
+								select num from county where num = #{country.num})))
+				</if>
+				<if test="country.level==3">
+					select id from county where father_num in (
+						select num from county where father_num = (
+							select num from county where num = #{country.num}))
+				</if>
+				<if test="country.level==4">
+					select id from county where father_num = (
+						select num from county where num = #{country.num})
+				</if>
+				<if test="country.level==5">
+					select id from county where num = #{country.num}
+				</if>
+	</sql>
+	<select id="findCountry_flow_count" resultType="int">
+		select count(*) from country_flow where cid in (
+		<include refid="findCountry_Flow_where"/>
+		)<include refid="where_name"/>
+	</select>
+	<select id="findCountry_flow_list" resultType="Country_flow" parameterType="java.util.HashMap">
+		select * from country_flow where cid in (
+		<include refid="findCountry_Flow_where"/>
+		)<include refid="where_name"/>
+		limit #{pageBean.startNum},#{pageBean.pagesize}
+	</select>
+</mapper>

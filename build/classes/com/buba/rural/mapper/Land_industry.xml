@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.buba.rural.mapper.land_industry">
+	<!-- 总记录数 -->
+	<select id="queryone" resultType="int" >
+		SELECT COUNT(*) from land_industry where cid=#{land_industry.cid}
+	</select>
+	<!-- 查询数据 -->
+	<select id="queryList" resultType="Land_industry" parameterType="java.util.HashMap">
+		select * from land_industry where cid=#{land_industry.cid}
+		limit #{pageBean.startNum},#{pageBean.pagesize}
+	</select>
+	
+	<update id="updateland_industry">
+		update land_industry set 
+		ztdmj=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.ztdmj} 
+		</foreach>
+		,zzmj=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.zzmj} 
+		</foreach>
+		,xzmj=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.xzmj} 
+		</foreach>
+		,ghsymj=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.ghsymj} 
+		</foreach>
+		,ldmj=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.ldmj} 
+		</foreach>
+		,cdmj=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.cdmj} 
+		</foreach>
+		,zcydmj=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.zcydmj} 
+		</foreach>
+		,tdlcmj=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.tdlcmj} 
+		</foreach>
+		,zzy=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.zzy} 
+		</foreach>
+		,yzy=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.yzy} 
+		</foreach>
+		,qtcy=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.qtcy} 
+		</foreach>
+		,jnjl=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.jnjl} 
+		</foreach>
+		,jsd=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.jsd} 
+		</foreach>
+		,jjgqy=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.jjgqy} 
+		</foreach>
+		,jxclg=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.jxclg} 
+		</foreach>
+		,gnjl=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.gnjl} 
+		</foreach>
+		,gsd=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.gsd} 
+		</foreach>
+		,gjgqy=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.gjgqy} 
+		</foreach>
+		,gxclg=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.gxclg} 
+		</foreach>
+		,xdny=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.xdny} 
+		</foreach>
+		,operate_time=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.operate_time} 
+		</foreach>
+		,operator=
+		<foreach item="item" collection="array" open="case ID" close="end" separator="">
+			 when #{item.id} then #{item.operator} 
+		</foreach>
+		where id in
+		<foreach item="item" collection="array" open="(" close=")" separator=",">
+			 #{item.id}
+		</foreach>
+	</update>
+	<insert id="addland_industry">
+		insert into land_industry values (#{id},#{ztdmj},#{zzmj},#{xzmj},#{ghsymj},#{ldmj},#{cdmj},#{zcydmj},#{tdlcmj},#{zzy},#{yzy},#{qtcy},#{jnjl},#{jsd},#{jjgqy},#{jxclg},#{gnjl},#{gsd},#{gjgqy},#{gxclg},#{xdny},#{operate_time},#{operator},#{cid});
+	</insert>
+	<delete id="deleteland_industry">
+		delete from land_industry where id in
+		<foreach collection="array" item="item" open="(" separator="," close=")">
+			#{item.id}
+		</foreach>
+	</delete>
+	<select id="searchLand_industry" resultType="Land_industry">
+		select * from land_industry where id = #{id}
+	</select>
+	<select id="searchHistory" resultType="String">
+		select context from version_record where initialid = #{id} order by operate_time desc
+	</select>
+</mapper>

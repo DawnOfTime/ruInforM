@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+   	<package name="message" namespace="/message" extends="struts-default">
+   		<action name="showCountryTree" class="messageAction" method="showCountryTree"></action>
+   		<action name="findFamilyMessage" class="messageAction" method="findFamilyMessage"></action>
+   		<action name="findFamilyMessages" class="messageAction" method="findFamilyMessages"></action>
+   		<action name="familyPersonList" class="messageAction" method="familyPersonList"></action>
+   		<action name="savePerson" class="messageAction" method="savePerson"></action>
+   		<action name="getPersonOne" class="messageAction" method="getPersonOne"></action>
+   		<action name="saveNewFamliyMessage" class="messageAction" method="saveNewFamliy"></action>
+   		<action name="getFamliyMessage" class="messageAction" method="getFamliyMessage">
+   			<result name="success">/jsp/management/familyInfor.jsp</result>
+   		</action>
+   		<action name="saveFamilAllMessage" class="messageAction" method="saveFamilAllMessage">
+   			<result name="success">/jsp/management/familyMessage.jsp</result>
+   		</action>
+   		<action name="saveUpdatedMessage" class="messageAction" method="saveUpdateFamilyAllMessage">
+   			<result name="success">/jsp/management/familyMessage.jsp</result>
+   		</action>
+   		<action name="findOption" class="messageAction" method="findOption"></action>
+   		<!-- 删除户 -->
+   		<action name="delFamilyAllMessage" class="messageAction" method="delFamilyAllMessage"></action>
+   		
+   	</package>
+</struts>

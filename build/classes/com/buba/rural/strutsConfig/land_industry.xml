@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+   	<package name="land_industry" namespace="/land_industry" extends="struts-default">
+   		<action name="queryland_industry" class="land_industryAction" method="queryland_industry"></action>
+   		<action name="saveland_industry" class="land_industryAction" method="saveland_industry"></action>
+   		<action name="addland_industry" class="land_industryAction" method="addland_industry"></action>
+   		<action name="searchLand_industry" class="land_industryAction" method="searchLand_industry"></action>
+   		<action name="searchHistory" class="land_industryAction" method="searchHistory"></action>
+   	</package>
+</struts>

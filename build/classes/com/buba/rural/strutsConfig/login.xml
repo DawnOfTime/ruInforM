@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+   	<package name="system" namespace="/login" extends="struts-default">
+   		<!-- 登录 -->
+   		<action name="findAcc" class="loginAction" method="findAcc">
+   			<result name="success">/jsp/management/index.jsp</result>
+   			<result name="error">/jsp/management/login.jsp</result>
+   		</action>
+   		<!-- 退出 -->
+   		<action name="exit" class="loginAction" method="exit">
+   			<result name="success" type="redirect">/</result>
+   		</action>
+   		<!-- 加载菜单列 -->
+   		<action name="showMenu" class="loginAction" method="showMenu"></action>
+   		<!-- main页面登录【ajax】 -->
+   		<action name="ajaxlogin" class="loginAction" method="ajaxlogin"></action>
+   		<!-- 进入后台主界面 -->
+   		<action name="gotoindex" class="loginAction" method="gotoindex">
+   			<result name="success">/jsp/management/index.jsp</result>
+   		</action>
+   	</package>
+</struts>
