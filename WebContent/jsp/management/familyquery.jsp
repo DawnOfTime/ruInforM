@@ -110,10 +110,7 @@ function findFamilyMessageListAll(cnum,text,level,hzxm){
 function FindData(){
 	var cnum= $("#num").val();
 	var level= $("#level").val();
-	var hzxm="";
-	if($("#hzxm").val()!=''&&$("#hzxm").val()!=null){
-	hzxm += "&familyMessage.hzxm="+$("#hzxm").val();
-	}
+	var hzxm = "&familyMessage.hzxm="+encodeURI(encodeURI($("#hzxm").val()));
 	findFamilyMessageListAll(cnum,"",level,hzxm);
 }
 //获取家庭成员列表

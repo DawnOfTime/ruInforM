@@ -3,6 +3,7 @@ package com.buba.rural.acc.action;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -56,10 +57,10 @@ public class AccAction {
 		String acccode = request.getParameter("acccode");
 		acc = new Acc();
 		if(null!=username && !username.equals("")){
-			acc.setUsername("%"+username+"%");
+			acc.setUsername("%"+URLDecoder.decode(username, "utf-8")+"%");
 		}
 		if(null!=acccode && !acccode.equals("")){
-			acc.setAcccode("%"+acccode+"%");
+			acc.setAcccode("%"+URLDecoder.decode(acccode, "utf-8")+"%");
 		}
 		pageBean=accService.seachacc(acc,pageBean);
 		

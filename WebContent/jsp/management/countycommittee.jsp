@@ -241,7 +241,7 @@ function addFlowPerson(){
 function findVillageWhere(){
 	var personWhere = "";
 	if($("#name").val()!=''){
-		personWhere += "&name="+$("#name").val();
+		personWhere += "&name="+encodeURI(encodeURI($("#name").val()));
 	}
 	findFlowPerson(personWhere);
 }

@@ -117,6 +117,7 @@ function findFamilyMessageList(id,hzxm){
 function FindData(){
 	var hzxm = $("#hzxm").val();
 	var cid = $("#cid").val();
+	hzxm = encodeURI(encodeURI(hzxm));
 	findFamilyMessageList(cid,"&familyMessage.hzxm="+hzxm);
 }
 //获取家庭成员列表

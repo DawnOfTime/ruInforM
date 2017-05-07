@@ -408,7 +408,7 @@ function savelishi(){
 				    	</td>
 			    	</tr>
 			    	<tr>
-			    		<th colspan="4"><a href="javascript:saveaddBuliding()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a></th>
+			    		<th colspan="4"><a href="javascript:addFlowbg()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a></th>
 			    	</tr>
 			    </table>
 		    </form>

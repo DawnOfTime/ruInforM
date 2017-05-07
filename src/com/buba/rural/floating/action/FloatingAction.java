@@ -1,6 +1,7 @@
 package com.buba.rural.floating.action;
 
 import java.io.PrintWriter;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,7 +34,7 @@ public class FloatingAction {
 		String state = request.getParameter("state");
 		Country_flow flow = new Country_flow();
 		if(null!=name && !name.equals("")){
-			flow.setName(name);
+			flow.setName("%"+URLDecoder.decode(name, "utf-8")+"%");
 		}
 		if(null!=id_card && !id_card.equals("")){
 			flow.setId_card(id_card);

@@ -2,6 +2,7 @@ package com.buba.rural.population.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,7 +36,7 @@ public class PopulationAction {
 		String sfzhm = request.getParameter("sfzhm");
 		Person_message person_message = new Person_message();
 		if(null!=xm && !xm.equals("")){
-			person_message.setXm(xm);
+			person_message.setXm("%"+URLDecoder.decode(xm, "utf-8")+"%");
 		}
 		if(null!=sfzhm && !sfzhm.equals("")){
 			person_message.setSfzhm(sfzhm);

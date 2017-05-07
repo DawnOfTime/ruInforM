@@ -2,6 +2,7 @@ package com.buba.rural.countycommittee.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,7 +38,7 @@ public class CommitteeAction {
 				String cid = request.getParameter("cid");
 				Country_committee flow = new Country_committee();
 				if(null!=name && !name.equals("")){
-					flow.setName(name);
+					flow.setName("%"+URLDecoder.decode(name, "utf-8")+"%");
 				}
 				if(null!=cid && !cid.equals("")){
 					flow.setCid(cid);

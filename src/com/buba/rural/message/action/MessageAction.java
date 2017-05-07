@@ -2,6 +2,7 @@ package com.buba.rural.message.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -90,8 +91,8 @@ public class MessageAction {
 		String getpar = HttpUtil.getParameterUrl(request.getParameterMap(),request,pattern);
 		pageBean.setUrl(getpar);
 		//按户主姓名查询
-		if(null!=hzxm && !hzxm.equals("")){
-			familyMessage.setHzxm(hzxm);
+		if(null!=familyMessage.getHzxm() && !familyMessage.getHzxm().equals("")){
+			familyMessage.setHzxm("%"+URLDecoder.decode(familyMessage.getHzxm(), "utf-8")+"%");
 		}
 		pageBean = tMessageService.findFamilyMessages(familyMessage,pageBean);
 		Map<String, Object> jsonMap = new HashMap<String, Object>();//定义map 
@@ -128,8 +129,8 @@ public class MessageAction {
 		String getpar = HttpUtil.getParameterUrl(request.getParameterMap(),request,pattern);
 		pageBean.setUrl(getpar);
 		//按户主姓名查询
-		if(null!=hzxm && !hzxm.equals("")){
-			familyMessage.setHzxm(hzxm);
+		if(null!=familyMessage.getHzxm() && !familyMessage.getHzxm().equals("")){
+			familyMessage.setHzxm("%"+URLDecoder.decode(familyMessage.getHzxm(), "utf-8")+"%");
 		}
 		
 		pageBean = tMessageService.findFamilyMessage(familyMessage,pageBean,countrys);

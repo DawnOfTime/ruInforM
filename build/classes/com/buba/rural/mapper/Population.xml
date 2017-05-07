@@ -5,7 +5,7 @@
 <mapper namespace="com.buba.rural.mapper.Popilation">
 	<sql id="where_name">
 			<if test="person_message.xm!=null and person_message.xm!=''">
-				and person_message.xm = #{person_message.xm}
+				and person_message.xm like #{person_message.xm}
 			</if>
 			<if test="person_message.sfzhm!=null and person_message.sfzhm!=''">
 				and person_message.sfzhm = #{person_message.sfzhm}

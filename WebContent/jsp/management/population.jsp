@@ -309,7 +309,7 @@ function findWhere(){
 	var level= $("#level").val();
 	var personWhere = "";	
 		if($("#xm").val()!=''){
-			personWhere += "&xm="+$("#xm").val();
+			personWhere += "&xm="+encodeURI(encodeURI($("#xm").val()));
 		}
 		if($("#sfzhm").val()!=''){
 			personWhere += "&sfzhm="+$("#sfzhm").val();

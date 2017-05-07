@@ -63,20 +63,17 @@
 			$("#inputthree").val("");
 		}
 		
-		  function  removeNode(){
-
+		  function  remove(){
 		         var node = $('#tree').tree('getSelected');
-
-		         // alert(node.id); 
-		         
 		         $.messager.confirm('提示', '是否删除', function(r) {
 		                 if (r) {
+		                	 $("#tree").tree('remove',node.target);
 		                	 $.post("<c:url value='/deletecounty.m?country.id='/>"+node.id,function(data){
 		     					$("#tree").tree("reload");
 		                	 });
 		                 }
-		             });
-		         } 	        
+		         });
+		  } 	        
 		     function update(){
 		        var node = $('#tree').tree('getSelected');
 		        editText(node);
@@ -89,7 +86,7 @@
 
 		    	}
 		     function editText1(){
-		    	 $.post("<c:url value='/updatecounty.m?country.num="+$("#inp1").val()+"&country.name="+$("#inp2").val()+"&country.id="+$("#inp3").val()+"'/>",function(data){
+		    	 $.post("<c:url value='/updatecounty.m?country.num="+$("#inp1").val()+"&country.name="+encodeURI(encodeURI($("#inp2").val()))+"&country.id="+$("#inp3").val()+"'/>",function(data){
 		    		 cancle();
 		          });
 		    	 }
@@ -104,13 +101,13 @@
        	<div data-options="region:'west'" style="width:30%;">
 		<ul id="tree">
 		</ul>
-		<div id="mm" class="easyui-menu" style="width: 120px;">
+		<div id="mm" class="easyui-menu" style="width: 120px;display:none;">
 			<div onclick="append()" data-options="iconCls:'icon-add'" id="add">添加节点</div>
-			<div onclick="update()" data-options="iconCls:'icon-remove'">修改节点</div>
-			<div onclick="removeNode()" data-options="iconCls:'icon-remove'">删除节点</div>
+			<div onclick="update()" data-options="iconCls:'icon-edit'">修改节点</div>
+			<div onclick="remove()" data-options="iconCls:'icon-remove'">删除节点</div>
 		</div>
 
-		<div id="win" class="easyui-window" title="添加" style="width: 450px; height: 200px" data-options="iconCls:'icon-save',modal:true">
+		<div id="win" class="easyui-window" title="添加" style="width: 450px; height: 200px;display:none;" data-options="iconCls:'icon-save',modal:true">
 			<div data-options="region:'center'">
 				内容
 				<div style="padding: 10px 60px 20px 60px">
@@ -141,7 +138,7 @@
 				</div>
 			</div>
 		</div>
-		<div id="win1" closed="true" draggable="true" class="easyui-window" title="修改"  style="width:300px;height:180px;">  
+		<div id="win1" closed="true" draggable="true" class="easyui-window" title="修改"  style="display:none;width:300px;height:180px;">  
 	    <form style="padding:10px 20px 10px 40px;" >  
 	        <p>编号: <input type="text" id = "inp1"></p>  
 	        <p>名称: <input type="text" id="inp2"></p>  

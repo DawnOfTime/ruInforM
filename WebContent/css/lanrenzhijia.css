@@ -19,7 +19,7 @@ a:focus {
 	color: #666666;
 }
 .menu {
-	height: 35px;
+	height: 30px;
 	display: block;
 	padding: 0px;
 	width: 1097px;
@@ -37,7 +37,7 @@ a:focus {
 	float: left;
 	overflow: hidden;
 	position: relative;
-	line-height: 40px;
+	line-height: 30px;
 	text-align: center;
 	margin-left: 36px;	
 }
@@ -46,7 +46,7 @@ a:focus {
 	display: block;
 	width: 90px;
 	height: 40px;
-	font-family: "΢���ź�", "����";
+	font-family: "微锟斤拷锟脚猴拷", "锟斤拷锟斤拷";
 	font-size: 17px;
 	text-decoration: none;
 	cursor: pointer;

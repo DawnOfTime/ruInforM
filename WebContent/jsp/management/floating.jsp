@@ -252,7 +252,7 @@ function findFlowPersonWhere(){
 	var level= $("#level").val();
 	var personWhere = "";
 	if($("#name").val()!=''){
-		personWhere += "&name="+$("#name").val();
+		personWhere += "&name="+encodeURI(encodeURI($("#name").val()));
 	}
 	if($("#id_card").val()!=''){
 		personWhere += "&id_card="+$("#id_card").val();

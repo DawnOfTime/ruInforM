@@ -11,6 +11,12 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('#win').window('close');
+		$('#win').window({
+			closed: true,
+			onClose: function(){
+				top.location.href="<c:url value='/login/exit.m'/>";
+			}
+		});
 		var tabTop = "<c:url value='/json/update.json'/>";
 		var rowurl = "<c:url value='/pws/seachpws.m'/>";
 		var posturl = "<c:url value='/pws/savepws.m'/>";
@@ -44,6 +50,7 @@
 						 	}]
 		pagecomm(tabTop,rowurl,posturl,newRow,hidcolumns,id,"",formartColumns);
 	});
+	
 </script>
 <style type="text/css">
 	#pwd tr{

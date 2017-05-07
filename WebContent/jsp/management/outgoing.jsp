@@ -362,7 +362,7 @@ function historyOutgoing(){
 	        <a href="javascript:historyOutgoing()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">历史记录查询</a>
 	    </div>
     </div>
-    <div id="win" class="easyui-window" title="离任干部添加" style="width:410px;height:200px"  
+    <div id="win" class="easyui-window" title="离任干部添加" style="width:410px;height:200px;display:none;"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addOutgoing">
@@ -395,7 +395,7 @@ function historyOutgoing(){
 		    </form>
 	    </div>  
 	</div>
-	<div id="historywin" class="easyui-window" title="历史记录" style="width:600px;height:450px;"  
+	<div id="historywin" class="easyui-window" title="历史记录" style="width:600px;height:450px;display:none;"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">
 	   		<table id='history'></table>

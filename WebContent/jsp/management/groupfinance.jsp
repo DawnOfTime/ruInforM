@@ -421,7 +421,7 @@ function saveUpdatedFinance(){
     </div>
     
     
-    <div id="lishi" class="easyui-window" title="历史记录" style="width:600px;height:400px"  
+    <div id="lishi" class="easyui-window" title="历史记录" style="width:600px;height:400px;display:none;"  
         data-options="iconCls:'icon-save',modal:true">  
 	    <div class="easyui-layout" data-options="fit:true">  
 		    <table id="lis" toolbar="#seach"></table>
@@ -429,7 +429,7 @@ function saveUpdatedFinance(){
 	</div>
     
     
-    <div id="win" class="easyui-window" title="收支添加" style="width:420px;height:200px"  
+    <div id="win" class="easyui-window" title="收支添加" style="width:420px;height:200px;display:none;"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFinance">
@@ -463,7 +463,7 @@ function saveUpdatedFinance(){
 		    </form>
 	    </div>  
 	</div>
-	<div id="wins" class="easyui-window" title="基本信息变更" style="width:420px;height:200px"  
+	<div id="wins" class="easyui-window" title="基本信息变更" style="width:420px;height:200px;display:none;"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFlowbg">
@@ -491,7 +491,7 @@ function saveUpdatedFinance(){
 				    	</td>
 			    	</tr>
 			    	<tr>
-			    		<th colspan="4"><a href="javascript:saveaddFinance()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a></th>
+			    		<th colspan="4"><a href="javascript:addFlowbg()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a></th>
 			    	</tr>
 			    </table>
 		    </form>

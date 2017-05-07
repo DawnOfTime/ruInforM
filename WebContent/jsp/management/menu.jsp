@@ -166,7 +166,7 @@
 </head>
 <body>
 		<table id="dg" class="easyui-treegrid"></table>
-		<div id="mm" class="easyui-menu" style="width:120px;">
+		<div id="mm" class="easyui-menu" style="width:120px;display:none;">
 			<div onclick="appenderji()" data-options="iconCls:'icon-add'">添加子节点</div>
 			<div onclick="removenode()" data-options="iconCls:'icon-remove'">删除当前节点</div>
 			<div onclick="updatenode()" data-options="iconCls:'icon-edit'">修改当前节点</div>

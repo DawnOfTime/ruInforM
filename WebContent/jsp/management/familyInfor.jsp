@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script language="javascript" type="text/javascript" src="<c:url value='/js/Date/WdatePicker.js'/>"></script>
 <script type="text/javascript">
 	/* 机动车辆添加删除一行 */
 	function addCarRow(){
@@ -37,7 +38,7 @@
 		var newrow = 
 			 "<tr class='cadres_home'>"
 				+"<td><input type='text' name='cadres_home["+rownum+"].gbname'/></td>"
-				+"<td colspan='2'><input type='text' name='cadres_home["+rownum+"].rhtime' style='width:140px'/></td>"
+				+"<td colspan='2'><input type='text' name='cadres_home["+rownum+"].rhtime' onClick='WdatePicker()' class='Wdate' style='width:140px'/></td>"
 				+"<td colspan='10'><textarea rows='1' cols='100' name='cadres_home["+rownum+"].jjwtqk'></textarea></td>"
 				+"<td><input type='button' value='删除' onclick='delCadres_homeRow(this)'/></td>"
 			+"</tr>";
@@ -51,7 +52,6 @@
 	}
 	//根据act决定添加还是修改
 	function save(act,cid){
-		alert(act+"   "+cid);
 		if(act=="updated"){
 			$("#saveFamilyAllMessage").form("submit", {
 		        url: "<c:url value='/message/saveUpdatedMessage.m'/>",
@@ -59,7 +59,6 @@
 		            return $(this).form("validate");
 		        },
 		        success: function (result) {
-		        	alert(result);
 		            if (result == "ok") {
 		                $.messager.alert("提示信息", "操作成功");
 		                window.close();//关闭当前窗口
@@ -70,7 +69,6 @@
 		        }
 		    });
 		}else if(act=="inserted"){
-			alert("<c:url value='/message/saveFamilAllMessage.m?familyMessage.cid='/>"+cid);
 			$("#saveFamilyAllMessage").form("submit", {
 		        url: "<c:url value='/message/saveFamilAllMessage.m?familyMessage.cid='/>"+cid,
 		        onSubmit: function () {
@@ -187,7 +185,7 @@
 							<td><input type="text" value="${familyMap.family_assets.nczypf+familyMap.family_assets.nczyyd}"/></td>
 							<td><input type="text" name="family_assets.nczypf" value="${familyMap.family_assets.nczypf}"/></td>
 							<td><input type="text" name="family_assets.nczyyd" value="${familyMap.family_assets.nczyyd}"/></td>
-							<td><input type="text" name="family_assets.nczfxjsj" value="${familyMap.family_assets.nczfxjsj}"/></td>
+							<td><input type="text" name="family_assets.nczfxjsj" class="easyui-datebox" value="${familyMap.family_assets.nczfxjsj}"/></td>
 							<td>
 								是<input type="radio" name="family_assets.sfcz" value="0" style="height: 15px;width: 10px;" <c:if test="${familyMap.family_assets.sfcz=='0'}">checked</c:if>/>
 								否<input type="radio" name="family_assets.sfcz" value="1" style="height: 15px;width: 10px;" <c:if test="${familyMap.family_assets.sfcz=='1'}">checked</c:if>/>

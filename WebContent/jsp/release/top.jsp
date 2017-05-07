@@ -81,7 +81,7 @@
 <body>
 	<div class="topone">
 		<div class="toptwo">
-			<img src="<c:url value='/image/timg.jpg'/>" style="height:148px;width:1103px;"/>
+			<img src="<c:url value='/image/timg.png'/>" style="height:148px;width:1103px;"/>
 		</div>
 		<div class="topthree">
 				<div id="menu1" class="menu">

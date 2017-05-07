@@ -5,7 +5,7 @@
 <mapper namespace="com.buba.rural.mapper.OfficerMapper">
 	<sql id="where_name">
 		<if test="countryofficer.name!=null and countryofficer.name!=''">
-			and name = #{countryofficer.name}
+			and name like #{countryofficer.name}
 		</if>
 	</sql>
 	<!-- 总记录数 -->
@@ -14,7 +14,7 @@
 	</select>
 	<!-- 查询数据 -->
 	<select id="queryList" resultType="Country_officer" parameterType="java.util.HashMap">
-		select * from country_officer where cid=#{countryofficer.cid} ORDER BY operate_time DESC <include refid="where_name"/>
+		select * from country_officer where cid=#{countryofficer.cid} <include refid="where_name"/> ORDER BY operate_time DESC 
 		limit #{pageBean.startNum},#{pageBean.pagesize}
 	</select>
 	

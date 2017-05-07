@@ -349,7 +349,7 @@ function searchHistory(){
     		<input type="hidden" id="cid"><!-- 村id -->
 	    </div>
  </div>
- <div id="win" class="easyui-window" title="土地产业添加" style="width:600px;height:400px;"  
+ <div id="win" class="easyui-window" title="土地产业添加" style="width:600px;height:400px;display:none;"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFlowPerson">
@@ -462,7 +462,7 @@ function searchHistory(){
 		    </form>
 	    </div>  
 	</div> 
-	<div id="historywin" class="easyui-window" title="历史记录" style="width:600px;height:450px;"  
+	<div id="historywin" class="easyui-window" title="历史记录" style="width:600px;height:450px;display:none;display:none;"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">
 	   		<table id='history'></table>

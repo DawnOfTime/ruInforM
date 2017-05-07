@@ -2,21 +2,17 @@ package com.buba.rural.organization.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashMap;
+import java.net.URLDecoder;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
 
 import org.apache.struts2.ServletActionContext;
 
 import com.buba.rural.comm.CountryTreeUtil;
-import com.buba.rural.comm.TreeUtil;
 import com.buba.rural.organization.service.IOrgService;
 import com.buba.rural.pojo.Country;
-import com.buba.rural.pojo.Menu;
 
 public class OrgAction {
 
@@ -37,7 +33,8 @@ public class OrgAction {
 		return null;
 	}
 	//添加
-	public String addcountry(){
+	public String addcountry() throws Exception{
+		country.setName(URLDecoder.decode(country.getName(), "utf-8"));
 		orgService.addcountry(country);
 		return null;
 	}
@@ -48,10 +45,11 @@ public class OrgAction {
 	}
 	
 	//修改
-		public String updatecounty(){
-			orgService.updatecounty(country);
-			return null;
-		}
+	public String updatecounty() throws Exception{
+		country.setName(URLDecoder.decode(country.getName(), "utf-8"));
+		orgService.updatecounty(country);
+		return null;
+	}
 	
 	public Country getCountry() {
 		return country;

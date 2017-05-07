@@ -193,8 +193,8 @@ function exit(){
 		font-size:13px;
 		text-align:center;
 	}
-	#ba{
-		background:url(../img/liy/top_pic2.png) no-repeat 0 0;
+	#change{
+		background:url(<c:url value='/image/4.png'/>) no-repeat 0 0;
 	}
 	
 	.box{
@@ -220,11 +220,12 @@ function exit(){
 			display: block;
 		}
 	#change{
-	width:100%;
-	height:100px;
-	FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#3797ca,endColorStr=#ffffff); /*IE*/
-	background:-moz-linear-gradient(left,#ffffff,#3797ca);/*火狐*/
-	background:-webkit-gradient(linear, 100% 0%, 0% 0%,from(#3797ca), to(#ffffff));/*谷歌*/
+		/* width:100%;
+		height:100px;
+		FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#3797ca,endColorStr=#ffffff); */ /*IE*/
+		/* background:-moz-linear-gradient(left,#ffffff,#3797ca); *//*火狐*/
+		/* background:-webkit-gradient(linear, 100% 0%, 0% 0%,from(#3797ca), to(#ffffff)); *//*谷歌*/
+	}
 </style>
 </head>
 <body class="easyui-layout">
@@ -250,7 +251,7 @@ function exit(){
 	        	<span style="color: blue">当前时间：</span><span id="dt"></span>
 	        </span>
 	        <span style="padding-left: 10px;font-size: 40px;font-family:楷体; float: left;">
-	            <img src="<c:url value='/image/logo.png'/>" align="absmiddle" width="180px">
+	            <%-- <img src="<c:url value='/image/logo.png'/>" align="absmiddle" width="180px"> --%>
 	        </span>
     	</div>
     </div>

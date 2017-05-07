@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//WebContent/css/bodys.css=UTF-8
 encoding//WebContent/jsp/management/acc.jsp=UTF-8
 encoding//WebContent/jsp/management/login.jsp=UTF-8
 encoding//WebContent/umed/success.jsp=UTF-8
@@ -15,3 +16,4 @@ encoding//src/com/buba/rural/release/dao/ReleaseDaoImp.java=GBK
 encoding//src/com/buba/rural/rule=UTF-8
 encoding//src/com/buba/ruralR/article/action/ArticleAction.java=GBK
 encoding//src/com/buba/ruralR/article/dao/ArticleDaoImpl.java=GBK
+encoding/<project>=UTF-8

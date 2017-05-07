@@ -21,6 +21,9 @@
 		width:1103px;
 		margin:0 auto;
 	}
+	div,a,span{
+		font-family:"微软雅黑";
+	}
 </style>
 </head>
 <body>

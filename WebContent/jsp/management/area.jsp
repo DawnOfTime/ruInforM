@@ -14,8 +14,8 @@ $(document).ready(function(){
 var username = "";
 var acc = "";
 function findacc_where(){
-	username = $("#username").val();
-	acc = $("#acc").val();
+	username = encodeURI(encodeURI($("#username").val()));
+	acc = encodeURI(encodeURI($("#acc").val()));
 	findAcc(username,acc);
 }
 function findAcc(username,acc){
@@ -226,14 +226,14 @@ function saveRoleMenus(id,countryCode){
 	    <span>账号:</span><input type="text" id="acc" value="" size=10 />
 	    <a href="javascript:findacc_where()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a> 
 	</div>
-	<div id="win" class="easyui-window" title="辖区分配" style="width:600px;height:400px;top:50px"  
+	<div id="win" class="easyui-window" title="辖区分配" style="width:600px;height:400px;top:50px;display:none;"  
         data-options="iconCls:'icon-save',modal:true">
         <div id="cc" class="easyui-layout" style="width:100%;height:100%;">
 	        <div data-options="region:'center'" style="width:100%;">
 		    	<ul id="tt"></ul>
 		    </div> 
 	        <div data-options="region:'south'" style="height:40px;width:100%;text-align:center;padding-top:5px">
-	        	<input type="text" id="saveid" name="saveid"/>
+	        	<input type="hidden" id="saveid" name="saveid"/>
 			    <a href="javascript:void(0)" onclick="save()" class="easyui-linkbutton" iconcls="icon-save">保存</a>
 		    </div> 
         </div>

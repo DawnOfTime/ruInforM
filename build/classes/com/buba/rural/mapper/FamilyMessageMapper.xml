@@ -6,7 +6,7 @@
 	<sql id="where_hzxm">
 		<if test="familyMessage!=null">
 			<if test="familyMessage.hzxm!=null and familyMessage.hzxm!=''">
-			and	hzxm = #{familyMessage.hzxm} 
+			and	hzxm like #{familyMessage.hzxm} 
 			</if>
 		</if>
 	</sql>

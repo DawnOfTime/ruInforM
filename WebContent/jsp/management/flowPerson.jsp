@@ -374,7 +374,7 @@ function updateFlowPerson(){
 	        <a href="javascript:findFlowPersonWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a> 
 	    </div>
     </div>
-    <div id="win" class="easyui-window" title="添加流动人口记录" style="width:600px;height:400px"  
+    <div id="win" class="easyui-window" title="添加流动人口记录" style="width:600px;height:400px;display:none;"  
         data-options="iconCls:'icon-save',modal:true">  
 	    <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFlowPerson">

@@ -2,6 +2,7 @@ package com.buba.rural.officer.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,7 +48,7 @@ public class OfficerAction {
 		String cid = request.getParameter("cid");
 		Country_officer officers = new Country_officer();
 		if(null!=name && !name.equals("")){
-			officers.setName(name);
+			officers.setName("%"+URLDecoder.decode(name, "utf-8")+"%");
 		}
 		if(null!=cid && !cid.equals("")){
 			officers.setCid(cid);

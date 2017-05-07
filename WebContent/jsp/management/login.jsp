@@ -27,9 +27,10 @@
 	 #change{
 		width:100%;
 		height:100px;
-		FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#3797ca,endColorStr=#ffffff); /*IE*/
-		background:-moz-linear-gradient(top,#3797ca,#ffffff);/*火狐*/
-		background:-webkit-gradient(linear, 100% 0%, 0% 0%,from(#3797ca), to(#ffffff));/*谷歌*/  
+		FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#3797ca,endColorStr=#ffffff); /*IE 6 7 8*/ 
+		background: -ms-linear-gradient(top, #3797ca,  #ffffff);        /* IE 10 */
+		background: -moz-linear-gradient(top,#3797ca,#ffffff);/*火狐*/
+		background: -webkit-gradient(linear, 100% 0%, 0% 0%,from(#3797ca), to(#ffffff));/*谷歌*/  
 	}
 	.logan{ 
 	 	line-height:35px;

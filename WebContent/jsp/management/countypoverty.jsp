@@ -456,7 +456,7 @@ function savelishi(){
 	    </div>  
 	</div>
     
-    <div id="win" class="easyui-window" title="基本信息添加" style="width:700px;height:450px"  
+    <div id="win" class="easyui-window" title="基本信息添加" style="width:700px;height:450px;display:none;"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addPoverty">
@@ -543,7 +543,7 @@ function savelishi(){
 		    </form>
 	    </div>  
 	</div>
-	<div id="wins" class="easyui-window" title="基本信息变更" style="width:700px;height:450px"  
+	<div id="wins" class="easyui-window" title="基本信息变更" style="width:700px;height:450px;display:none;"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFlowbg">
@@ -624,7 +624,7 @@ function savelishi(){
 				    	</td>
 			    	</tr>
 			    	<tr>
-			    		<th colspan="4"><a href="javascript:saveaddPoverty()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a></th>
+			    		<th colspan="4"><a href="javascript:addFlowbg()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a></th>
 			    	</tr>
 			    </table>
 		    </form>

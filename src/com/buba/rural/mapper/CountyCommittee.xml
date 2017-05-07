@@ -5,7 +5,7 @@
 <mapper namespace="com.buba.rural.pojo.CountyCommittee">
 	<sql id="where_name">
 		<if test="countrycommittee.name!=null and countrycommittee.name!=''">
-			and name = #{countrycommittee.name}
+			and name like #{countrycommittee.name}
 		</if>
 	</sql>
 <!-- 总记录数 -->
