@@ -181,6 +181,8 @@ function exit(){
 		font-size:16px;
 		line-height:30px;
 		text-align:center;
+		font-family:"微软雅黑";
+		font-weight: normal
 	}
 	.twomenu{
 		height:30px;
@@ -195,6 +197,7 @@ function exit(){
 	}
 	#change{
 		background:url(<c:url value='/image/4.png'/>) no-repeat 0 0;
+		background-size:100% 100%;
 	}
 	
 	.box{
@@ -264,7 +267,7 @@ function exit(){
     <div region="center" style="background:#eee;">
     	<div id="tt" class="easyui-tabs" style="width:100%;height:100%;">
     		<div title="welcome" id="welcome">
-    			<img alt="<c:url value="/image/zhuye.jpg"/>" src="<c:url value="/image/zhuye.jpg"/>" width="100%">
+    			<img alt="<c:url value="/image/zhuye.jpg"/>" src="<c:url value="/image/zhuye.jpg"/>" width="100%" height="100%">
     		</div>
     	</div>
     </div>

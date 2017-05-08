@@ -35,7 +35,7 @@
 	
 	<!-- 添加 -->
 	<insert id="insertac">
-		insert into acc values
+		insert into acc(id,username,acccode,password,isable,rid) values
 		<foreach item="item" collection="array" >
         	(UUID(),#{item.username},#{item.acccode},#{item.password},#{item.isable},#{item.rid})
   		</foreach>
@@ -63,7 +63,7 @@
 		where a.isable = '1' and a.acccode = #{acccode}
 	</select>
 	<insert id="addAcc">
-		insert into acc values(uuid(),#{username},#{acccode},#{password},#{isable},#{rid})
+		insert into acc(id,username,acccode,password,isable,rid) values(uuid(),#{username},#{acccode},#{password},#{isable},#{rid})
 	</insert>
 	<delete id="delAcc">
 		deletes from acc where acccode = #{acccode}

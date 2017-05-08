@@ -1,9 +1,12 @@
 package com.buba.rural.acc.service;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import com.buba.rural.acc.dao.IAccDao;
 import com.buba.rural.comm.CountryTreeUtil;
+import com.buba.rural.comm.Md5;
 import com.buba.rural.comm.PageBean_easyui;
 import com.buba.rural.comm.RuleMenuTreeUtil;
 import com.buba.rural.pojo.Acc;
@@ -40,6 +43,12 @@ public class AccServiceImpl implements IAccService{
 	}
 	@Override
 	public String addAcc(Acc acc) {
+		Md5 md = new Md5();
+		try {
+			acc.setPassword(md.toMd5(acc.getPassword()));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return accDao.addAcc(acc);
 	}
 	@Override

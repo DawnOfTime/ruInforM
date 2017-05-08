@@ -13,7 +13,7 @@
 		var rowurl = "<c:url value='/rule/findRule.m'/>";
 		var posturl = "<c:url value='/rule/save.m'/>";
 		var newRow = "{\"id\":\"\",\"rname\":\"\",\"menucode\":\"\",\"comm\":\"\"}";
-		var hidcolumns = "id";//隐藏列字段名
+		var hidcolumns = "id,menucode";//隐藏列字段名
 		var id = "id";//主键字段名
 		pagecomm(tabTop,rowurl,posturl,newRow,hidcolumns,id);
 	});
