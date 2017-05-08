@@ -30,7 +30,12 @@ public class MessageDaoImpl extends SqlSessionDaoSupport implements IMessageDao{
 	@Override
 	public List<Menu> showCountryTree(Acc acc) {
 		String countryCode = acc.getCountryCode();
-		String [] cStr = countryCode.split(";")[0].split(",");
+		String [] cStr = null;
+		if(null!=countryCode){
+			cStr = countryCode.split(";")[0].split(",");
+		}else{
+			cStr = new String[]{""};
+		}
 		return getSqlSession().selectList("com.buba.rural.pojo.Country.showCountryTree",cStr);
 	}
 

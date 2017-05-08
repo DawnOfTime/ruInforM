@@ -191,15 +191,13 @@ function save(){
 	if(countryAllCode.length<1){
 		$.messager.confirm('提示框', '当前账号未分配辖区,确定继续?',function(r){
 			if(r){
-				alert(countryAllCode);
-				saveRoleMenus(id,countryAllCode);
 				$("#win").window("close");
+				top.location.href="<c:url value='/login/exit.m'/>";
 			}
 		});
 	}else{
 		$.messager.confirm('提示框', '新选择的辖区将会覆盖原来的辖区,确定继续?',function(r){
 			if(r){
-				alert(countryAllCode);
 				saveRoleMenus(id,countryAllCode);
 				$("#win").window("close");
 				$("#dg").datagrid("reload");

@@ -15,7 +15,7 @@ var editRow = undefined; //定义全局变量：当前编辑的行
 		var rowurl = "<c:url value='/rule/findRule.m'/>";
 		var posturl = "<c:url value='/rule/save.m'/>";
 		var newRow = "{\"id\":\"\",\"rname\":\"\",\"menucode\":\"\",\"comm\":\"\"}";
-		var hidcolumns = "id";//隐藏列字段名
+		var hidcolumns = "id,menucode";//隐藏列字段名
 		var id = "id";//主键字段名
 		var formattercol = [{'field': "isnull",
 					        'title': "操作",

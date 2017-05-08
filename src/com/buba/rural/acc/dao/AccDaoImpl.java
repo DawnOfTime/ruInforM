@@ -69,7 +69,12 @@ public class AccDaoImpl extends SqlSessionDaoSupport implements IAccDao {
 			countryCode = "";
 		}
 		String [] countryArray = countryCode.split(";");
-		String [] countryCodeArray = countryArray[1].split(",");
+		String [] countryCodeArray = null;
+		if(countryArray.length>1){
+			countryCodeArray = countryArray[1].split(",");
+		}else{
+			countryCodeArray = new String[]{""};
+		}
 		return getSqlSession().selectList("com.buba.rural.pojo.Acc.getCountryTree",countryCodeArray);
 	}
 
