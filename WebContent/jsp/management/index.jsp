@@ -222,13 +222,6 @@ function exit(){
 		.box:hover .box1{
 			display: block;
 		}
-	#change{
-		/* width:100%;
-		height:100px;
-		FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#3797ca,endColorStr=#ffffff); */ /*IE*/
-		/* background:-moz-linear-gradient(left,#ffffff,#3797ca); *//*火狐*/
-		/* background:-webkit-gradient(linear, 100% 0%, 0% 0%,from(#3797ca), to(#ffffff)); *//*谷歌*/
-	}
 </style>
 </head>
 <body class="easyui-layout">
