@@ -20,7 +20,7 @@
 		margin-top: 335px;
 	}
 	 .left1_2{
-		height:300px;
+		height:236px;
 		width:235px;
 		margin-top: 3px;
 		/* -moz-border-radius: 15px; 
@@ -85,6 +85,29 @@
 		    line-height: 20px;
 		    color: #000000;
 		    text-decoration: none;
+		}
+		.button {
+			display: inline-block;
+			outline: none;
+			cursor: pointer;
+			text-align: center;
+			text-decoration: none;
+			font: 14px/100% Arial, Helvetica, sans-serif;
+			padding: .5em 2em .55em;
+			text-shadow: 0 1px 1px white(0,0,0,.3);
+			-webkit-border-radius: .5em; 
+			-moz-border-radius: .5em;
+			border-radius: .5em;
+			-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+			-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+			box-shadow: 0 1px 2px rgba(0,0,0,.2);
+		}
+		.button:hover {
+			text-decoration: none;
+		}
+		.button:active {
+			position: relative;
+			top: 1px;
 		}
 </style>
 <script type="text/javascript">
@@ -216,7 +239,7 @@ $(document).ready(function(){
 					&nbsp;<a href="<c:url value='jsp/management/login.jsp'/>" target="_block"><span style="color: white;text-decoration:underline">管理信息平台登陆入口</span></a>
 				</div>
 				<div>
-					<table align="center" style="margin-top:35px">
+					<table align="center">
 						<tr class="tr">
 							<td>账号：</td>
 							<td><input type="text" name="acccode" id="acccode"/></td>
@@ -231,7 +254,7 @@ $(document).ready(function(){
 						</tr>
 						<tr class="tr">
 							<td colspan="2" align="center">
-								<input type="button" value="登录" onclick="login()"/>
+								<input type="button" value="登录" onclick="login()" class="button"/>
 							</td>
 						</tr>
 					</table>
@@ -243,7 +266,7 @@ $(document).ready(function(){
 				</div>
 				<div>
 					<div class="wtleft">
-						<iframe src="http://i.tianqi.com/index.php?c=code&id=9"  frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="margin-top:57px;margin-left:0;width:256px; height:123px;"></iframe>
+						<iframe src="http://i.tianqi.com/index.php?c=code&id=9"  frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="margin-top:40px;margin-left:0;width:256px; height:123px;"></iframe>
 					</div>
 				</div>
 			</div>
