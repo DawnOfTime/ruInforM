@@ -154,7 +154,7 @@ $(document).ready(function(){
 			if(data=="success"){
 				window.open("<c:url value='/login/gotoindex.m'/>");
 			}else{
-				$("#errorMessage").append(data);
+				$("#errorMessage").html(data);
 			}s
 		},"text");
 	}
