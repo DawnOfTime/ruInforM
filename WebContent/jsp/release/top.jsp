@@ -7,7 +7,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
-<base target="body"/>
 <style type="text/css">
 	.topone{
 		height:223px;
@@ -22,6 +21,14 @@
 	.topthree{
 		height:46px;
 		width:100%;
+	}
+	.ALink {
+	    font-family: "Î¢ÈíÑÅºÚ", "Arial Narrow", "Times New Roman";
+	    font-weight: bold;
+	    font-size: 15px;
+	    line-height: 30px;
+	    color: #ffffff;
+	    margin-left: 18px;
 	}
 </style>
 <link href="<c:url value='/css/lanrenzhijia.css'/>" rel="stylesheet" type="text/css"/>
@@ -44,58 +51,36 @@
 				$(".bg",	this).stop().animate({'top':	'-40px'},	120);
 			});
 		});
-		//从服务器上获取初始时间
-		var currentDate = new Date(<%=new java.util.Date().getTime()%>);
-		function run(){
-			currentDate.setSeconds(currentDate.getSeconds()+1);
-			var time = "";
-			var year = currentDate.getFullYear();
-			var month = currentDate.getMonth() + 1;
-			var day = currentDate.getDate();
-			var hour = currentDate.getHours();
-			var minute = currentDate.getMinutes();
-			var second = currentDate.getSeconds();
-			
-			if(hour < 10){
-				time += "0" + hour;
-			}else{
-				time += hour;
-			}
-			time += ":";
-			if(minute < 10){
-				time += "0" + minute;
-			}else{
-				time += minute;
-			}
-			time += ":";
-			if(second < 10){
-				time += "0" + second;
-			}else{
-				time += second;
-			}
-			document.getElementById("dt").innerHTML = year+"年"+month+"月"+day+"日" + time;
-		}
-		window.setInterval("run();", 1000);
+		
 	</script>
 </head>
 <body>
-	<div class="topone">
-		<div class="toptwo">
-			<img src="<c:url value='/image/timg.png'/>" style="height:148px;width:1103px;"/>
-		</div>
-		<div class="topthree">
-				<div id="menu1" class="menu">
-				<ul>
-					<li><a href="<c:url value='/jsp/release/bodys.jsp'/>">首       页</a></li>
-					<li><a href="<c:url value='/selectlong.m?types=1'/>">最新咨询</a></li>
-					<li><a href="<c:url value='/selectlong.m?types=2'/>">政策法规</a></li>
-					<li><a href="<c:url value='/selectlong.m?types=3'/>">社会事务</a></li>
-					<li><a href="<c:url value='/selectlong.m?types=4'/>">党群管理</a></li>
-					<li><span style="margin-left:130px;">当前时间：</span><span id="dt"></span></li>
-				</ul>
-				<div class="cls"></div>
-			</div>
-		</div>
-	</div>
+	<table cellspacing="0" cellpadding="0" border="0" width="100%">
+  <tbody>
+  <tr>
+    <td>
+    <table cellspacing="0" cellpadding="0" border="0" width="100%">
+        <tbody>
+        	<tr>
+        		<td height="185px" align="center">
+        			<img src="<c:url value='/image/timg.png'/>"/>
+        		</td>
+        	</tr>
+          <tr>
+            <td style="background-color:#488BF8;height: 39px;"><table cellspacing="0" cellpadding="0" border="0" width="100%">
+              <tbody><tr>
+                <td align="center" valign="middle"><a class="ALink" href="<c:url value='/'/>">首     页</a> <span style="margin-left: 10px;">|</span>
+                    <a class="ALink" href="<c:url value='/selectlong.m?types=1'/>">最新政策</a> <span style="margin-left: 10px;">|</span>
+                    <a class="ALink" href="<c:url value='/selectlong.m?types=2'/>">政策法规</a> <span style="margin-left: 10px;">|</span>
+                    <a class="ALink" href="<c:url value='/selectlong.m?types=3'/>">社会事务</a> <span style="margin-left: 10px;">|</span>
+                    <a class="ALink" href="<c:url value='/selectlong.m?types=4'/>">党群管理</a> <span style="margin-left: 10px;">|</span>
+                </td>
+              </tr>
+            </tbody></table></td>
+            </tr>
+        </tbody></table></td>
+      </tr>
+    </tbody>
+    </table>
 </body>
 </html>

@@ -97,7 +97,6 @@
    		border-radius:15px;   
    		line-height: 43px;
    		font-size: 17px;
-   		font-family:"微软雅黑";
 		color: white; 
 		border: 2px solid #e9e7ef;
 		margin-top: -1px;
@@ -118,7 +117,6 @@
    		border-radius:15px;   
    		line-height: 43px;
    		font-size: 17px;
-   		font-family:"微软雅黑";
 		color: white;
 		border: 2px solid #e9e7ef;
 		margin-top: -1px;
@@ -139,7 +137,6 @@
    		border-radius:15px;   
    		line-height: 43px;
    		font-size: 17px;
-   		font-family:"微软雅黑";
 		color: white;
 		border: 2px solid #e9e7ef;
 		margin-top: -1px;
@@ -160,7 +157,6 @@
    		border-radius:15px;
    		line-height: 43px;
    		font-size: 17px;
-   		font-family:"微软雅黑";
 		color: white;
 		border: 2px solid #e9e7ef;
 		margin-top:-2px;
@@ -175,9 +171,8 @@
 		text-decoration:none;
 	}
 	.body2_1{
-		height:390px;
-		width: 820px;
-		margin-left:5px;
+		height: 323px;
+		width: 753px;
 		margin-top:5px;
 		position: absolute;	
 	}

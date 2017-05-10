@@ -15,118 +15,299 @@
 <script src="<c:url value='/js/jquery.min.js'/>"></script>
 <script src="<c:url value='/js/jquery-1.8.3.js'/>"></script>
 <title>农村信息管理平台</title>
+<style type="text/css">
+	.cen{
+		height:100px;
+		width:1009px;
+		margin: auto;
+	}
+	.Font18White {
+	    font-family: "Î¢ÈíÑÅºÚ";
+	    font-size: 18px;
+	    color: #ffffff;
+	}
+</style>
 <script type="text/javascript">
 $(document).ready(function(){
 	$.post("<c:url value='/selecttype.m?types=1'/>",function(data){
 		for(var i=0;i < 7;i++){
-			 $("#bodys").append("<div class='body3_2_1'id='text-hide'>"+
-					"<a href='<c:url value='/findarticle.m?id="+data[i].id+"'/>' class='hover-element'>"+data[i].titles+"</a>"+
-					"</div>"); 
+			 $("#bodys").append("<table cellspacing='1' bgcolor='#e4e4e4' width='100%'>"+
+	                 	"<tbody>"+
+	             		"<tr>"+
+	                       "<td align='center' bgcolor='#FFFFFF' valign='middle'>"+
+	                        " <table cellspacing='0' cellpadding='0' border='0' width='96%'>"+
+	                           "<tbody>"+
+	                                 "<tr>"+
+	        						   " <td>"+
+	        							     "<table height='29' cellspacing='0' cellpadding='0' border='0' width='100%'>"+
+	                                        	"<tbody>"+
+	                                        		"<tr><td align='left' background='<c:url value='/image/table_bk_04.jpg'/>' valign='middle'><table cellspacing='0' cellpadding='0' border='0' width='100%'>"+
+	        						                    "<tbody><tr>"+
+	        						                    "<td align='center' width='21' valign='middle'><img src='<c:url value='/image/table_bk_05.jpg'/>' height='11' width='11'></td>"+
+	        						                    "<td class='Font9'><a class='five' href='<c:url value='/findarticle.m?id="+data[i].id+"'/>' title='"+data[i].titles+"'>"+data[i].titles+"</a></td>"+
+	        						                    "<td class='Font9' align='right' valign='middle'>["+data[i].riqis+"]</td>"+
+	        						                    "</tr>"+
+	        						                   "</tbody>"+
+	        						                " </table>"+
+	        						                 "</td>"+
+	        						               "</tr>"+
+	                                         	"</tbody>"+
+	                                         "</table>"+
+	                       		 	    "</td>"+
+	        						"</tr>"+
+	        					"</tbody>"+
+	                		"</table>"); 
 		}
 	},"json");
 	$.post("<c:url value='/selecttype.m?types=2'/>",function(datad){
 		for (var i = 0; i <7; i++) {
-				$("#bodys2").append("<div class='body3_2_1'id='text-hide'>"+
-						"<a href='<c:url value='/findarticle.m?id="+datad[i].id+"'/>' class='hover-element'>"+datad[i].titles+"</a>"+
-						"</div>"); 
+				$("#bodys2").append("<table cellspacing='1' bgcolor='#e4e4e4' width='100%'>"+
+	                 	"<tbody>"+
+	             		"<tr>"+
+	                       "<td align='center' bgcolor='#FFFFFF' valign='middle'>"+
+	                        " <table cellspacing='0' cellpadding='0' border='0' width='96%'>"+
+	                           "<tbody>"+
+	                                 "<tr>"+
+	        						   " <td>"+
+	        							     "<table height='29' cellspacing='0' cellpadding='0' border='0' width='100%'>"+
+	                                        	"<tbody>"+
+	                                        		"<tr><td align='left' background='<c:url value='/image/table_bk_04.jpg'/>' valign='middle'><table cellspacing='0' cellpadding='0' border='0' width='100%'>"+
+	        						                    "<tbody><tr>"+
+	        						                    "<td align='center' width='21' valign='middle'><img src='<c:url value='/image/table_bk_05.jpg'/>' height='11' width='11'></td>"+
+	        						                    "<td class='Font9'><a class='five' href='<c:url value='/findarticle.m?id="+datad[i].id+"'/>' title='"+datad[i].titles+"'>"+datad[i].titles+"</a></td>"+
+	        						                    "<td class='Font9' align='right' valign='middle'>["+datad[i].riqis+"]</td>"+
+	        						                    "</tr>"+
+	        						                   "</tbody>"+
+	        						                " </table>"+
+	        						                 "</td>"+
+	        						               "</tr>"+
+	                                         	"</tbody>"+
+	                                         "</table>"+
+	                       		 	    "</td>"+
+	        						"</tr>"+
+	        					"</tbody>"+
+	                		"</table>"); 
 		}
 	},"json");
 	$.post("<c:url value='/selecttype.m?types=3'/>",function(dataf){
 		for (var i = 0; i <7; i++) {
-				$("#bodys3").append("<div class='body3_2_1'id='text-hide'>"+
-						"<a href='<c:url value='/findarticle.m?id="+dataf[i].id+"'/>' class='hover-element'>"+dataf[i].titles+"</a>"+
-						"</div>");
+				$("#bodys3").append("<table cellspacing='1' bgcolor='#e4e4e4' width='100%'>"+
+	                 	"<tbody>"+
+	             		"<tr>"+
+	                       "<td align='center' bgcolor='#FFFFFF' valign='middle'>"+
+	                        " <table cellspacing='0' cellpadding='0' border='0' width='96%'>"+
+	                           "<tbody>"+
+	                                 "<tr>"+
+	        						   " <td>"+
+	        							     "<table height='29' cellspacing='0' cellpadding='0' border='0' width='100%'>"+
+	                                        	"<tbody>"+
+	                                        		"<tr><td align='left' background='<c:url value='/image/table_bk_04.jpg'/>' valign='middle'><table cellspacing='0' cellpadding='0' border='0' width='100%'>"+
+	        						                    "<tbody><tr>"+
+	        						                    "<td align='center' width='21' valign='middle'><img src='<c:url value='/image/table_bk_05.jpg'/>' height='11' width='11'></td>"+
+	        						                    "<td class='Font9'><a class='five' href='<c:url value='/findarticle.m?id="+dataf[i].id+"'/>' title='"+dataf[i].titles+"'>"+dataf[i].titles+"</a></td>"+
+	        						                    "<td class='Font9' align='right' valign='middle'>["+dataf[i].riqis+"]</td>"+
+	        						                    "</tr>"+
+	        						                   "</tbody>"+
+	        						                " </table>"+
+	        						                 "</td>"+
+	        						               "</tr>"+
+	                                         	"</tbody>"+
+	                                         "</table>"+
+	                       		 	    "</td>"+
+	        						"</tr>"+
+	        					"</tbody>"+
+	                		"</table>");
 		}
 	},"json");
 	$.post("<c:url value='/selecttype.m?types=4'/>",function(datag){
 		for (var i = 0; i <7; i++) {
-				$("#bodys4").append("<div class='body3_2_1'id='text-hide'>"+
-						"<a href='<c:url value='/findarticle.m?id="+datag[i].id+"'/>' class='hover-element'>"+datag[i].titles+"</a>"+
-						"</div>"); 
+				$("#bodys4").append("<table cellspacing='1' bgcolor='#e4e4e4' width='100%'>"+
+	                 	"<tbody>"+
+	             		"<tr>"+
+	                       "<td align='center' bgcolor='#FFFFFF' valign='middle'>"+
+	                        " <table cellspacing='0' cellpadding='0' border='0' width='96%'>"+
+	                           "<tbody>"+
+	                                 "<tr>"+
+	        						   " <td>"+
+	        							     "<table height='29' cellspacing='0' cellpadding='0' border='0' width='100%'>"+
+	                                        	"<tbody>"+
+	                                        		"<tr><td align='left' background='<c:url value='/image/table_bk_04.jpg'/>' valign='middle'><table cellspacing='0' cellpadding='0' border='0' width='100%'>"+
+	        						                    "<tbody><tr>"+
+	        						                    "<td align='center' width='21' valign='middle'><img src='<c:url value='/image/table_bk_05.jpg'/>' height='11' width='11'></td>"+
+	        						                    "<td class='Font9'><a class='five' href='<c:url value='/findarticle.m?id="+datag[i].id+"'/>' title='"+datag[i].titles+"'>"+datag[i].titles+"</a></td>"+
+	        						                    "<td class='Font9' align='right' valign='middle'>["+datag[i].riqis+"]</td>"+
+	        						                    "</tr>"+
+	        						                   "</tbody>"+
+	        						                " </table>"+
+	        						                 "</td>"+
+	        						               "</tr>"+
+	                                         	"</tbody>"+
+	                                         "</table>"+
+	                       		 	    "</td>"+
+	        						"</tr>"+
+	        					"</tbody>"+
+	                		"</table>"); 
 		}
 	},"json");
 });
 </script>
 </head>
 <body>
-	<div class="bodyone">
-	 <div id="wowslider-container1">
-	 </div>	
-		<div class="body2">
-			<div class="body2_1">
-					<ul class="box">
-						<li class=imgbox>
-							<a href=""><h5 class="h5">&nbsp;张家口市万全区开展"八一"慰问驻军活动</h5>
-							<img src="<c:url value='/image/lunbo/1.png'/>" alt=""></a>
-						</li>
-						<li class=imgbox>
-							<a href=""><h5 class="h5">&nbsp;万全区党政军民举行烈士纪念日公祭活动</h5>
-							<img src="<c:url value='/image/lunbo/2.png'/>" alt=""></a>
-						</li>
-						<li class=imgbox>
-							<a href=""><h5 class="h5">&nbsp;万全区组织开展春节慰问驻军活动</h5>
-							<img src="<c:url value='/image/lunbo/3.png'/>" alt=""></a>
-						</li>
-						<li class="imgbox">
-							<a href=""><h5 class="h5">&nbsp;张家口市民宗局党组书记、局长戴贵明深入万全区进行调研</h5>
-							<img src="<c:url value='/image/lunbo/4.png'/>" alt=""></a>
-						</li>
-						<li class="imgbox">
-							<a href=""><h5 class="h5">&nbsp;区政府领导调研老年护养院工程建设情况</h5>
-							<img src="<c:url value='/image/lunbo/5.png'/>" alt=""></a>
-						</li>
-					 <li>
-					 <ul class="btn">
-						  <li class="left"></li>
-						  <li class="right"></li>
-					    </ul>
-					  </li>
-					 <li>
-					 <div class="boxx" style="display:none">
-					    	<div class="dj"></div>
-					    	<div class="dj"></div>
-					    	<div class="dj"></div>
-					    	<div class="dj"></div>
-					    	<div class="dj"></div>
-					 </div>
-					 </li>
-				</ul>
-		  	</div>
-		</div>
-		<div class="bodytwo">
-			<div class="bodytwo_1">
-				<div class="body3">
-					<div class="body3_1">&nbsp;最新咨询
-						<a href="<c:url value='/selectlong.m?types=1'/>" style="font-size:17px;color:white;margin-left:260px;">更多&nbsp;>></a>
-					</div>
-					<div class="body3_2" id="bodys">
-					</div>
-				</div>
-				<div class="body4">
-					<div class="body4_1">&nbsp;政策法规
-						<a href="<c:url value='/selectlong.m?types=2'/>" style="font-size:17px;color:white;margin-left:260px;">更多&nbsp;>></a>
-					</div>
-					<div class="body4_2" id="bodys2">
-					</div>
-				</div>
-			</div>
-			<div class="bodytwo_2">
-				<div class="body5">
-					<div class="body5_1">&nbsp;社会事务
-						<a href="<c:url value='/selectlong.m?types=3'/>" style="font-size:17px;color:white;margin-left:260px;">更多&nbsp;>></a>
-					</div>
-					<div class="body5_2"  id="bodys3">
-					</div>
-				</div>
-				<div class="body6">
-					<div class="body6_1">&nbsp;党群管理
-						<a href="<c:url value='/selectlong.m?types=4'/>" style="font-size:17px;color:white;margin-left:260px;">更多&nbsp;>></a>
-					</div>
-					<div class="body6_2"  id="bodys4">
-					</div>
-				</div>
-			</div>
-		</div>
+	<div class="cen">
+		<img src="<c:url value='/image/gg_01.jpg'/>" height="100px" width="1009px">
 	</div>
+	<div style="width:1009px;margin: auto;">
+		<table cellspacing="0" cellpadding="0" border="0" width="100%">
+	                     <tbody>
+	                          <tr>
+	                             <td>
+				<table height="40" cellspacing="0" cellpadding="0" border="0" width="100%">
+		                                <tbody>
+		                                <tr>
+                                    <td align="left" valign="middle">
+                                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tbody><tr>
+                                                <td background="<c:url value='/image/table_bk_01.jpg'/>" width="35">
+                                                    <img src="<c:url value='/image/table_dian_01.jpg'/>" height="10" width="35">
+                                                </td>
+                                                <td background="<c:url value='/image/table_bk_01.jpg'/>" align="left" valign="middle"><span class="Font18White">最新政策</span></td>
+                                                <td align="left" width="10" valign="middle"><img src="<c:url value='/image/table_bk_06.jpg'/>" height="40" width="10"></td>
+                                            </tr>
+                                        </tbody></table>
+                                    </td>
+                                    <td background="<c:url value='/image/table_bk_03.jpg'/>">
+                                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tbody><tr>
+                                                <td class="Font12blue" align="center" valign="middle">&gt;&gt;<a class="five" href="<c:url value='/selectlong.m?types=1'/>">更多</a>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                           </table>
+                           </td>
+	                     </tr>
+	                     <tr>
+	                        <td id="bodys"></td>
+	                     </tr>
+	           </tbody>
+	        </table>
+	</div>
+		<div style="width:1009px;margin: auto;margin-top:20px">
+		<table cellspacing="0" cellpadding="0" border="0" width="100%">
+	                     <tbody>
+	                          <tr>
+	                             <td>
+				<table height="40" cellspacing="0" cellpadding="0" border="0" width="100%">
+		                                <tbody>
+		                                <tr>
+                                    <td align="left" valign="middle">
+                                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tbody><tr>
+                                                <td background="<c:url value='/image/table_bk_01.jpg'/>" width="35">
+                                                    <img src="<c:url value='/image/table_dian_01.jpg'/>" height="10" width="35">
+                                                </td>
+                                                <td background="<c:url value='/image/table_bk_01.jpg'/>" align="left" valign="middle"><span class="Font18White">政策法规</span></td>
+                                                <td align="left" width="10" valign="middle"><img src="<c:url value='/image/table_bk_06.jpg'/>" height="40" width="10"></td>
+                                            </tr>
+                                        </tbody></table>
+                                    </td>
+                                    <td background="<c:url value='/image/table_bk_03.jpg'/>">
+                                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tbody><tr>
+                                                <td class="Font12blue" align="center" valign="middle">&gt;&gt;<a class="five" href="<c:url value='/selectlong.m?types=2'/>">更多</a>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                           </table>
+                           </td>
+	                     </tr>
+	                     <tr>
+	                        <td id="bodys2"></td>
+	                     </tr>
+	           </tbody>
+	        </table>
+	</div>
+		<div style="width:1009px;margin: auto;;margin-top:20px">
+		<table cellspacing="0" cellpadding="0" border="0" width="100%">
+	                     <tbody>
+	                          <tr>
+	                             <td>
+				<table height="40" cellspacing="0" cellpadding="0" border="0" width="100%">
+		                                <tbody>
+		                                <tr>
+                                    <td align="left" valign="middle">
+                                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tbody><tr>
+                                                <td background="<c:url value='/image/table_bk_01.jpg'/>" width="35">
+                                                    <img src="<c:url value='/image/table_dian_01.jpg'/>" height="10" width="35">
+                                                </td>
+                                                <td background="<c:url value='/image/table_bk_01.jpg'/>" align="left" valign="middle"><span class="Font18White">社会事务</span></td>
+                                                <td align="left" width="10" valign="middle"><img src="<c:url value='/image/table_bk_06.jpg'/>" height="40" width="10"></td>
+                                            </tr>
+                                        </tbody></table>
+                                    </td>
+                                    <td background="<c:url value='/image/table_bk_03.jpg'/>">
+                                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tbody><tr>
+                                                <td class="Font12blue" align="center" valign="middle">&gt;&gt;<a class="five" href="<c:url value='/selectlong.m?types=3'/>">更多</a>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                           </table>
+                           </td>
+	                     </tr>
+	                     <tr>
+	                        <td id="bodys3"></td>
+	                     </tr>
+	           </tbody>
+	        </table>
+	</div>
+		<div style="width:1009px;margin: auto;;margin-top:20px">
+		<table cellspacing="0" cellpadding="0" border="0" width="100%">
+	                     <tbody>
+	                          <tr>
+	                             <td>
+				<table height="40" cellspacing="0" cellpadding="0" border="0" width="100%">
+		                                <tbody>
+		                                <tr>
+                                    <td align="left" valign="middle">
+                                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tbody><tr>
+                                                <td background="<c:url value='/image/table_bk_01.jpg'/>" width="35">
+                                                    <img src="<c:url value='/image/table_dian_01.jpg'/>" height="10" width="35">
+                                                </td>
+                                                <td background="<c:url value='/image/table_bk_01.jpg'/>" align="left" valign="middle"><span class="Font18White">党群管理</span></td>
+                                                <td align="left" width="10" valign="middle"><img src="<c:url value='/image/table_bk_06.jpg'/>" height="40" width="10"></td>
+                                            </tr>
+                                        </tbody></table>
+                                    </td>
+                                    <td background="<c:url value='/image/table_bk_03.jpg'/>">
+                                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tbody><tr>
+                                                <td class="Font12blue" align="center" valign="middle">&gt;&gt;<a class="five" href="<c:url value='/selectlong.m?types=4'/>">更多</a>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                           </table>
+                           </td>
+	                     </tr>
+	                     <tr>
+	                        <td id="bodys4"></td>
+	                     </tr>
+	           </tbody>
+	        </table>
+	</div>
+<div style="height:50px"></div>
 </body>
 </html>

@@ -7,7 +7,7 @@
 	version="2.5">
   <display-name>ruInforM</display-name>
   <welcome-file-list>
-    <welcome-file>/jsp/release/main.jsp</welcome-file>
+    <welcome-file>/jsp/release/comm.jsp</welcome-file>
   </welcome-file-list>
   
   <!-- 全局变量 用于指定Spring的配置文件路径 -->  

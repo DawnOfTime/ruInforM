@@ -12,18 +12,28 @@
 		margin-top:30px;
 		border :2px solid #e9e7ef;
 	}
-	img{
-		margin-left:164px;
+	/* #tupian  img{
+		margin-left:268px;
 		width:500px;
 		height:400px;
-	}
+	} */
+	 a{
+		text-decoration:none;
+		}
+	#bg{
+			background:url(<c:url value='/image/xw_bk_01.jpg'/>) no-repeat 0 0;
+			background-size:100% 100%;
+		}
 </style>
+<script src="<c:url value='/js/jquery-1.8.3.js'/>"></script>
+
 </head>
-<body>
-	<div>
+<body id="bg">
+	<jsp:include page="top.jsp"></jsp:include>
+	<div  style="width:1009px;margin: auto;" >
 		<table>
-				<tr>
-					<td style="text-align:center;font-size:24px;color:#1F5781;margin-top:10px;height:95px">${article.titles}</td>
+				<tr id="tupian">
+					<td  style="text-align:center;font-size:24px;color:#1F5781;margin-top:10px;height:95px">${article.titles}</td>
 				</tr>
 				<tr>
 					<td style="text-align:center;font-size:17px;margin-top:30px">发布时间：${article.riqis}</td>
@@ -33,5 +43,18 @@
 				</tr>
 		</table>
 	</div>
+		<jsp:include page="down.jsp"></jsp:include>
+		
+		
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("p").each(function(i){
+				var str = $(this).html();
+				if(str.substring(1,4)=="img"){
+					$(this).css("text-align","center");
+				}
+			});
+		});
+	</script>
 </body>
 </html>
