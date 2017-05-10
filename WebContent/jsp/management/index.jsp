@@ -196,7 +196,7 @@ function exit(){
 		text-align:center;
 	}
 	#change{
-		background:url(<c:url value='/image/4.png'/>) no-repeat 0 0;
+		background:url(<c:url value='/image/4.jpg'/>) no-repeat 0 0;
 		background-size:100% 100%;
 	}
 	
@@ -247,7 +247,7 @@ function exit(){
 	        	<span style="color: blue">当前时间：</span><span id="dt"></span>
 	        </span>
 	        <span style="padding-left: 10px;font-size: 40px;font-family:楷体; float: left;">
-	            <%-- <img src="<c:url value='/image/logo.png'/>" align="absmiddle" width="180px"> --%>
+	            <img src="<c:url value='/image/logo.png'/>">
 	        </span>
     	</div>
     </div>
