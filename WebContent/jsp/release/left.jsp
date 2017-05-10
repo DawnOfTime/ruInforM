@@ -219,6 +219,14 @@ $(document).ready(function(){
 	                                                       </tr>
 	                                                 </tbody></table>
 	                                           </td>
+	                                           <td background="<c:url value='/image/table_bk_03.jpg'/>">
+		                                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+		                                            <tbody><tr>
+		                                                <td class="Font12blue" align="center" valign="middle">&gt;&gt;<a class="five" href="<c:url value='/selectlong.m?types=5'/>">更多</a>
+		                                                </td>
+		                                            </tr>
+		                                        </tbody></table>
+		                                    </td>
 	                                 		</tr>
 	                                    </tbody>
 	                                </table>
