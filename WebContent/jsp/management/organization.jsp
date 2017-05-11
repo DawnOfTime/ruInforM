@@ -33,7 +33,13 @@
 		 function append() {
 		 	var node = $('#tree').tree('getSelected');
 		 	$("#inputone").attr("value", node.num);
-		 	$("#inputfour").attr("value",parseInt(node.level)+1);
+		 	if (node.children == "") { 
+				$("#inputtwo").attr("value", node.num + "01");
+			} else {
+				var val = node.children[node.children.length-1].num
+				$("#inputtwo").attr("value", "0" + (parseInt(val) + 1));
+			} 
+		 	$("#inputfour").attr("value",parseInt(val)+1);
 			$('#win').window('open');
 
 		} 
@@ -41,6 +47,7 @@
 	 
 		function saveuser() {
 		var father = $("#inputone").val();
+		var name = $("#inputtwo").val();
 		var name = $("#inputthree").val();
 			$("#ff").form('submit',{
 				url:"<c:url value='/addcountry.m'/>",
@@ -59,7 +66,7 @@
 				}
 			})
 			$('#win').window('close'); 
-			$("#inputtwo").val("");
+			
 			$("#inputthree").val("");
 		}
 		
@@ -122,7 +129,7 @@
 							</tr>
 							<tr>
 								<td>编码:</td>
-								<td><input class=" easyui-validatebox" id="inputtwo" type="text" data-options="required:true" name="country.num"></input></td>
+								<td><input  id="inputtwo" type="text"  name="country.num"></input></td>
 							</tr>
 							<tr>
 								<td>名称:</td>
