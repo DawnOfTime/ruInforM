@@ -20,7 +20,7 @@
 	</select>
 	<!-- 查询数据 -->
 	<select id="queryList" resultType="Article" parameterType="java.util.HashMap">
-		select * from article where 1=1 <include refid="where_name"/>  group by operate_time desc
+		select * from article where 1=1 <include refid="where_name"/>  order by operate_time desc
 		limit #{pageBean.startNum},#{pageBean.pagesize}
 	</select>
 	<insert id="add" parameterType="Article">
