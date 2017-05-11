@@ -65,12 +65,12 @@
     <param-name>log4jExposeWebAppRoot</param-name>
     <param-value>false</param-value>
   </context-param>
-  <!-- <error-page>
+  <error-page>
 		<error-code>404</error-code>
 		<location>/jsp/release/error.jsp</location>
 	</error-page>
 	<error-page>
 		<error-code>500</error-code>
 		<location>/jsp/release/errors.jsp</location>
-	</error-page> -->
+	</error-page>
 </web-app>
