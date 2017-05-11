@@ -19,9 +19,8 @@ public class CommunicationServiceImp implements ICommunicationService{
 	private IVersionRecordUtil vrUtil;
 	
 	@Override
-	public PageBean_easyui querycommunication(Country_communication communication,
-			PageBean_easyui pageBean) {
-		return communicationDao.querycommunication(communication, pageBean);
+	public Country_communication querycommunication(Country_communication communication) {
+		return communicationDao.querycommunication(communication);
 	}
 
 	@Override
@@ -77,8 +76,8 @@ public class CommunicationServiceImp implements ICommunicationService{
 	}
 
 	@Override
-	public List seachlishi(Country_communication communication) {
-		return communicationDao.seachlishi(communication);
+	public PageBean_easyui seachlishi(Country_communication communication,PageBean_easyui pageBean) {
+		return communicationDao.seachlishi(communication,pageBean);
 	}
 	
 	public void setCommunicationDao(ICommunicationDao communicationDao) {

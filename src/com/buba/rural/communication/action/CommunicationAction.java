@@ -31,28 +31,13 @@ public class CommunicationAction {
  	private String inserted;
  	
  	
- 	public String queryCommunication() throws Exception{
-		HttpServletRequest request=ServletActionContext.getRequest();
+ 	public Country_communication queryCommunication() throws IOException{
+		Country_communication list = communicationService.querycommunication(communication);
 		HttpServletResponse response=ServletActionContext.getResponse();
-		
-		
-        int intPage = Integer.parseInt((page == null || page == "0") ? "1":page);  
-        int number = Integer.parseInt((rows == null || rows == "0") ? "10":rows);  
-        
-		PageBean_easyui pageBean = new PageBean_easyui();
-		pageBean.setPagecode(intPage);
-		pageBean.setPagesize(number);
-		String pattern = "";
-		String getpar = HttpUtil.getParameterUrl(request.getParameterMap(),request,pattern);
-		pageBean.setUrl(getpar);
-		pageBean = communicationService.querycommunication(communication, pageBean);
-		Map<String, Object> jsonMap = new HashMap<String, Object>();
-		jsonMap.put("total", pageBean.getTotalrecord());
-        jsonMap.put("rows", pageBean.getBeanList());
-		response.setContentType("text/html;charset=UTF-8");
+		response.setContentType("text/html;charset=utf-8");
 		response.setHeader("Cache-Control", "no-cache");
 		PrintWriter out = response.getWriter();
-		out.write(JSONObject.fromObject(jsonMap)+"");
+		out.write(JSONArray.fromObject(list)+"");
 		out.close();
 		return null;
 	}
@@ -133,13 +118,28 @@ public class CommunicationAction {
 			return null;
 		}
 		//历史记录
-		public String seachlishi() throws IOException{
-			List<Country_message> list = communicationService.seachlishi(communication);
+		public String seachlishi() throws Exception{
+			HttpServletRequest request=ServletActionContext.getRequest();
 			HttpServletResponse response=ServletActionContext.getResponse();
-			response.setContentType("text/html;charset=utf-8");
+			
+			
+	        int intPage = Integer.parseInt((page == null || page == "0") ? "1":page);  
+	        int number = Integer.parseInt((rows == null || rows == "0") ? "10":rows);  
+	        
+			PageBean_easyui pageBean = new PageBean_easyui();
+			pageBean.setPagecode(intPage);
+			pageBean.setPagesize(number);
+			String pattern = "";
+			String getpar = HttpUtil.getParameterUrl(request.getParameterMap(),request,pattern);
+			pageBean.setUrl(getpar);
+			pageBean = communicationService.seachlishi(communication,pageBean);
+			Map<String, Object> jsonMap = new HashMap<String, Object>();
+			jsonMap.put("total", pageBean.getTotalrecord());
+	        jsonMap.put("rows", pageBean.getBeanList());
+			response.setContentType("text/html;charset=UTF-8");
 			response.setHeader("Cache-Control", "no-cache");
 			PrintWriter out = response.getWriter();
-			out.write(JSONArray.fromObject(list)+"");
+			out.write(JSONObject.fromObject(jsonMap)+"");
 			out.close();
 			return null;
 		}
