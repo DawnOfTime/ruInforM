@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>农村信息网</title>
+<link rel="shortout icon" href="<c:url value='/image/logo.ico'/>"  />
 <style type="text/css">
 	 a{
 		text-decoration:none;
