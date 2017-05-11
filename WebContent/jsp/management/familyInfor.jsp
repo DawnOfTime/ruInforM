@@ -171,21 +171,21 @@
 							<th>住房面积</th>
 							<th>平房(间)</th>
 							<th>窑洞(孔)</th>
-							<th>修建时间</th>
+							<th colspan="2">修建时间</th>
 							<th>是否常住</th>
 							<th>是否危房</th>
 							<th>住房面积</th>
 							<th>平房(间)</th>
 							<th>窑洞(孔)</th>
 							<th>楼户(平米)</th>
-							<th colspan="3">所有权类型</th>
+							<th colspan="2">所有权类型</th>
 							<th>是否危房、彩钢房</th>
 						</tr>
 						<tr>
 							<td><input type="text" value="${familyMap.family_assets.nczypf+familyMap.family_assets.nczyyd}"/></td>
 							<td><input type="text" name="family_assets.nczypf" value="${familyMap.family_assets.nczypf}"/></td>
 							<td><input type="text" name="family_assets.nczyyd" value="${familyMap.family_assets.nczyyd}"/></td>
-							<td><input type="text" name="family_assets.nczfxjsj" class="easyui-datebox" value="${familyMap.family_assets.nczfxjsj}"/></td>
+							<td colspan="2"><input type="text" name="family_assets.nczfxjsj" class="easyui-datebox" value="${familyMap.family_assets.nczfxjsj}" style="width:140px;"/></td>
 							<td>
 								是<input type="radio" name="family_assets.sfcz" value="0" style="height: 15px;width: 10px;" <c:if test="${familyMap.family_assets.sfcz=='0'}">checked</c:if>/>
 								否<input type="radio" name="family_assets.sfcz" value="1" style="height: 15px;width: 10px;" <c:if test="${familyMap.family_assets.sfcz=='1'}">checked</c:if>/>
@@ -198,9 +198,11 @@
 							<td><input type="text" name="family_assets.czpf" value="${familyMap.family_assets.czpf}"/></td>
 							<td><input type="text" name="family_assets.czyd" value="${familyMap.family_assets.czyd}"/></td>
 							<td><input type="text" name="family_assets.czlh" value="${familyMap.family_assets.czlh}"/></td>
-							<td>自有<input type="radio" name="family_assets.syqlx" value="1" <c:if test="${familyMap.family_assets.syqlx=='1'}">checked</c:if>/></td>
-							<td>保障房<input type="radio" name="family_assets.syqlx" value="2" <c:if test="${familyMap.family_assets.syqlx=='2'}">checked</c:if>/></td>
-							<td>租赁<input type="radio" name="family_assets.syqlx" value="3" <c:if test="${familyMap.family_assets.syqlx=='3'}">checked</c:if>/></td>
+							<td colspan="2">
+								自有<input type="radio" name="family_assets.syqlx" value="1" <c:if test="${familyMap.family_assets.syqlx=='1'}">checked</c:if> style="width:15px;height:10px;"/>
+								保障房<input type="radio" name="family_assets.syqlx" value="2" <c:if test="${familyMap.family_assets.syqlx=='2'}">checked</c:if> style="width:15px;height:10px;"/>
+								租赁<input type="radio" name="family_assets.syqlx" value="3" <c:if test="${familyMap.family_assets.syqlx=='3'}">checked</c:if> style="width:15px;height:10px;"/>
+							</td>
 							<td><input type="text" name="family_assets.sfwfcgf" value="${familyMap.family_assets.sfwfcgf}"/></td>
 						</tr>
 						<tr>

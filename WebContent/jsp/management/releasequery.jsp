@@ -132,7 +132,7 @@ var editRow = undefined; //定义全局变量：当前编辑的行
 			    var p = $('#dg').datagrid('getPager'); 
 			    $(p).pagination({ 
 			        pageSize: 10,//每页显示的记录条数，默认为10 
-			        pageList: [5,10,15],//可以设置每页记录条数的列表 
+			        pageList: [10],//可以设置每页记录条数的列表 
 			        beforePageText: '第',//页数文本框前显示的汉字 
 			        afterPageText: '页    共 {pages} 页', 
 			        displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录'
@@ -260,7 +260,7 @@ var editRow = undefined; //定义全局变量：当前编辑的行
     	 	<option value="2">政策法规</option>
     	 	<option value="3">社会事务</option>
     	 	<option value="4">党群管理</option>
-    	 	<option value="5">通知公共</option>
+    	 	<option value="5">通知公告</option>
     	 </select>
     	 <span>状态:</span>
     	 	<select id="state">
