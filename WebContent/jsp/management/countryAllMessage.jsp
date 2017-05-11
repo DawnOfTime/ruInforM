@@ -163,7 +163,7 @@
 		<tr>
 			<th>任现职时间</th>
 			<td colspan="2">${dangzuzhi.rxzsj}</td>
-			<th colspan="2">任村“两委”主要负责人年限</th>
+			<th colspan="2">任职年限</th>
 			<td>${dangzuzhi.rznx}</td>
 			<th colspan="2">村党组织委员姓名</th>
 			<td colspan="6">${dangzuzhi.wyxm}</td>
@@ -194,7 +194,7 @@
 		<tr>
 			<th>任现职时间</th>
 			<td colspan="2">${cunweihui.rxzsj}</td>
-			<th colspan="2">任村“两委”主要负责人年限</th>
+			<th colspan="2">任职年限</th>
 			<td>${cunweihui.rznx}</td>
 			<th colspan="2">村委会委员姓名</th>
 			<td colspan="6">${cunweihui.wyxm}</td>
