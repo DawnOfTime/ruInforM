@@ -173,20 +173,6 @@ function findFlowPerson(){
 	        	if (editRow != undefined) {
 	            	datagrid.datagrid('endEdit', editRow);
 	            }
-	        },onDblClickRow:function (rowIndex, rowData) {
-	        	if (editRow != undefined) {
-	            	datagrid.datagrid('endEdit', editRow);
-	            }
-	            if (editRow == undefined) {
-	            	editRow=rowIndex;
-	            	datagrid.datagrid('beginEdit', rowIndex);
-	            	if(rowData.id!=""){
-	            		var cellEdit = datagrid.datagrid('getEditor', {index:rowIndex,field:'username'});
-						var $input = cellEdit.target; // 得到文本框对象
-						$input.attr('readonly',true); // 设值只读
-	            	}
-	                
-	            }
 	        },onClickRow:function(rowIndex,rowData){
 	            if (editRow != undefined) {
 	            	var vv = datagrid.datagrid('endEdit',editRow);
@@ -477,6 +463,7 @@ function savelishi(){
 					}
 				});
 			});
+			
 			commdatagrid = $('#ls').datagrid({ 
 		        columns:[data],
 		        width: 700, 
@@ -520,6 +507,15 @@ function savelishi(){
 					commdatagrid.datagrid("hideColumn",columns[i]);//隐藏指定的列
 				}
 			}
+			 //设置分页控件 
+		    var p = $('#dg').datagrid('getPager'); 
+		    $(p).pagination({ 
+		        pageSize: 10,//每页显示的记录条数，默认为10 
+		        pageList: [5,10,15],//可以设置每页记录条数的列表 
+		        beforePageText: '第',//页数文本框前显示的汉字 
+		        afterPageText: '页    共 {pages} 页', 
+		        displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录'
+		    }); 
 		});
 		  $("#lishi").window('open');
 	},"json");
@@ -553,10 +549,9 @@ function savelishi(){
     	<!-- 表头 -->
     	<div id="searchtool" style="padding:5px;display:none;">
     		<a href="javascript:addFlowPerson()" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a>
-    		<a href="javascript:updateVillageWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">编辑</a>
-    		    		<a href="javascript:savebgCommunication()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">变更信息</a>
+    		<a href="javascript:savebgCommunication()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">变更信息</a>
     		<a href="javascript:saveUpdatedCommunication()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a>
-    		 <a href="javascript:savelishi()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">历史记录查询</a> 
+    		<a href="javascript:savelishi()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">历史记录查询</a> 
     		<input type="hidden" id="cid"><!-- 村id -->
 	    </div>
  </div>
@@ -598,6 +593,7 @@ function savelishi(){
 		    				</select>
 		    			</td>
 		    		</tr>
+		    		
 		    		<tr>
 		    			<td colspan="4" class="baocun"><a href="javascript:saveaddCommunication()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a></td>
 		    		</tr>
