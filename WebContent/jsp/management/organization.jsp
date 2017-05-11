@@ -116,7 +116,6 @@
 
 		<div id="win" class="easyui-window" title="添加" style="width: 450px; height: 200px;display:none;" data-options="iconCls:'icon-save',modal:true">
 			<div data-options="region:'center'">
-				内容
 				<div style="padding: 10px 60px 20px 60px">
 					<form id="ff" method="post">
 						<table cellpadding="5">

@@ -65,7 +65,7 @@
 		.tr{
 			height:55px;
 		}
-		 a{
+	a{
 		text-decoration:none;
 		}
 		.Font18White {
@@ -244,7 +244,7 @@ $(document).ready(function(){
 		<div style="width:18%;float: left">
 			<div class="left1_2">
 				<div class="left1_2_1">
-					&nbsp;<a href="<c:url value='jsp/management/login.jsp'/>" target="_block"><span style="color: white;text-decoration:underline">管理信息平台登陆入口</span></a>
+					&nbsp;<a href="<c:url value='jsp/management/login.jsp'/>" target="_block"><span style="color: white">管理信息平台登陆入口</span></a>
 				</div>
 				<div>
 					<table align="center">
