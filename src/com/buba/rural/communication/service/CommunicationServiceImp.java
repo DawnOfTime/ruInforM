@@ -19,7 +19,7 @@ public class CommunicationServiceImp implements ICommunicationService{
 	private IVersionRecordUtil vrUtil;
 	
 	@Override
-	public Country_communication querycommunication(Country_communication communication) {
+	public List querycommunication(Country_communication communication) {
 		return communicationDao.querycommunication(communication);
 	}
 

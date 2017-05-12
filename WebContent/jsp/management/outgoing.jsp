@@ -37,10 +37,10 @@ $(document).ready(function(){
        }
 	 });
 });
-function findOutgoing(OutgoingName){
+function findOutgoing(){
 	var cid = $("#cid").val();
 	var tabTop = "<c:url value='/json/outgoing.json'/>";
-	var rowurl = "<c:url value='/out/seachOutgoing.m?cid='/>"+cid+OutgoingName;
+	var rowurl = "<c:url value='/out/seachOutgoing.m?countyoutgoing.cid='/>"+cid;
 	var hidcolumns = "id,cid";//隐藏列字段名s
 	var id = "id";//主键字段名
 	var frozenColumns = [[{}]];
@@ -98,7 +98,7 @@ function findOutgoing(OutgoingName){
 	        selectOnCheck: true,//true勾选会选择行，false勾选不选择行, 1.3以后有此选项。重点在这里
 	        checkOnSelect:true,//选中行,不默认选中当前行的复选框
 	        idField: id,
-	        frozenColumns:[[{field:'ck',checkbox:true}]], 
+	      /* frozenColumns:[[{field:'ck',checkbox:true}]],  */
 	        onAfterEdit: function (rowIndex, rowData, changes) {
 	            editRow = undefined;
 	        },onBeforeLoad:function(){			//在请求载入数据之前触发
@@ -151,16 +151,21 @@ function findOutgoing(OutgoingName){
 	},'json');
 }
 function addOutgoing(){
+	var p = $("#dg").datagrid("getRows").length;
+	if(p >=1){
+		$.messager.alert("提示信息", "信息已存在，不能进行添加。 ");
+	}else{
 		$("#win").window('open');
+	}
 }
-function findOutgoingWhere(){
+/* function findOutgoingWhere(){
 	var personWhere = "";
 	if($("#name").val()!=''){
 		personWhere += "&name="+$("#name").val();
 	}
 	findOutgoing(personWhere);
 }
-
+ */
 function saveaddOutgoing(){
 	var cid = $("#cid").val();
 	$("#addOutgoing").form("submit", {
@@ -224,12 +229,9 @@ function updateWhere(){
 	}
 }
 function outGoingPg(){
-	var row = datagrid.datagrid('getChecked');
-	if(row.length<1){
-		$.messager.alert("提示", "请选择要变更的行！", "info");  
-		return;
-	}else if(row.length>1){
-		$.messager.alert("提示", "请选择单个要变更的行！", "info");  
+	var row = datagrid.datagrid('getRows');
+	 if(row < 1){
+		$.messager.alert("提示", "无要变更的信息！", "info");  
 		return;
 	}else{
 		var rowid = row[0].id;
@@ -253,12 +255,9 @@ var langdatagrid;
 var langeditRow = undefined;
 function historyOutgoing(){
 	var id = '';
-	var row = datagrid.datagrid('getChecked');
-	if(row.length<1){
-		$.messager.alert("提示", "请选择要查看的行！", "info");  
-		return;
-	}else if(row.length>1){
-		$.messager.alert("提示", "请选择单个要查看的行！", "info");  
+	var row = datagrid.datagrid('getRows');
+	 if(row < 1){
+		$.messager.alert("提示", "无要查看的信息！", "info");  
 		return;
 	}else{
 		id=row[0].id;
@@ -286,7 +285,7 @@ function historyOutgoing(){
 	        selectOnCheck: true,//true勾选会选择行，false勾选不选择行, 1.3以后有此选项。重点在这里
 	        checkOnSelect:true,//选中行,不默认选中当前行的复选框
 	        idField: id,
-	        frozenColumns:[[{field:'ck',checkbox:true}]], 
+	       /*  frozenColumns:[[{field:'ck',checkbox:true}]],  */
 	        onAfterEdit: function (rowIndex, rowData, changes) {
 	        	langeditRow = undefined;
 	        },onBeforeLoad:function(){			//在请求载入数据之前触发
@@ -340,10 +339,16 @@ function historyOutgoing(){
 	        afterPageText: '页    共 {pages} 页', 
 	        displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录'
 	    }); 
-	});
+	},'json');
 	$("#historywin").window('open');
 }
 </script>
+<style type="text/css">
+	#tables{
+	width:100%;
+	margin-top:20px;
+	}
+</style>
 </head>
 <body class="easyui-layout">
 	<div data-options="region:'west',title:'组织机构',split:true" style="width:220px;">
@@ -353,12 +358,10 @@ function historyOutgoing(){
     	<table id="outgoing" toolbar="#searchtool"></table>
     	<div id="searchtool" style="padding:5px;display:none;">
     		<a href="javascript:addOutgoing()" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a>
-    		<a href="javascript:updateWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">编辑</a>
     		<a href="javascript:outGoingPg()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">变更</a>
-    		<a href="javascript:saveUpdatedOutgoing()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a>
     		<input type="hidden" id="cid"><!-- 村id -->
-	        <span>干部姓名:</span><input type="text" id="name" value="" size=10 />
-	        <a href="javascript:findOutgoingWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a>
+	       <!--  <span>干部姓名:</span><input type="text" id="name" value="" size=10 />
+	        <a href="javascript:findOutgoingWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a> -->
 	        <a href="javascript:historyOutgoing()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">历史记录查询</a>
 	    </div>
     </div>
@@ -367,15 +370,15 @@ function historyOutgoing(){
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addOutgoing">
 		    	<input type="hidden" id="form_cid" name="country_flow.cid">
-			    <table border="1">
+			    <table id="tables">
 			    	<tr>
-				    	<th>姓名</th>
+				    	<td>姓名</td>
 				    	<td>
-				    		<input type="text" name="countyoutgoing.name"  class="easyui-validatebox" data-options="required:true,validType:'name'" style="height:40px"/>
+				    		<input type="text" name="countyoutgoing.name" />
 				    	</td>
-				    	<th>性别</th>
+				    	<td>性别</td>
 				    	<td>
-				    		 <select name="countyoutgoing.sex" class="easyui-validatebox" data-options="required:true" style="height:40px">
+				    		 <select name="countyoutgoing.sex"   >
 						    	<option value="">-请选择-</option>
 						    	<option value="1">男</option>
 						    	<option value="2">女</option>
@@ -383,13 +386,13 @@ function historyOutgoing(){
 				    	</td>
 			    	</tr>
 			    	<tr>
-				    	<th>年龄</th>
+				    	<td>年龄</td>
 				    	<td>
-				    		<input type="text" name="countyoutgoing.age" class="easyui-validatebox" data-options="required:true,validType:'sex'" style="height:40px"/>
+				    		<input type="text" name="countyoutgoing.age" />
 				    	</td>
 			    	</tr>
 			    	<tr>
-			    		<th colspan="4"><a href="javascript:saveaddOutgoing()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a></th>
+			    		<td colspan="4" align="center" style="margin-top:30px"><a href="javascript:saveaddOutgoing()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a></td>
 			    	</tr>
 			    </table>
 		    </form>

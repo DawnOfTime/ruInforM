@@ -19,10 +19,9 @@ public class Land_industryServiceImp implements ILand_industryService{
 	private IVersionRecordUtil vrUtil;
 
 	@Override
-	public PageBean_easyui queryland_industry(Land_industry land_industry,
-			PageBean_easyui pageBean) {
+	public List queryland_industry(Land_industry land_industry) {
 		// TODO Auto-generated method stub
-		return land_industryDao.queryland_industry(land_industry, pageBean);
+		return land_industryDao.queryland_industry(land_industry);
 	}
 
 	@Override
@@ -84,8 +83,8 @@ public class Land_industryServiceImp implements ILand_industryService{
 	}
 
 	@Override
-	public List<String> searchHistory(Land_industry land_industry) {
-		return land_industryDao.searchHistory(land_industry);
+	public PageBean_easyui searchHistory(Land_industry land_industry,PageBean_easyui pageBean) {
+		return land_industryDao.searchHistory(land_industry, pageBean);
 	}
 	
 }

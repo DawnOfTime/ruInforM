@@ -12,14 +12,8 @@ import com.buba.rural.pojo.VersionRecord;
 
 public class Land_industryDaoImp extends SqlSessionDaoSupport implements ILand_industryDao{
 	@Override
-	public PageBean_easyui queryland_industry(Land_industry land_industry,
-			PageBean_easyui pageBean) {
-		Map<String,Object> map = new HashMap<String,Object>();
-		map.put("land_industry", land_industry);
-		map.put("pageBean", pageBean);
-		pageBean.setTotalrecord(getSqlSession().selectOne("com.buba.rural.mapper.land_industry.queryone",map));
-		pageBean.setBeanList(getSqlSession().selectList("com.buba.rural.mapper.land_industry.queryList",map));
-		return pageBean;
+	public List queryland_industry(Land_industry land_industry) {
+		return getSqlSession().selectList("com.buba.rural.mapper.land_industry.queryList",land_industry);
 	}
 	
 	@Override
@@ -56,7 +50,12 @@ public class Land_industryDaoImp extends SqlSessionDaoSupport implements ILand_i
 	}
 
 	@Override
-	public List<String> searchHistory(Land_industry land_industry) {
-		return getSqlSession().selectList("com.buba.rural.mapper.land_industry.searchHistory",land_industry);
+	public PageBean_easyui searchHistory(Land_industry land_industry,PageBean_easyui pageBean) {
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("land_industry", land_industry);
+		map.put("pageBean", pageBean);
+		pageBean.setTotalrecord(getSqlSession().selectOne("com.buba.rural.mapper.land_industry.queryone",map));
+		pageBean.setBeanList(getSqlSession().selectList("com.buba.rural.mapper.land_industry.searchHistory",map));
+		return pageBean;
 	}
 }

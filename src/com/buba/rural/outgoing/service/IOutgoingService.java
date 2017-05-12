@@ -8,11 +8,11 @@ import com.buba.rural.pojo.County_outgoing;
 
 public interface IOutgoingService {
 
-	public abstract PageBean_easyui seachOutgoing(County_outgoing countyoutgoing, PageBean_easyui pageBean);
+	public abstract List seachOutgoing(County_outgoing countyoutgoing);
 	public abstract String addOutgoing(County_outgoing countyoutgoing);
 	public abstract String deleted(County_outgoing[] country, County_outgoing countyoutgoing);
 	public abstract String updated(County_outgoing[] country, County_outgoing countyoutgoing);
 	public	Map<String, Object> findOption();
 	public abstract County_outgoing seachOne(County_outgoing countyoutgoing);
-	public abstract List<String> seachHistory(County_outgoing countyoutgoing);
+	public abstract PageBean_easyui seachHistory(County_outgoing countyoutgoing, PageBean_easyui pageBean);
 }

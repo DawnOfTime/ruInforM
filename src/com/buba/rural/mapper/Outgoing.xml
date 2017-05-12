@@ -3,19 +3,11 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.buba.rural.pojo.Outgoing">
-	<sql id="where_name">
-		<if test="countyoutgoing.name!=null and countyoutgoing.name!=''">
-			and name = #{countyoutgoing.name}
-		</if>
-	</sql>
-<!-- 总记录数 -->
-	<select id="queryOutgoing" resultType="int">
-		SELECT COUNT(*) from county_outgoing where cid=#{countyoutgoing.cid} <include refid="where_name"/>
-	</select>
+	
 	<!-- 查询数据 -->
-	<select id="queryList" resultType="County_outgoing" parameterType="java.util.HashMap">
-		select * from county_outgoing  where cid=#{countyoutgoing.cid} <include refid="where_name"/>
-		limit #{pageBean.startNum},#{pageBean.pagesize}
+	<select id="queryList" resultType="County_outgoing">
+	select * from county_outgoing where cid=#{cid} and operate_time= (select MAX(operate_time) from  county_outgoing)
+
 	</select>
 	<update id="updateOutgoing">
 		update county_outgoing set 
@@ -59,7 +51,12 @@
 	<select id="seachOne" resultType="County_outgoing">
 		select * from county_outgoing where id = #{id}
 	</select>
-	<select id="seachHistory" resultType="String">
-		select context from version_record where initialid = #{id} order by operate_time desc
+	<!-- 总记录数 -->
+	<select id="queryOutgoing" resultType="int">
+		SELECT COUNT(*) from county_outgoing where cid=#{countyoutgoing.cid}
+	</select>
+	<select id="seachHistory" resultType="County_outgoing" parameterType="java.util.HashMap">
+		select * from county_outgoing where cid = #{countyoutgoing.cid} order by operate_time desc
+		limit #{pageBean.startNum},#{pageBean.pagesize}
 	</select>
 </mapper>
