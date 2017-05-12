@@ -11,8 +11,16 @@ import com.buba.rural.pojo.County_outgoing;
 
 public class OutgoingDaoImpl extends SqlSessionDaoSupport implements IOutgoingDao{
 	@Override
-	public List seachOutgoing(County_outgoing countyoutgoing) {
-		return getSqlSession().selectList("com.buba.rural.pojo.Outgoing.queryList",countyoutgoing);
+	public PageBean_easyui seachOutgoing(County_outgoing countyoutgoing,PageBean_easyui pageBean) {
+		Map map = new HashMap();
+		map.put("countyoutgoing", countyoutgoing);
+		map.put("pageBean", pageBean);
+		//获取总记录数，
+		pageBean.setTotalrecord(getSqlSession().selectOne("com.buba.rural.pojo.Outgoing.queryOutgoing",map));
+		//查询记录
+		pageBean.setBeanList(getSqlSession().selectList("com.buba.rural.pojo.Outgoing.queryList",map));
+		//getSqlSession().selectList("com.buba.rural.pojo.FamilyMessage.findFamilyMessage",familyMessage)
+		return pageBean;
 	}
 
 	@Override
@@ -57,13 +65,7 @@ public class OutgoingDaoImpl extends SqlSessionDaoSupport implements IOutgoingDa
 	}
 
 	@Override
-	public PageBean_easyui seachHistory(County_outgoing countyoutgoing,PageBean_easyui pageBean) {
-		Map map = new HashMap();
-		map.put("countyoutgoing", countyoutgoing);
-		map.put("pageBean", pageBean);
-		//获取总记录数，
-		pageBean.setTotalrecord(getSqlSession().selectOne("com.buba.rural.pojo.Outgoing.queryOutgoing",map));
-		pageBean.setBeanList(getSqlSession().selectList("com.buba.rural.pojo.Outgoing.seachHistory",map));
-		return pageBean;
+	public List<String> seachHistory(County_outgoing countyoutgoing) {
+		return getSqlSession().selectList("com.buba.rural.pojo.Outgoing.seachHistory",countyoutgoing);
 	}
 }

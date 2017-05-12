@@ -20,8 +20,8 @@ public class OutgoingServiceImpl implements IOutgoingService{
 	private IVersionRecordUtil vrUtil;
 	
 	@Override
-	public List seachOutgoing(County_outgoing countyoutgoing) {
-		return outgoingDao.seachOutgoing(countyoutgoing);
+	public PageBean_easyui seachOutgoing(County_outgoing countyoutgoing,PageBean_easyui pageBean) {
+		return outgoingDao.seachOutgoing(countyoutgoing, pageBean);
 	}
 
 	@Override
@@ -84,8 +84,8 @@ public class OutgoingServiceImpl implements IOutgoingService{
 	}
 
 	@Override
-	public PageBean_easyui seachHistory(County_outgoing countyoutgoing,PageBean_easyui pageBean) {
-		return outgoingDao.seachHistory(countyoutgoing, pageBean);
+	public List<String> seachHistory(County_outgoing countyoutgoing) {
+		return outgoingDao.seachHistory(countyoutgoing);
 	}
 
 	
