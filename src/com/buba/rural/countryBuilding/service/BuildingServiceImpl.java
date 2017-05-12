@@ -19,9 +19,15 @@ public class BuildingServiceImpl implements IBuildingService{
 	private IVersionRecordUtil vrUtil;
 	
 	
-	public PageBean_easyui seachbuilding(Country_building countrybuilding,PageBean_easyui pageBean) {
+	/*public PageBean_easyui seachbuilding(Country_building countrybuilding,PageBean_easyui pageBean) {
 		return buildingDao.seachbuilding(countrybuilding,pageBean);
+	}*/
+	
+	public Country_building searchbuilding(Country_building countrybuilding) {
+		// TODO Auto-generated method stub
+		return buildingDao.seachbuilding(countrybuilding);
 	}
+
 	@Override
 	public String addBuilding(Country_building countrybuilding) {
 		UUID uuid = UUID.randomUUID();
@@ -66,12 +72,11 @@ public class BuildingServiceImpl implements IBuildingService{
 	public List seachrecord(Country_building countrybuilding) {
 		return buildingDao.seachrecord(countrybuilding);
 	}
+	
 	@Override
-	public List seachlishi(Country_building countrybuilding) {
-		return buildingDao.seachlishi(countrybuilding);
+	public PageBean_easyui seachlishi(Country_building countrybuilding,PageBean_easyui pageBean) {
+		return buildingDao.seachlishi(countrybuilding,pageBean);
 	}
-	
-	
 	
 	
 	public void setBuildingDao(IBuildingDao buildingDao) {
@@ -80,6 +85,7 @@ public class BuildingServiceImpl implements IBuildingService{
 	public void setVrUtil(IVersionRecordUtil vrUtil) {
 		this.vrUtil = vrUtil;
 	}
+
 	
 	
 }

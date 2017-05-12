@@ -61,6 +61,7 @@
 				<c:if test="${types==2}">&nbsp;&nbsp;政策法规</c:if>
 				<c:if test="${types==3}">&nbsp;&nbsp;社会事务 </c:if>
 				<c:if test="${types==4}">&nbsp;&nbsp;党群管理</c:if>
+				<c:if test="${types==5}">&nbsp;&nbsp;通知公告</c:if>
 			</div>
 			<c:forEach items="${pageBean.beanList}" var="art">
 					<div style="width:1009px;margin: auto;">

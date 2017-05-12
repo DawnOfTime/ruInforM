@@ -12,8 +12,8 @@ import com.buba.rural.pojo.Country_building;
 public class BuildingDaoImpl extends SqlSessionDaoSupport implements IBuildingDao{
 
 	@Override
-	public PageBean_easyui seachbuilding(Country_building countrybuilding,PageBean_easyui pageBean) {
-		Map map = new HashMap();
+	public Country_building seachbuilding(Country_building countrybuilding) {
+		/*Map map = new HashMap();
 		map.put("countrybuilding", countrybuilding);
 		map.put("pageBean", pageBean);
 		//获取总记录数，
@@ -21,7 +21,7 @@ public class BuildingDaoImpl extends SqlSessionDaoSupport implements IBuildingDa
 		//查询记录
 		pageBean.setBeanList(getSqlSession().selectList("com.buba.rural.mapper.Building.queryList",map));
 		//getSqlSession().selectList("com.buba.rural.pojo.FamilyMessage.findFamilyMessage",familyMessage)
-		return pageBean;
+*/		return getSqlSession().selectOne("com.buba.rural.mapper.Building.querybuilding", countrybuilding);
 	}
 
 	@Override
@@ -59,7 +59,14 @@ public class BuildingDaoImpl extends SqlSessionDaoSupport implements IBuildingDa
 	}
 
 	@Override
-	public List seachlishi(Country_building countrybuilding) {
-		return getSqlSession().selectList("com.buba.rural.mapper.Building.querylishi",countrybuilding);
+	public PageBean_easyui seachlishi(Country_building countrybuilding,PageBean_easyui pageBean) {
+		Map map = new HashMap();
+		map.put("countrybuilding", countrybuilding);
+		map.put("pageBean", pageBean);
+		//获取总记录数，
+		pageBean.setTotalrecord(getSqlSession().selectOne("com.buba.rural.mapper.Building.queryCount",map));
+		//查询记录
+		pageBean.setBeanList(getSqlSession().selectList("com.buba.rural.mapper.Building.queryList",map));
+		return pageBean;
 	}
 }

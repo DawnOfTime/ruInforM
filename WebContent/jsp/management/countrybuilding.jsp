@@ -73,7 +73,7 @@ function findBuilding(buildingName){
 		        	if (editRow != undefined) {
 		            	datagrid.datagrid('endEdit', editRow);
 		            }
-		        },onDblClickRow:function (rowIndex, rowData) {
+		        }/* ,onDblClickRow:function (rowIndex, rowData) {
 		        	if (editRow != undefined) {
 		            	datagrid.datagrid('endEdit', editRow);
 		            }
@@ -87,7 +87,7 @@ function findBuilding(buildingName){
 		            	}
 		                
 		            }
-		        },onClickRow:function(rowIndex,rowData){
+		        } */,onClickRow:function(rowIndex,rowData){
 		            if (editRow != undefined) {
 		            	datagrid.datagrid('endEdit', editRow);
 		            }
@@ -111,7 +111,7 @@ function findBuilding(buildingName){
 	    var p = $('#building').datagrid('getPager'); 
 	    $(p).pagination({ 
 	        pageSize: 10,//每页显示的记录条数，默认为10 
-	        pageList: [5,10,15],//可以设置每页记录条数的列表 
+	        pageList: [10],//可以设置每页记录条数的列表 
 	        beforePageText: '第',//页数文本框前显示的汉字 
 	        afterPageText: '页    共 {pages} 页', 
 	        displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录'
@@ -119,7 +119,13 @@ function findBuilding(buildingName){
 	});
 }
 function addBuilding(){
+	var p = $("#building").datagrid("getRows").length; 
+	if(p > 1){
+		$.messager.alert("提示信息", "信息已存在，不能进行添加。 ");
+	}else{
 		$("#win").window('open');
+	} 
+		
 }
 function saveaddBuliding(){
 	$("#addBuilding").form("submit", {
@@ -240,7 +246,7 @@ function savelishi(){
 		var cid = $("#cid").val();
 		var rowid = row[0].id;
 		var tabTop = "<c:url value='/json/countrybuilding.json'/>";
-		var rowurl = "<c:url value='/buildinglishi.m?countrybuilding.id='/>"+rowid+"&countrybuilding.cid="+cid;
+		var rowurl = "<c:url value='/buildinglishi.m?countrybuilding.id='/>"+rowid;
 		var hidcolumns = "cid,id";//隐藏列字段名
 		var id = "id";//主键字段
 		$.getJSON(tabTop, function(data){
@@ -286,6 +292,15 @@ function savelishi(){
 					commdatagrid.datagrid("hideColumn",columns[i]);//隐藏指定的列
 				}
 			}
+			//设置分页控件 
+		    var p = $('#lis').datagrid('getPager'); 
+		    $(p).pagination({ 
+		        pageSize: 10,//每页显示的记录条数，默认为10 
+		        pageList: [10],//可以设置每页记录条数的列表 
+		        beforePageText: '第',//页数文本框前显示的汉字 
+		        afterPageText: '页    共 {pages} 页', 
+		        displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录'
+		    });
 		});
 		  $("#lishi").window('open');
 	}
@@ -300,7 +315,7 @@ function savelishi(){
     	<table id="building" toolbar="#searchtool"></table>
     	<div id="searchtool" style="padding:5px;display:none;">
     		<a href="javascript:addBuilding()" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a>
-    		<a href="javascript:updateWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">编辑</a>
+    		<!-- <a href="javascript:updateWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">编辑</a> -->
     		<a href="javascript:savebg()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">变更信息</a>
     		<a href="javascript:saveUpdatedBilding()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a>
     		<a href="javascript:savelishi()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">历史记录查询</a>
@@ -321,7 +336,7 @@ function savelishi(){
 	   <div class="easyui-layout" data-options="fit:true" ">  
 		    <form method="post" id="addBuilding">
 		    	<input type="hidden" id="form_cid" name="country_flow.cid">
-			    <table border="1" style="margin-top: 54px;">
+			    <table style="margin-top: 54px;">
 			    	<tr>
 				    	<th>油路硬化（公里）</th>
 				    	<td>
