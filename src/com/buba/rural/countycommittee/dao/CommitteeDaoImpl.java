@@ -70,8 +70,16 @@ public class CommitteeDaoImpl extends SqlSessionDaoSupport implements  ICommitte
 	}
 
 	@Override
-	public List seachlishi(Country_committee countrycommittee) {
-		return getSqlSession().selectList("com.buba.rural.pojo.CountyCommittee.querylishi",countrycommittee);
+	public PageBean_easyui seachlishi(Country_committee countrycommittee,PageBean_easyui pageBean) {
+		Map map = new HashMap();
+		map.put("countrycommittee", countrycommittee);
+		map.put("pageBean", pageBean);
+		//获取总记录数，
+		pageBean.setTotalrecord(getSqlSession().selectOne("com.buba.rural.pojo.CountyCommittee.querylishicount",map));
+		//查询记录
+		pageBean.setBeanList(getSqlSession().selectList("com.buba.rural.pojo.CountyCommittee.querylishi",map));
+//		return getSqlSession().selectList("com.buba.rural.pojo.CountyCommittee.querylishi",countrycommittee);
+		return pageBean;
 	}
 
 }

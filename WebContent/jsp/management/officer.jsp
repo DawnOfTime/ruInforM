@@ -277,7 +277,8 @@ function updateVillageWhere(){
 }
 /* 变更 */
 function savebgoffice(){
-	var row = datagrid.datagrid('getChecked');
+	var rows = datagrid.datagrid('getRows');
+	var row = rows[0];
 	if(row.length<1){
 		$.messager.alert("提示", "请选择要变更的行！", "info");  
 		return;
@@ -285,7 +286,7 @@ function savebgoffice(){
 		$.messager.alert("提示", "请选择单个要变更的行！", "info");  
 		return;
 	}else{
-		var rowid = row[0].id;
+		var rowid = row.id;
 		var cid = $("#cid").val();
 		  $.post("<c:url value='/officer/findbg.m?countryofficer.id='/>"+rowid+"&countryofficer.cid="+cid,function (data){
 			$("#names").attr("value",data[0].name);
@@ -357,18 +358,9 @@ function addFlowbg(){
 var commdatagrid;
 var commseditRow = undefined;
 function savelishi(){
-	 var row = datagrid.datagrid('getChecked');
-	if(row.length<1){
-		$.messager.alert("提示", "请选择要查看的行！", "info");  
-		return;
-	}else if(row.length>1){
-		$.messager.alert("提示", "请选择单个要查看的行！", "info");  
-		return;
-	}else{
 		var cid = $("#cid").val();
-		var rowid = row[0].id;
 		var tabTop = "<c:url value='/json/officer.json'/>";
-		var rowurl = "<c:url value='/officer/seachlishi.m?countryofficer.id='/>"+rowid+"&countryofficer.cid="+cid;
+		var rowurl = "<c:url value='/officer/seachlishi.m?countryofficer.cid='/>"+cid;
 		var hidcolumns = "cid,id";//隐藏列字段名
 		var id = "id";//主键字段
 		var frozenColumns = [];
@@ -498,7 +490,6 @@ function savelishi(){
 		});
 		  $("#lishi").window('open');
 	},"json");
-	}
 }
 </script>
 <style type="text/css">
@@ -528,12 +519,12 @@ function savelishi(){
     	<!-- 表头 -->
     	<div id="searchtool" style="padding:5px;display:none;">
     		<a href="javascript:addFlowPerson()" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a>
-    		<a href="javascript:updateVillageWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">编辑</a>
+    		<!-- <a href="javascript:updateVillageWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">编辑</a> -->
     		<a href="javascript:savebgoffice()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">变更信息</a>
-    		<a href="javascript:saveUpdatedOffice()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a>
-    		<input type="hidden" id="cid"><!-- 村id -->
-	        <span>村官姓名:</span><input type="text" id="name" value="" size=10 />  
-	        <a href="javascript:findWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a>
+    		<!-- <a href="javascript:saveUpdatedOffice()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a> -->
+    		<input type="text" id="cid"><!-- 村id -->
+	        <!-- <span>村官姓名:</span><input type="text" id="name" value="" size=10 />  
+	        <a href="javascript:findWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a> -->
 	        <a href="javascript:savelishi()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">历史记录查询</a> 
 	    </div>
  </div>

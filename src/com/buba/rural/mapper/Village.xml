@@ -17,18 +17,26 @@
 	</select>
 	<!-- 查询数据 -->
 	<select id="queryList" resultType="Country_message" parameterType="java.util.HashMap">
-		select * from country_message  where cid=#{countrymessage.cid} <include refid="where_name"/>  group by operate_time desc
+		select * from country_message  where cid=#{countrymessage.cid} <include refid="where_name"/> order by operate_time desc
 		limit #{pageBean.startNum},#{pageBean.pagesize}
+	</select>
+	<!-- 查询最新记录 -->
+	<select id="queryNew" resultType="Country_message" parameterType="java.util.HashMap">
+		select * from country_message where operate_time = (select MAX(operate_time) from country_message where cid=#{countrymessage.cid});
 	</select>
 	
 	<!-- 变更 -->
 	<select id="querybg" resultType="Country_message">
 		SELECT * from country_message where id=#{id} and cid=#{cid}
 	</select>
+	<!-- 历史记录总记录数 -->
+	<select id="querylishicount" resultType="int">
+		SELECT count(*) from country_message where cid=#{countrymessage.cid} ORDER BY operate_time DESC
+	</select>
 	<!-- 历史记录 -->
-	<select id="querylishi" resultType="String">
-		<!-- SELECT * from country_message where cdzbsj=#{cdzbsj} and cid=#{cid} ORDER BY operate_time DESC -->
-		SELECT v.context from country_message  c LEFT JOIN version_record v on c.id=v.initialid WHERE c.id=#{id} ORDER BY v.operate_time desc
+	<select id="querylishi" resultType="Country_message">
+		SELECT * from country_message where cid=#{countrymessage.cid} ORDER BY operate_time DESC 
+		limit #{pageBean.startNum},#{pageBean.pagesize}
 	</select>
 	
 	<update id="updatevillage">

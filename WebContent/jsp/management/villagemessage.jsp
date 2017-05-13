@@ -17,6 +17,9 @@ $(document).ready(function(){
 	    	 if($('#tt').tree("find",node.id).level==5){
 	    		 $("#cid").val(node.id);
 	    		 findFlowPerson("");
+	    		 $(".datagrid-wrap").attr("style","display:block");
+	    	 }else{
+	    		 $(".datagrid-wrap").attr("style","display:none");
 	    	 }
 		 }
 	 });
@@ -28,7 +31,7 @@ $(document).ready(function(){
 	});
 	$("#lishi").window({
 		maximized: true,
-		 closed: true
+		closed: true
 	});
 	//定义验证类型
 	 $.extend($.fn.validatebox.defaults.rules, {
@@ -74,7 +77,7 @@ function findFlowPerson(villageName){
 	        		vildatagrid.datagrid('endEdit', vileditRow);
 	            }
 	        },onDblClickRow:function (rowIndex, rowData) {
-	        	if (vileditRow != undefined) {
+	        	/* if (vileditRow != undefined) {
 	        		vildatagrid.datagrid('endEdit', vileditRow);
 	            }
 	            if (vileditRow == undefined) {
@@ -85,8 +88,7 @@ function findFlowPerson(villageName){
 						var $input = cellEdit.target; // 得到文本框对象
 						$input.attr('readonly',true); // 设值只读
 	            	}
-	                
-	            }
+	            } */
 	        },onClickRow:function(rowIndex,rowData){
 	            if (vileditRow != undefined) {
 	            	vildatagrid.datagrid('endEdit', vileditRow);
@@ -119,7 +121,12 @@ function findFlowPerson(villageName){
 	});
 }
 function addFlowPerson(){
+	var rows = $("#village").datagrid("getRows").length;
+	if(rows==0){
 		$("#win").window('open');
+	}else{
+		$.messager.alert("提示信息", "信息已存在，不能添加！");
+	}
 }
 function findVillageWhere(){
 	var personWhere = "";
@@ -200,15 +207,16 @@ function updateVillageWhere(){
 
 
 function savebgVillage(){
-	var row = vildatagrid.datagrid('getChecked');
+	var rows = vildatagrid.datagrid('getRows');
+	var row = rows[0];
 	if(row.length<1){
 		$.messager.alert("提示", "请选择要变更的行！", "info");  
 		return;
-	}else if(row.length>1){
+	}/* else if(row.length>1){
 		$.messager.alert("提示", "请选择单个要变更的行！", "info");  
 		return;
-	}else{
-		var rowid = row[0].id;
+	} */else{
+		var rowid = row.id;
 		var cid = $("#cid").val();
 		  $.post("<c:url value='/vill/seachbg.m?countrymessage.id='/>"+rowid+"&countrymessage.cid="+cid,function (data){
 			$("#cdzbsj").attr("value",data[0].cdzbsj);
@@ -250,18 +258,9 @@ function addFlowbg(){
 var datagrid; //定义全局变量datagrid
 var editRow = undefined; //定义全局变量：当前编辑的行
 function lishiVillage(){
-	var row = vildatagrid.datagrid('getChecked');
-	if(row.length<1){
-		$.messager.alert("提示", "请选择要查看的行！", "info");  
-		return;
-	}else if(row.length>1){
-		$.messager.alert("提示", "请选择单个要查看的行！", "info");  
-		return;
-	}else{
 		var cid = $("#cid").val();
-		var rowid = row[0].id;
 		var tabTop = "<c:url value='/json/villagemessage.json'/>";
-		var rowurl = "<c:url value='/vill/seachlishi.m?countrymessage.id='/>"+rowid+"&countrymessage.cid="+cid;
+		var rowurl = "<c:url value='/vill/seachlishi.m?&countrymessage.cid='/>"+cid;
 		var hidcolumns = "id,cid";//隐藏列字段名
 		var id = "id";//主键字段名
 		$.getJSON(tabTop, function(data){
@@ -307,9 +306,17 @@ function lishiVillage(){
 					datagrid.datagrid("hideColumn",columns[i]);//隐藏指定的列
 				}
 			}
+			//设置分页控件 
+		    var p = datagrid.datagrid('getPager'); 
+		    $(p).pagination({ 
+		        pageSize: 10,//每页显示的记录条数，默认为10 
+		        pageList: [5,10,15],//可以设置每页记录条数的列表 
+		        beforePageText: '第',//页数文本框前显示的汉字 
+		        afterPageText: '页    共 {pages} 页', 
+		        displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录'
+		    }); 
 		});
 		  $("#lishi").window('open');
-	}
 }
 </script>
 </head>
@@ -321,9 +328,9 @@ function lishiVillage(){
     	<table id="village" toolbar="#searchtool"></table>
     	<div id="searchtool" style="padding:5px;display:none;">
     		<a href="javascript:addFlowPerson()" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a>
-    		<a href="javascript:updateVillageWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">编辑</a>
+    		<!-- <a href="javascript:updateVillageWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">编辑</a> -->
     		<a href="javascript:savebgVillage()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">变更信息</a>
-    		<a href="javascript:saveUpdatedVillage()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a>
+    		<!-- <a href="javascript:saveUpdatedVillage()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a> -->
     		<a href="javascript:lishiVillage()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">历史记录查询</a>
     		
     		<input type="hidden" id="cid"><!-- 村id -->

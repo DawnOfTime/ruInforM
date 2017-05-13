@@ -1,5 +1,6 @@
 package com.buba.rural.villageMessage.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,13 +14,22 @@ import com.buba.rural.pojo.VersionRecord;
 public class VillageDaoImpl extends SqlSessionDaoSupport implements IVillageDao {
 	@Override
 	public PageBean_easyui seachvillage(Country_message countrymessage,PageBean_easyui pageBean) {
-		Map map = new HashMap();
+		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("countrymessage", countrymessage);
 		map.put("pageBean", pageBean);
 		//获取总记录数，
-		pageBean.setTotalrecord(getSqlSession().selectOne("com.buba.rural.pojo.Village.queryvillage",map));
+		pageBean.setTotalrecord(1);
 		//查询记录
-		pageBean.setBeanList(getSqlSession().selectList("com.buba.rural.pojo.Village.queryList",map));
+		List<Country_message> listcm = getSqlSession().selectList("com.buba.rural.pojo.Village.queryNew",map);
+		if(null==listcm || listcm.size()==0){
+			pageBean.setBeanList(new ArrayList<Country_message>());
+		}else{
+			if(listcm.get(0).getId().equals("")){
+				pageBean.setBeanList(new ArrayList<Country_message>());
+			}else{
+				pageBean.setBeanList(listcm);
+			}
+		}
 		//getSqlSession().selectList("com.buba.rural.pojo.FamilyMessage.findFamilyMessage",familyMessage)
 		return pageBean;
 	}
@@ -60,8 +70,15 @@ public class VillageDaoImpl extends SqlSessionDaoSupport implements IVillageDao 
 	}
 
 	@Override
-	public List seachlishi(Country_message countrymessage) {
-		List list = getSqlSession().selectList("com.buba.rural.pojo.Village.querylishi",countrymessage);
-		return getSqlSession().selectList("com.buba.rural.pojo.Village.querylishi",countrymessage);
+	public PageBean_easyui seachlishi(Country_message countrymessage,PageBean_easyui pageBean) {
+//		List<Country_message> list = getSqlSession().selectList("com.buba.rural.pojo.Village.querylishi",countrymessage);
+		Map map = new HashMap();
+		map.put("countrymessage", countrymessage);
+		map.put("pageBean", pageBean);
+		//获取总记录数，
+		pageBean.setTotalrecord(getSqlSession().selectOne("com.buba.rural.pojo.Village.querylishicount",map));
+		//查询记录
+		pageBean.setBeanList(getSqlSession().selectList("com.buba.rural.pojo.Village.querylishi",map));
+		return pageBean;
 	}
 }

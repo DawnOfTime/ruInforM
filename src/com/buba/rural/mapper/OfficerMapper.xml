@@ -14,8 +14,10 @@
 	</select>
 	<!-- 查询数据 -->
 	<select id="queryList" resultType="Country_officer" parameterType="java.util.HashMap">
-		select * from country_officer where cid=#{countryofficer.cid} <include refid="where_name"/> ORDER BY operate_time DESC 
-		limit #{pageBean.startNum},#{pageBean.pagesize}
+		<!-- select * from country_officer where cid=#{countryofficer.cid} <include refid="where_name"/> ORDER BY operate_time DESC 
+		limit #{pageBean.startNum},#{pageBean.pagesize} -->
+		select * from country_officer where operate_time = 
+		(select MAX(operate_time) from country_officer where cid=#{countryofficer.cid})
 	</select>
 	
 	<update id="updateofficer">
@@ -82,7 +84,7 @@
 		SELECT * from country_officer where id=#{id} and cid=#{cid}
 	</select>
 	<!-- 历史记录 -->
-	<select id="querylishi" resultType="String">
-		SELECT v.context from country_officer  c LEFT JOIN version_record v on c.id=v.initialid WHERE c.id=#{id} ORDER BY v.operate_time desc
+	<select id="querylishi" resultType="Country_officer">
+		select * from country_officer where cid = #{cid} ORDER BY operate_time desc
 	</select>
 </mapper>

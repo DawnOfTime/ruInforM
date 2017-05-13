@@ -23,7 +23,7 @@ public class OfficerDaoImp extends SqlSessionDaoSupport implements IOfficerDao{
 		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("countryofficer", countryofficer);
 		map.put("pageBean", pageBean);
-		pageBean.setTotalrecord(getSqlSession().selectOne("com.buba.rural.mapper.OfficerMapper.queryone",map));
+		pageBean.setTotalrecord(1);
 		pageBean.setBeanList(getSqlSession().selectList("com.buba.rural.mapper.OfficerMapper.queryList",map));
 		return pageBean;
 	}
