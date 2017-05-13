@@ -3,16 +3,10 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.buba.rural.mapper.Communication">
-	<!-- 总记录数 -->
-	<select id="queryone" resultType="int" >
-		SELECT COUNT(*) from country_communication where cid=#{communication.cid}
-	</select>
 	<!-- 查询数据 -->
-	<select id="queryList" resultType="Country_communication" parameterType="java.util.HashMap">
-		select * from country_communication where cid=#{communication.cid}
-		limit #{pageBean.startNum},#{pageBean.pagesize}
+	<select id="queryList" resultType="Country_communication">
+		select * from country_communication where cid=#{cid} and operate_time= (select MAX(operate_time) from  country_communication)
 	</select>
-	
 	<update id="updatecommunication">
 		update country_communication set 
 		is_ydxh=
@@ -60,8 +54,13 @@
 	<select id="querybg" resultType="Country_communication">
 		SELECT * from country_communication where id=#{id} and cid=#{cid}
 	</select>
+	<!-- 总记录数 -->
+	<select id="queryone" resultType="int" >
+		SELECT COUNT(*) from country_communication where cid=#{communication.cid}
+	</select>
 	<!-- 历史记录 -->
-	<select id="querylishi" resultType="String">
-		SELECT v.context from country_communication  c LEFT JOIN version_record v on c.id=v.initialid WHERE c.id=#{id} ORDER BY v.operate_time desc
+	<select id="querylishi" resultType="Country_communication" parameterType="java.util.HashMap">
+		SELECT * from country_communication WHERE cid=#{communication.cid} ORDER BY operate_time desc
+		limit #{pageBean.startNum},#{pageBean.pagesize}
 	</select>
 </mapper>

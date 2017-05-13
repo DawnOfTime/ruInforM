@@ -29,7 +29,7 @@ public class BuildingAction {
 	//保存
 	 	
 	 	//查询
-		public String searchbuilding() throws IOException{
+		/*public String searchbuilding() throws IOException{
 			HttpServletRequest request=ServletActionContext.getRequest();
 			HttpServletResponse response=ServletActionContext.getResponse();
 			//当前页  
@@ -59,8 +59,18 @@ public class BuildingAction {
 			out.write(JSONObject.fromObject(jsonMap)+"");
 			out.close();
 			return null;
-		}
+		}*/
 		
+		public Country_building searchbuilding() throws IOException{
+			Country_building building = buildingService.searchbuilding(countrybuilding);
+			HttpServletResponse response=ServletActionContext.getResponse();
+			response.setContentType("text/html;charset=utf-8");
+			response.setHeader("Cache-Control", "no-cache");
+			PrintWriter out = response.getWriter();
+			out.write(JSONArray.fromObject(building)+"");
+			out.close();
+			return null;
+		}
 		//变更
 		public String seachrecord() throws IOException{
 			List<Country_message> list = buildingService.seachrecord(countrybuilding);
@@ -74,12 +84,33 @@ public class BuildingAction {
 		}
 		//历史记录
 				public String seachlishi() throws IOException{
-					List<Country_message> list = buildingService.seachlishi(countrybuilding);
+					HttpServletRequest request=ServletActionContext.getRequest();
 					HttpServletResponse response=ServletActionContext.getResponse();
-					response.setContentType("text/html;charset=utf-8");
+					//当前页  
+			        int intPage = Integer.parseInt((page == null || page == "0") ? "1":page);  
+			        //每页显示条数  
+			        int number = Integer.parseInt((rows == null || rows == "0") ? "10":rows);  
+			        //每页的开始记录  第一页为1  第二页为number +1   
+			        int start = (intPage-1)*number;  
+			        
+			        //拼接URL的同时解码
+					PageBean_easyui pageBean = new PageBean_easyui();
+					pageBean.setPagecode(intPage);
+					pageBean.setPagesize(number);
+					
+					String pattern = "";
+					String getpar = HttpUtil.getParameterUrl(request.getParameterMap(),request,pattern);
+					pageBean.setUrl(getpar);
+					
+					pageBean=buildingService.seachlishi(countrybuilding,pageBean);
+					
+					Map<String, Object> jsonMap = new HashMap<String, Object>();//定义map 
+					jsonMap.put("total", pageBean.getTotalrecord());//total键 存放总记录数，必须的  
+			        jsonMap.put("rows", pageBean.getBeanList());//rows键 存放每页记录 list 
+			        response.setContentType("text/html;charset=utf-8");
 					response.setHeader("Cache-Control", "no-cache");
 					PrintWriter out = response.getWriter();
-					out.write(JSONArray.fromObject(list)+"");
+					out.write(JSONObject.fromObject(jsonMap)+"");
 					out.close();
 					return null;
 				}

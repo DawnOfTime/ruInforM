@@ -249,7 +249,7 @@ function outGoingPg(){
 		},"json");
 	}
 }
-var langdatagrid;
+/* var langdatagrid;
 var langeditRow = undefined;
 function historyOutgoing(){
 	var id = '';
@@ -294,7 +294,7 @@ function historyOutgoing(){
 	        		langdatagrid.datagrid('endEdit', langeditRow);
 	            }
 	        },onDblClickRow:function (rowIndex, rowData) {
-	        	/* if (langeditRow != undefined) {
+	        	 if (langeditRow != undefined) {
 	        		langdatagrid.datagrid('endEdit', langeditRow);
 	            }
 	            if (langeditRow == undefined) {
@@ -306,7 +306,7 @@ function historyOutgoing(){
 						$input.attr('readonly',true); // 设值只读
 	            	}
 	                
-	            } */
+	            } 
 	        },onClickRow:function(rowIndex,rowData){
 	            if (langeditRow != undefined) {
 	            	var vv = langdatagrid.datagrid('endEdit',langeditRow);
@@ -342,8 +342,14 @@ function historyOutgoing(){
 	    }); 
 	});
 	$("#historywin").window('open');
-}
+} */
 </script>
+<style type="text/css">
+#disa{
+	width:100%;
+	margin-top:20px
+}
+</style>
 </head>
 <body class="easyui-layout">
 	<div data-options="region:'west',title:'组织机构',split:true" style="width:220px;">
@@ -354,12 +360,10 @@ function historyOutgoing(){
     	<div id="searchtool" style="padding:5px;display:none;">
     		<a href="javascript:addOutgoing()" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a>
     		<a href="javascript:updateWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">编辑</a>
-    		<a href="javascript:outGoingPg()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">变更</a>
     		<a href="javascript:saveUpdatedOutgoing()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a>
     		<input type="hidden" id="cid"><!-- 村id -->
 	        <span>干部姓名:</span><input type="text" id="name" value="" size=10 />
 	        <a href="javascript:findOutgoingWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a>
-	        <a href="javascript:historyOutgoing()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">历史记录查询</a>
 	    </div>
     </div>
     <div id="win" class="easyui-window" title="离任干部添加" style="width:410px;height:200px;display:none;"  
@@ -367,25 +371,26 @@ function historyOutgoing(){
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addOutgoing">
 		    	<input type="hidden" id="form_cid" name="country_flow.cid">
-			    <table border="1">
+			    <table id="disa">
 			    	<tr>
 				    	<th>姓名</th>
 				    	<td>
-				    		<input type="text" name="countyoutgoing.name"  class="easyui-validatebox" data-options="required:true,validType:'name'" style="height:40px"/>
+				    		<input type="text" name="countyoutgoing.name"  />
 				    	</td>
 				    	<th>性别</th>
 				    	<td>
-				    		 <select name="countyoutgoing.sex" class="easyui-validatebox" data-options="required:true" style="height:40px">
+				    		 <select name="countyoutgoing.sex">
 						    	<option value="">-请选择-</option>
 						    	<option value="1">男</option>
 						    	<option value="2">女</option>
 						    </select>	
 				    	</td>
 			    	</tr>
+			    	<tr></tr>
 			    	<tr>
 				    	<th>年龄</th>
 				    	<td>
-				    		<input type="text" name="countyoutgoing.age" class="easyui-validatebox" data-options="required:true,validType:'sex'" style="height:40px"/>
+				    		<input type="text" name="countyoutgoing.age"/>
 				    	</td>
 			    	</tr>
 			    	<tr>
@@ -395,11 +400,11 @@ function historyOutgoing(){
 		    </form>
 	    </div>  
 	</div>
-	<div id="historywin" class="easyui-window" title="历史记录" style="width:600px;height:450px;display:none;"  
+	<!-- <div id="historywin" class="easyui-window" title="历史记录" style="width:600px;height:450px;display:none;"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">
 	   		<table id='history'></table>
 	   </div>
-	</div>
+	</div> -->
 </body>
 </html>

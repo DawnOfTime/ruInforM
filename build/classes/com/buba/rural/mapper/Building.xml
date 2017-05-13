@@ -3,23 +3,27 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.buba.rural.mapper.Building">
-  	<!-- 总记录数 -->
-	<select id="queryCount" resultType="int">
-		SELECT COUNT(*) from country_building where cid=#{countrybuilding.cid}
-	</select>
+  
+ 
 	<!-- 查询数据 -->
-	<select id="queryList" resultType="Country_building" parameterType="java.util.HashMap">
-		select * from country_building where cid=#{countrybuilding.cid} limit #{pageBean.startNum},#{pageBean.pagesize}
+	<select id="querybuilding" resultType="Country_building">
+		select *,max(operate_time) from country_building where cid=#{cid}
 	</select>
 	
-	
+	 	
 	<!-- 变更 -->
 	<select id="querybg" resultType="Country_building">
 		SELECT * from country_building where id=#{id} and cid=#{cid}
 	</select>
+	
+	<!-- 总记录数 -->
+	 <select id="queryCount" resultType="int">
+		SELECT COUNT(*) from country_building where id=#{countrybuilding.id}
+	</select>
 	<!-- 历史记录 -->
-	<select id="querylishi" resultType="String">
-		SELECT v.context from country_building  c LEFT JOIN version_record v on c.id=v.initialid WHERE c.id=#{id} ORDER BY v.operate_time desc
+	<select id="queryList" resultType="Country_building" parameterType="java.util.Map">
+		SELECT * from country_building   where id=#{countrybuilding.id} ORDER BY operate_time desc
+ 		limit #{pageBean.startNum},#{pageBean.pagesize}
 	</select>
 	
 	

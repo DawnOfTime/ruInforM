@@ -12,14 +12,8 @@ import com.buba.rural.pojo.Country_communication;
 public class CommunicationDaoImp extends SqlSessionDaoSupport implements ICommunicationDao {
 
 	@Override
-	public PageBean_easyui querycommunication(Country_communication communication,
-			PageBean_easyui pageBean) {
-		Map<String,Object> map = new HashMap<String,Object>();
-		map.put("communication", communication);
-		map.put("pageBean", pageBean);
-		pageBean.setTotalrecord(getSqlSession().selectOne("com.buba.rural.mapper.Communication.queryone",map));
-		pageBean.setBeanList(getSqlSession().selectList("com.buba.rural.mapper.Communication.queryList",map));
-		return pageBean;
+	public List querycommunication(Country_communication communication) {
+		return getSqlSession().selectList("com.buba.rural.mapper.Communication.queryList",communication);
 	}
 	
 	@Override
@@ -65,7 +59,12 @@ public class CommunicationDaoImp extends SqlSessionDaoSupport implements ICommun
 	}
 
 	@Override
-	public List seachlishi(Country_communication communication) {
-		return getSqlSession().selectList("com.buba.rural.mapper.Communication.querylishi",communication);
+	public PageBean_easyui seachlishi(Country_communication communication,PageBean_easyui pageBean) {
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("communication", communication);
+		map.put("pageBean", pageBean);
+		pageBean.setTotalrecord(getSqlSession().selectOne("com.buba.rural.mapper.Communication.queryone",map));
+		pageBean.setBeanList(getSqlSession().selectList("com.buba.rural.mapper.Communication.querylishi",map));
+		return pageBean;
 	}
 }

@@ -3,14 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.buba.rural.mapper.land_industry">
-	<!-- 总记录数 -->
-	<select id="queryone" resultType="int" >
-		SELECT COUNT(*) from land_industry where cid=#{land_industry.cid}
-	</select>
 	<!-- 查询数据 -->
-	<select id="queryList" resultType="Land_industry" parameterType="java.util.HashMap">
-		select * from land_industry where cid=#{land_industry.cid}
-		limit #{pageBean.startNum},#{pageBean.pagesize}
+	<select id="queryList" resultType="Land_industry" >
+		select * from land_industry where cid=#{cid} and operate_time= (select MAX(operate_time) from  land_industry)
 	</select>
 	
 	<update id="updateland_industry">
@@ -120,7 +115,12 @@
 	<select id="searchLand_industry" resultType="Land_industry">
 		select * from land_industry where id = #{id}
 	</select>
-	<select id="searchHistory" resultType="String">
-		select context from version_record where initialid = #{id} order by operate_time desc
+	<!-- 总记录数 -->
+	<select id="queryone" resultType="int" >
+		SELECT COUNT(*) from land_industry where cid=#{land_industry.cid}
+	</select>
+	<select id="searchHistory" resultType="Land_industry" parameterType="java.util.HashMap">
+		select * from land_industry where cid=#{land_industry.cid} order by operate_time desc
+		limit #{pageBean.startNum},#{pageBean.pagesize}
 	</select>
 </mapper>

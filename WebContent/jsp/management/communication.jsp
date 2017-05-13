@@ -166,26 +166,11 @@ function findFlowPerson(){
 	        selectOnCheck: true,//true勾选会选择行，false勾选不选择行, 1.3以后有此选项。重点在这里
 	        checkOnSelect:true,//选中行,不默认选中当前行的复选框
 	        idField: id,
-	        frozenColumns:[[{field:'ck',checkbox:true}]], 
 	        onAfterEdit: function (rowIndex, rowData, changes) {
 	            editRow = undefined;
 	        },onBeforeLoad:function(){			//在请求载入数据之前触发
 	        	if (editRow != undefined) {
 	            	datagrid.datagrid('endEdit', editRow);
-	            }
-	        },onDblClickRow:function (rowIndex, rowData) {
-	        	if (editRow != undefined) {
-	            	datagrid.datagrid('endEdit', editRow);
-	            }
-	            if (editRow == undefined) {
-	            	editRow=rowIndex;
-	            	datagrid.datagrid('beginEdit', rowIndex);
-	            	if(rowData.id!=""){
-	            		var cellEdit = datagrid.datagrid('getEditor', {index:rowIndex,field:'username'});
-						var $input = cellEdit.target; // 得到文本框对象
-						$input.attr('readonly',true); // 设值只读
-	            	}
-	                
 	            }
 	        },onClickRow:function(rowIndex,rowData){
 	            if (editRow != undefined) {
@@ -224,7 +209,12 @@ function findFlowPerson(){
 	},'json');
 	}
 	function addFlowPerson(){
+		var p = $("#dg").datagrid("getRows").length;
+		if(p >=1){
+			$.messager.alert("提示信息", "信息已存在，不能进行添加。 ");
+		}else{
 			$("#win").window('open');
+		} 
 		
 	}
 	function findWhere(){ 
@@ -302,12 +292,9 @@ function findFlowPerson(){
 	}
 	/* 变更 */
 	function savebgCommunication(){
-		var row = datagrid.datagrid('getChecked');
-		if(row.length<1){
-			$.messager.alert("提示", "请选择要变更的行！", "info");  
-			return;
-		}else if(row.length>1){
-			$.messager.alert("提示", "请选择单个要变更的行！", "info");  
+		var row = datagrid.datagrid('getRows');
+		 if(row < 1){
+			$.messager.alert("提示", "无要变更的信息！", "info");  
 			return;
 		}else{
 			var rowid = row[0].id;
@@ -360,12 +347,9 @@ function findFlowPerson(){
 var commdatagrid;
 var commseditRow = undefined;
 function savelishi(){
-	 var row = datagrid.datagrid('getChecked');
-	if(row.length<1){
-		$.messager.alert("提示", "请选择要查看的行！", "info");  
-		return;
-	}else if(row.length>1){
-		$.messager.alert("提示", "请选择单个要查看的行！", "info");  
+	var row = datagrid.datagrid('getRows');
+	if(row<1){
+		$.messager.alert("提示", "无要查看的信息！", "info");  
 		return;
 	}else{
 		var cid = $("#cid").val();
@@ -477,6 +461,7 @@ function savelishi(){
 					}
 				});
 			});
+			
 			commdatagrid = $('#ls').datagrid({ 
 		        columns:[data],
 		        width: 700, 
@@ -494,7 +479,6 @@ function savelishi(){
 		        selectOnCheck: true,//true勾选会选择行，false勾选不选择行, 1.3以后有此选项。重点在这里
 		        checkOnSelect:true,//选中行,不默认选中当前行的复选框
 		        idField: id,
-		        frozenColumns:[frozenColumns], 
 		        onAfterEdit: function (rowIndex, rowData, changes) {
 		        	commseditRow = undefined;
 		        },onBeforeLoad:function(){			//在请求载入数据之前触发
@@ -520,6 +504,15 @@ function savelishi(){
 					commdatagrid.datagrid("hideColumn",columns[i]);//隐藏指定的列
 				}
 			}
+			 //设置分页控件 
+		    var p = $('#ls').datagrid('getPager'); 
+		    $(p).pagination({ 
+		        pageSize: 10,//每页显示的记录条数，默认为10 
+		        pageList: [5,10,15],//可以设置每页记录条数的列表 
+		        beforePageText: '第',//页数文本框前显示的汉字 
+		        afterPageText: '页    共 {pages} 页', 
+		        displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录'
+		    }); 
 		});
 		  $("#lishi").window('open');
 	},"json");
@@ -528,9 +521,12 @@ function savelishi(){
 </script>
 <style type="text/css">
 	#tables{
-	border:1px;
 	margin-top:30px;
-	margin-left:20px;
+	width:100%;
+	}
+	#tabless{
+	margin-top:30px;
+	width:100%;
 	}
 	td{
 	margin-top:30px;
@@ -542,6 +538,7 @@ function savelishi(){
 	.juzhong{
 		height:80px;
 	}
+	
 </style>
 </head>
 <body class="easyui-layout">
@@ -553,14 +550,12 @@ function savelishi(){
     	<!-- 表头 -->
     	<div id="searchtool" style="padding:5px;display:none;">
     		<a href="javascript:addFlowPerson()" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a>
-    		<a href="javascript:updateVillageWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">编辑</a>
-    		    		<a href="javascript:savebgCommunication()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">变更信息</a>
-    		<a href="javascript:saveUpdatedCommunication()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a>
-    		 <a href="javascript:savelishi()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">历史记录查询</a> 
+    		<a href="javascript:savebgCommunication()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">变更信息</a>
+    		<a href="javascript:savelishi()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">历史记录查询</a> 
     		<input type="hidden" id="cid"><!-- 村id -->
 	    </div>
  </div>
- <div id="win" class="easyui-window" title="通讯添加" style="width:600px;height:400px;display:none;"  
+ <div id="win" class="easyui-window" title="通讯添加" style="width:500px;height:250px;display:none;"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFlowPerson">
@@ -569,14 +564,14 @@ function savelishi(){
 		    		<tr>
 		    			<td>是否有移动信号:</td>
 		    			<td>
-		    				<select name="communication.is_ydxh" data-options="required:true,validType:'is_ydxh'">
+		    				<select name="communication.is_ydxh">
 		    					<option value="1">是</option>
 		    					<option value="0">否</option>
 		    				</select>
 		    			</td>
 		    			<td>是否有联通信号:</td>
 		    			<td>
-		    				<select name="communication.is_ltxh" data-options="required:true,validType:'is_ltxh'">
+		    				<select name="communication.is_ltxh">
 		    					<option value="1">是</option>
 		    					<option value="0">否</option>
 		    				</select>
@@ -585,19 +580,20 @@ function savelishi(){
 		    		<tr class="juzhong">
 		    			<td>是否有电信信号:</td>
 		    			<td>
-		    				<select name="communication.is_dxxh" data-options="required:true,validType:'is_dxxh'">
+		    				<select name="communication.is_dxxh">
 		    					<option value="1">是</option>
 		    					<option value="0">否</option>
 		    				</select>
 		    			</td>
 		    			<td>是否全村覆盖:</td>
 		    			<td>
-		    				<select name="communication.is_qcfg" data-options="required:true,validType:'is_qcfg'">
+		    				<select name="communication.is_qcfg">
 		    					<option value="1">是</option>
 		    					<option value="0">否</option>
 		    				</select>
 		    			</td>
 		    		</tr>
+		    		
 		    		<tr>
 		    			<td colspan="4" class="baocun"><a href="javascript:saveaddCommunication()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a></td>
 		    		</tr>
@@ -611,12 +607,12 @@ function savelishi(){
 		    <table id="ls" toolbar="#seach"></table>
 	    </div>  
 	</div>
-	<div id="wins" class="easyui-window" title="通讯信息变更" style="width:600px;height:400px;display:none;"  
+	<div id="wins" class="easyui-window" title="通讯信息变更" style="width:500px;height:250px;display:none;"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFlowbg">
 		    	<input type="hidden" id="form_cid" name="country_flow.cid">
-		    	<table id="tables">
+		    	<table id="tabless">
 		    		<tr>
 		    			<td>是否有移动信号:</td>
 		    			<td>
