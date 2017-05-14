@@ -333,8 +333,9 @@ function findWhere(){
     		<input type="hidden" id="num">
     		<input type="hidden" id="level">
     		<!-- 表头 -->
-    		<span>村民姓名:</span><input type="text" id="xm" value="" size=10 /> 
-    		<span>村民身份证:</span><input type="text" id="sfzhm" value="" size=10 />   
+    		<span>姓名:</span><input type="text" id="xm" value="" size=10 /> 
+    		<span>性别:</span><input type="text" id="xm" value="" size=10 /> 
+    		<span>身份证号:</span><input type="text" id="sfzhm" value="" size=10 />   
 	        <a href="javascript:findWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a> 
     	</div>
     	
