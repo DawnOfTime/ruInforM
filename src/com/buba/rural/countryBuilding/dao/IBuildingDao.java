@@ -6,7 +6,7 @@ import com.buba.rural.comm.PageBean_easyui;
 import com.buba.rural.pojo.Country_building;
 
 public interface IBuildingDao {
-	public abstract Country_building seachbuilding(Country_building countrybuilding);
+	public abstract List seachbuilding(Country_building countrybuilding);
 
 	public abstract String addaddBuilding(Country_building countrybuilding);
 	public abstract String updated(Country_building[] country);

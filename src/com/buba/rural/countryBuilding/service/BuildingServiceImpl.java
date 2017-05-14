@@ -23,7 +23,7 @@ public class BuildingServiceImpl implements IBuildingService{
 		return buildingDao.seachbuilding(countrybuilding,pageBean);
 	}*/
 	
-	public Country_building searchbuilding(Country_building countrybuilding) {
+	public List searchbuilding(Country_building countrybuilding) {
 		// TODO Auto-generated method stub
 		return buildingDao.seachbuilding(countrybuilding);
 	}

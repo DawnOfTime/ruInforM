@@ -3,19 +3,16 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.buba.rural.pojo.Finance">
-	<sql id="where_name">
+	<!-- <sql id="where_name">
 		<if test="groupfinance.type!=null and groupfinance.type!=''">
 			and type = #{groupfinance.type}
 		</if>
-	</sql>
-<!-- 总记录数 -->
-	<select id="queryFinance" resultType="int">
-		SELECT COUNT(*) from country_group_finance where cid=#{groupfinance.cid} <include refid="where_name"/>
-	</select>
+	</sql> -->
+
 	<!-- 查询数据 -->
-	<select id="queryList" resultType="Country_group_finance" parameterType="java.util.HashMap">
-		select * from country_group_finance  where cid=#{groupfinance.cid} <include refid="where_name"/> group by operate_time desc
-		limit #{pageBean.startNum},#{pageBean.pagesize}
+	<select id="queryFinance" resultType="Country_group_finance" >
+		select * from country_group_finance where operate_time in (
+		select MAX(operate_time) from country_group_finance where cid=#{cid} GROUP BY type )
 	</select>
 	
 	
@@ -23,9 +20,15 @@
 	<select id="querybg" resultType="Country_group_finance">
 		SELECT * from country_group_finance where id=#{id} and cid=#{cid}
 	</select>
+	
+	<!-- 总记录数 -->
+	<select id="querylis" resultType="int">
+		SELECT COUNT(*) from country_group_finance where type=#{groupfinance.type} and cid=#{groupfinance.cid}
+	</select> 
 	<!-- 历史记录 -->
-	<select id="querylishi" resultType="String">
-		SELECT v.context from country_group_finance  c LEFT JOIN version_record v on c.id=v.initialid WHERE c.id=#{id} ORDER BY v.operate_time desc
+	<select id="queryList" resultType="Country_group_finance" parameterType="java.util.HashMap">
+		SELECT * from country_group_finance where type=#{groupfinance.type} and cid=#{groupfinance.cid} ORDER BY operate_time desc
+ 		limit #{pageBean.startNum},#{pageBean.pagesize}
 	</select>
 	
 	

@@ -17,6 +17,7 @@ import org.apache.struts2.ServletActionContext;
 import com.buba.rural.comm.HttpUtil;
 import com.buba.rural.comm.PageBean_easyui;
 import com.buba.rural.groupfinance.service.IFinanceService;
+import com.buba.rural.pojo.Country_building;
 import com.buba.rural.pojo.Country_group_finance;
 import com.buba.rural.pojo.Country_message;
 
@@ -30,7 +31,7 @@ public class FinanceAction {
 	
 	
 	//查询
-			public String seachFinance() throws IOException{
+			/*public String seachFinance() throws IOException{
 				HttpServletRequest request=ServletActionContext.getRequest();
 				HttpServletResponse response=ServletActionContext.getResponse();
 				String type = request.getParameter("type");
@@ -65,8 +66,17 @@ public class FinanceAction {
 				out.write(JSONObject.fromObject(jsonMap)+"");
 				out.close();
 				return null;
+			}*/
+			public Country_group_finance seachFinance() throws IOException{
+				List<Country_group_finance> building = financeSercie.seachFinance(groupfinance);
+				HttpServletResponse response=ServletActionContext.getResponse();
+				response.setContentType("text/html;charset=utf-8");
+				response.setHeader("Cache-Control", "no-cache");
+				PrintWriter out = response.getWriter();
+				out.write(JSONArray.fromObject(building)+"");
+				out.close();
+				return null;
 			}
-			
 			
 			//变更
 			public String seachrecord() throws IOException{
@@ -81,12 +91,29 @@ public class FinanceAction {
 			}
 			//历史记录
 					public String seachlishi() throws IOException{
-						List<Country_message> list = financeSercie.seachlishi(groupfinance);
+						HttpServletRequest request=ServletActionContext.getRequest();
 						HttpServletResponse response=ServletActionContext.getResponse();
+						//当前页  
+				        int intPage = Integer.parseInt((page == null || page == "0") ? "1":page);  
+				        //每页显示条数  
+				        int number = Integer.parseInt((rows == null || rows == "0") ? "10":rows);  
+				        
+				        //拼接URL的同时解码
+						PageBean_easyui pageBean = new PageBean_easyui();
+						pageBean.setPagecode(intPage);
+						pageBean.setPagesize(number);
+						
+						String pattern = "";
+						String getpar = HttpUtil.getParameterUrl(request.getParameterMap(),request,pattern);
+						pageBean.setUrl(getpar);
+						pageBean = financeSercie.seachlishi(groupfinance,pageBean);
+						Map<String, Object> jsonMap = new HashMap<String, Object>();//定义map 
+						jsonMap.put("total", pageBean.getTotalrecord());//total键 存放总记录数，必须的  
+				        jsonMap.put("rows", pageBean.getBeanList());//rows键 存放每页记录 list  
 						response.setContentType("text/html;charset=utf-8");
 						response.setHeader("Cache-Control", "no-cache");
 						PrintWriter out = response.getWriter();
-						out.write(JSONArray.fromObject(list)+"");
+						out.write(JSONObject.fromObject(jsonMap)+"");
 						out.close();
 						return null;
 					}

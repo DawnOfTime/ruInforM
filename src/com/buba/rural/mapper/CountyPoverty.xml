@@ -3,19 +3,16 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.buba.rural.pojo.CountyPoverty">
-	<sql id="where_name">
+	<!-- <sql id="where_name">
 		<if test="countrypoverty.is_pkc!=null and countrypoverty.is_pkc!=''">
 			and is_pkc = #{countrypoverty.is_pkc}
 		</if>
-	</sql>
-<!-- 总记录数 -->
-	<select id="queryPoverty" resultType="int">
-		SELECT COUNT(*) from country_poverty where cid=#{countrypoverty.cid} <include refid="where_name"/>
-	</select>
+	</sql> -->
+	
+	
 	<!-- 查询数据 -->
-	<select id="queryList" resultType="Country_poverty" parameterType="java.util.HashMap">
-		select * from country_poverty  where cid=#{countrypoverty.cid} <include refid="where_name"/>  group by operate_time desc
-		limit #{pageBean.startNum},#{pageBean.pagesize}
+	<select id="queryPoverty" resultType="Country_poverty">
+		select * from country_poverty where cid=#{cid} and operate_time= (select MAX(operate_time) from  country_poverty)  
 	</select>
 	
 	
@@ -24,9 +21,15 @@
 	<select id="querybg" resultType="Country_poverty">
 		SELECT * from country_poverty where id=#{id} and cid=#{cid}
 	</select>
+	
+	<!-- 总记录数 -->
+	 <select id="queryls" resultType="int">
+		SELECT COUNT(*) from country_poverty where cid=#{countrypoverty.cid} 
+	</select> 
 	<!-- 历史记录 -->
-	<select id="querylishi" resultType="String">
-		SELECT v.context from country_poverty  c LEFT JOIN version_record v on c.id=v.initialid WHERE c.id=#{id} ORDER BY v.operate_time desc
+	<select id="queryList" resultType="Country_poverty" parameterType="java.util.Map">
+		SELECT * from country_poverty where cid=#{countrypoverty.cid} ORDER BY operate_time desc
+ 		limit #{pageBean.startNum},#{pageBean.pagesize}
 	</select>
 	
 	

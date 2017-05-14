@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/jsp/comm/include.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -43,8 +43,8 @@ $(document).ready(function(){
 function findFiance(FinanceName){
 	var cid = $("#cid").val();
 	var tabTop = "<c:url value='/json/countygroupfinance.json'/>";
-	var rowurl = "<c:url value='/seachFinance.m?cid='/>"+cid+FinanceName;
-	var hidcolumns = "id,cid";//隐藏列字段名s
+	var rowurl = "<c:url value='/seachFinance.m?groupfinance.cid='/>"+cid;
+	var hidcolumns = "id,cid";//隐藏列字段名
 	var id = "id";//主键字段名
 	var frozenColumns = [[{}]];
 	var formartColumns;
@@ -154,7 +154,12 @@ function findFiance(FinanceName){
 	},'json');
 }
 function addFinance(){
+	var p = datagrid.datagrid("getRows"); 
+	 if(p.length > 3){
+		$.messager.alert("提示信息", "信息已存在，不能进行添加。 ");
+	}else{
 		$("#win").window('open');
+	}  
 }
 function findFinanceWhere(){
 	var personWhere = "";
@@ -249,26 +254,24 @@ function saveUpdatedFinance(){
 		var row = datagrid.datagrid('getChecked');
 		if(row.length<1){
 			$.messager.alert("提示", "请选择要变更的行！", "info");  
-			return;
 		}else if(row.length>1){
 			$.messager.alert("提示", "请选择单个要变更的行！", "info");  
-			return;
 		}else{
-			var rowid = row[0].id;
-			var cid = $("#cid").val();
+			 var rowid = row[0].id;
+			 var cid = $("#cid").val(); 
 			  $.post("<c:url value='/financebg.m?groupfinance.id='/>"+rowid+"&groupfinance.cid="+cid,function (data){
 				
 				if(data[0].type=="1"){
-					$("#types").append("<option value='1' selected='selected>集体资产</option><option value='2'>收入</option><option value='3'>负债</option>");
+					$("#types").append("<option value='1' selected='selected'>集体资产</option><option value='2'>收入</option><option value='3'>负债</option>");
 				}else if(data[0].type=="2"){
-					$("#types").append("<option value='1'>集体资产</option><option value='2' selected='selected>收入</option><option value='3'>负债</option>");
+					$("#types").append("<option value='1'>集体资产</option><option value='2' selected='selected'>收入</option><option value='3'>负债</option>");
 				}else if(data[0].type=="3"){
-					$("#types").append("<option value='1'>集体资产</option><option value='2'>收入</option><option value='3' selected='selected>负债</option>");
+					$("#types").append("<option value='1'>集体资产</option><option value='2'>收入</option><option value='3' selected='selected'>负债</option>");
 				}
 				
 				$("#privce").attr("value",data[0].privce);
 				$("#message").attr("value",data[0].message);
-			},"json"); 
+			},"json");
 			  $("#wins").window('open'); 
 		} 
 		
@@ -296,16 +299,16 @@ function saveUpdatedFinance(){
 	function savelishi(){
 		var row = datagrid.datagrid('getChecked');
 		if(row.length<1){
-			$.messager.alert("提示", "请选择要变更的行！", "info");  
+			$.messager.alert("提示", "请选择要查询的信息！", "info");  
 			return;
 		}else if(row.length>1){
-			$.messager.alert("提示", "请选择单个要变更的行！", "info");  
+			$.messager.alert("提示", "请选择单个要查询的信息！", "info");  
 			return;
 		}else{
 			var cid = $("#cid").val();
-			var rowid = row[0].id;
+			var rowtype = row[0].type;
 			var tabTop = "<c:url value='/json/countygroupfinance.json'/>";
-			var rowurl = "<c:url value='/financelishi.m?groupfinance.id='/>"+rowid+"&groupfinance.cid="+cid;
+			var rowurl = "<c:url value='/financelishi.m?groupfinance.type='/>"+rowtype+"&groupfinance.cid="+cid;
 			var hidcolumns = "cid,id";//隐藏列字段名
 			var id = "id";//主键字段
 			var formartColumns;
@@ -386,6 +389,15 @@ function saveUpdatedFinance(){
 						commdatagrid.datagrid("hideColumn",columns[i]);//隐藏指定的列
 					}
 				}
+				//设置分页控件 
+			    var p = $('#lis').datagrid('getPager'); 
+			    $(p).pagination({ 
+			        pageSize: 10,//每页显示的记录条数，默认为10 
+			        pageList: [5,10,15],//可以设置每页记录条数的列表 
+			        beforePageText: '第',//页数文本框前显示的汉字 
+			        afterPageText: '页    共 {pages} 页', 
+			        displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录'
+			    });
 			});
 			  $("#lishi").window('open');
 		},"json");
@@ -402,12 +414,12 @@ function saveUpdatedFinance(){
     	<div id="searchtool" style="padding:5px;display:none;">
     		<a href="javascript:addFinance()" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a>
     		<!-- <a href="javascript:deletedFlowPerson()" class="easyui-linkbutton" data-options="iconCls:'icon-remove'">删除</a> -->
-    		<a href="javascript:updateVillageWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">编辑</a>
+    		<!-- <a href="javascript:updateVillageWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">编辑</a> -->
     		<a href="javascript:savebg()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">变更信息</a>
-    		<a href="javascript:saveUpdatedFinance()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a>
+    		<!-- <a href="javascript:saveUpdatedFinance()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a> -->
     		<input type="hidden" id="cid"><!-- 村id -->
 	      	<!-- <span>村党支部书记:</span><input type="text" id="cdzbsj" value="" size=10 /> -->
-	      	<span>类型
+	      	<!-- <span>类型
 		      	<select id="type">
 		      		<option value="">-请选择-</option>
 		      		<option value="1">集体资产</option>
@@ -415,7 +427,7 @@ function saveUpdatedFinance(){
 		      		<option value="3">负债</option>
 		      	</select>
 	       </span>
-	        <a href="javascript:findFinanceWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a>
+	        <a href="javascript:findFinanceWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a> -->
 	  		<a href="javascript:savelishi()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">历史记录查询</a>
     	</div>
     </div>
@@ -434,7 +446,7 @@ function saveUpdatedFinance(){
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFinance">
 		    	<input type="hidden" id="form_cid" name="country_flow.cid">
-			    <table border="1">
+			    <table style="line-height: 60px;width: 100%;">
 			    	<tr>
 				    	<th>类型</th>
 				    	<td>
@@ -468,7 +480,7 @@ function saveUpdatedFinance(){
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFlowbg">
 		    	<input type="hidden" id="form_cid" name="country_flow.cid">
-		    	<table border="1">
+		    	<table  style="line-height: 60px;width: 100%;">
 			    	<tr>
 				    	<th>类型</th>
 				    	<td>

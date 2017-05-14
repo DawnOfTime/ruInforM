@@ -8,7 +8,7 @@ import com.buba.rural.pojo.Country_group_finance;
 
 public interface IFinanceDao {
 
-	PageBean_easyui seachFinance(Country_group_finance groupfinance,PageBean_easyui pageBean);
+	/*PageBean_easyui seachFinance(Country_group_finance groupfinance,PageBean_easyui pageBean);*/
 
 	String deleted(Country_group_finance[] country);
 
@@ -20,6 +20,8 @@ public interface IFinanceDao {
 
 	List seachrecord(Country_group_finance groupfinance);
 
-	List seachlishi(Country_group_finance groupfinance);
+	List seachFinance(Country_group_finance groupfinance);
+
+	PageBean_easyui seachlishi(Country_group_finance groupfinance,PageBean_easyui pageBean);
 
 }

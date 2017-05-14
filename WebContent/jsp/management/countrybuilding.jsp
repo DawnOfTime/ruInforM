@@ -66,7 +66,7 @@ function findBuilding(buildingName){
 		        selectOnCheck: true,//true勾选会选择行，false勾选不选择行, 1.3以后有此选项。重点在这里
 		        checkOnSelect:true,//选中行,不默认选中当前行的复选框
 		        idField: id,
-		        frozenColumns:[[{field:'ck',checkbox:true}]], 
+		       /*  frozenColumns:[[{field:'ck',checkbox:true}]], */ 
 		        onAfterEdit: function (rowIndex, rowData, changes) {
 		            editRow = undefined;
 		        },onBeforeLoad:function(){			//在请求载入数据之前触发
@@ -120,12 +120,11 @@ function findBuilding(buildingName){
 }
 function addBuilding(){
 	var p = $("#building").datagrid("getRows").length; 
-	if(p > 1){
+	if(p >= 1){
 		$.messager.alert("提示信息", "信息已存在，不能进行添加。 ");
 	}else{
 		$("#win").window('open');
 	} 
-		
 }
 function saveaddBuliding(){
 	$("#addBuilding").form("submit", {
@@ -190,14 +189,11 @@ function updateWhere(){
 }
 //变更
 function savebg(){
-	var row = datagrid.datagrid('getChecked');
-	if(row.length<1){
-		$.messager.alert("提示", "请选择要变更的行！", "info");  
+	var row = datagrid.datagrid('getRows');
+	 if(row < 1){
+		$.messager.alert("提示", "无要变更的信息！", "info");  
 		return;
-	}else if(row.length>1){
-		$.messager.alert("提示", "请选择单个要变更的行！", "info");  
-		return;
-	}else{
+	}else{ 
 		var rowid = row[0].id;
 		var cid = $("#cid").val();
 		  $.post("<c:url value='/buildingbg.m?countrybuilding.id='/>"+rowid+"&countrybuilding.cid="+cid,function (data){
@@ -210,7 +206,7 @@ function savebg(){
 			$("#ynb").attr("value",data[0].ynb);
 		},"json"); 
 		  $("#wins").window('open'); 
-	} 
+	 }  
 } 
 //变更保存
 function addFlowbg(){
@@ -221,8 +217,7 @@ function addFlowbg(){
             if (result == "ok") {
                 $.messager.alert("提示信息", "操作成功");
                 $("#wins").window("close");
-	    		findFlowPerson("");
-                $("#addFlowbgs").form("clear");
+                datagrid.datagrid("load"); 
             }
             else {
                 $.messager.alert("提示信息", "操作失败");
@@ -235,18 +230,15 @@ function addFlowbg(){
 var commdatagrid;
 var commeditRow = undefined;
 function savelishi(){
-	var row = datagrid.datagrid('getChecked');
-	if(row.length<1){
-		$.messager.alert("提示", "请选择要变更的行！", "info");  
-		return;
-	}else if(row.length>1){
-		$.messager.alert("提示", "请选择单个要变更的行！", "info");  
+	var row = datagrid.datagrid('getRows');
+	if(row < 1){
+		$.messager.alert("提示", "无要查看的数据！", "info");  
 		return;
 	}else{
 		var cid = $("#cid").val();
 		var rowid = row[0].id;
 		var tabTop = "<c:url value='/json/countrybuilding.json'/>";
-		var rowurl = "<c:url value='/buildinglishi.m?countrybuilding.id='/>"+rowid;
+		var rowurl = "<c:url value='/buildinglishi.m?countrybuilding.cid='/>"+cid;
 		var hidcolumns = "cid,id";//隐藏列字段名
 		var id = "id";//主键字段
 		$.getJSON(tabTop, function(data){
@@ -301,7 +293,7 @@ function savelishi(){
 		        afterPageText: '页    共 {pages} 页', 
 		        displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录'
 		    });
-		});
+		},"json");
 		  $("#lishi").window('open');
 	}
 }
@@ -317,7 +309,7 @@ function savelishi(){
     		<a href="javascript:addBuilding()" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a>
     		<!-- <a href="javascript:updateWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">编辑</a> -->
     		<a href="javascript:savebg()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">变更信息</a>
-    		<a href="javascript:saveUpdatedBilding()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a>
+    		<!-- <a href="javascript:saveUpdatedBilding()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a> -->
     		<a href="javascript:savelishi()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">历史记录查询</a>
     		<input type="hidden" id="cid"><!-- 村id -->
 	    </div>
@@ -331,46 +323,46 @@ function savelishi(){
 	</div>
     
     
-    <div id="win" class="easyui-window" title="建筑信息添加" style="width:600px;height:400px"  
+    <div id="win" class="easyui-window" title="建筑信息添加" style="width:800px;height:450px"  
          data-options="iconCls:'icon-save',modal:true">  
-	   <div class="easyui-layout" data-options="fit:true" ">  
+	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addBuilding">
 		    	<input type="hidden" id="form_cid" name="country_flow.cid">
-			    <table style="margin-top: 54px;">
+			    <table style="line-height: 88px;width: 100%;">
 			    	<tr>
 				    	<th>油路硬化（公里）</th>
 				    	<td>
-				    		<input type="text" name="countrybuilding.ylyh" class="easyui-validatebox"  data-options="required:true,validType:'cdzbsj'" style="height:50px"/>
+				    		<input type="text" name="countrybuilding.ylyh" class="easyui-validatebox"  data-options="required:true,validType:'cdzbsj'" style="height:31px"/>
 				    	</td>
 				    	<th>水泥硬化（公里）</th>
 				    	<td>
-				    		<input type="text" name="countrybuilding.snyh" class="easyui-validatebox"  data-options="required:true,validType:'bpld'" style="height:50px"/>
+				    		<input type="text" name="countrybuilding.snyh" class="easyui-validatebox"  data-options="required:true,validType:'bpld'" style="height:31px"/>
 				    	</td>
 			    	</tr>
 			    	<tr>
 				    	<th>砂砾石硬化（公里）</th>
 				    	<td>
-				    		<input type="text" name="countrybuilding.slsyh" class="easyui-validatebox"  data-options="required:true,validType:'slsyh'" style="height:50px"/>
+				    		<input type="text" name="countrybuilding.slsyh" class="easyui-validatebox"  data-options="required:true,validType:'slsyh'" style="height:31px"/>
 				    	</td>
 				    	<th>土路（公里）</th>
 				    	<td>
-				    		<input type="text" name="countrybuilding.cl" class="easyui-validatebox"  data-options="required:true,validType:'cl'" style="height:50px"/>
+				    		<input type="text" name="countrybuilding.cl" class="easyui-validatebox"  data-options="required:true,validType:'cl'" style="height:31px"/>
 				    	</td>
 			    	</tr>
 			    	<tr>
 				    	<th>桥梁（座）</th>
 				    	<td>
-				    		<input type="text" name="countrybuilding.ql" class="easyui-validatebox"  data-options="required:true,validType:'ql'" style="height:50px"/>
+				    		<input type="text" name="countrybuilding.ql" class="easyui-validatebox"  data-options="required:true,validType:'ql'" style="height:31px"/>
 				    	</td>
 				    	<th>清水坝（座）</th>
 				    	<td>
-				    		<input type="text" name="countrybuilding.qsb" class="easyui-validatebox"  data-options="required:true,validType:'qsb'" style="height:50px"/>
+				    		<input type="text" name="countrybuilding.qsb" class="easyui-validatebox"  data-options="required:true,validType:'qsb'" style="height:31px"/>
 				    	</td>
 			    	</tr>
 			    	<tr>
 				    	<th>淤地坝（座）</th>
 				    	<td>
-				    		<input type="text" name="countrybuilding.ynb" class="easyui-validatebox"  data-options="required:true,validType:'ynb'" style="height:50px"/>
+				    		<input type="text" name="countrybuilding.ynb" class="easyui-validatebox"  data-options="required:true,validType:'ynb'" style="height:31px"/>
 				    	</td>
 			    	</tr>
 			    	<tr>
@@ -380,46 +372,46 @@ function savelishi(){
 		    </form>
 	    </div>  
 	</div>
-	<div id="wins" class="easyui-window" title="基本信息变更" style="width:600px;height:400px"  
+	<div id="wins" class="easyui-window" title="基本信息变更" style="width:800px;height:450px"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFlowbg">
 		    	<input type="hidden" id="form_cid" name="country_flow.cid">
-			     <table border="1" style="margin-top: 54px;">
+			     <table  style="line-height: 88px;width: 100%;">
 			    	<tr>
 				    	<th>油路硬化（公里）</th>
 				    	<td>
-				    		<input type="text" name="countrybuilding.ylyh" value="" id="ylyh" style="height:50px"/>
+				    		<input type="text" name="countrybuilding.ylyh" value="" id="ylyh" style="height:31px"/>
 				    	</td>
 				    	<th>水泥硬化（公里）</th>
 				    	<td>
-				    		<input type="text" name="countrybuilding.snyh" value="" id="snyh"  style="height:50px"/>
+				    		<input type="text" name="countrybuilding.snyh" value="" id="snyh"  style="height:31px"/>
 				    	</td>
 			    	</tr>
 			    	<tr>
 				    	<th>砂砾石硬化（公里）</th>
 				    	<td>
-				    		<input type="text" name="countrybuilding.slsyh" value="" id="slsyh"  style="height:50px"/>
+				    		<input type="text" name="countrybuilding.slsyh" value="" id="slsyh"  style="height:31px"/>
 				    	</td>
 				    	<th>土路（公里）</th>
 				    	<td>
-				    		<input type="text" name="countrybuilding.cl" value="" id="cl"   style="height:50px"/>
+				    		<input type="text" name="countrybuilding.cl" value="" id="cl"   style="height:31px"/>
 				    	</td>
 			    	</tr>
 			    	<tr>
 				    	<th>桥梁（座）</th>
 				    	<td>
-				    		<input type="text" name="countrybuilding.ql" value="" id="ql"   style="height:50px"/>
+				    		<input type="text" name="countrybuilding.ql" value="" id="ql"   style="height:31px"/>
 				    	</td>
 				    	<th>清水坝（座）</th>
 				    	<td>
-				    		<input type="text" name="countrybuilding.qsb" value="" id="qsb"   style="height:50px"/>
+				    		<input type="text" name="countrybuilding.qsb" value="" id="qsb"   style="height:31px"/>
 				    	</td>
 			    	</tr>
 			    	<tr>
 				    	<th>淤地坝（座）</th>
 				    	<td>
-				    		<input type="text" name="countrybuilding.ynb" value="" id="ynb"   style="height:50px"/>
+				    		<input type="text" name="countrybuilding.ynb" value="" id="ynb"   style="height:31px"/>
 				    	</td>
 			    	</tr>
 			    	<tr>
