@@ -18,6 +18,9 @@ $(document).ready(function(){
 	    	 if($('#tt').tree("find",node.id).level==5){
 	    		 $("#cid").val(node.id);
 	    		 findFlowPerson("");
+	    		 $(".datagrid-wrap").attr("style","display:block");
+	    	 }else{
+	    		 $(".datagrid-wrap").attr("style","display:none");
 	    	 }
 		 }
 	 });
@@ -254,8 +257,15 @@ function saveaddVillage(){
    		 	$("#form_cid").val($("#cid").val());
         	if(!$(this).form("validate")){
         		$.messager.alert("提示信息", "部分数据格式错误");
+        		return false;
+        	}else{
+        		$.messager.confirm('提示信息', '新纪录将覆盖旧记录，确定继续?',function(r){
+        			if(!r){
+        				return false;
+        			}
+        		});
         	}
-            return $(this).form("validate");
+        	return true;
         },
         success: function (result) {
             if (result == "ok") {
@@ -411,9 +421,9 @@ function addFlowbg(){
 		return;
 	}else{
 		var cid = $("#cid").val();
-		var rowid = row[0].id;
+		var rowzw = row[0].zw;
 		var tabTop = "<c:url value='/json/countycommittee.json'/>";
-		var rowurl = "<c:url value='/findlishi.m?countrycommittee.id='/>"+rowid+"&countrycommittee.cid="+cid;
+		var rowurl = "<c:url value='/findlishi.m?countrycommittee.zw='/>"+rowzw+"&countrycommittee.cid="+cid;
 		var hidcolumns = "cid,id";//隐藏列字段名
 		var id = "id";//主键字段
 		var frozenColumns = [
@@ -544,12 +554,12 @@ function addFlowbg(){
 		        collapsible:false,//是否可折叠的 
 		        fit: true,//自动大小 
 		        url:rowurl, 
-		        remoteSort:false,  
-		        singleSelect:false,//是否单选 
-		        pagination:true,//分页控件 
-		        rownumbers:true,//行号 
+		        remoteSort: false,  
+		        singleSelect: true,//是否单选 
+		        pagination: true,//分页控件 
+		        rownumbers: true,//行号 
 		        selectOnCheck: true,//true勾选会选择行，false勾选不选择行, 1.3以后有此选项。重点在这里
-		        checkOnSelect:true,//选中行,不默认选中当前行的复选框
+		        checkOnSelect: true,//选中行,不默认选中当前行的复选框
 		        idField: id,
 		        frozenColumns:[frozenColumns], 
 		        onAfterEdit: function (rowIndex, rowData, changes) {

@@ -14,6 +14,6 @@ public interface ICommitteeDao {
 	String addCommittee(Country_committee countrycommittee);
 	public Map<String, Object> findOption();
 	List seachrecord(Country_committee countrycommittee);
-	List seachlishi(Country_committee countrycommittee);
+	PageBean_easyui seachlishi(Country_committee countrycommittee,PageBean_easyui pageBean);
 
 }

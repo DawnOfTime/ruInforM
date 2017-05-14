@@ -14,5 +14,5 @@ public interface ICommitteeSercvice {
 	public abstract PageBean_easyui seachCommittee(Country_committee flow,PageBean_easyui pageBean);
 	public	Map<String, Object> findOption();
 	public abstract List seachrecord(Country_committee countrycommittee);
-	public abstract List seachlishi(Country_committee countrycommittee);
+	public abstract PageBean_easyui seachlishi(Country_committee countrycommittee,PageBean_easyui pageBean);
 }

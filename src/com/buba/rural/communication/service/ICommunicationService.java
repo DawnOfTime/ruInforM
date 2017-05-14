@@ -7,7 +7,7 @@ import com.buba.rural.comm.PageBean_easyui;
 import com.buba.rural.pojo.Country_communication;
 
 public interface ICommunicationService {
-	public Country_communication querycommunication(Country_communication communication);
+	public List querycommunication(Country_communication communication);
 	public abstract String deleted(Country_communication[] country,Country_communication communication);
 	public abstract String updated(Country_communication[] country,Country_communication communication);
 	public abstract String addcommunication(Country_communication communication);

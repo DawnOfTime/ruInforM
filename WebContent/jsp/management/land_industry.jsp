@@ -62,26 +62,11 @@ function findFlowPerson(){
 	        selectOnCheck: true,//true勾选会选择行，false勾选不选择行, 1.3以后有此选项。重点在这里
 	        checkOnSelect:true,//选中行,不默认选中当前行的复选框
 	        idField: id,
-	        frozenColumns:[[{field:'ck',checkbox:true}]], 
 	        onAfterEdit: function (rowIndex, rowData, changes) {
 	            editRow = undefined;
 	        },onBeforeLoad:function(){			//在请求载入数据之前触发
 	        	if (editRow != undefined) {
 	            	datagrid.datagrid('endEdit', editRow);
-	            }
-	        },onDblClickRow:function (rowIndex, rowData) {
-	        	if (editRow != undefined) {
-	            	datagrid.datagrid('endEdit', editRow);
-	            }
-	            if (editRow == undefined) {
-	            	editRow=rowIndex;
-	            	datagrid.datagrid('beginEdit', rowIndex);
-	            	if(rowData.id!=""){
-	            		var cellEdit = datagrid.datagrid('getEditor', {index:rowIndex,field:'username'});
-						var $input = cellEdit.target; // 得到文本框对象
-						$input.attr('readonly',true); // 设值只读
-	            	}
-	                
 	            }
 	        },onClickRow:function(rowIndex,rowData){
 	            if (editRow != undefined) {
@@ -119,7 +104,12 @@ function findFlowPerson(){
 	});
 	}
 	function addFlowPerson(){
-		$("#win").window('open');
+		var p = $("#dg").datagrid("getRows").length;
+		if(p >=1){
+			$.messager.alert("提示信息", "信息已存在，不能进行添加。 ");
+		}else{
+			$("#win").window('open');
+		}
 		
 	}
 	function findWhere(){ 
@@ -210,12 +200,9 @@ function findFlowPerson(){
 	}
 //变更
 function savebg(){
-	var row = datagrid.datagrid('getChecked');
-	if(row.length<1){
-		$.messager.alert("提示", "请选择要变更的行！", "info");  
-		return;
-	}else if(row.length>1){
-		$.messager.alert("提示", "请选择单个要变更的行！", "info");  
+	var row = datagrid.datagrid('getRows');
+	 if(row < 1){
+		$.messager.alert("提示", "无要变更的信息！", "info");  
 		return;
 	}else{
 		var rowid = row[0].id;
@@ -233,12 +220,9 @@ var langdatagrid;
 var langeditRow = undefined;
 function searchHistory(){
 	var id = '';
-	var row = datagrid.datagrid('getChecked');
-	if(row.length<1){
-		$.messager.alert("提示", "请选择要查看的行！", "info");  
-		return;
-	}else if(row.length>1){
-		$.messager.alert("提示", "请选择单个要查看的行！", "info");  
+	var row = datagrid.datagrid('getRows');
+	if(row<1){
+		$.messager.alert("提示", "无要查看的信息！", "info");  
 		return;
 	}else{
 		id=row[0].id;
@@ -266,7 +250,6 @@ function searchHistory(){
 	        selectOnCheck: true,//true勾选会选择行，false勾选不选择行, 1.3以后有此选项。重点在这里
 	        checkOnSelect:true,//选中行,不默认选中当前行的复选框
 	        idField: id,
-	        frozenColumns:[[{field:'ck',checkbox:true}]], 
 	        onAfterEdit: function (rowIndex, rowData, changes) {
 	        	langeditRow = undefined;
 	        },onBeforeLoad:function(){			//在请求载入数据之前触发
@@ -320,7 +303,7 @@ function searchHistory(){
 	        afterPageText: '页    共 {pages} 页', 
 	        displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录'
 	    }); 
-	});
+	},"json");
 	$("#historywin").window('open');
 }
 </script>
@@ -342,14 +325,12 @@ function searchHistory(){
     	<!-- 表头 -->
     	<div id="searchtool" style="padding:5px;display:none;">
     		<a href="javascript:addFlowPerson()" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a>
-    		<a href="javascript:updateVillageWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">编辑</a>
     		<a href="javascript:savebg()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">变更</a>
-    		<a href="javascript:saveUpdatedland_industry()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a>
     		<a href="javascript:searchHistory()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">历史记录查询</a>
     		<input type="hidden" id="cid"><!-- 村id -->
 	    </div>
  </div>
- <div id="win" class="easyui-window" title="土地产业添加" style="width:600px;height:400px;display:none;"  
+ <div id="win" class="easyui-window" title="土地产业添加" style="width:600px;height:450px;display:none;"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFlowPerson">
@@ -358,101 +339,101 @@ function searchHistory(){
 		    		<tr>
 		    			<td>总土地面积(亩):</td>
 		    			<td>
-		    				<input type="text" name="land_industry.ztdmj" data-options="required:true,validType:'ztdmj'"/>
+		    				<input type="text" name="land_industry.ztdmj"/>
 		    			</td>
 		    			<td>种植面积(亩):</td>
 		    			<td>
-		    				<input type="text" name="land_industry.zzmj" data-options="required:true,validType:'zzmj'"/>
+		    				<input type="text" name="land_industry.zzmj"/>
 		    			</td>
 		    		</tr>
 		    		<tr class="juzhong">
 		    			<td>闲置面积(亩):</td>
 		    			<td>
-		    				<input type="text" name="land_industry.xzmj" data-options="required:true,validType:'xzmj'"/>
+		    				<input type="text" name="land_industry.xzmj" />
 		    			</td>
 		    			<td>规划使用面积(亩):</td>
 		    			<td>
-		    				<input type="text" name="land_industry.ghsymj" data-options="required:true,validType:'ghsymj'"/>
+		    				<input type="text" name="land_industry.ghsymj"/>
 		    			</td>
 		    		</tr>
 		    		<tr class="juzhong">
 		    			<td>林地面积(亩):</td>
 		    			<td>
-		    				<input type="text" name="land_industry.ldmj" data-options="required:true,validType:'ldmj'"/>
+		    				<input type="text" name="land_industry.ldmj"/>
 		    			</td>
 		    			<td>草地面积(亩):</td>
 		    			<td>
-		    				<input type="text" name="land_industry.cdmj" data-options="required:true,validType:'cdmj'"/>
+		    				<input type="text" name="land_industry.cdmj"/>
 		    			</td>
 		    		</tr>
 		    		<tr class="juzhong">
 		    			<td>住宅用地面积(亩):</td>
 		    			<td>
-		    				<input type="text" name="land_industry.zcydmj" data-options="required:true,validType:'zcydmj'"/>
+		    				<input type="text" name="land_industry.zcydmj"/>
 		    			</td>
 		    			<td>土地流转面积(亩):</td>
 		    			<td>
-		    				<input type="text" name="land_industry.tdlcmj" data-options="required:true,validType:'tdlcmj'"/>
+		    				<input type="text" name="land_industry.tdlcmj"/>
 		    			</td>
 		    		</tr>
 		    		<tr class="juzhong">
 		    			<td>种植业:</td>
 		    			<td>
-		    				<input type="text" name="land_industry.zzy" data-options="required:true,validType:'zzy'"/>
+		    				<input type="text" name="land_industry.zzy"/>
 		    			</td>
 		    			<td>养殖业:</td>
 		    			<td>
-		    				<input type="text" name="land_industry.yzy" data-options="required:true,validType:'yzy'"/>
+		    				<input type="text" name="land_industry.yzy"/>
 		    			</td>
 		    		</tr>
 		    		<tr class="juzhong">
 		    			<td>其他产业:</td>
 		    			<td>
-		    				<input type="text" name="land_industry.qtcy" data-options="required:true,validType:'qtcy'"/>
+		    				<input type="text" name="land_industry.qtcy" />
 		    			</td>
 		    			<td>现代农业:</td>
 		    			<td>
-		    				<input type="text" name="land_industry.xdny" data-options="required:true,validType:'xdny'"/>
+		    				<input type="text" name="land_industry.xdny"/>
 		    			</td>
 		    		</tr>
 		    		<tr class="juzhong">
 		    			<td>集体农家乐:</td>
 		    			<td>
-		    				<input type="text" name="land_industry.jnjl" data-options="required:true,validType:'jnjl'"/>
+		    				<input type="text" name="land_industry.jnjl"/>
 		    			</td>
 		    			<td>集体商店:</td>
 		    			<td>
-		    				<input type="text" name="land_industry.jsd" data-options="required:true,validType:'jsd'"/>
+		    				<input type="text" name="land_industry.jsd"/>
 		    			</td>
 		    		</tr>
 		    		<tr class="juzhong">
 		    			<td>集体加工企业:</td>
 		    			<td>
-		    				<input type="text" name="land_industry.jjgqy" data-options="required:true,validType:'jjgqy'"/>
+		    				<input type="text" name="land_industry.jjgqy"/>
 		    			</td>
 		    			<td>集体乡村旅店:</td>
 		    			<td>
-		    				<input type="text" name="land_industry.jxclg" data-options="required:true,validType:'jxclg'"/>
+		    				<input type="text" name="land_industry.jxclg"/>
 		    			</td>
 		    		</tr>
 		    		<tr class="juzhong">
 		    			<td>个体农家乐:</td>
 		    			<td>
-		    				<input type="text" name="land_industry.gnjl" data-options="required:true,validType:'gnjl'"/>
+		    				<input type="text" name="land_industry.gnjl"/>
 		    			</td>
 		    			<td>个体商店:</td>
 		    			<td>
-		    				<input type="text" name="land_industry.gsd" data-options="required:true,validType:'gsd'"/>
+		    				<input type="text" name="land_industry.gsd"/>
 		    			</td>
 		    		</tr>
 		    		<tr class="juzhong">
 		    			<td>个体加工企业:</td>
 		    			<td>
-		    				<input type="text" name="land_industry.gjgqy" data-options="required:true,validType:'gjgqy'"/>
+		    				<input type="text" name="land_industry.gjgqy"/>
 		    			</td>
 		    			<td>个体乡村旅店:</td>
 		    			<td>
-		    				<input type="text" name="land_industry.gxclg" data-options="required:true,validType:'gxclg'"/>
+		    				<input type="text" name="land_industry.gxclg"/>
 		    			</td>
 		    		</tr>
 		    		<tr>

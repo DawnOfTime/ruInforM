@@ -5,7 +5,7 @@
 <mapper namespace="com.buba.rural.mapper.Communication">
 	<!-- 查询数据 -->
 	<select id="queryList" resultType="Country_communication">
-		select *,max(operate_time) from country_communication where cid=#{cid} 
+		select * from country_communication where cid=#{cid} and operate_time= (select MAX(operate_time) from  country_communication)
 	</select>
 	<update id="updatecommunication">
 		update country_communication set 
@@ -56,11 +56,11 @@
 	</select>
 	<!-- 总记录数 -->
 	<select id="queryone" resultType="int" >
-		SELECT COUNT(*) from country_communication where id=#{communication.id}
+		SELECT COUNT(*) from country_communication where cid=#{communication.cid}
 	</select>
 	<!-- 历史记录 -->
 	<select id="querylishi" resultType="Country_communication" parameterType="java.util.HashMap">
-		SELECT * from country_communication WHERE id=#{communication.id} ORDER BY operate_time desc
+		SELECT * from country_communication WHERE cid=#{communication.cid} ORDER BY operate_time desc
 		limit #{pageBean.startNum},#{pageBean.pagesize}
 	</select>
 </mapper>

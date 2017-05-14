@@ -12,8 +12,8 @@ import com.buba.rural.pojo.Country_communication;
 public class CommunicationDaoImp extends SqlSessionDaoSupport implements ICommunicationDao {
 
 	@Override
-	public Country_communication querycommunication(Country_communication communication) {
-		return getSqlSession().selectOne("com.buba.rural.mapper.Communication.queryList",communication);
+	public List querycommunication(Country_communication communication) {
+		return getSqlSession().selectList("com.buba.rural.mapper.Communication.queryList",communication);
 	}
 	
 	@Override

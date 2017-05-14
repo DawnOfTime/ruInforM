@@ -1,10 +1,10 @@
 [
+    {"field":"zw","title":"职位","width":"100","align":"center","editor":{"type":"text"}},
 	{"field":"sex","title":"性别","width":"100","align":"center","editor":{"type":"text"}},
 	{"field":"whcd","title":"文化程度","width":"100","align":"center","editor":{"type":"text"}},
 	{"field":"birthday","title":"出生年月日","width":"100","align":"center","editor":{"type":"datebox"}},
 	{"field":"rxzsj","title":"入职时间","width":"150","align":"center","editor":{"type":"datebox"}},
 	{"field":"rznx","title":"离职时间","width":"150","align":"center","editor":{"type":"datebox"}},
-    {"field":"zw","title":"职位","width":"100","align":"center","editor":{"type":"text"}},
     {"field":"state","title":"状态","width":"100","align":"center","editor":{"type":"text"}},
 	{"field":"wyxm","title":"村党组织委员姓名","width":"150","editor": {
              "type": "validatebox",
@@ -17,7 +17,7 @@
         },
         "align":"center"
         },
-	{"field":"operate_time","title":"操作时间","width":"150","align":"center","editor":{"type":"text"}},
-	{"field":"operator","title":"操作人","width":"100","align":"center","editor":{"type":"text"}},
-	{"field":"cid","title":"村id","width":"100","align":"center","editor":{"type":"text"}}
+	{"field":"operate_time","title":"操作时间","width":"150","align":"center"},
+	{"field":"operator","title":"操作人","width":"100","align":"center"},
+	{"field":"cid","title":"村id","width":"100","align":"center"}
 ]

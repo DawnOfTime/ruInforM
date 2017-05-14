@@ -32,7 +32,7 @@ public class CommunicationAction {
  	
  	
  	public Country_communication queryCommunication() throws IOException{
-		Country_communication list = communicationService.querycommunication(communication);
+		List<Country_communication> list = (List<Country_communication>) communicationService.querycommunication(communication);
 		HttpServletResponse response=ServletActionContext.getResponse();
 		response.setContentType("text/html;charset=utf-8");
 		response.setHeader("Cache-Control", "no-cache");

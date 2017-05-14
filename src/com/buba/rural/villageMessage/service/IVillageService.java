@@ -12,6 +12,6 @@ public interface IVillageService {
 	public abstract String updated(Country_message[] country,Country_message countrymessage);
 	public abstract String addVillage(Country_message countrymessage);
 	public abstract List seachrecord(Country_message countrymessage);
-	public abstract List seachlishi(Country_message countrymessage);
+	public abstract PageBean_easyui seachlishi(Country_message countrymessage,PageBean_easyui pageBean);
 
 }

@@ -68,8 +68,8 @@ public class VillageServiceImpl implements IVillageService{
 		}
 		
 		@Override
-		public List seachlishi(Country_message countrymessage) {
-				return villageDao.seachlishi(countrymessage);
+		public PageBean_easyui seachlishi(Country_message countrymessage,PageBean_easyui pageBean) {
+				return villageDao.seachlishi(countrymessage,pageBean);
 		}
 		
 		public void setVillageDao(IVillageDao villageDao) {

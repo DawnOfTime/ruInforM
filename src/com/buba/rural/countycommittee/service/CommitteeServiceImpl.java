@@ -70,8 +70,8 @@ public class CommitteeServiceImpl implements ICommitteeSercvice{
 		return committeeDao.seachrecord(countrycommittee);
 	}
 	@Override
-	public List seachlishi(Country_committee countrycommittee) {
-		return committeeDao.seachlishi(countrycommittee);
+	public PageBean_easyui seachlishi(Country_committee countrycommittee,PageBean_easyui pageBean) {
+		return committeeDao.seachlishi(countrycommittee,pageBean);
 	}
 	
 	
