@@ -14,6 +14,9 @@ $(document).ready(function(){
 	$("#win").window({
 		closed: true
 	}); 
+	$("#wins").window({
+		closed: true
+	});
 	$("#historywin").window({
 		closed: true,
 		maximized: true
@@ -133,7 +136,7 @@ function findFlowPerson(){
 	    success: function (result) {
 	        if (result == "ok") {
 	            $.messager.alert("提示信息", "操作成功");
-	            $("#win").window("close");
+	            $("#wins").window("close");
 	    		findFlowPerson("");
 	            $("#addFlowPerson").form("clear");
 	        }
@@ -209,12 +212,29 @@ function savebg(){
 		$.post("<c:url value='/land_industry/searchLand_industry.m?land_industry.id='/>"+rowid,function(data){
 			var namestr = ['ztdmj','zzmj','xzmj','ghsymj','ldmj','cdmj','zcydmj','tdlcmj','zzy','yzy','qtcy','xdny','jnjl','jsd','jjgqy','jxclg','gnjl','gsd','gjgqy','gxclg'];
 			for (var i = 0; i < namestr.length; i++) {
-				$("input[name='land_industry."+namestr[i]+"']").val(data[namestr[i]]);
+				$("input[id='"+namestr[i]+"']").val(data[namestr[i]]);
 			}
-			$("#win").window('open');
+			$("#wins").window('open');
 		},"json");
 	}
 }
+function addFlowbg(){
+	var cid = $("#cid").val();
+	$("#addFlowbg").form("submit", {
+	    url: "<c:url value='/land_industry/addland_industry.m?land_industry.cid='/>"+cid,
+	    success: function (result) {
+	        if (result == "ok") {
+	            $.messager.alert("提示信息", "操作成功");
+	            $("#wins").window("close");
+	    		findFlowPerson("");
+	            $("#addFlowbg").form("clear");
+	        }
+	        else {
+	            $.messager.alert("提示信息", "操作失败");
+	        }
+        }
+    });
+}	
 //历史记录
 var langdatagrid;
 var langeditRow = undefined;
@@ -325,7 +345,7 @@ function searchHistory(){
     	<!-- 表头 -->
     	<div id="searchtool" style="padding:5px;display:none;">
     		<a href="javascript:addFlowPerson()" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a>
-    		<a href="javascript:savebg()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">变更</a>
+    		<a href="javascript:savebg()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">变更信息</a>
     		<a href="javascript:searchHistory()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">历史记录查询</a>
     		<input type="hidden" id="cid"><!-- 村id -->
 	    </div>
@@ -438,6 +458,119 @@ function searchHistory(){
 		    		</tr>
 		    		<tr>
 		    			<td colspan="4" class="baocun"><a href="javascript:saveaddCommunication()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a></td>
+		    		</tr>
+		    	</table>
+		    </form>
+	    </div>  
+	</div> 
+	<div id="wins" class="easyui-window" title="土地产业添加" style="width:600px;height:450px;display:none;"  
+         data-options="iconCls:'icon-save',modal:true">  
+	   <div class="easyui-layout" data-options="fit:true">  
+		    <form method="post" id="addFlowbg">
+		    	<input type="hidden" id="form_cid" name="country_flow.cid">
+		    	<table id="tables">
+		    		<tr>
+		    			<td>总土地面积(亩):</td>
+		    			<td>
+		    				<input type="text" name="land_industry.ztdmj" id="ztdmj"/>
+		    			</td>
+		    			<td>种植面积(亩):</td>
+		    			<td>
+		    				<input type="text" name="land_industry.zzmj" id="zzmj"/>
+		    			</td>
+		    		</tr>
+		    		<tr class="juzhong">
+		    			<td>闲置面积(亩):</td>
+		    			<td>
+		    				<input type="text" name="land_industry.xzmj"  id="xzmj"/>
+		    			</td>
+		    			<td>规划使用面积(亩):</td>
+		    			<td>
+		    				<input type="text" name="land_industry.ghsymj" id="ghsymj"/>
+		    			</td>
+		    		</tr>
+		    		<tr class="juzhong">
+		    			<td>林地面积(亩):</td>
+		    			<td>
+		    				<input type="text" name="land_industry.ldmj" id="ldmj"/>
+		    			</td>
+		    			<td>草地面积(亩):</td>
+		    			<td>
+		    				<input type="text" name="land_industry.cdmj" id="cdmj"/>
+		    			</td>
+		    		</tr>
+		    		<tr class="juzhong">
+		    			<td>住宅用地面积(亩):</td>
+		    			<td>
+		    				<input type="text" name="land_industry.zcydmj" id="zcydmj"/>
+		    			</td>
+		    			<td>土地流转面积(亩):</td>
+		    			<td>
+		    				<input type="text" name="land_industry.tdlcmj" id="tdlcmj"/>
+		    			</td>
+		    		</tr>
+		    		<tr class="juzhong">
+		    			<td>种植业:</td>
+		    			<td>
+		    				<input type="text" name="land_industry.zzy" id="zzy"/>
+		    			</td>
+		    			<td>养殖业:</td>
+		    			<td>
+		    				<input type="text" name="land_industry.yzy" id="yzy"/>
+		    			</td>
+		    		</tr>
+		    		<tr class="juzhong">
+		    			<td>其他产业:</td>
+		    			<td>
+		    				<input type="text" name="land_industry.qtcy"  id="qtcy"/>
+		    			</td>
+		    			<td>现代农业:</td>
+		    			<td>
+		    				<input type="text" name="land_industry.xdny" id="xdny"/>
+		    			</td>
+		    		</tr>
+		    		<tr class="juzhong">
+		    			<td>集体农家乐:</td>
+		    			<td>
+		    				<input type="text" name="land_industry.jnjl" id="jnjl"/>
+		    			</td>
+		    			<td>集体商店:</td>
+		    			<td>
+		    				<input type="text" name="land_industry.jsd" id="jsd"/>
+		    			</td>
+		    		</tr>
+		    		<tr class="juzhong">
+		    			<td>集体加工企业:</td>
+		    			<td>
+		    				<input type="text" name="land_industry.jjgqy" id="jjgqy"/>
+		    			</td>
+		    			<td>集体乡村旅店:</td>
+		    			<td>
+		    				<input type="text" name="land_industry.jxclg" id="jxclg"/>
+		    			</td>
+		    		</tr>
+		    		<tr class="juzhong">
+		    			<td>个体农家乐:</td>
+		    			<td>
+		    				<input type="text" name="land_industry.gnjl" id="gnjl"/>
+		    			</td>
+		    			<td>个体商店:</td>
+		    			<td>
+		    				<input type="text" name="land_industry.gsd" id="gsd"/>
+		    			</td>
+		    		</tr>
+		    		<tr class="juzhong">
+		    			<td>个体加工企业:</td>
+		    			<td>
+		    				<input type="text" name="land_industry.gjgqy" id="gjgqy"/>
+		    			</td>
+		    			<td>个体乡村旅店:</td>
+		    			<td>
+		    				<input type="text" name="land_industry.gxclg" id="gxclg"/>
+		    			</td>
+		    		</tr>
+		    		<tr>
+		    			<td colspan="4" class="baocun"><a href="javascript:addFlowbg()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a></td>
 		    		</tr>
 		    	</table>
 		    </form>

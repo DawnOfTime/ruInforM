@@ -5,7 +5,7 @@
 <mapper namespace="com.buba.rural.mapper.land_industry">
 	<!-- 查询数据 -->
 	<select id="queryList" resultType="Land_industry" >
-		select * from land_industry where cid=#{cid} and operate_time= (select MAX(operate_time) from  land_industry)
+		select * from land_industry where operate_time= (select MAX(operate_time) from  land_industry where cid=#{cid})
 	</select>
 	
 	<update id="updateland_industry">
