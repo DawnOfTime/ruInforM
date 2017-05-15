@@ -18,11 +18,17 @@ public class FinanceServiceImpl implements IFinanceService{
 	private IVersionRecordUtil vrUtil;
 	private IFinanceDao financeDao;
 	
-	@Override
+	/*@Override
 	public PageBean_easyui seachFinance(Country_group_finance groupfinance,PageBean_easyui pageBean) {
 		return financeDao.seachFinance(groupfinance, pageBean);
+	}*/
+
+	@Override
+	public List seachFinance(Country_group_finance groupfinance) {
+		return financeDao.seachFinance(groupfinance);
 	}
 
+	
 	@Override
 	public String deleted(Country_group_finance[] country,Country_group_finance groupfinance) {
 		return financeDao.deleted(country);
@@ -75,12 +81,12 @@ public class FinanceServiceImpl implements IFinanceService{
 		return financeDao.seachrecord(groupfinance);
 	}
 
+	
 	@Override
-	public List seachlishi(Country_group_finance groupfinance) {
-		return financeDao.seachlishi(groupfinance);
+	public PageBean_easyui seachlishi(Country_group_finance groupfinance,PageBean_easyui pageBean) {
+		return financeDao.seachlishi(groupfinance, pageBean);
 	}
-	
-	
+
 	
 	public void setFinanceDao(IFinanceDao financeDao) {
 		this.financeDao = financeDao;
@@ -89,6 +95,5 @@ public class FinanceServiceImpl implements IFinanceService{
 	public void setVrUtil(IVersionRecordUtil vrUtil) {
 		this.vrUtil = vrUtil;
 	}
-
 	
 }

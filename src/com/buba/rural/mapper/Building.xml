@@ -7,7 +7,7 @@
  
 	<!-- 查询数据 -->
 	<select id="querybuilding" resultType="Country_building">
-		select *,max(operate_time) from country_building where cid=#{cid}
+		select * from country_building where cid=#{cid} and operate_time= (select MAX(operate_time) from  country_building)  
 	</select>
 	
 	 	
@@ -18,11 +18,11 @@
 	
 	<!-- 总记录数 -->
 	 <select id="queryCount" resultType="int">
-		SELECT COUNT(*) from country_building where id=#{countrybuilding.id}
+		SELECT COUNT(*) from country_building where cid=#{countrybuilding.cid}
 	</select>
 	<!-- 历史记录 -->
 	<select id="queryList" resultType="Country_building" parameterType="java.util.Map">
-		SELECT * from country_building   where id=#{countrybuilding.id} ORDER BY operate_time desc
+		SELECT * from country_building where cid=#{countrybuilding.cid} ORDER BY operate_time desc
  		limit #{pageBean.startNum},#{pageBean.pagesize}
 	</select>
 	

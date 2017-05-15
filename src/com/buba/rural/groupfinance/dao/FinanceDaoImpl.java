@@ -11,7 +11,7 @@ import com.buba.rural.pojo.Country_group_finance;
 
 public class FinanceDaoImpl extends SqlSessionDaoSupport implements IFinanceDao{
 
-	@Override
+	/*@Override
 	public PageBean_easyui seachFinance(Country_group_finance groupfinance,PageBean_easyui pageBean) {
 		Map map = new HashMap();
 		map.put("groupfinance", groupfinance);
@@ -21,6 +21,11 @@ public class FinanceDaoImpl extends SqlSessionDaoSupport implements IFinanceDao{
 		//查询记录
 		pageBean.setBeanList(getSqlSession().selectList("com.buba.rural.pojo.Finance.queryList",map));
 		return pageBean;
+	}*/
+	
+	
+	public List seachFinance(Country_group_finance groupfinance){
+		return getSqlSession().selectList("com.buba.rural.pojo.Finance.queryFinance", groupfinance);
 	}
 
 	@Override
@@ -66,7 +71,17 @@ public class FinanceDaoImpl extends SqlSessionDaoSupport implements IFinanceDao{
 	}
 
 	@Override
-	public List seachlishi(Country_group_finance groupfinance) {
-		return getSqlSession().selectList("com.buba.rural.pojo.Finance.querylishi",groupfinance);
+	public PageBean_easyui seachlishi(Country_group_finance groupfinance,PageBean_easyui pageBean) {
+		Map map = new HashMap();
+		map.put("groupfinance", groupfinance);
+		map.put("pageBean", pageBean);
+		//获取总记录数，
+		pageBean.setTotalrecord(getSqlSession().selectOne("com.buba.rural.pojo.Finance.querylis",map));
+		//查询记录
+		pageBean.setBeanList(getSqlSession().selectList("com.buba.rural.pojo.Finance.queryList",map));
+		return pageBean;
 	}
+
+
+	
 }

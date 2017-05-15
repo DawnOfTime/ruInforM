@@ -12,7 +12,7 @@ import com.buba.rural.pojo.Country_poverty;
 
 public class PovertyDaoImpl  extends SqlSessionDaoSupport implements IPovertyDao{
 	
-	@Override
+	/*@Override
 	public PageBean_easyui seachPoverty(Country_poverty countrypoverty,PageBean_easyui pageBean) {
 		Map map = new HashMap();
 		map.put("countrypoverty", countrypoverty);
@@ -23,6 +23,13 @@ public class PovertyDaoImpl  extends SqlSessionDaoSupport implements IPovertyDao
 		pageBean.setBeanList(getSqlSession().selectList("com.buba.rural.pojo.CountyPoverty.queryList",map));
 		//getSqlSession().selectList("com.buba.rural.pojo.FamilyMessage.findFamilyMessage",familyMessage)
 		return pageBean;
+	}*/
+	
+	
+
+	@Override
+	public List seachPoverty(Country_poverty countrypoverty) {
+		return getSqlSession().selectList("com.buba.rural.pojo.CountyPoverty.queryPoverty", countrypoverty);
 	}
 
 	@Override
@@ -61,7 +68,16 @@ public class PovertyDaoImpl  extends SqlSessionDaoSupport implements IPovertyDao
 		}
 
 	@Override
-	public List seachlishi(Country_poverty countrypoverty) {
-			return getSqlSession().selectList("com.buba.rural.pojo.CountyPoverty.querylishi",countrypoverty);
+	public PageBean_easyui seachlishi(Country_poverty countrypoverty,PageBean_easyui pageBean) {
+		Map map = new HashMap();
+		map.put("countrypoverty", countrypoverty);
+		map.put("pageBean", pageBean);
+		//获取总记录数，
+		pageBean.setTotalrecord(getSqlSession().selectOne("com.buba.rural.pojo.CountyPoverty.queryls",map));
+		//查询记录
+		pageBean.setBeanList(getSqlSession().selectList("com.buba.rural.pojo.CountyPoverty.queryList",map));
+		//getSqlSession().selectList("com.buba.rural.pojo.FamilyMessage.findFamilyMessage",familyMessage)
+		return pageBean;
 	}
+
 }

@@ -43,7 +43,7 @@ $(document).ready(function(){
 function findPoverty(povertyName){
 	var cid = $("#cid").val();
 	var tabTop = "<c:url value='/json/countypoverty.json'/>";
-	var rowurl = "<c:url value='/seachPoverty.m?cid='/>"+cid+povertyName;
+	var rowurl = "<c:url value='/seachPoverty.m?countrypoverty.cid='/>"+cid;
 	var newRow = "{\"id\":\"\",\"is_pkc\":\"\",\"pk_number\":\"\",\"tpcs\":\"\",\"is_ymbq\":\"\",\"jcrzbqhs\":\"\"，\"ytczbqhs\":\"\",\"xjczbqhs\":\"\",\"kqyazbqhs\":\"\",\"zpdysjname\":\"\",\"zpdysjpcdwjzw\":\"\",\"zpdysjphonenumber\":\"\",\"fpdzxm\":\"\",\"fpdzpcdwjzw\":\"\",\"fpdzphonenumber\":\"\",\"cid\":\"\"}";
 	var hidcolumns = "id,cid";//隐藏列字段名
 	var id = "id";//主键字段名
@@ -124,7 +124,7 @@ function findPoverty(povertyName){
 	        selectOnCheck: true,//true勾选会选择行，false勾选不选择行, 1.3以后有此选项。重点在这里
 	        checkOnSelect:true,//选中行,不默认选中当前行的复选框
 	        idField: id,
-	        frozenColumns:[[{field:'ck',checkbox:true}]], 
+	        /* frozenColumns:[[{field:'ck',checkbox:true}]],  */
 	        onAfterEdit: function (rowIndex, rowData, changes) {
 	            editRow = undefined;
 	        },onBeforeLoad:function(){			//在请求载入数据之前触发
@@ -176,7 +176,12 @@ function findPoverty(povertyName){
 	});
 }
 function addPoverty(){
+	var p = datagrid.datagrid("getRows"); 
+	if(p >= 1){
+		$.messager.alert("提示信息", "信息已存在，不能进行添加。 ");
+	}else{
 		$("#win").window('open');
+	} 
 }
 function saveaddPoverty(){
 	var cid = $("#cid").val();
@@ -257,12 +262,9 @@ function updateWhere(){
 
 //变更
 function savebg(){
-	var row = datagrid.datagrid('getChecked');
-	if(row.length<1){
-		$.messager.alert("提示", "请选择要变更的行！", "info");  
-		return;
-	}else if(row.length>1){
-		$.messager.alert("提示", "请选择单个要变更的行！", "info");  
+	var row = datagrid.datagrid('getRows');
+	 if(row < 1){
+		$.messager.alert("提示", "无要变更的信息！", "info");  
 		return;
 	}else{
 		var rowid = row[0].id;
@@ -310,18 +312,14 @@ function addFlowbg(){
 var commdatagrid;
 var commeditRow = undefined;
 function savelishi(){
-	var row = datagrid.datagrid('getChecked');
-	if(row.length<1){
-		$.messager.alert("提示", "请选择要变更的行！", "info");  
-		return;
-	}else if(row.length>1){
-		$.messager.alert("提示", "请选择单个要变更的行！", "info");  
+	var row = datagrid.datagrid('getRows');
+	 if(row < 1){
+		$.messager.alert("提示", "无要变更的信息！", "info");  
 		return;
 	}else{
 		var cid = $("#cid").val();
-		var rowid = row[0].id;
 		var tabTop = "<c:url value='/json/countypoverty.json'/>";
-		var rowurl = "<c:url value='/povertylishi.m?countrypoverty.id='/>"+rowid+"&countrypoverty.cid="+cid;
+		var rowurl = "<c:url value='/povertylishi.m?countrypoverty.cid='/>"+cid;
 		var newRow = "{\"id\":\"\",\"is_pkc\":\"\",\"pk_number\":\"\",\"tpcs\":\"\",\"is_ymbq\":\"\",\"jcrzbqhs\":\"\"，\"ytczbqhs\":\"\",\"xjczbqhs\":\"\",\"kqyazbqhs\":\"\",\"zpdysjname\":\"\",\"zpdysjpcdwjzw\":\"\",\"zpdysjphonenumber\":\"\",\"fpdzxm\":\"\",\"fpdzpcdwjzw\":\"\",\"fpdzphonenumber\":\"\",\"cid\":\"\"}";
 		var hidcolumns = "cid,id";//隐藏列字段名
 		var id = "id";//主键字段
@@ -426,6 +424,15 @@ function savelishi(){
 					commdatagrid.datagrid("hideColumn",columns[i]);//隐藏指定的列
 				}
 			}
+			//设置分页控件 
+		    var p = $('#lis').datagrid('getPager'); 
+		    $(p).pagination({ 
+		        pageSize: 10,//每页显示的记录条数，默认为10 
+		        pageList: [5,10,15],//可以设置每页记录条数的列表 
+		        beforePageText: '第',//页数文本框前显示的汉字 
+		        afterPageText: '页    共 {pages} 页', 
+		        displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录'
+		    }); 
 		});
 		  $("#lishi").window('open');
 	}
@@ -440,9 +447,9 @@ function savelishi(){
     	<table id="poverty" toolbar="#searchtool"></table>
     	<div id="searchtool" style="padding:5px;display:none;">
     		<a href="javascript:addPoverty()" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a>
-    		<a href="javascript:updateWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">编辑</a>
+    		<!-- <a href="javascript:updateWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">编辑</a> -->
     		<a href="javascript:savebg()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">变更信息</a>
-    		<a href="javascript:saveUpdatedPoverty()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a>
+    		<!-- <a href="javascript:saveUpdatedPoverty()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a> -->
     		<a href="javascript:savelishi()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">历史记录查询</a>
     		<input type="hidden" id="cid"><!-- 村id -->&nbsp;&nbsp;&nbsp;
 	    </div>
@@ -456,16 +463,16 @@ function savelishi(){
 	    </div>  
 	</div>
     
-    <div id="win" class="easyui-window" title="基本信息添加" style="width:700px;height:450px;display:none;"  
+    <div id="win" class="easyui-window" title="基本信息添加" style="width:850px;height:450px;display:none;"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addPoverty">
 		    	<input type="hidden" id="form_cid" name="country_flow.cid">
-			    <table border="1" >
+			    <table style="line-height: 50px;width:100%">
 			    	<tr>
 				    	<th>是否为贫困村</th>
 				    	<td>
-				    		<select name="countrypoverty.is_pkc"  class="easyui-validatebox" data-options="required:true">
+				    		<select name="countrypoverty.is_pkc"  class="easyui-validatebox" data-options="required:true" style="height: 39px;width: 147px;text-align: center;">
 				    			<option value="0">--请选择--</option>
 				    			<option value="1">是</option>
 				    			<option value="2">否</option>
@@ -483,7 +490,7 @@ function savelishi(){
 				    	</td>
 				    	<th>是否移民搬迁</th>
 				    	<td>
-				    		<select name="countrypoverty.is_ymbq"   class="easyui-validatebox" data-options="required:true">
+				    		<select name="countrypoverty.is_ymbq"   class="easyui-validatebox" data-options="required:true" style="height: 39px;width: 147px;text-align: center;">
 				    			<option value="0">--请选择--</option>
 				    			<option value="1">是</option>
 				    			<option value="2">否</option>
@@ -543,16 +550,16 @@ function savelishi(){
 		    </form>
 	    </div>  
 	</div>
-	<div id="wins" class="easyui-window" title="基本信息变更" style="width:700px;height:450px;display:none;"  
+	<div id="wins" class="easyui-window" title="基本信息变更" style="width:850px;height:450px;display:none;"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFlowbg">
 		    	<input type="hidden" id="form_cid" name="country_flow.cid">
-		    	 <table border="1" >
+		    	 <table style="line-height: 50px;width:100%">
 			    	<tr>
 				    	<th>是否为贫困村</th>
 				    	<td>
-				    		<select name="countrypoverty.is_pkc" id="is_pkc">
+				    		<select name="countrypoverty.is_pkc" id="is_pkc" style="height: 39px;width: 147px;text-align: center;">
 				    			<!-- <option value="0">--请选择--</option>
 				    			<option value="1">是</option>
 				    			<option value="2">否</option> -->
@@ -570,7 +577,7 @@ function savelishi(){
 				    	</td>
 				    	<th>是否移民搬迁</th>
 				    	<td>
-				    		<select name="countrypoverty.is_ymbq"   id="is_ymbq">
+				    		<select name="countrypoverty.is_ymbq"   id="is_ymbq" style="height: 39px;width: 147px;text-align: center;">
 				    			<!-- <option value="0">--请选择--</option>
 				    			<option value="1">是</option>
 				    			<option value="2">否</option> -->

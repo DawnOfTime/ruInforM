@@ -12,7 +12,7 @@ import com.buba.rural.pojo.Country_building;
 public class BuildingDaoImpl extends SqlSessionDaoSupport implements IBuildingDao{
 
 	@Override
-	public Country_building seachbuilding(Country_building countrybuilding) {
+	public List seachbuilding(Country_building countrybuilding) {
 		/*Map map = new HashMap();
 		map.put("countrybuilding", countrybuilding);
 		map.put("pageBean", pageBean);
@@ -21,7 +21,7 @@ public class BuildingDaoImpl extends SqlSessionDaoSupport implements IBuildingDa
 		//查询记录
 		pageBean.setBeanList(getSqlSession().selectList("com.buba.rural.mapper.Building.queryList",map));
 		//getSqlSession().selectList("com.buba.rural.pojo.FamilyMessage.findFamilyMessage",familyMessage)
-*/		return getSqlSession().selectOne("com.buba.rural.mapper.Building.querybuilding", countrybuilding);
+*/		return getSqlSession().selectList("com.buba.rural.mapper.Building.querybuilding", countrybuilding);
 	}
 
 	@Override

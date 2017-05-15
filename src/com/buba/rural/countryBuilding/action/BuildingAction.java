@@ -62,7 +62,7 @@ public class BuildingAction {
 		}*/
 		
 		public Country_building searchbuilding() throws IOException{
-			Country_building building = buildingService.searchbuilding(countrybuilding);
+			List<Country_building> building = buildingService.searchbuilding(countrybuilding);
 			HttpServletResponse response=ServletActionContext.getResponse();
 			response.setContentType("text/html;charset=utf-8");
 			response.setHeader("Cache-Control", "no-cache");

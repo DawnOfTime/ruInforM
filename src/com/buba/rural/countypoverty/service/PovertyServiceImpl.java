@@ -17,9 +17,18 @@ public class PovertyServiceImpl implements IPovertyService{
 	private IPovertyDao povertyDao;
 	private IVersionRecordUtil vrUtil;
 	
-	public PageBean_easyui seachPoverty(Country_poverty flow, PageBean_easyui pageBean) {
+/*	public PageBean_easyui seachPoverty(Country_poverty flow, PageBean_easyui pageBean) {
 		return povertyDao.seachPoverty(flow,pageBean);
+	}*/
+	
+	@Override
+	public List seachPoverty(Country_poverty countrypoverty) {
+		return povertyDao.seachPoverty(countrypoverty);
 	}
+	
+	
+	
+	
 	public String deleted(Country_poverty[] country,Country_poverty countrypoverty) {
 		return povertyDao.deleted(country);
 	}
@@ -61,8 +70,8 @@ public class PovertyServiceImpl implements IPovertyService{
 		return povertyDao.seachrecord(countrypoverty);
 	}
 	@Override
-	public List seachlishi(Country_poverty countrypoverty) {
-		return  povertyDao.seachlishi(countrypoverty);
+	public PageBean_easyui seachlishi(Country_poverty countrypoverty, PageBean_easyui pageBean) {
+		return povertyDao.seachlishi(countrypoverty,pageBean);
 	}
 	
 	public void setPovertyDao(IPovertyDao povertyDao) {
@@ -71,6 +80,5 @@ public class PovertyServiceImpl implements IPovertyService{
 	public void setVrUtil(IVersionRecordUtil vrUtil) {
 		this.vrUtil = vrUtil;
 	}
-	
 	
 }
