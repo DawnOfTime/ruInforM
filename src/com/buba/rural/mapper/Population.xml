@@ -10,11 +10,14 @@
 			<if test="person_message.xb!=null and person_message.xb!=''">
 				and person_message.xb = #{person_message.xb}
 			</if>
-			<if test="person_message.csrq!=null and person_message.csrq!=''">
+			<!-- <if test="person_message.csrq!=null and person_message.csrq!=''">
 				and person_message.csrq <![CDATA[<]]> #{person_message.csrq}
 			</if>
 			<if test="person_message.csrq1!=null and person_message.csrq1!=''">
-				and person_message.csrq1 <![CDATA[>]]> #{person_message.csrq1}
+				and person_message.csrq <![CDATA[>]]> #{person_message.csrq1}
+			</if> -->
+			<if test="person_message.csrq!=null and person_message.csrq!='' and person_message.csrq1!=null and person_message.csrq1!=''">
+				and person_message.csrq between #{person_message.csrq} and #{person_message.csrq1}
 			</if>
 			<if test="person_message.zzmm!=null and person_message.zzmm!=''">
 				and person_message.zzmm = #{person_message.zzmm}
