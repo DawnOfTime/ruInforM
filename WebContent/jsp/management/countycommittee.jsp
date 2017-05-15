@@ -638,7 +638,7 @@ function addFlowbg(){
 				    	</td>
 				    	<th>性别</th>
 				    	<td>
-						    <select name="countrycommittee.sex" style="height:40px">
+						    <select name="countrycommittee.sex" style="height:40px;width: 137px;text-align: center;">
 						    	<option value="">-请选择-</option>
 						    	<option value="1">男</option>
 						    	<option value="0">女</option>
@@ -652,7 +652,7 @@ function addFlowbg(){
 				    	</td>
 				    	<th>文化程度</th>
 				    	<td>
-				    		<select name="countrycommittee.whcd" style="height:40px">
+				    		<select name="countrycommittee.whcd" style="height:40px;width: 137px;text-align: center;">
 				    			<option value="">-请选择-</option>
 				    			<option value="0">文盲</option>
 				    			<option value="1">小学</option>
@@ -685,7 +685,7 @@ function addFlowbg(){
 			    	<tr>
 				    	<th>状态</th>
 			    		<td>
-			    			<select name="countrycommittee.state" style="height:40px">
+			    			<select name="countrycommittee.state" style="height:40px;width: 137px;text-align: center;">
 			    				<option value="">-请选择-</option>
 			    				<option value="1">在职</option>
 			    				<option value="2">离职</option>
@@ -694,7 +694,7 @@ function addFlowbg(){
 			    		<th>职位</th>
 				    	<td>
 				    		<!-- <input type="text" name="countrycommittee.zw" data-options="required:true,validType:'zw'" style="height:40px"/> -->
-				    		<select name="countrycommittee.zw" style="height:40px">
+				    		<select name="countrycommittee.zw" style="height:40px;width: 137px;text-align: center;">
 				    			<option value="">-请选择-</option>
 				    			<option value="1">党委</option>
 				    			<option value="2">村委</option>
@@ -723,7 +723,7 @@ function addFlowbg(){
 				    	</td>
 				    	<th>性别</th>
 				    	<td>
-						    <select name="countrycommittee.sex"  id="sex" style="height:40px">
+						    <select name="countrycommittee.sex"  id="sex" style="height:40px;width: 137px;text-align: center;">
 						    	<!-- <option value="">-请选择-</option>
 						    	<option value="1">男</option>
 						    	<option value="2">女</option> -->
@@ -738,7 +738,7 @@ function addFlowbg(){
 				    	</td>
 				    	<th>文化程度</th>
 				    	<td>
-				    		<select name="countrycommittee.whcd" id="whcd" style="height:40px">
+				    		<select name="countrycommittee.whcd" id="whcd" style="height:40px;width: 137px;text-align: center;">
 				    			<!-- <option value="">-请选择-</option>
 				    			<option value="0">文盲</option>
 				    			<option value="1">小学</option>
@@ -771,7 +771,7 @@ function addFlowbg(){
 			    	<tr>
 				    	<th>状态</th>
 			    		<td>
-			    			<select name="countrycommittee.state" id="state" style="height:40px">
+			    			<select name="countrycommittee.state" id="state" style="height:40px;width: 137px;text-align: center;">
 			    				<!-- <option value="">-请选择-</option>
 			    				<option value="0">在职</option>
 			    				<option value="1">离职</option> -->
@@ -780,7 +780,7 @@ function addFlowbg(){
 			    		<th>职位</th>
 				    	<td>
 				    		<!-- <input type="text" name="countrycommittee.zw" value="" id="zw" style="height:40px"/> -->
-				    		<select name="countrycommittee.zw" id="zw"  style="height:40px">
+				    		<select name="countrycommittee.zw" id="zw"  style="height:40px;width: 137px;text-align: center;">
 				    		</select>
 				    	</td>
 			    	</tr>
