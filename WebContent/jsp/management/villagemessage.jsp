@@ -342,14 +342,14 @@ function lishiVillage(){
 	    </div>
     </div>
     
-    <div id="lishi" class="easyui-window" title="历史记录" style="width:600px;height:400px"  
+    <div id="lishi" class="easyui-window" title="历史记录" style="width:600px;height:400px;display:none;"  
         data-options="iconCls:'icon-save',modal:true">  
 	    <div class="easyui-layout" data-options="fit:true">  
 		    <table id="ls" toolbar="#seach"></table>
 	    </div>  
 	</div>
 	
-    <div id="win" class="easyui-window" title="基本信息添加" style="width:800px;height:450px"  
+    <div id="win" class="easyui-window" title="基本信息添加" style="width:800px;height:450px;display:none;"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFlowPerson">
@@ -399,7 +399,7 @@ function lishiVillage(){
 		    </form>
 	    </div>  
 	</div>
-	<div id="wins" class="easyui-window" title="基本信息变更" style="width:800px;height:450px"  
+	<div id="wins" class="easyui-window" title="基本信息变更" style="width:800px;height:450px;display:none;"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFlowbg">

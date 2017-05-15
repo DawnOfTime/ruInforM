@@ -454,7 +454,7 @@ function savelishi(){
     </div>
     
     
-     <div id="lishi" class="easyui-window" title="历史记录" style="width:600px;height:400px"  
+     <div id="lishi" class="easyui-window" title="历史记录" style="width:600px;height:400px;display:none;"  
         data-options="iconCls:'icon-save',modal:true">  
 	    <div class="easyui-layout" data-options="fit:true">  
 		    <table id="lis" toolbar="#seach"></table>
