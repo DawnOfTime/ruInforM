@@ -72,7 +72,7 @@ public class MessageAction {
 	 * @return
 	 * @throws IOException
 	 */
-	public String findFamilyMessages() throws IOException{
+/*	public String findFamilyMessages() throws IOException{
 		HttpServletRequest request=ServletActionContext.getRequest();
 		HttpServletResponse response=ServletActionContext.getResponse();
 		//当前页  
@@ -104,7 +104,7 @@ public class MessageAction {
 		out.write(JSONObject.fromObject(jsonMap)+"");
 		out.close();
 		return null;
-	}
+	}*/
 	/**
 	 * 获取该村的所有户【分页】
 	 * @return
@@ -113,6 +113,19 @@ public class MessageAction {
 	public String findFamilyMessage() throws IOException{
 		HttpServletRequest request=ServletActionContext.getRequest();
 		HttpServletResponse response=ServletActionContext.getResponse();
+		String hzxm = request.getParameter("hzxm");
+		String hjd = request.getParameter("hjd");
+		String xjdz = request.getParameter("xjdz");
+		FamilyMessage flow = new FamilyMessage();
+		if(null!=hzxm && !hzxm.equals("")){
+			flow.setHzxm("%"+URLDecoder.decode(hzxm, "utf-8")+"%");
+		}
+		if(null!=hjd && !hjd.equals("")){
+			flow.setHjd("%"+URLDecoder.decode(hjd, "utf-8")+"%");
+		}
+		if(null!=xjdz && !xjdz.equals("")){
+			flow.setXjdz("%"+URLDecoder.decode(xjdz, "utf-8")+"%");
+		}
 		//当前页  
         int intPage = Integer.parseInt((page == null || page == "0") ? "1":page);  
         //每页显示条数  
@@ -128,12 +141,21 @@ public class MessageAction {
 		String pattern = "";
 		String getpar = HttpUtil.getParameterUrl(request.getParameterMap(),request,pattern);
 		pageBean.setUrl(getpar);
-		//按户主姓名查询
-		if(null!=familyMessage.getHzxm() && !familyMessage.getHzxm().equals("")){
-			familyMessage.setHzxm("%"+URLDecoder.decode(familyMessage.getHzxm(), "utf-8")+"%");
-		}
 		
-		pageBean = tMessageService.findFamilyMessage(familyMessage,pageBean,countrys);
+		/*//按户主姓名查询
+		if(null!=familyMessage){
+			if(null!=familyMessage.getHzxm() && !familyMessage.getHzxm().equals("")){
+				familyMessage.setHzxm("%"+URLDecoder.decode(familyMessage.getHzxm(), "utf-8")+"%");
+			}
+			if(null!=familyMessage.getHjd() && !familyMessage.getHjd().equals("")){
+				familyMessage.setHjd("%"+URLDecoder.decode(familyMessage.getHjd(), "utf-8")+"%");
+			}
+			if(null!=familyMessage.getXjdz() && !familyMessage.getXjdz().equals("")){
+				familyMessage.setXjdz("%"+URLDecoder.decode(familyMessage.getXjdz(), "utf-8")+"%");
+			}
+		}*/
+		
+		pageBean = tMessageService.findFamilyMessage(flow,pageBean,countrys);
 		Map<String, Object> jsonMap = new HashMap<String, Object>();//定义map 
 		jsonMap.put("total", pageBean.getTotalrecord());//total键 存放总记录数，必须的  
         jsonMap.put("rows", pageBean.getBeanList());//rows键 存放每页记录 list  

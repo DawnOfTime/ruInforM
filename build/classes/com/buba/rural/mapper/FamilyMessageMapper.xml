@@ -9,6 +9,16 @@
 			and	hzxm like #{familyMessage.hzxm} 
 			</if>
 		</if>
+		<if test="familyMessage!=null">
+			<if test="familyMessage.hjd!=null and familyMessage.hjd!=''">
+			and	hjd like #{familyMessage.hjd} 
+			</if>
+		</if>
+		<if test="familyMessage!=null">
+			<if test="familyMessage.xjdz!=null and familyMessage.xjdz!=''">
+			and	xjdz like #{familyMessage.xjdz} 
+			</if>
+		</if>
 	</sql>
 	<sql id="findCountry_Message_where">
 				<if test="countrys.level==1">

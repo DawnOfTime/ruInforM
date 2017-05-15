@@ -13,6 +13,27 @@
 		<if test="country_flow.state!=null and country_flow.state!=''">
 			and state = #{country_flow.state}
 		</if>
+		<if test="country_flow.sex!=null and country_flow.sex!=''">
+			and sex = #{country_flow.sex}
+		</if>
+		<if test="country_flow.xage!=null and country_flow.xage!='' and country_flow.dage!=null and country_flow.dage!=''">
+			and age BETWEEN #{country_flow.xage} and  #{country_flow.dage}
+		</if>
+		<if test="country_flow.hjd!=null and country_flow.hjd!=''">
+			and hjd like #{country_flow.hjd}
+		</if>
+		<if test="country_flow.hyzk!=null and country_flow.hyzk!=''">
+			and hyzk = #{country_flow.hyzk}
+		</if>
+		<if test="country_flow.zzmm!=null and country_flow.zzmm!=''">
+			and zzmm = #{country_flow.zzmm}
+		</if>
+		<if test="country_flow.whcd!=null and country_flow.whcd!=''">
+			and whcd = #{country_flow.whcd}
+		</if>
+		<if test="country_flow.starttime!=null and country_flow.starttime!='' and country_flow.overtime!=null and country_flow.overtime!=''">
+			and totime BETWEEN #{country_flow.starttime} and  #{country_flow.overtime}
+		</if>
 	</sql>
 		<sql id="findCountry_Flow_where">
 				<if test="country.level==1">

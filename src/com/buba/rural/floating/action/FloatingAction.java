@@ -32,6 +32,16 @@ public class FloatingAction {
 		String name = request.getParameter("name");
 		String id_card = request.getParameter("id_card");
 		String state = request.getParameter("state");
+		String sex = request.getParameter("sex");
+		String xage = request.getParameter("xage");
+		String dage = request.getParameter("dage");
+		String hjd = request.getParameter("hjd");
+		String hyzk = request.getParameter("hyzk");
+		String zzmm = request.getParameter("zzmm");
+		String whcd = request.getParameter("whcd");
+		String starttime = request.getParameter("starttime");
+		String overtime = request.getParameter("overtime");
+		
 		Country_flow flow = new Country_flow();
 		if(null!=name && !name.equals("")){
 			flow.setName("%"+URLDecoder.decode(name, "utf-8")+"%");
@@ -41,6 +51,33 @@ public class FloatingAction {
 		}
 		if(null!=state && !state.equals("")){
 			flow.setState(state);
+		}
+		if(null!=sex && !sex.equals("")){
+			flow.setSex(sex);
+		}
+		if(null!=xage && !xage.equals("")){
+			flow.setXage(xage);
+		}
+		if(null!=dage && !dage.equals("")){
+			flow.setDage(dage);
+		}
+		if(null!=hjd && !hjd.equals("")){
+			flow.setHjd("%"+URLDecoder.decode(hjd, "utf-8")+"%");
+		}
+		if(null!=hyzk && !hyzk.equals("")){
+			flow.setHyzk(hyzk);
+		}
+		if(null!=zzmm && !zzmm.equals("")){
+			flow.setZzmm(zzmm);
+		}
+		if(null!=whcd && !whcd.equals("")){
+			flow.setWhcd(whcd);
+		}
+		if(null!=starttime && !starttime.equals("")){
+			flow.setStarttime(starttime);
+		}
+		if(null!=overtime && !overtime.equals("")){
+			flow.setOvertime(overtime);
 		}
 		//当前页  
         int intPage = Integer.parseInt((page == null || page == "0") ? "1":page);  

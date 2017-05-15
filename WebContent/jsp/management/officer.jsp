@@ -291,35 +291,35 @@ function savebgoffice(){
 		  $.post("<c:url value='/officer/findbg.m?countryofficer.id='/>"+rowid+"&countryofficer.cid="+cid,function (data){
 			$("#names").attr("value",data[0].name);
 			if(data[0].sex=='1'){
-				$("#sexs").append("<option value='1' selected='selected'>男</option><option value='0'>女</option>");
+				$("#sexs").html("<option value='1' selected='selected'>男</option><option value='0'>女</option>");
 			}else if(data[0].sex=='0'){
-				$("#sexs").append("<option value='1'>男</option><option value='0' selected='selected'>女</option>");
+				$("#sexs").html("<option value='1'>男</option><option value='0' selected='selected'>女</option>");
 			}
 			$("#birthday").attr("value",data[0].birthday);
 			
 			if(data[0].whcd=='0'){
-				$("#whcd").append("<option value='0'  selected='selected'>文盲</option><option value='1'>小学</option>"
+				$("#whcd").html("<option value='0'  selected='selected'>文盲</option><option value='1'>小学</option>"
 		    			+"<option value='2'>初中</option>"
 		    			+"<option value='3'>高中（中专）</option>"
 		    			+"<option value='4'>大专及以上</option>");
 			
 			}else if(data[0].whcd=='1'){
-				$("#whcd").append("<option value='0'>文盲</option><option value='1' selected='selected'>小学</option>"
+				$("#whcd").html("<option value='0'>文盲</option><option value='1' selected='selected'>小学</option>"
 		    			+"<option value='2'>初中</option>"
 		    			+"<option value='3'>高中（中专）</option>"
 		    			+"<option value='4'>大专及以上</option>");
 			}else if(data[0].whcd=='2'){
-				$("#whcd").append("<option value='0'>文盲</option><option value='1'>小学</option>"
+				$("#whcd").html("<option value='0'>文盲</option><option value='1'>小学</option>"
 		    			+"<option value='2' selected='selected'>初中</option>"
 		    			+"<option value='3'>高中（中专）</option>"
 		    			+"<option value='4'>大专及以上</option>");
 			}else if(data[0].whcd=='3'){
-				$("#whcd").append("<option value='0'>文盲</option><option value='1'>小学</option>"
+				$("#whcd").html("<option value='0'>文盲</option><option value='1'>小学</option>"
 		    			+"<option value='2'>初中</option>"
 		    			+"<option value='3'selected='selected'>高中（中专）</option>"
 		    			+"<option value='4'>大专及以上</option>");
 			}else if(data[0].whcd=='4'){
-				$("#whcd").append("<option value='0'>文盲</option><option value='1'>小学</option>"
+				$("#whcd").html("<option value='0'>文盲</option><option value='1'>小学</option>"
 		    			+"<option value='2'>初中</option>"
 		    			+"<option value='3'>高中（中专）</option>"
 		    			+"<option value='4'selected='selected'>大专及以上</option>");
@@ -328,9 +328,9 @@ function savebgoffice(){
 			$("#lztime").attr("value",data[0].lztime);
 			$("#phonenumber").attr("value",data[0].phonenumber);
 			if(data[0].state=='1'){
-				$("#state").append("<option value='1' selected='selected'>在职</option><option value='2'>离职</option>");
+				$("#state").html("<option value='1' selected='selected'>在职</option><option value='2'>离职</option>");
 			}else if(data[0].state=='2'){
-				$("#state").append("<option value='1'>在职</option><option value='2' selected='selected'>离职</option>");
+				$("#state").html("<option value='1'>在职</option><option value='2' selected='selected'>离职</option>");
 			}
 		},"json"); 
 		  $("#wins").window('open'); 

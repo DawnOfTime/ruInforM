@@ -301,14 +301,14 @@ function findFlowPerson(){
 			var cid = $("#cid").val();
 			  $.post("<c:url value='/communication/findbg.m?communication.id='/>"+rowid+"&communication.cid="+cid,function (data){				
 				if(data[0].is_ydxh=='1'){
-					$("#is_ydxh").append("<option value='1' selected='selected'>是</option><option value='0'>否</option>");
+					$("#is_ydxh").html("<option value='1' selected='selected'>是</option><option value='0'>否</option>");
 				}else if(data[0].is_ydxh=='0'){
-					$("#is_ydxh").append("<option value='1'>是</option><option value='0' selected='selected'>否</option>");
+					$("#is_ydxh").html("<option value='1'>是</option><option value='0' selected='selected'>否</option>");
 				}
 				if(data[0].is_ltxh=='1'){
-					$("#is_ltxh").append("<option value='1' selected='selected'>是</option><option value='0'>否</option>");
+					$("#is_ltxh").html("<option value='1' selected='selected'>是</option><option value='0'>否</option>");
 				}else if(data[0].is_ltxh=='0'){
-					$("#is_ltxh").append("<option value='1'>是</option><option value='0' selected='selected'>否</option>");
+					$("#is_ltxh").html("<option value='1'>是</option><option value='0' selected='selected'>否</option>");
 				}
 				if(data[0].is_dxxh=='1'){
 					$("#is_dxxh").append("<option value='1' selected='selected'>是</option><option value='0'>否</option>");
@@ -335,7 +335,7 @@ function findFlowPerson(){
 	                $.messager.alert("提示信息", "操作成功");
 	                $("#wins").window("close");
 		    		findFlowPerson("");
-	                $("#addFlowbgs").form("clear");
+	                $("#addFlowbg").form("clear");
 	            }
 	            else {
 	                $.messager.alert("提示信息", "操作失败");

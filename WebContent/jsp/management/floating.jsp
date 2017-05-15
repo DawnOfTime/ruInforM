@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script language="javascript" type="text/javascript" src="<c:url value='/js/Date/WdatePicker.js'/>"></script>
 <script type="text/javascript">
 var datagrid; //定义全局变量datagrid
 var editRow = undefined; //定义全局变量：当前编辑的行
@@ -260,6 +261,29 @@ function findFlowPersonWhere(){
 	if($("#state").val()!=''){
 		personWhere += "&state="+$("#state").val();
 	}
+	if($("#sex").val()!=''){
+		personWhere += "&sex="+$("#sex").val();
+	}
+	if($("#xage").val()!=''&&($("#dage").val()!='')){
+		personWhere += "&xage="+$("#xage").val();
+		personWhere += "&dage="+$("#dage").val();
+	}
+	if($("#hjd").val()!=''){
+		personWhere += "&hjd="+encodeURI(encodeURI($("#hjd").val()));
+	}
+	if($("#hyzk").val()!=''){
+		personWhere += "&hyzk="+$("#hyzk").val();
+	}
+	if($("#hyzk").val()!=''){
+		personWhere += "&hyzk="+$("#hyzk").val();
+	}
+	if($("#whcd").val()!=''){
+		personWhere += "&whcd="+$("#whcd").val();
+	}
+	if($("#starttime").val()!=''&&($("#overtime").val()!='')){
+		personWhere += "&starttime="+$("#starttime").val();
+		personWhere += "&overtime="+$("#overtime").val();
+	}
 	findFlowPerson(cnum,"",level,personWhere);
 }
 
@@ -275,15 +299,56 @@ function findFlowPersonWhere(){
     		<input type="hidden" id="cid"><!-- 村id -->
     		<input type="hidden" id="num">
     		<input type="hidden" id="level">
+    		<div>
 	        <span>姓名:</span><input type="text" id="name" value="" size=10 />
-	        <span>身份证号:</span><input type="text" id="id_card" value="" size=20 />
-	        <span>状态：</span>
+	        <span style="margin-left: 10px;">身份证号:</span><input type="text" id="id_card" value="" size=20 />
+	        <span style="margin-left: 10px;">状态：</span>
 	        <select id="state">
 	        	<option value="">--请选择--</option>
 	        	<option value="0">流入</option>
 	        	<option value="1">流出</option>
 	        </select>
+	        <span style="margin-left: 10px;">性别：</span>
+	        <select id="sex">
+	        	<option value="">--请选择--</option>
+	        	<option value="1">男</option>
+	        	<option value="0">女</option>
+	        </select>
+	        <span style="margin-left: 10px;">年龄：</span>
+	        <input type="text" id="xage" value="" size=20 style="width:50px"/> 至
+	        <input type="text" id="dage" value="" size=20  style="width:50px"/>
+	        </div><br/>
+	       	<div>
+	        <span>户籍地：</span>
+	        <input type="text" id="hjd" value="" size=20 />
+	        <span style="margin-left: 10px;">婚姻状况：</span>
+	        	<select id="hyzk">
+	        	<option value="">--请选择--</option>
+	        	<option value="0">已婚</option>
+	        	<option value="1">未婚</option>
+	        </select>
+	        <span style="margin-left: 10px;">政治面貌：</span>
+	        	<select id="zzmm">
+	        	<option value="">--请选择--</option>
+	        	<option value="1">党员</option>
+	        	<option value="0">群众</option>
+	        </select>
+	        <span style="margin-left: 10px;">文化程度：</span>
+	        	<select id="whcd">
+	        	<option value="">--请选择--</option>
+	        	<option value="0">文盲</option>
+	        	<option value="1">小学</option>
+	        	<option value="2">初中</option>
+	        	<option value="3">高中（中专）</option>
+	        	<option value="4">大专以上</option>
+	        </select>
+	         </div><br/>
+	       <div>
+	        <span>流入/流出时间：</span>
+	        <input type="text" id="starttime"  onClick="WdatePicker()" class="Wdate"/> 至
+    		<input type="text" id="overtime"  onClick="WdatePicker()" class="Wdate"/>
 	        <a href="javascript:findFlowPersonWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a> 
+	  	  </div>
 	    </div>
     </div>
     
