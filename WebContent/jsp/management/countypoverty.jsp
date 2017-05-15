@@ -298,10 +298,9 @@ function addFlowbg(){
             if (result == "ok") {
                 $.messager.alert("提示信息", "操作成功");
                 $("#wins").window("close");
-	    		findFlowPerson("");
-                $("#addFlowbg").form("clear");
-            }
-            else {
+                findPoverty("");
+                $("#addPoverty").form("clear");
+                }else {
                 $.messager.alert("提示信息", "操作失败");
             }
         }

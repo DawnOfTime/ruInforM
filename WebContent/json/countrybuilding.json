@@ -51,7 +51,7 @@
         "align": "center"
     },
     {
-        "field": "ynb",
+        "field": "qsb",
         "title": "清水坝(座)",
         "width": "100",
         "editor": {
@@ -60,7 +60,7 @@
         "align": "center"
     },
     {
-        "field": "qsb",
+        "field": "ynb",
         "title": "淤地坝(座)",
         "width": "100",
         "editor": {

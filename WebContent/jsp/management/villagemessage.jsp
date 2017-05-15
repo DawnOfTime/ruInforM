@@ -69,7 +69,7 @@ function findFlowPerson(villageName){
 	        selectOnCheck: true,//true勾选会选择行，false勾选不选择行, 1.3以后有此选项。重点在这里
 	        checkOnSelect:true,//选中行,不默认选中当前行的复选框
 	        idField: id,
-	        frozenColumns:[[{field:'ck',checkbox:true}]], 
+	       /*  frozenColumns:[[{field:'ck',checkbox:true}]],  */
 	        onAfterEdit: function (rowIndex, rowData, changes) {
 	        	vileditRow = undefined;
 	        },onBeforeLoad:function(){			//在请求载入数据之前触发
@@ -209,8 +209,8 @@ function updateVillageWhere(){
 function savebgVillage(){
 	var rows = vildatagrid.datagrid('getRows');
 	var row = rows[0];
-	if(row.length<1){
-		$.messager.alert("提示", "请选择要变更的行！", "info");  
+	if(rows.length<1){
+		$.messager.alert("提示", "无要变更的信息！", "info");  
 		return;
 	}/* else if(row.length>1){
 		$.messager.alert("提示", "请选择单个要变更的行！", "info");  
@@ -246,7 +246,7 @@ function addFlowbg(){
                 $.messager.alert("提示信息", "操作成功");
                 $("#wins").window("close");
 	    		findFlowPerson("");
-                $("#addFlowbgs").form("clear");
+                $("#addFlowbg").form("clear");
             }
             else {
                 $.messager.alert("提示信息", "操作失败");
@@ -349,12 +349,12 @@ function lishiVillage(){
 	    </div>  
 	</div>
 	
-    <div id="win" class="easyui-window" title="基本信息添加" style="width:600px;height:400px"  
+    <div id="win" class="easyui-window" title="基本信息添加" style="width:800px;height:450px"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFlowPerson">
 		    	<input type="hidden" id="form_cid" name="country_flow.cid">
-			    <table border="1" style="margin-top: 54px;">
+			    <table style="line-height:87px;width:100%">
 			    	<tr>
 				    	<th>村党支部书记</th>
 				    	<td>
@@ -399,12 +399,12 @@ function lishiVillage(){
 		    </form>
 	    </div>  
 	</div>
-	<div id="wins" class="easyui-window" title="基本信息变更" style="width:600px;height:400px"  
+	<div id="wins" class="easyui-window" title="基本信息变更" style="width:800px;height:450px"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFlowbg">
 		    	<input type="hidden" id="form_cid" name="country_flow.cid">
-			    <table border="1" style="margin-top: 54px;">
+			    <table style="line-height:87px;width:100%">
 			    	<tr>
 				    	<th>村党支部书记</th>
 				    	<td>

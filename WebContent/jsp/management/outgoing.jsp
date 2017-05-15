@@ -347,7 +347,7 @@ function historyOutgoing(){
 <style type="text/css">
 #disa{
 	width:100%;
-	margin-top:20px
+	line-height:58px;
 }
 </style>
 </head>

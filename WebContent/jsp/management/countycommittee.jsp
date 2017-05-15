@@ -193,7 +193,7 @@ function findFlowPerson(villageName){
 		        	if (editRow != undefined) {
 		            	datagrid.datagrid('endEdit', editRow);
 		            }
-		        },onDblClickRow:function (rowIndex, rowData) {
+		        }/* ,onDblClickRow:function (rowIndex, rowData) {
 		        	if (editRow != undefined) {
 		            	datagrid.datagrid('endEdit', editRow);
 		            }
@@ -207,7 +207,7 @@ function findFlowPerson(villageName){
 		            	}
 		                
 		            }
-		        },onClickRow:function(rowIndex,rowData){
+		        } */,onClickRow:function(rowIndex,rowData){
 		            if (editRow != undefined) {
 		            	datagrid.datagrid('endEdit', editRow);
 		            }
@@ -236,10 +236,16 @@ function findFlowPerson(villageName){
 	        displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录'
 	    }); 
 	});
+	datagrid.datagrid("uncheckAll");//隐藏指定的列
 	},'json');
 }
 function addFlowPerson(){
+	var p = $("#village").datagrid("getRows").length; 
+	if(p >= 3){
+		$.messager.alert("提示信息", "信息已存在，不能进行添加。 ");
+	}else{
 		$("#win").window('open');
+	} 
 }
 function findVillageWhere(){
 	var personWhere = "";
@@ -602,9 +608,9 @@ function addFlowbg(){
     	<table id="village" toolbar="#searchtool"></table>
     	<div id="searchtool" style="padding:5px;display:none;">
     		<a href="javascript:addFlowPerson()" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a>
-    		<a href="javascript:updateWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">编辑</a>
+    		<!-- <a href="javascript:updateWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">编辑</a> -->
     		<a href="javascript:savebg()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">变更信息</a>
-    		<a href="javascript:saveUpdatedCommunication()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a>
+    		<!-- <a href="javascript:saveUpdatedCommunication()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a> -->
     		<input type="hidden" id="cid"><!-- 村id -->
 	       <span>姓名:</span><input type="text" id="name" value="" size=10 />
 	       <a href="javascript:findVillageWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a>
@@ -619,12 +625,12 @@ function addFlowbg(){
 		    <table id="ls" toolbar="#seach"></table>
 	    </div>  
 	</div>
-    <div id="win" class="easyui-window" title="委员添加" style="width:600px;height:400px"  
+    <div id="win" class="easyui-window" title="委员添加" style="width:800px;height:450px"  
          data-options="iconCls:'icon-save',modal:true">  
-	   <div class="easyui-layout" data-options="fit:true" ">  
+	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFlowPerson">
 		    	<input type="hidden" id="form_cid" name="country_flow.cid">
-			    <table border="1" style="margin-top:20px">
+			    <table style="line-height:71px;width:100%">
 			    	<tr>
 				    	<th>姓名</th>
 				    	<td>
@@ -632,7 +638,7 @@ function addFlowbg(){
 				    	</td>
 				    	<th>性别</th>
 				    	<td>
-						    <select name="countrycommittee.sex">
+						    <select name="countrycommittee.sex" style="height:40px">
 						    	<option value="">-请选择-</option>
 						    	<option value="1">男</option>
 						    	<option value="0">女</option>
@@ -646,7 +652,7 @@ function addFlowbg(){
 				    	</td>
 				    	<th>文化程度</th>
 				    	<td>
-				    		<select name="countrycommittee.whcd">
+				    		<select name="countrycommittee.whcd" style="height:40px">
 				    			<option value="">-请选择-</option>
 				    			<option value="0">文盲</option>
 				    			<option value="1">小学</option>
@@ -679,7 +685,7 @@ function addFlowbg(){
 			    	<tr>
 				    	<th>状态</th>
 			    		<td>
-			    			<select name="countrycommittee.state">
+			    			<select name="countrycommittee.state" style="height:40px">
 			    				<option value="">-请选择-</option>
 			    				<option value="1">在职</option>
 			    				<option value="2">离职</option>
@@ -688,7 +694,7 @@ function addFlowbg(){
 			    		<th>职位</th>
 				    	<td>
 				    		<!-- <input type="text" name="countrycommittee.zw" data-options="required:true,validType:'zw'" style="height:40px"/> -->
-				    		<select name="countrycommittee.zw">
+				    		<select name="countrycommittee.zw" style="height:40px">
 				    			<option value="">-请选择-</option>
 				    			<option value="1">党委</option>
 				    			<option value="2">村委</option>
@@ -703,13 +709,13 @@ function addFlowbg(){
 		    </form>
 	    </div>  
 	</div>
-	<div id="wins" class="easyui-window" title="基本信息变更" style="width:600px;height:400px"  
+	<div id="wins" class="easyui-window" title="基本信息变更" style="width:800px;height:450px"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFlowbg">
 		    	<input type="hidden" id="form_cid" name="country_flow.cid">
 			   <input type="hidden" id="form_cid" name="country_flow.cid">
-			    <table border="1" style="margin-top:20px">
+			    <table style="line-height:71px;width:100%">
 			    	<tr>
 				    	<th>姓名</th>
 				    	<td>
@@ -717,7 +723,7 @@ function addFlowbg(){
 				    	</td>
 				    	<th>性别</th>
 				    	<td>
-						    <select name="countrycommittee.sex"  id="sex">
+						    <select name="countrycommittee.sex"  id="sex" style="height:40px">
 						    	<!-- <option value="">-请选择-</option>
 						    	<option value="1">男</option>
 						    	<option value="2">女</option> -->
@@ -732,7 +738,7 @@ function addFlowbg(){
 				    	</td>
 				    	<th>文化程度</th>
 				    	<td>
-				    		<select name="countrycommittee.whcd" id="whcd">
+				    		<select name="countrycommittee.whcd" id="whcd" style="height:40px">
 				    			<!-- <option value="">-请选择-</option>
 				    			<option value="0">文盲</option>
 				    			<option value="1">小学</option>
@@ -765,7 +771,7 @@ function addFlowbg(){
 			    	<tr>
 				    	<th>状态</th>
 			    		<td>
-			    			<select name="countrycommittee.state" id="state">
+			    			<select name="countrycommittee.state" id="state" style="height:40px">
 			    				<!-- <option value="">-请选择-</option>
 			    				<option value="0">在职</option>
 			    				<option value="1">离职</option> -->
@@ -774,7 +780,7 @@ function addFlowbg(){
 			    		<th>职位</th>
 				    	<td>
 				    		<!-- <input type="text" name="countrycommittee.zw" value="" id="zw" style="height:40px"/> -->
-				    		<select name="countrycommittee.zw" id="zw">
+				    		<select name="countrycommittee.zw" id="zw"  style="height:40px">
 				    		</select>
 				    	</td>
 			    	</tr>

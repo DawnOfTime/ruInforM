@@ -146,14 +146,14 @@ function findFlowPerson(offname){
 		        selectOnCheck: true,//true勾选会选择行，false勾选不选择行, 1.3以后有此选项。重点在这里
 		        checkOnSelect:true,//选中行,不默认选中当前行的复选框
 		        idField: id,
-		        frozenColumns:[[{field:'ck',checkbox:true}]], 
+		       /*  frozenColumns:[[{field:'ck',checkbox:true}]],  */
 		        onAfterEdit: function (rowIndex, rowData, changes) {
 		            editRow = undefined;
 		        },onBeforeLoad:function(){			//在请求载入数据之前触发
 		        	if (editRow != undefined) {
 		            	datagrid.datagrid('endEdit', editRow);
 		            }
-		        },onDblClickRow:function (rowIndex, rowData) {
+		        },/*onDblClickRow:function (rowIndex, rowData) {
 		        	if (editRow != undefined) {
 		            	datagrid.datagrid('endEdit', editRow);
 		            }
@@ -167,7 +167,7 @@ function findFlowPerson(offname){
 		            	}
 		                
 		            }
-		        },onClickRow:function(rowIndex,rowData){
+		        }, */onClickRow:function(rowIndex,rowData){
 		            if (editRow != undefined) {
 		            	datagrid.datagrid('endEdit', editRow);
 		            }
@@ -200,7 +200,12 @@ function findFlowPerson(offname){
 }
 
 function addFlowPerson(){
-	$("#win").window('open');
+	var p = $("#dg").datagrid("getRows").length; 
+	if(p >= 1){
+		$.messager.alert("提示信息", "信息已存在，不能进行添加。 ");
+	}else{
+		$("#win").window('open');
+	} 
 }
 function findWhere(){ 
 	var personWhere = "";
@@ -494,13 +499,12 @@ function savelishi(){
 </script>
 <style type="text/css">
 	#tables{
-	border:1px;
-	margin-top:30px;
-	margin-left:60px;
+	line-height:80px;
+	width:100%;
 	}
-	td{
+	/* td{
 	margin-top:30px;
-	}
+	} */
 	.baocun{
 		height:100px;
 		text-align:center;
@@ -522,13 +526,13 @@ function savelishi(){
     		<!-- <a href="javascript:updateVillageWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">编辑</a> -->
     		<a href="javascript:savebgoffice()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">变更信息</a>
     		<!-- <a href="javascript:saveUpdatedOffice()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a> -->
-    		<input type="text" id="cid"><!-- 村id -->
+    		<input type="hidden" id="cid"><!-- 村id -->
 	        <!-- <span>村官姓名:</span><input type="text" id="name" value="" size=10 />  
 	        <a href="javascript:findWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a> -->
 	        <a href="javascript:savelishi()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">历史记录查询</a> 
 	    </div>
  </div>
- <div id="win" class="easyui-window" title="村官信息添加" style="width:600px;height:400px;"  
+ <div id="win" class="easyui-window" title="村官信息添加" style="width:670px;height:450px;"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFlowPerson">
@@ -590,7 +594,7 @@ function savelishi(){
 		    <table id="ls" toolbar="#seach"></table>
 	    </div>  
 	</div>
-	<div id="wins" class="easyui-window" title="村官信息变更" style="width:600px;height:400px"  
+	<div id="wins" class="easyui-window" title="村官信息变更" style="width:670px;height:450px"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFlowbg">
