@@ -311,14 +311,14 @@ function findFlowPerson(){
 					$("#is_ltxh").html("<option value='1'>是</option><option value='0' selected='selected'>否</option>");
 				}
 				if(data[0].is_dxxh=='1'){
-					$("#is_dxxh").append("<option value='1' selected='selected'>是</option><option value='0'>否</option>");
+					$("#is_dxxh").html("<option value='1' selected='selected'>是</option><option value='0'>否</option>");
 				}else if(data[0].is_dxxh=='0'){
-					$("#is_dxxh").append("<option value='1'>是</option><option value='0' selected='selected'>否</option>");
+					$("#is_dxxh").html("<option value='1'>是</option><option value='0' selected='selected'>否</option>");
 				}
 				if(data[0].is_qcfg=='1'){
-					$("#is_qcfg").append("<option value='1' selected='selected'>是</option><option value='0'>否</option>");
+					$("#is_qcfg").html("<option value='1' selected='selected'>是</option><option value='0'>否</option>");
 				}else if(data[0].is_qcfg=='0'){
-					$("#is_qcfg").append("<option value='1'>是</option><option value='0' selected='selected'>否</option>");
+					$("#is_qcfg").html("<option value='1'>是</option><option value='0' selected='selected'>否</option>");
 				}
 				
 			},"json"); 
