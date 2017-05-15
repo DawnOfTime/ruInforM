@@ -7,6 +7,7 @@ public class Person_message {
 	private String xb;
 	private String mz;
 	private String csrq;
+	private String csrq1;
 	private String zzmm;
 	private String rdsj;
 	private String szdzb;
@@ -54,6 +55,12 @@ public class Person_message {
 	}
 	public void setCsrq(String csrq) {
 		this.csrq = csrq;
+	}
+	public String getCsrq1() {
+		return csrq1;
+	}
+	public void setCsrq1(String csrq1) {
+		this.csrq1 = csrq1;
 	}
 	public String getZzmm() {
 		return zzmm;
@@ -129,11 +136,9 @@ public class Person_message {
 	}
 	@Override
 	public String toString() {
-		return "Person_message [id=" + id + ", yhzgx=" + yhzgx + ", xm=" + xm
-				+ ", xb=" + xb + ", mz=" + mz + ", csrq=" + csrq + ", zzmm="
-				+ zzmm + ", rdsj=" + rdsj + ", szdzb=" + szdzb + ", hyzk="
-				+ hyzk + ", jkzk=" + jkzk + ", whcd=" + whcd + ", cyzt=" + cyzt
-				+ ", zylx=" + zylx + ", gzdw=" + gzdw + ", sfzhm=" + sfzhm
-				+ ", sjh=" + sjh + ", fid=" + fid + "]";
+		return "Person_message [id=" + id + ", yhzgx=" + yhzgx + ", xm=" + xm + ", xb=" + xb + ", mz=" + mz + ", csrq="
+				+ csrq + ", csrq1=" + csrq1 + ", zzmm=" + zzmm + ", rdsj=" + rdsj + ", szdzb=" + szdzb + ", hyzk="
+				+ hyzk + ", jkzk=" + jkzk + ", whcd=" + whcd + ", cyzt=" + cyzt + ", zylx=" + zylx + ", gzdw=" + gzdw
+				+ ", sfzhm=" + sfzhm + ", sjh=" + sjh + ", fid=" + fid + "]";
 	}
 }

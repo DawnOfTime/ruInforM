@@ -33,10 +33,35 @@ public class PopulationAction {
 		HttpServletRequest request=ServletActionContext.getRequest();
 		HttpServletResponse response=ServletActionContext.getResponse();
 		String xm = request.getParameter("xm");
+		String xb = request.getParameter("xb");
+		String csrq = request.getParameter("csrq1");
+		String csrq1 = request.getParameter("csrq2");
+		String zzmm = request.getParameter("zzmm");
+		String hyzk = request.getParameter("hyzk");
+		String whcd = request.getParameter("whcd");
 		String sfzhm = request.getParameter("sfzhm");
+		
 		Person_message person_message = new Person_message();
 		if(null!=xm && !xm.equals("")){
 			person_message.setXm("%"+URLDecoder.decode(xm, "utf-8")+"%");
+		}
+		if(null!=xb && !xb.equals("")){
+			person_message.setXb(xb);
+		}
+		if(null!=csrq && !csrq.equals("")){
+			person_message.setCsrq(csrq);
+		}
+		if(null!=csrq1 && !csrq1.equals("")){
+			person_message.setCsrq(csrq1);
+		}
+		if(null!=zzmm && !zzmm.equals("")){
+			person_message.setZzmm(zzmm);
+		}
+		if(null!=hyzk && !hyzk.equals("")){
+			person_message.setHyzk(hyzk);
+		}
+		if(null!=whcd && !whcd.equals("")){
+			person_message.setWhcd(whcd);
 		}
 		if(null!=sfzhm && !sfzhm.equals("")){
 			person_message.setSfzhm(sfzhm);

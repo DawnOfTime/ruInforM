@@ -7,6 +7,24 @@
 			<if test="person_message.xm!=null and person_message.xm!=''">
 				and person_message.xm like #{person_message.xm}
 			</if>
+			<if test="person_message.xb!=null and person_message.xb!=''">
+				and person_message.xb = #{person_message.xb}
+			</if>
+			<if test="person_message.csrq!=null and person_message.csrq!=''">
+				and person_message.csrq <![CDATA[<]]> #{person_message.csrq}
+			</if>
+			<if test="person_message.csrq1!=null and person_message.csrq1!=''">
+				and person_message.csrq1 <![CDATA[>]]> #{person_message.csrq1}
+			</if>
+			<if test="person_message.zzmm!=null and person_message.zzmm!=''">
+				and person_message.zzmm = #{person_message.zzmm}
+			</if>
+			<if test="person_message.hyzk!=null and person_message.hyzk!=''">
+				and person_message.hyzk = #{person_message.hyzk}
+			</if>
+			<if test="person_message.whcd!=null and person_message.whcd!=''">
+				and person_message.whcd = #{person_message.whcd}
+			</if>
 			<if test="person_message.sfzhm!=null and person_message.sfzhm!=''">
 				and person_message.sfzhm = #{person_message.sfzhm}
 			</if>
