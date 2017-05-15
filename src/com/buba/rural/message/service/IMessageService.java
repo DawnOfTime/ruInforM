@@ -19,7 +19,7 @@ public interface IMessageService {
 
 	String showCountryTree();
 
-	PageBean_easyui findFamilyMessage(FamilyMessage familyMessage, PageBean_easyui pageBean,Country countrys);
+	PageBean_easyui findFamilyMessage(FamilyMessage flow, PageBean_easyui pageBean,Country countrys);
 
 	List<Person_message> familyPersonList(FamilyMessage familyMessage);
 

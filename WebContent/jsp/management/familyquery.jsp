@@ -33,10 +33,10 @@ $(document).ready(function(){
 	 });
 });
 //该乡的所有户列表
-function findFamilyMessageListAll(cnum,text,level,hzxm){
+function findFamilyMessageListAll(cnum,text,level,names){
 	var cid = $("#cid").val();
 	var tabTop = "<c:url value='/json/familyMessage.json'/>";
-	var rowurl = "<c:url value='/message/findFamilyMessage.m?countrys.num='/>"+cnum+"&countrys.level="+level+hzxm;
+	var rowurl = "<c:url value='/message/findFamilyMessage.m?countrys.num='/>"+cnum+"&countrys.level="+level+names;
 	var hidcolumns = "id,p_num";//隐藏列字段名
 	var id = "id";//主键字段名
 	$("#searchtool").css("display","block");//隐藏菜单栏
@@ -110,8 +110,20 @@ function findFamilyMessageListAll(cnum,text,level,hzxm){
 function FindData(){
 	var cnum= $("#num").val();
 	var level= $("#level").val();
-	var hzxm = "&familyMessage.hzxm="+encodeURI(encodeURI($("#hzxm").val()));
-	findFamilyMessageListAll(cnum,"",level,hzxm);
+	var personWhere = "";
+	if($("#hzxm").val()!=''){
+		personWhere += "&hzxm="+encodeURI(encodeURI($("#hzxm").val()));
+	}
+	if($("#hjd").val()!=''){
+		personWhere += "&hjd="+encodeURI(encodeURI($("#hjd").val()));
+	}
+	if($("#xjdz").val()!=''){
+		personWhere += "&xjdz="+encodeURI(encodeURI($("#xjdz").val()));
+	}
+	/* var hzxm = "&familyMessage.hzxm="+encodeURI(encodeURI($("#hzxm").val()));
+	var hjd = "&familyMessage.hjd="+encodeURI(encodeURI($("#hjd").val()));
+	var xjdz = "&familyMessage.xjdz="+encodeURI(encodeURI($("#xjdz").val())); */
+	findFamilyMessageListAll(cnum,"",level,personWhere);
 }
 //获取家庭成员列表
 function getFamilyPersonList(){
@@ -367,6 +379,8 @@ function familyInfor(){
     		<input type="hidden" id="num">
     		<input type="hidden" id="level">
 	        <span>户主姓名:</span><input type="text" id="hzxm" value="" size=10 />  
+	        <span>户籍地:</span><input type="text" id="hjd" value="" size=10 />  
+	        <span>现居地址:</span><input type="text" id="xjdz" value="" size=10 />  
 	        <a href="javascript:FindData()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a>
 	        <a href="javascript:getFamilyPersonList()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">家庭成员</a>
 	        <a href="javascript:familyInfor()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">家庭信息</a> 

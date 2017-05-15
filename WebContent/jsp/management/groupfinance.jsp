@@ -155,7 +155,7 @@ function findFiance(FinanceName){
 }
 function addFinance(){
 	var p = datagrid.datagrid("getRows"); 
-	 if(p.length > 3){
+	 if(p.length >= 3){
 		$.messager.alert("提示信息", "信息已存在，不能进行添加。 ");
 	}else{
 		$("#win").window('open');
@@ -262,17 +262,17 @@ function saveUpdatedFinance(){
 			  $.post("<c:url value='/financebg.m?groupfinance.id='/>"+rowid+"&groupfinance.cid="+cid,function (data){
 				
 				if(data[0].type=="1"){
-					$("#types").append("<option value='1' selected='selected'>集体资产</option><option value='2'>收入</option><option value='3'>负债</option>");
+					$("#types").html("<option value='1' selected='selected'>集体资产</option><option value='2'>收入</option><option value='3'>负债</option>");
 				}else if(data[0].type=="2"){
-					$("#types").append("<option value='1'>集体资产</option><option value='2' selected='selected'>收入</option><option value='3'>负债</option>");
+					$("#types").html("<option value='1'>集体资产</option><option value='2' selected='selected'>收入</option><option value='3'>负债</option>");
 				}else if(data[0].type=="3"){
-					$("#types").append("<option value='1'>集体资产</option><option value='2'>收入</option><option value='3' selected='selected'>负债</option>");
+					$("#types").html("<option value='1'>集体资产</option><option value='2'>收入</option><option value='3' selected='selected'>负债</option>");
 				}
 				
 				$("#privce").attr("value",data[0].privce);
 				$("#message").attr("value",data[0].message);
 			},"json");
-			  $("#wins").window('open'); 
+			  $("#wins").window("open"); 
 		} 
 		
 	} 
@@ -284,8 +284,8 @@ function saveUpdatedFinance(){
 	            if (result == "ok") {
 	                $.messager.alert("提示信息", "操作成功");
 	                $("#wins").window("close");
-		    		findFlowPerson("");
-	                $("#addFlowbgs").form("clear");
+	                findFiance("");
+	                $("#addFlowbg").form("clear");
 	            }
 	            else {
 	                $.messager.alert("提示信息", "操作失败");
@@ -450,7 +450,7 @@ function saveUpdatedFinance(){
 			    	<tr>
 				    	<th>类型</th>
 				    	<td>
-				    		<select name="groupfinance.type" class="easyui-validatebox" data-options="required:true" style="height:40px">
+				    		<select name="groupfinance.type" class="easyui-validatebox" data-options="required:true" style="height:40px;text-align:center">
 					      		<option value="">-请选择-</option>
 					      		<option value="1">集体资产</option>
 					      		<option value="2">收入</option>
@@ -484,7 +484,7 @@ function saveUpdatedFinance(){
 			    	<tr>
 				    	<th>类型</th>
 				    	<td>
-				    		<select name="groupfinance.type"  id="types" style="height:40px">
+				    		<select name="groupfinance.type"  id="types" style="height:40px;text-align:center">
 					      		<!-- <option value="">-请选择-</option>
 					      		<option value="1">集体资产</option>
 					      		<option value="2">收入</option>

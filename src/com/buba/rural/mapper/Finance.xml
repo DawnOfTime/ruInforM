@@ -12,7 +12,7 @@
 	<!-- 查询数据 -->
 	<select id="queryFinance" resultType="Country_group_finance" >
 		select * from country_group_finance where operate_time in (
-		select MAX(operate_time) from country_group_finance where cid=#{cid} GROUP BY type )
+		select MAX(operate_time) from country_group_finance where cid=#{cid} GROUP BY type ) order by operate_time desc
 	</select>
 	
 	

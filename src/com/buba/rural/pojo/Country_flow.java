@@ -14,6 +14,10 @@ public class Country_flow {
 	private String totime;
 	private String towhy;
 	private String zzdjcshy;
+	private String xage;
+	private String dage;
+	private String starttime;
+	private String overtime;
 	private String cid;
 	public String getId() {
 		return id;
@@ -99,6 +103,31 @@ public class Country_flow {
 	}
 	public void setCid(String cid) {
 		this.cid = cid;
+	}
+	
+	public String getXage() {
+		return xage;
+	}
+	public void setXage(String xage) {
+		this.xage = xage;
+	}
+	public String getDage() {
+		return dage;
+	}
+	public void setDage(String dage) {
+		this.dage = dage;
+	}
+	public String getStarttime() {
+		return starttime;
+	}
+	public void setStarttime(String starttime) {
+		this.starttime = starttime;
+	}
+	public String getOvertime() {
+		return overtime;
+	}
+	public void setOvertime(String overtime) {
+		this.overtime = overtime;
 	}
 	@Override
 	public String toString() {

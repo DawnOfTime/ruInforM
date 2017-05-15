@@ -177,7 +177,7 @@ function findPoverty(povertyName){
 }
 function addPoverty(){
 	var p = datagrid.datagrid("getRows"); 
-	if(p >= 1){
+	if(p.length >= 1){
 		$.messager.alert("提示信息", "信息已存在，不能进行添加。 ");
 	}else{
 		$("#win").window('open');
@@ -271,15 +271,15 @@ function savebg(){
 		var cid = $("#cid").val();
 		  $.post("<c:url value='/povertybg.m?countrypoverty.id='/>"+rowid+"&countrypoverty.cid="+cid,function (data){
 			if(data[0].is_pkc=="1"){
-				$("#is_pkc").append("<option value='1' selected='selected'>是</option><option value='2'>否</option>");
+				$("#is_pkc").html("<option value='1' selected='selected'>是</option><option value='2'>否</option>");
 			}else if(data[0].is_pkc=="2"){
-				$("#is_pkc").append("<option value='1'>是</option><option value='2' selected='selected'>否</option>");
+				$("#is_pkc").html("<option value='1'>是</option><option value='2' selected='selected'>否</option>");
 			}
 			
 			if(data[0].is_ymbq=="1"){
-				$("#is_ymbq").append("<option value='1' selected='selected'>是</option><option value='2'>否</option>");
+				$("#is_ymbq").html("<option value='1' selected='selected'>是</option><option value='2'>否</option>");
 			}else if(data[0].is_ymbq=="2"){
-				$("#is_ymbq").append("<option value='1'>是</option><option value='2' selected='selected'>否</option>");
+				$("#is_ymbq").html("<option value='1'>是</option><option value='2' selected='selected'>否</option>");
 			}
 			
 			var elementids=["pk_number","tpcs","jcrzbqhs","ytczbqhs","xjcabqhs","kqyazbqhs","zpdysjname","zpdysjpcdwjzw","zpdysjphonenumber","fpbzxm","fpdzpcdwjzw","fpdzphonenumber"];
@@ -289,7 +289,6 @@ function savebg(){
 		},"json"); 
 		  $("#wins").window('open'); 
 	} 
-	
 } 
 function addFlowbg(){
 	var cid = $("#cid").val();
@@ -300,7 +299,7 @@ function addFlowbg(){
                 $.messager.alert("提示信息", "操作成功");
                 $("#wins").window("close");
 	    		findFlowPerson("");
-                $("#addFlowbgs").form("clear");
+                $("#addFlowbg").form("clear");
             }
             else {
                 $.messager.alert("提示信息", "操作失败");

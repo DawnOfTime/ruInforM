@@ -342,28 +342,28 @@ function savebg(){
 			$("#birthday").attr("value",data[0].birthday);
 			
 			if(data[0].whcd=='0'){
-				$("#whcd").append("<option value='0'  selected='selected'>文盲</option><option value='1'>小学</option>"
+				$("#whcd").html("<option value='0'  selected='selected'>文盲</option><option value='1'>小学</option>"
 		    			+"<option value='2'>初中</option>"
 		    			+"<option value='3'>高中（中专）</option>"
 		    			+"<option value='4'>大专及以上</option>");
 			
 			}else if(data[0].whcd=='1'){
-				$("#whcd").append("<option value='0'>文盲</option><option value='1' selected='selected'>小学</option>"
+				$("#whcd").html("<option value='0'>文盲</option><option value='1' selected='selected'>小学</option>"
 		    			+"<option value='2'>初中</option>"
 		    			+"<option value='3'>高中（中专）</option>"
 		    			+"<option value='4'>大专及以上</option>");
 			}else if(data[0].whcd=='2'){
-				$("#whcd").append("<option value='0'>文盲</option><option value='1'>小学</option>"
+				$("#whcd").html("<option value='0'>文盲</option><option value='1'>小学</option>"
 		    			+"<option value='2' selected='selected'>初中</option>"
 		    			+"<option value='3'>高中（中专）</option>"
 		    			+"<option value='4'>大专及以上</option>");
 			}else if(data[0].whcd=='3'){
-				$("#whcd").append("<option value='0'>文盲</option><option value='1'>小学</option>"
+				$("#whcd").html("<option value='0'>文盲</option><option value='1'>小学</option>"
 		    			+"<option value='2'>初中</option>"
 		    			+"<option value='3'selected='selected'>高中（中专）</option>"
 		    			+"<option value='4'>大专及以上</option>");
 			}else if(data[0].whcd=='4'){
-				$("#whcd").append("<option value='0'>文盲</option><option value='1'>小学</option>"
+				$("#whcd").html("<option value='0'>文盲</option><option value='1'>小学</option>"
 		    			+"<option value='2'>初中</option>"
 		    			+"<option value='3'>高中（中专）</option>"
 		    			+"<option value='4'selected='selected'>大专及以上</option>");
@@ -373,16 +373,16 @@ function savebg(){
 			$("#rznx").attr("value",data[0].rznx);
 			$("#wyxm").attr("value",data[0].wyxm);
 			if(data[0].state=='0'){
-				$("#state").append("<option value='0' selected='selected'>在职</option><option value='1'>离职</option>");
+				$("#state").html("<option value='0' selected='selected'>在职</option><option value='1'>离职</option>");
 			}else if(data[0].state=='1'){
-				$("#state").append("<option value='1'>在职</option><option value='2' selected='selected'>离职</option>");
+				$("#state").html("<option value='1'>在职</option><option value='2' selected='selected'>离职</option>");
 			}
 			if(data[0].zw=='1'){
-				$("#zw").append("<option value='1' selected='selected'>党委</option><option value='2'>村委</option><option value='3'>监委</option>");
+				$("#zw").html("<option value='1' selected='selected'>党委</option><option value='2'>村委</option><option value='3'>监委</option>");
 			}else if(data[0].zw=='2'){
 				$("#zw").append("<option value='1'>党委</option><option value='2' selected='selected'>村委</option><option value='3'>监委</option>");
 			}else if(data[0].zw=='3'){
-				$("#zw").append("<option value='1'>党委</option><option value='2'>村委</option><option value='3' selected='selected'>监委</option>");
+				$("#zw").html("<option value='1'>党委</option><option value='2'>村委</option><option value='3' selected='selected'>监委</option>");
 			}
 		},"json"); 
 		  $("#wins").window('open'); 
@@ -399,7 +399,7 @@ function addFlowbg(){
                 $.messager.alert("提示信息", "操作成功");
                 $("#wins").window("close");
 	    		findFlowPerson("");
-                $("#addFlowbgs").form("clear");
+                $("#addFlowbg").form("clear");
             }
             else {
                 $.messager.alert("提示信息", "操作失败");
