@@ -463,7 +463,7 @@ function searchHistory(){
 		    </form>
 	    </div>  
 	</div> 
-	<div id="wins" class="easyui-window" title="土地产业添加" style="width:600px;height:450px;display:none;"  
+	<div id="wins" class="easyui-window" title="土地产业变更" style="width:600px;height:450px;display:none;"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFlowbg">
