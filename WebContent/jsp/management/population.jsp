@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script language="javascript" type="text/javascript" src="<c:url value='/js/Date/WdatePicker.js'/>"></script>
 <script type="text/javascript">
 
 var datagrid; //定义全局变量datagrid
@@ -17,19 +18,50 @@ $(document).ready(function(){
 	     onClick: function(node){
 	    	 $("#num").attr("value",node.num);
 	    	 $("#level").attr("value",node.level);
-	    	 findFlowPerson(node.num,node.text,node.level,"");
+	    	 if(node.level!='0'){
+	    	 	$.post("<c:url value='/population/findOption.m'/>",function(optiondata){
+	    		 	var xb = optiondata.xb;
+	    			var zzmm = optiondata.zzmm;
+	    			var hyzk = optiondata.hyzk;
+	    			var whcd = optiondata.whcd;
+	    		 	var idarr = ["xb","zzmm","hyzk","whcd"];
+	    			for (var i = 0; i < idarr.length; i++) {
+	    				$("#"+idarr[i]).html("<option value=''>-请选择-</option>");
+	    			}
+	    			var idarr2 = ["xm","sfzhm","csrq"];
+	    			for (var i = 0; i < idarr2.length; i++) {
+	    				$("#"+idarr2[i]).val("");
+	    			}
+	    			for (var i = 0; i < xb.length; i++) {
+	    				$("#xb").append("<option value='"+xb[i].dicvalue+"'>"+xb[i].dicname+"</option>");
+	    			}
+	    			for (var i = 0; i < zzmm.length; i++) {
+	    				$("#zzmm").append("<option value='"+zzmm[i].dicvalue+"'>"+zzmm[i].dicname+"</option>");
+	    			}
+	    			for (var i = 0; i < hyzk.length; i++) {
+	    				$("#hyzk").append("<option value='"+hyzk[i].dicvalue+"'>"+hyzk[i].dicname+"</option>");
+	    			}
+	    			for (var i = 0; i < whcd.length; i++) {
+	    				$("#whcd").append("<option value='"+whcd[i].dicvalue+"'>"+whcd[i].dicname+"</option>");
+	    			}
+	    		},"json");
+	    	 	findFlowPerson(node.num,node.text,node.level,"");
+	    	 }
 	 	 }
 	 });
-	
 });
 
 function findFlowPerson(cnum,text,level,personname){
 	var cid = $("#cid").val();
-	var tabTop = "<c:url value='/json/person_message.json'/>";
+	var tabTop = "<c:url value='/json/population.json'/>";
 	var rowurl = "<c:url value='/population/queryPopulation.m?country.num='/>"+cnum+"&country.level="+level+personname;
 	var hidcolumns = "id,fid,yhzgx";//隐藏列字段名
 	var id = "id";//主键字段名
-	var frozenColumns = [[{}]];
+	//var frozenColumns = [[{}]];
+	var frozenColumns = [
+		{'field':'ck','checkbox':'true'},
+		{'field':'xm','title':'姓名','width':'150','align':'center'}
+     ];
 	var formartColumns;
 	$.post("<c:url value='/population/findOption.m'/>",function(optiondata){
 		var xb = optiondata.xb;
@@ -41,6 +73,8 @@ function findFlowPerson(cnum,text,level,personname){
 		var cyzt = optiondata.cyzt;
 		var zylx = optiondata.zylx;
 		var gzdw = optiondata.gzdw;
+		
+		
 		
 		formartColumns = [{	
 								field: 'xb',
@@ -232,8 +266,14 @@ function findFlowPerson(cnum,text,level,personname){
 								}  
 							}
 							];
-	//锁定列
 	$.getJSON(tabTop, function(data){
+		//锁定列
+		if(undefined!=frozenColumns){
+			frozenColumns = frozenColumns;
+		}else{
+			frozenColumns = [{field:'ck',checkbox:true}];
+		}
+		//下拉框
 		$(formartColumns).each(function(){
 			var formartItem=this;
 			$(data).each(function(){
@@ -260,7 +300,7 @@ function findFlowPerson(cnum,text,level,personname){
 	        selectOnCheck: true,//true勾选会选择行，false勾选不选择行, 1.3以后有此选项。重点在这里
 	        checkOnSelect:true,//选中行,不默认选中当前行的复选框
 	        idField: id,
-	        frozenColumns:[[]], 
+	        frozenColumns:[frozenColumns],
 	        onAfterEdit: function (rowIndex, rowData, changes) {
 	            editRow = undefined;
 	        },onBeforeLoad:function(){			//在请求载入数据之前触发
@@ -311,16 +351,37 @@ function findWhere(){
 		if($("#xm").val()!=''){
 			personWhere += "&xm="+encodeURI(encodeURI($("#xm").val()));
 		}
+		if($("#xb").val()!=''){
+			personWhere += "&xb="+encodeURI(encodeURI($("#xb").val()));
+		}
+		if($("#csrq1").val()!=''){
+			personWhere += "&csrq1="+encodeURI(encodeURI($("#csrq1").val()));
+		}
+		if($("#csrq2").val()!=''){
+			personWhere += "&csrq2="+encodeURI(encodeURI($("#csrq2").val()));
+		}
+		if($("#zzmm").val()!=''){
+			personWhere += "&zzmm="+encodeURI(encodeURI($("#zzmm").val()));
+		}
+		if($("#hyzk").val()!=''){
+			personWhere += "&hyzk="+encodeURI(encodeURI($("#hyzk").val()));
+		}
+		if($("#whcd").val()!=''){
+			personWhere += "&whcd="+encodeURI(encodeURI($("#whcd").val()));
+		}
 		if($("#sfzhm").val()!=''){
 			personWhere += "&sfzhm="+$("#sfzhm").val();
 		}
+		
+		var csrq1 = $("#csrq1").val();
+		var csrq2 = $("#csrq2").val();
+		if(csrq2<csrq1){
+			alert("出生日期请按从早到晚填写，如：1992-05-15 - 1997-05-15");
+			return;
+		}
 		findFlowPerson(cnum,"",level,personWhere);
 	}
-	
 </script>
-<style type="text/css">
-
-</style>
 </head>
 <body class="easyui-layout">
  <div data-options="region:'west',title:'组织机构',split:true" style="width:220px;">
@@ -333,10 +394,31 @@ function findWhere(){
     		<input type="hidden" id="num">
     		<input type="hidden" id="level">
     		<!-- 表头 -->
-    		<span>姓名:</span><input type="text" id="xm" value="" size=10 /> 
-    		<span>性别:</span><input type="text" id="xm" value="" size=10 /> 
-    		<span>身份证号:</span><input type="text" id="sfzhm" value="" size=10 />   
-	        <a href="javascript:findWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a> 
+    		<span>&emsp;姓&emsp;&emsp;名:&emsp;</span><input type="text" id="xm" value="" size=10 /> 
+    		<span>&emsp;性&emsp;&emsp;别:&emsp;</span>
+    		<select id=xb>
+    			<option value="">-请选择-</option>
+    		</select>
+    		<span>&emsp;出生日期:&emsp;</span>
+    		<!-- <input type="text" id="csrq1" class="easyui-datebox" style="width:100px;"/>
+    		<input type="text" id="csrq2" class="easyui-datebox" style="width:100px;"/> -->
+			<input type="text" id="csrq1"  onClick="WdatePicker()" class="Wdate"/>&nbsp;-
+			<input type="text" id="csrq2"  onClick="WdatePicker()" class="Wdate"/>
+    		<span>&emsp;政治面貌:&emsp;</span>
+    		<select id="zzmm">
+    			<option value="">-请选择-</option>
+    		</select>
+    		<br/><br/>
+    		<span>&emsp;婚姻状况:&emsp;</span>
+    		<select id="hyzk">
+    			<option value="">-请选择-</option>
+    		</select>
+    		<span>&emsp;文化程度:&emsp;</span>
+    		<select id="whcd">
+    			<option value="">-请选择-</option>
+    		</select>
+    		<span>&emsp;身份证号:&emsp;</span><input type="text" id="sfzhm" value="" size=10 style="width:140px;"/>   
+	        &emsp;&emsp;<a href="javascript:findWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a> 
     	</div>
     	
  </div>
