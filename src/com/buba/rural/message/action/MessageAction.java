@@ -72,7 +72,7 @@ public class MessageAction {
 	 * @return
 	 * @throws IOException
 	 */
-/*	public String findFamilyMessages() throws IOException{
+	public String findFamilyMessages() throws IOException{
 		HttpServletRequest request=ServletActionContext.getRequest();
 		HttpServletResponse response=ServletActionContext.getResponse();
 		//当前页  
@@ -104,7 +104,7 @@ public class MessageAction {
 		out.write(JSONObject.fromObject(jsonMap)+"");
 		out.close();
 		return null;
-	}*/
+	}
 	/**
 	 * 获取该村的所有户【分页】
 	 * @return
