@@ -1,13 +1,13 @@
 [
 	{"field":"id","title":"主键","width":"150","align":"center"},
 	
-	{"field":"xb","title":"性别","width":"100","align":"center"},
-	{"field":"mz","title":"民族","width":"100","align":"center"},
-	{"field":"yhzgx","title":"与户主关系","width":"100","align":"center"},
+	{"field":"xb","title":"性别","width":"80","align":"center"},
+	{"field":"mz","title":"民族","width":"80","align":"center"},
+	{"field":"yhzgx","title":"与户主关系","width":"80","align":"center"},
 	{"field":"csrq","title":"出生日期","width":"100","align":"center"},
 	{"field":"zzmm","title":"政治面貌","width":"100","align":"center"},
 	{"field":"rdsj","title":"入党时间","width":"100","align":"center"},
-	{"field":"szdzb","title":"所在党支部","width":"100","align":"center"},
+	{"field":"szdzb","title":"所在党支部","width":"350","align":"center"},
 	{"field":"hyzk","title":"婚姻状况","width":"100","align":"center"},
 	{"field":"jkzk","title":"健康状态","width":"100","align":"center"},
 	{"field":"whcd","title":"文化程度","width":"100","align":"center"},

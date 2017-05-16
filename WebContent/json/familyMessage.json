@@ -1,7 +1,7 @@
 [
 	{"field":"id","title":"主键","width":"150","align":"center"},
 	{"field":"hzxm","title":"户主姓名","width":"100","align":"center"},
-	{"field":"hjd","title":"户籍地","width":"200","align":"center"},
-	{"field":"xjdz","title":"现居地址","width":"200","align":"center"},
+	{"field":"hjd","title":"户籍地","width":"350","align":"center"},
+	{"field":"xjdz","title":"现居地址","width":"350","align":"center"},
 	{"field":"p_num","title":"家庭人口数","width":"100","align":"center"}
 ]

@@ -1,29 +1,29 @@
 [
 	{"field":"id","title":"主键","width":"100","align":"center","editor":{"type":"text"}},
-	{"field":"is_pkc","title":"是否为贫困村","width":"150","align":"center","editor":{"type":"text"}},
-	{"field":"pk_number","title":"贫困户数","width":"100","align":"center","editor":{"type":"text"}},
-	{"field":"tpcs","title":"脱贫措施","width":"100","align":"center","editor":{"type":"text"}},
-	{"field":"is_ymbq","title":"是否移民搬迁","width":"150","align":"center","editor":{"type":"text"}},
-	{"field":"jcrzbqhs","title":"进城入镇搬迁户数","width":"200","align":"center","editor":{"type":"text"}},
-	{"field":"ytczbqhs","title":"依托村庄搬迁户数","width":"150","align":"center","editor":{"type":"text"}},
-	{"field":"xjcabqhs","title":"新建村庄搬迁户数","width":"150","align":"center","editor":{"type":"text"}},
-	{"field":"kqyazbqhs","title":"跨区域安置搬迁户数","width":"150","align":"center","editor":{"type":"text"}},
-	{"field":"zpdysjname","title":"派驻第一书记姓名","width":"150","align":"center","editor":{"type":"text"}},
-	{"field":"zpdysjpcdwjzw","title":"派驻第一书记派出单位及职务","width":"200","align":"center","editor":{"type":"text"}},
-	{"field":"zpdysjphonenumber","title":"派驻第一书记联系方式","width":"200","align":"center","editor":{"type":"text"}},
-	{"field":"fpbzxm","title":"扶贫队长姓名","width":"150","align":"center","editor":{"type":"text"}},
-	{"field":"fpdzpcdwjzw","title":"扶贫队长派出单位及职务","width":"200","align":"center","editor":{"type":"text"}},
-	{"field":"fpdzphonenumber","title":"扶贫队长联系方式","width":"150","align":"center","editor":{"type":"text"}}
+	{"field":"is_pkc","title":"是否为贫困村","width":"90","align":"center","editor":{"type":"text"}},
+	{"field":"pk_number","title":"贫困户数","width":"80","align":"center","editor":{"type":"text"}},
+	{"field":"tpcs","title":"脱贫措施","width":"80","align":"center","editor":{"type":"text"}},
+	{"field":"is_ymbq","title":"是否移民搬迁","width":"90","align":"center","editor":{"type":"text"}},
+	{"field":"jcrzbqhs","title":"进城入镇搬迁户数","width":"120","align":"center","editor":{"type":"text"}},
+	{"field":"ytczbqhs","title":"依托村庄搬迁户数","width":"120","align":"center","editor":{"type":"text"}},
+	{"field":"xjcabqhs","title":"新建村庄搬迁户数","width":"120","align":"center","editor":{"type":"text"}},
+	{"field":"kqyazbqhs","title":"跨区域安置搬迁户数","width":"140","align":"center","editor":{"type":"text"}},
+	{"field":"zpdysjname","title":"派驻第一书记姓名","width":"120","align":"center","editor":{"type":"text"}},
+	{"field":"zpdysjpcdwjzw","title":"派驻第一书记派出单位及职务","width":"170","align":"center","editor":{"type":"text"}},
+	{"field":"zpdysjphonenumber","title":"派驻第一书记联系方式","width":"150","align":"center","editor":{"type":"text"}},
+	{"field":"fpbzxm","title":"扶贫队长姓名","width":"100","align":"center","editor":{"type":"text"}},
+	{"field":"fpdzpcdwjzw","title":"扶贫队长派出单位及职务","width":"150","align":"center","editor":{"type":"text"}},
+	{"field":"fpdzphonenumber","title":"扶贫队长联系方式","width":"120","align":"center","editor":{"type":"text"}}
 	,{
         "field": "operate_time",
         "title": "操作时间",
-        "width": "100",
+        "width": "150",
         "align": "center"
     },
     {
         "field": "operator",
         "title": "操作人",
-        "width": "100",
+        "width": "80",
         "align": "center"
     },
 	{"field":"cid","title":"村id","width":"150","align":"center","editor":{"type":"text"}}

@@ -8,7 +8,7 @@
     {
         "field": "cdzbsj",
         "title": "村党支部书记",
-        "width": "100",
+        "width": "90",
         "editor": {
             "type": "validatebox",
             "options":{
@@ -23,7 +23,7 @@
     {
         "field": "bpld",
         "title": "包片领导",
-        "width": "100",
+        "width": "70",
         "editor": {
             "type": "validatebox",
             "options":{
@@ -38,7 +38,7 @@
     {
         "field": "jswmjsqk",
         "title": "精神文明建设情况",
-        "width": "200",
+        "width": "120",
         "editor": {
              "type": "validatebox",
            		 "options":{
@@ -137,13 +137,13 @@
     {
         "field": "operate_time",
         "title": "操作时间",
-        "width": "100",
+        "width": "150",
         "align": "center"
     },
     {
         "field": "operator",
         "title": "操作人",
-        "width": "100",
+        "width": "80",
         "align": "center"
     }
 ]

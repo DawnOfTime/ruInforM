@@ -35,7 +35,7 @@
     {
         "field": "cl",
         "title": "土路(公里)",
-        "width": "100",
+        "width": "80",
         "editor": {
             "type": "text"
         },
@@ -44,7 +44,7 @@
     {
         "field": "ql",
         "title": "桥梁(座)",
-        "width": "100",
+        "width": "80",
         "editor": {
             "type": "text"
         },
@@ -53,7 +53,7 @@
     {
         "field": "qsb",
         "title": "清水坝(座)",
-        "width": "100",
+        "width": "80",
         "editor": {
             "type": "text"
         },
@@ -62,14 +62,14 @@
     {
         "field": "ynb",
         "title": "淤地坝(座)",
-        "width": "100",
+        "width": "80",
         "editor": {
             "type": "text"
         },
         "align": "center"
     },
-    {"field":"operate_time","title":"操作时间","width":"100","align":"center","editor":{"type":"text"}},
-	{"field":"operator","title":"操作人","width":"100","align":"center","editor":{"type":"text"}},
+    {"field":"operate_time","title":"操作时间","width":"150","align":"center","editor":{"type":"text"}},
+	{"field":"operator","title":"操作人","width":"70","align":"center","editor":{"type":"text"}},
     {
         "field": "cid",
         "title": "村id",

@@ -18,7 +18,7 @@
 							"missingMessage":"该输入项不能为空"
 							}
 						}},
-	{"field":"hjd","title":"户籍地","width":"250","align":"center","editor":{"type":"validatebox",
+	{"field":"hjd","title":"户籍地","width":"350","align":"center","editor":{"type":"validatebox",
 						"options":{
 							"required":"true",
 							"missingMessage":"该输入项不能为空"

@@ -60,7 +60,7 @@ function findFlowPerson(cnum,text,level,personname){
 	//var frozenColumns = [[{}]];
 	var frozenColumns = [
 		{'field':'ck','checkbox':'true'},
-		{'field':'xm','title':'姓名','width':'150','align':'center'}
+		{'field':'xm','title':'姓名','width':'80','align':'center'}
      ];
 	var formartColumns;
 	$.post("<c:url value='/population/findOption.m'/>",function(optiondata){

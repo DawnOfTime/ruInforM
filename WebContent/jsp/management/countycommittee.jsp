@@ -53,7 +53,7 @@ function findFlowPerson(villageName){
 	//锁定列
 	var frozenColumns = [
 							{'field':'ck','checkbox':'true'},
-		                	{"field":"name","title":"姓名","width":"100","align":"center","editor":{"type":"text"}},
+		                	{"field":"name","title":"姓名","width":"80","align":"center","editor":{"type":"text"}},
 		                	{"field":"lxfs","title":"联系方式","width":"100","editor": {
 		                        "type": "validatebox",
 		                  		 "options":{
@@ -378,9 +378,9 @@ function savebg(){
 			$("#rxzsj").attr("value",data[0].rxzsj);
 			$("#rznx").attr("value",data[0].rznx);
 			$("#wyxm").attr("value",data[0].wyxm);
-			if(data[0].state=='0'){
-				$("#state").html("<option value='0' selected='selected'>在职</option><option value='1'>离职</option>");
-			}else if(data[0].state=='1'){
+			if(data[0].state=='1'){
+				$("#state").html("<option value='1' selected='selected'>在职</option><option value='2'>离职</option>");
+			}else if(data[0].state=='2'){
 				$("#state").html("<option value='1'>在职</option><option value='2' selected='selected'>离职</option>");
 			}
 			if(data[0].zw=='1'){
@@ -773,8 +773,8 @@ function addFlowbg(){
 			    		<td>
 			    			<select name="countrycommittee.state" id="state" style="height:40px;width: 137px;text-align: center;">
 			    				<!-- <option value="">-请选择-</option>
-			    				<option value="0">在职</option>
-			    				<option value="1">离职</option> -->
+			    				<option value="1">在职</option>
+			    				<option value="2">离职</option> -->
 			    			</select>
 			    		</td>
 			    		<th>职位</th>

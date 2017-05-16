@@ -66,7 +66,7 @@ function tabClose() {
         $('#tt').tabs('close', subtitle);
     });
     /* 为选项卡绑定右键 */
-    /* $(".tabs-inner").bind('contextmenu', function(e) {
+    $(".tabs-inner").bind('contextmenu', function(e) {
         $('#mm').menu('show', {
             left: e.pageX,
             top: e.pageY
@@ -77,7 +77,7 @@ function tabClose() {
         $('#mm').data("currtab", subtitle);
         $('#tabs').tabs('select', subtitle);
         return false;
-    }); */
+    });
 }
 // 绑定右键菜单事件
 function tabCloseEven() {
@@ -101,7 +101,9 @@ function tabCloseEven() {
     $('#mm-tabcloseall').click(function() {
         $('.tabs-inner span').each(function(i, n) {
             var t = $(n).text();
-            $('#tt').tabs('close', t);
+            if(t!="welcome"){
+	            $('#tt').tabs('close', t);
+            }
         });
     });
     // 关闭除当前之外的TAB
@@ -119,7 +121,9 @@ function tabCloseEven() {
         }
         nextall.each(function(i, n) {
             var t = $('a:eq(0) span', $(n)).text();
-            $('#tt').tabs('close', t);
+            if(t!="welcome"){
+	            $('#tt').tabs('close', t);
+            }
         });
         return false;
     });
@@ -132,7 +136,9 @@ function tabCloseEven() {
         }
         prevall.each(function(i, n) {
             var t = $('a:eq(0) span', $(n)).text();
-            $('#tt').tabs('close', t);
+            if(t!="welcome"){
+            	$('#tt').tabs('close', t);
+            }
         });
         return false;
     });
@@ -290,9 +296,9 @@ function exit(){
         </div>
         <div class="menu-sep">
         </div>
-        <div id="mm-exit">
+        <!-- <div id="mm-exit">
            	 退出
-        </div>
+        </div> -->
     </div>
 </body>
 </html>

@@ -411,7 +411,7 @@ function searchHistory(){
 		    			<td>
 		    				<input type="text" name="land_industry.qtcy" />
 		    			</td>
-		    			<td>现代农业:</td>
+		    			<td>现代农业奖补情况:</td>
 		    			<td>
 		    				<input type="text" name="land_industry.xdny"/>
 		    			</td>
@@ -524,7 +524,7 @@ function searchHistory(){
 		    			<td>
 		    				<input type="text" name="land_industry.qtcy"  id="qtcy"/>
 		    			</td>
-		    			<td>现代农业:</td>
+		    			<td>现代农业奖补情况:</td>
 		    			<td>
 		    				<input type="text" name="land_industry.xdny" id="xdny"/>
 		    			</td>

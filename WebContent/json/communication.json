@@ -11,7 +11,7 @@
     {
         "field": "is_ydxh",
         "title": "是否有移动信号",
-        "width": "150",
+        "width": "120",
         "align": "center",
         "editor": {
             "type": "validatebox",
@@ -24,7 +24,7 @@
     {
         "field": "is_ltxh",
         "title": "是否有联通信号",
-        "width": "150",
+        "width": "120",
         "align": "center",
         "editor": {
             "type": "validatebox",
@@ -37,7 +37,7 @@
     {
         "field": "is_dxxh",
         "title": "是否有电信信号",
-        "width": "150",
+        "width": "120",
         "align": "center",
         "editor": {
             "type": "validatebox",
@@ -50,7 +50,7 @@
     {
         "field": "is_qcfg",
         "title": "是否全村覆盖",
-        "width": "150",
+        "width": "120",
         "align": "center",
         "editor": {
             "type": "validatebox",
@@ -79,7 +79,7 @@
     {
         "field": "operate_time",
         "title": "操作时间",
-        "width": "200",
+        "width": "150",
         "align": "center"
     }
 ]

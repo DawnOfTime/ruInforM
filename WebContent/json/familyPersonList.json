@@ -32,7 +32,7 @@
                             "invalidMessage":"日期格式不正确"
 							}
 						}},
-	{"field":"sfzhm","title":"身份证号码","width":"100","align":"center","editor":{"type":"validatebox",
+	{"field":"sfzhm","title":"身份证号码","width":"150","align":"center","editor":{"type":"validatebox",
 						"options":{
 							"required":"true",
 							"missingMessage":"该输入项不能为空"
@@ -45,7 +45,7 @@
 							}
 						}},
 	{"field":"rdsj","title":"入党时间","width":"100","align":"center","editor":{"type":"datebox"}},
-	{"field":"szdzb","title":"所在党支部","width":"100","align":"center","editor":{"type":"text"}},
+	{"field":"szdzb","title":"所在党支部","width":"350","align":"center","editor":{"type":"text"}},
 	{"field":"hyzk","title":"婚姻状况","width":"100","align":"center","editor":{"type":"validatebox",
 						"options":{
 							"required":"true",
