@@ -374,12 +374,12 @@ function updateFlowPerson(){
 	        <a href="javascript:findFlowPersonWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a> 
 	    </div>
     </div>
-    <div id="win" class="easyui-window" title="添加流动人口记录" style="width:600px;height:400px;display:none;"  
+    <div id="win" class="easyui-window" title="添加流动人口记录" style="width:700px;height:450px;display:none;"  
         data-options="iconCls:'icon-save',modal:true">  
 	    <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFlowPerson">
 		    	<input type="hidden" id="form_cid" name="country_flow.cid"><!-- 村id -->
-			    <table border="1">
+			    <table style="line-height: 55px;width: 100%;">
 			    	<tr>
 				    	<th>姓名</th>
 				    	<td><input type="text" name="country_flow.name" class="easyui-validatebox" data-options="required:true,validType:'name'"/></td>
@@ -400,7 +400,7 @@ function updateFlowPerson(){
 			    	</tr>
 			    	<tr>
 				    	<th>户籍地</th>
-				    	<td><textarea rows="1" cols="14" name="country_flow.hjd" class="easyui-validatebox" data-options="required:true"></textarea></td>
+				    	<td><input name="country_flow.hjd" class="easyui-validatebox" data-options="required:true"></input></td>
 				    	<th>婚姻状况</th>
 				    	<td>
 				    		<select name="country_flow.hyzk" class="easyui-validatebox" data-options="required:true">
@@ -439,7 +439,7 @@ function updateFlowPerson(){
 			    	</tr>
 			    	<tr>
 			    		<th rowspan="2">暂住地及从事行业</th>
-				    	<td rowspan="2"><textarea rows="2" cols="14" name="country_flow.zzdjcshy" class="easyui-validatebox" data-options="required:true"></textarea></td>
+				    	<td rowspan="2"><input  name="country_flow.zzdjcshy" class="easyui-validatebox" data-options="required:true"></input></td>
 				    	<th>流动状态</th>
 				    	<td>
 				    		<select name="country_flow.state" class="easyui-validatebox" data-options="required:true">
