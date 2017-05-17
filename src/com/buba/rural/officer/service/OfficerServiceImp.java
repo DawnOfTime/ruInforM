@@ -49,13 +49,13 @@ public class OfficerServiceImp implements IOfficerService{
 		Acc accs=(Acc) ServletActionContext.getRequest().getSession().getAttribute("resultacc");
 		for (int i = 0; i < officer.length; i++) {
 			officer[i].setOperate_time(df.format(new Date()));
-			officer[i].setOperator(accs.getAcccode());
+			officer[i].setOperator(accs.getUsername());
 			if(officer[i].getLztime().equals("")){
 				officer[i].setLztime(null);
 			}
 		}
 		try {
-			vrUtil.updateVersionRecord(officer, "update", "3", accs.getAcccode(), df.format(new Date()), "id");
+			vrUtil.updateVersionRecord(officer, "update", "3", accs.getUsername(), df.format(new Date()), "id");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -71,9 +71,9 @@ public class OfficerServiceImp implements IOfficerService{
 		countryofficer.setOperate_time(df.format(new Date()));
 		//操作人
 		Acc accs=(Acc) ServletActionContext.getRequest().getSession().getAttribute("resultacc");
-		countryofficer.setOperator(accs.getAcccode());
+		countryofficer.setOperator(accs.getUsername());
 		try {
-			vrUtil.insertVersionRecord(countryofficer, "add", "3", accs.getAcccode(), df.format(new Date()), "id");
+			vrUtil.insertVersionRecord(countryofficer, "add", "3", accs.getUsername(), df.format(new Date()), "id");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

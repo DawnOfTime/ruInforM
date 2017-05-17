@@ -39,10 +39,10 @@ public class PovertyServiceImpl implements IPovertyService{
 		Acc accs=(Acc) ServletActionContext.getRequest().getSession().getAttribute("resultacc");
 		for (int i = 0; i < country.length; i++) {
 			country[i].setOperate_time(df.format(new Date()));
-			country[i].setOperator(accs.getAcccode());
+			country[i].setOperator(accs.getUsername());
 		}
 		try {
-			vrUtil.updateVersionRecord(country, "update", "5", accs.getAcccode(), df.format(new Date()), "id");
+			vrUtil.updateVersionRecord(country, "update", "5", accs.getUsername(), df.format(new Date()), "id");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -56,9 +56,9 @@ public class PovertyServiceImpl implements IPovertyService{
 		countrypoverty.setOperate_time(df.format(new Date()));
 		//操作人
 		Acc accs=(Acc) ServletActionContext.getRequest().getSession().getAttribute("resultacc");
-		countrypoverty.setOperator(accs.getAcccode());
+		countrypoverty.setOperator(accs.getUsername());
 		try {
-			vrUtil.insertVersionRecord(countrypoverty, "add", "5", accs.getAcccode(), df.format(new Date()), "id");
+			vrUtil.insertVersionRecord(countrypoverty, "add", "5", accs.getUsername(), df.format(new Date()), "id");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

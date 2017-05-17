@@ -52,7 +52,9 @@
 		)mc on c.id = mc.id
 	</select>
 	<select id="pie_countryPoverty" resultType="Country_poverty">
-		SELECT * from country_poverty c RIGHT JOIN (
+		SELECT SUM(is_pkc) is_pkc,SUM(pk_number) pk_number,SUM(tpcs) tpcs,SUM(is_ymbq) is_ymbq,
+			SUM(jcrzbqhs) jcrzbqhs,SUM(ytczbqhs) ytczbqhs,SUM(xjcabqhs) xjcabqhs,SUM(kqyazbqhs) kqyazbqhs 
+		from country_poverty c RIGHT JOIN (
 			select MAX(operate_time),id from country_poverty where cid in (
 				<include refid="comm_where"/>
 			) GROUP BY cid

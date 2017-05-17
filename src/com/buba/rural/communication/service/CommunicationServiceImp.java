@@ -38,10 +38,10 @@ public class CommunicationServiceImp implements ICommunicationService{
 				Acc accs=(Acc) ServletActionContext.getRequest().getSession().getAttribute("resultacc");
 				for (int i = 0; i < country.length; i++) {
 					country[i].setOperate_time(df.format(new Date()));
-					country[i].setOperator(accs.getAcccode());
+					country[i].setOperator(accs.getUsername());
 				}
 				try {
-					vrUtil.updateVersionRecord(country, "update", "6", accs.getAcccode(), df.format(new Date()), "id");
+					vrUtil.updateVersionRecord(country, "update", "6", accs.getUsername(), df.format(new Date()), "id");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -57,9 +57,9 @@ public class CommunicationServiceImp implements ICommunicationService{
 		communication.setOperate_time(df.format(new Date()));
 		//操作人
 		Acc accs=(Acc) ServletActionContext.getRequest().getSession().getAttribute("resultacc");
-		communication.setOperator(accs.getAcccode());
+		communication.setOperator(accs.getUsername());
 		try {
-			vrUtil.insertVersionRecord(communication, "add", "6", accs.getAcccode(), df.format(new Date()), "id");
+			vrUtil.insertVersionRecord(communication, "add", "6", accs.getUsername(), df.format(new Date()), "id");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

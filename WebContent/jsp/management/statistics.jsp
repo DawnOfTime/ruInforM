@@ -538,6 +538,7 @@ function pie_countryBuilding(){
 }
 //贫困户分配【饼图】
 function pie_countryPoverty(){
+	alert("<c:url value='/statistics/pie_countryPoverty.m?country.num='/>"+cnum+"&country.level="+clevel);
 	$.post("<c:url value='/statistics/pie_countryPoverty.m?country.num='/>"+cnum+"&country.level="+clevel,function(data){
 		if(data==null){
 			$.messager.alert("提示", "所选区域无数据！");
