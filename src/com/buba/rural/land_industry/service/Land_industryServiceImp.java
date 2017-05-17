@@ -39,10 +39,10 @@ public class Land_industryServiceImp implements ILand_industryService{
 				Acc accs=(Acc) ServletActionContext.getRequest().getSession().getAttribute("resultacc");
 				for (int i = 0; i < land.length; i++) {
 					land[i].setOperate_time(df.format(new Date()));
-					land[i].setOperator(accs.getAcccode());
+					land[i].setOperator(accs.getUsername());
 				}
 				try {
-					vrUtil.updateVersionRecord(land, "update", "9", accs.getAcccode(), df.format(new Date()), "id");
+					vrUtil.updateVersionRecord(land, "update", "9", accs.getUsername(), df.format(new Date()), "id");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -59,9 +59,9 @@ public class Land_industryServiceImp implements ILand_industryService{
 		land_industry.setOperate_time(df.format(new Date()));
 		//操作人
 		Acc accs=(Acc) ServletActionContext.getRequest().getSession().getAttribute("resultacc");
-		land_industry.setOperator(accs.getAcccode());
+		land_industry.setOperator(accs.getUsername());
 		try {
-			vrUtil.insertVersionRecord(land_industry, "add", "9", accs.getAcccode(), df.format(new Date()), "id");
+			vrUtil.insertVersionRecord(land_industry, "add", "9", accs.getUsername(), df.format(new Date()), "id");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

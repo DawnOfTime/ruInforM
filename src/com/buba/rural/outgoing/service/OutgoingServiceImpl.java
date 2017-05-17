@@ -33,9 +33,9 @@ public class OutgoingServiceImpl implements IOutgoingService{
 		countyoutgoing.setOperate_time(df.format(new Date()));
 		//操作人
 		Acc accs=(Acc) ServletActionContext.getRequest().getSession().getAttribute("resultacc");
-		countyoutgoing.setOperator(accs.getAcccode());
+		countyoutgoing.setOperator(accs.getUsername());
 		try {
-			vrUtil.insertVersionRecord(countyoutgoing, "add", "8", accs.getAcccode(), df.format(new Date()), "id");
+			vrUtil.insertVersionRecord(countyoutgoing, "add", "8", accs.getUsername(), df.format(new Date()), "id");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -55,10 +55,10 @@ public class OutgoingServiceImpl implements IOutgoingService{
 		Acc accs=(Acc) ServletActionContext.getRequest().getSession().getAttribute("resultacc");
 		for (int i = 0; i < country.length; i++) {
 			country[i].setOperate_time(df.format(new Date()));
-			country[i].setOperator(accs.getAcccode());
+			country[i].setOperator(accs.getUsername());
 		}
 		try {
-			vrUtil.updateVersionRecord(country, "update", "8", accs.getAcccode(), df.format(new Date()), "id");
+			vrUtil.updateVersionRecord(country, "update", "8", accs.getUsername(), df.format(new Date()), "id");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
