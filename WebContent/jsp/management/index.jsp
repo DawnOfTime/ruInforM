@@ -253,7 +253,7 @@ function exit(){
 	        	<span style="color: blue">当前时间：</span><span id="dt"></span>
 	        </span>
 	        <span style="padding-left: 10px;font-size: 40px;font-family:楷体; float: left;">
-	            <img src="<c:url value='/image/logo.png'/>">
+	            <img src="<c:url value='/image/logo_c.png'/>">
 	        </span>
     	</div>
     </div>
