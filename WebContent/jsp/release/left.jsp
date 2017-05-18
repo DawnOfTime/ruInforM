@@ -112,10 +112,9 @@
 </style>
 <script type="text/javascript">
 $(document).ready(function(){
-	
-	$.post("<c:url value='/find.m'/>",function(data){
-		for (var i = 0; i < 16; i++) {
-			if(data[i].types==5){
+	/* <c:url value='/find.m'/> */
+	$.post("<c:url value='/selecttype.m?types=5'/>",function(data){
+		for (var i = 0; i < data.length; i++) {
 			$("#body1").append("<table cellspacing='1' bgcolor='#e4e4e4' width='100%'>"+
                  	"<tbody>"+
      		"<tr>"+
@@ -142,7 +141,6 @@ $(document).ready(function(){
 						"</tr>"+
 					"</tbody>"+
         		"</table>"); 
-			}
 		}
 	},"json");
 });

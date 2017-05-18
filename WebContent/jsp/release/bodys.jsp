@@ -30,7 +30,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$.post("<c:url value='/selecttype.m?types=1'/>",function(data){
-		for(var i=0;i < 7;i++){
+		for(var i=0;i < data.length;i++){
 			 $("#bodys").append("<table cellspacing='1' bgcolor='#e4e4e4' width='100%'>"+
 	                 	"<tbody>"+
 	             		"<tr>"+
@@ -60,7 +60,7 @@ $(document).ready(function(){
 		}
 	},"json");
 	$.post("<c:url value='/selecttype.m?types=2'/>",function(datad){
-		for (var i = 0; i <7; i++) {
+		for (var i = 0; i <datad.length; i++) {
 				$("#bodys2").append("<table cellspacing='1' bgcolor='#e4e4e4' width='100%'>"+
 	                 	"<tbody>"+
 	             		"<tr>"+
@@ -90,7 +90,7 @@ $(document).ready(function(){
 		}
 	},"json");
 	$.post("<c:url value='/selecttype.m?types=3'/>",function(dataf){
-		for (var i = 0; i <7; i++) {
+		for (var i = 0; i <dataf.length; i++) {
 				$("#bodys3").append("<table cellspacing='1' bgcolor='#e4e4e4' width='100%'>"+
 	                 	"<tbody>"+
 	             		"<tr>"+
@@ -120,7 +120,7 @@ $(document).ready(function(){
 		}
 	},"json");
 	$.post("<c:url value='/selecttype.m?types=4'/>",function(datag){
-		for (var i = 0; i <7; i++) {
+		for (var i = 0; i <datag.length; i++) {
 				$("#bodys4").append("<table cellspacing='1' bgcolor='#e4e4e4' width='100%'>"+
 	                 	"<tbody>"+
 	             		"<tr>"+

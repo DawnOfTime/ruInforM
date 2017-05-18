@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>对不起，系统正在升级中！</title>
+<link rel="shortout icon" href="<c:url value='/image/logo.ico'/>"  />
 </head>
 <body>
 			<div style="height:500px;width:500px;margin-left:447px;text-align:center;margin-top: 128px;">
