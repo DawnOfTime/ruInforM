@@ -349,6 +349,35 @@ function historyOutgoing(){
 	width:100%;
 	line-height:58px;
 }
+/*添加*/
+	#win input{
+		width: 150px;
+		border: 1px solid #e0e0e0;
+	}
+	#win select{
+		width:150px;
+		border: 1px solid #e0e0e0;
+	}
+	#win textarea{
+		width:150px;
+		border: 1px solid #e0e0e0;
+	}
+	#win{
+		background-color: #F4F4F4;
+	}
+	#win tr{
+		height: 45px;
+	}
+	#win th,td{
+		border-bottom: 2px solid #DDDDDD;
+	}
+	#win .easyui-linkbutton{
+		width: 100px;
+		height: 30px;
+	}
+	#win .l-btn-text{
+		font-size: 15px;
+	}
 </style>
 </head>
 <body class="easyui-layout">
@@ -366,18 +395,21 @@ function historyOutgoing(){
 	        <a href="javascript:findOutgoingWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a>
 	    </div>
     </div>
-    <div id="win" class="easyui-window" title="离任干部添加" style="width:410px;height:200px;display:none;"  
+    <div id="win" class="easyui-window" title="离任干部添加" style="width:500px;height:300px;display:none;"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addOutgoing">
 		    	<input type="hidden" id="form_cid" name="country_flow.cid">
-			    <table id="disa">
+		    	<div style="heigth:20px;display:block;line-height:20px;">&nbsp;</div>
+			    <table id="disa"  style="line-heigth:45px;width:300px" align="center" cellpadding="0" cellspacing="0">
 			    	<tr>
-				    	<th>姓名</th>
+				    	<td width="200px">姓名</td>
 				    	<td>
 				    		<input type="text" name="countyoutgoing.name"  />
 				    	</td>
-				    	<th>性别</th>
+			    	</tr>
+			    	<tr>
+				    	<td>性别</td>
 				    	<td>
 				    		 <select name="countyoutgoing.sex">
 						    	<option value="">-请选择-</option>
@@ -386,17 +418,18 @@ function historyOutgoing(){
 						    </select>	
 				    	</td>
 			    	</tr>
-			    	<tr></tr>
 			    	<tr>
-				    	<th>年龄</th>
+				    	<td>年龄</td>
 				    	<td>
 				    		<input type="text" name="countyoutgoing.age"/>
 				    	</td>
 			    	</tr>
-			    	<tr>
+			    	<!-- <tr>
 			    		<th colspan="4"><a href="javascript:saveaddOutgoing()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a></th>
-			    	</tr>
+			    	</tr> -->
 			    </table>
+			    <br>
+			    <div onclick="saveaddOutgoing()()" style="background:#EDF4FF;margin:auto;cursor:pointer;width:75px;height:30px;display:block;border:1px solid #95B8E7;line-height:30px;text-align:center;">保存</div>
 		    </form>
 	    </div>  
 	</div>

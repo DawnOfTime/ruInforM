@@ -405,6 +405,84 @@ function saveUpdatedFinance(){
 		}
 	}
 </script>
+<style type="text/css">
+	#tables{
+	margin-top:30px;
+	width:100%;
+	}
+	#tabless{
+	margin-top:30px;
+	width:100%;
+	}
+	td{
+	margin-top:30px;
+	}
+	.baocun{
+		height:100px;
+		text-align:center;
+	}
+	.juzhong{
+		height:80px;
+	}
+/*添加*/
+	#win input{
+		width: 150px;
+		border: 1px solid #e0e0e0;
+	}
+	#win select{
+		width:150px;
+		border: 1px solid #e0e0e0;
+	}
+	#win textarea{
+		width:150px;
+		border: 1px solid #e0e0e0;
+	}
+	#win{
+		background-color: #F4F4F4;
+	}
+	#win tr{
+		height: 45px;
+	}
+	#win th,td{
+		border-bottom: 2px solid #DDDDDD;
+	}
+	#win .easyui-linkbutton{
+		width: 100px;
+		height: 30px;
+	}
+	#win .l-btn-text{
+		font-size: 15px;
+	}
+/*变更*/
+	#wins input{
+		width: 150px;
+		border: 1px solid #e0e0e0;
+	}
+	#wins select{
+		width:150px;
+		border: 1px solid #e0e0e0;
+	}
+	#wins textarea{
+		width:150px;
+		border: 1px solid #e0e0e0;
+	}
+	#wins{
+		background-color: #F4F4F4;
+	}
+	#wins tr{
+		height: 45px;
+	}
+	#wins th,td{
+		border-bottom: 2px solid #DDDDDD;
+	}
+	#wins .easyui-linkbutton{
+		width: 100px;
+		height: 30px;
+	}
+	#wins .l-btn-text{
+		font-size: 15px;
+	}
+</style>
 </head>
 <body class="easyui-layout">
 	<div data-options="region:'west',title:'组织机构',split:true" style="width:220px;">
@@ -442,48 +520,55 @@ function saveUpdatedFinance(){
 	</div>
     
     
-    <div id="win" class="easyui-window" title="收支添加" style="width:420px;height:200px;display:none;"  
+    <div id="win" class="easyui-window" title="收支添加" style="width:500px;height:300px;display:none;"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFinance">
 		    	<input type="hidden" id="form_cid" name="country_flow.cid">
-			    <table style="line-height: 60px;width: 100%;">
+		    	<div style="heigth:20px;display:block;line-height:20px;">&nbsp;</div>
+			    <table style="line-heigth:45px;width:320px" align="center" cellpadding="0" cellspacing="0">
 			    	<tr>
-				    	<th>类型</th>
+				    	<td width="150px">类型</td>
 				    	<td>
-				    		<select name="groupfinance.type" class="easyui-validatebox" data-options="required:true" style="height:40px;text-align:center">
+				    		<select name="groupfinance.type" class="easyui-validatebox" style="height:40px;text-align:center">
 					      		<option value="">-请选择-</option>
 					      		<option value="1">集体资产</option>
 					      		<option value="2">收入</option>
 					      		<option value="3">负债</option>
 					      	</select>
 				    	</td>
-				    	<th>金额</th>
+				    </tr>
+				    <tr>
+				    	<td>金额</td>
 				    	<td>
-				    		<input type="text" name="groupfinance.privce" data-options="required:true,validType:'privce'" style="height:40px"/>
+				    		<input type="text" name="groupfinance.privce" data-options="validType:'privce'" style="height:40px"/>
 				    	</td>
 			    	</tr>
 			    	<tr>
-				    	<th>明细</th>
+				    	<td>明细</td>
 				    	<td>
-				    		<input type="text" name="groupfinance.message" data-options="required:true,validType:'message'" style="height:40px"/>
+				    		<!-- <input type="text" name="groupfinance.message" data-options="required:true,validType:'message'" style="height:40px"/> -->
+				    		<textarea rows="1" cols="15" name="groupfinance.message" data-options="validType:'message'"></textarea>
 				    	</td>
 			    	</tr>
-			    	<tr>
+			    	<!-- <tr>
 			    		<th colspan="4"><a href="javascript:saveaddFinance()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a></th>
-			    	</tr>
+			    	</tr> -->
 			    </table>
+			    <br>
+			    <div onclick="saveaddFinance()" style="background:#EDF4FF;margin:auto;cursor:pointer;width:75px;height:30px;display:block;border:1px solid #95B8E7;line-height:30px;text-align:center;">保存</div>
 		    </form>
 	    </div>  
 	</div>
-	<div id="wins" class="easyui-window" title="基本信息变更" style="width:420px;height:200px;display:none;"  
+	<div id="wins" class="easyui-window" title="基本信息变更" style="width:500px;height:300px;display:none;"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFlowbg">
 		    	<input type="hidden" id="form_cid" name="country_flow.cid">
-		    	<table  style="line-height: 60px;width: 100%;">
+		    	<div style="heigth:20px;display:block;line-height:20px;">&nbsp;</div>
+		    	<table style="line-heigth:45px;width:90%" align="center" cellpadding="0" cellspacing="0">
 			    	<tr>
-				    	<th>类型</th>
+				    	<td>类型</td>
 				    	<td>
 				    		<select name="groupfinance.type"  id="types" style="height:40px;text-align:center">
 					      		<!-- <option value="">-请选择-</option>
@@ -492,21 +577,26 @@ function saveUpdatedFinance(){
 					      		<option value="3">负债</option> -->
 					      	</select>
 				    	</td>
-				    	<th>金额</th>
+				    </tr>
+				    <tr>
+				    	<td>金额</td>
 				    	<td>
 				    		<input type="text" name="groupfinance.privce" value="" id="privce" style="height:40px"/>
 				    	</td>
 			    	</tr>
 			    	<tr>
-				    	<th>明细</th>
+				    	<td>明细</td>
 				    	<td>
-				    		<input type="text" name="groupfinance.message" value="" id="message" style="height:40px"/>
+				    		<!-- <input type="text" name="groupfinance.message" value="" id="message" style="height:40px"/> -->
+				    		<textarea rows="1" cols="15" name="groupfinance.message" id="message"></textarea>
 				    	</td>
 			    	</tr>
-			    	<tr>
+			    	<!-- <tr>
 			    		<th colspan="4"><a href="javascript:addFlowbg()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a></th>
-			    	</tr>
+			    	</tr> -->
 			    </table>
+			    <br>
+			    <div onclick="addFlowbg()" style="background:#EDF4FF;margin:auto;cursor:pointer;width:75px;height:30px;display:block;border:1px solid #95B8E7;line-height:30px;text-align:center;">保存</div>
 		    </form>
 	    </div>  
 	</div>

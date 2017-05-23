@@ -599,6 +599,66 @@ function addFlowbg(){
 	}
 }
 </script>
+<style type="text/css">
+/*添加*/
+	#win input{
+		width: 150px;
+		border: 1px solid #e0e0e0;
+	}
+	#win select{
+		width:150px;
+		border: 1px solid #e0e0e0;
+	}
+	#win textarea{
+		width:150px;
+		border: 1px solid #e0e0e0;
+	}
+	#win{
+		background-color: #F4F4F4;
+	}
+	#win tr{
+		height: 45px;
+	}
+	#win th,td{
+		border-bottom: 2px solid #DDDDDD;
+	}
+	#win .easyui-linkbutton{
+		width: 100px;
+		height: 30px;
+	}
+	#win .l-btn-text{
+		font-size: 15px;
+	}
+/*变更*/
+	#wins input{
+		width: 150px;
+		border: 1px solid #e0e0e0;
+	}
+	#wins select{
+		width:150px;
+		border: 1px solid #e0e0e0;
+	}
+	#wins textarea{
+		width:150px;
+		border: 1px solid #e0e0e0;
+	}
+	#wins{
+		background-color: #F4F4F4;
+	}
+	#wins tr{
+		height: 45px;
+	}
+	#wins th,td{
+		border-bottom: 2px solid #DDDDDD;
+	}
+	#wins .easyui-linkbutton{
+		width: 100px;
+		height: 30px;
+	}
+	#wins .l-btn-text{
+		font-size: 15px;
+	}
+</style>
 </head>
 <body class="easyui-layout">
 	<div data-options="region:'west',title:'组织机构',split:true" style="width:220px;">
@@ -625,20 +685,21 @@ function addFlowbg(){
 		    <table id="ls" toolbar="#seach"></table>
 	    </div>  
 	</div>
-    <div id="win" class="easyui-window" title="委员添加" style="width:800px;height:450px;display:none;"  
+    <div id="win" class="easyui-window" title="委员信息添加" style="width:800px;height:330px;display:none;"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFlowPerson">
 		    	<input type="hidden" id="form_cid" name="country_flow.cid">
-			    <table style="line-height:71px;width:100%">
+		    	<div style="heigth:20px;display:block;line-height:20px;">&nbsp;</div>
+			    <table style="line-heigth:45px;width:90%" align="center" cellpadding="0" cellspacing="0">
 			    	<tr>
 				    	<th>姓名</th>
 				    	<td>
-				    		<input type="text" name="countrycommittee.name" data-options="required:true,validType:'name'" style="height:40px"/>
+				    		<input type="text" name="countrycommittee.name" data-options="validType:'name'"/>
 				    	</td>
 				    	<th>性别</th>
 				    	<td>
-						    <select name="countrycommittee.sex" style="height:40px;width: 137px;text-align: center;">
+						    <select name="countrycommittee.sex">
 						    	<option value="">-请选择-</option>
 						    	<option value="1">男</option>
 						    	<option value="0">女</option>
@@ -648,11 +709,11 @@ function addFlowbg(){
 			    	<tr>
 				    	<th>出生年月日</th>
 				    	<td>
-				    		<input type="text" name="countrycommittee.birthday" data-options="required:true,validType:'birthday'" style="height:40px"  onClick="WdatePicker()" class="Wdate"/>
+				    		<input type="text" name="countrycommittee.birthday" data-options="validType:'birthday'" onClick="WdatePicker()" class="Wdate"/>
 				    	</td>
 				    	<th>文化程度</th>
 				    	<td>
-				    		<select name="countrycommittee.whcd" style="height:40px;width: 137px;text-align: center;">
+				    		<select name="countrycommittee.whcd" style="text-align: center;">
 				    			<option value="">-请选择-</option>
 				    			<option value="0">文盲</option>
 				    			<option value="1">小学</option>
@@ -665,27 +726,27 @@ function addFlowbg(){
 			    	<tr>
 				    	<th>联系方式</th>
 				    	<td>
-				    		<input type="text" name="countrycommittee.lxfs" data-options="required:true,validType:'lxfs'" style="height:40px"/>
+				    		<input type="text" name="countrycommittee.lxfs" data-options="validType:'lxfs'"/>
 				    	</td>
 				    	<th>入职时间</th>
 				    	<td>
-				    		<input type="text" name="countrycommittee.rxzsj" data-options="required:true,validType:'rxzsj'" style="height:40px"  onClick="WdatePicker()" class="Wdate"/>
+				    		<input type="text" name="countrycommittee.rxzsj" data-options="validType:'rxzsj'" onClick="WdatePicker()" class="Wdate"/>
 				    	</td>
 			    	</tr>
 			    	<tr>
 				    	<th>离职时间</th>
 				    	<td>
-				    		<input type="text" name="countrycommittee.rznx" data-options="required:true,validType:'rznx'" style="height:40px"  onClick="WdatePicker()" class="Wdate"/>
+				    		<input type="text" name="countrycommittee.rznx" data-options="validType:'rznx'" onClick="WdatePicker()" class="Wdate"/>
 				    	</td>
 				    	<th>村党组织委员姓名</th>
 				    	<td>
-				    		<input type="text" name="countrycommittee.wyxm" data-options="required:true,validType:'wyxm'" style="height:40px"/>
+				    		<input type="text" name="countrycommittee.wyxm" data-options="validType:'wyxm'" />
 				    	</td>
 			    	</tr>
 			    	<tr>
 				    	<th>状态</th>
 			    		<td>
-			    			<select name="countrycommittee.state" style="height:40px;width: 137px;text-align: center;">
+			    			<select name="countrycommittee.state" style="text-align: center;">
 			    				<option value="">-请选择-</option>
 			    				<option value="1">在职</option>
 			    				<option value="2">离职</option>
@@ -694,7 +755,7 @@ function addFlowbg(){
 			    		<th>职位</th>
 				    	<td>
 				    		<!-- <input type="text" name="countrycommittee.zw" data-options="required:true,validType:'zw'" style="height:40px"/> -->
-				    		<select name="countrycommittee.zw" style="height:40px;width: 137px;text-align: center;">
+				    		<select name="countrycommittee.zw" style="text-align: center;">
 				    			<option value="">-请选择-</option>
 				    			<option value="1">党委</option>
 				    			<option value="2">村委</option>
@@ -702,28 +763,31 @@ function addFlowbg(){
 				    		</select>
 				    	</td>
 			    	</tr>
-			    	<tr>
+			    	<!-- <tr>
 			    		<th colspan="4"><a href="javascript:saveaddVillage()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a></th>
-			    	</tr>
+			    	</tr> -->
 			    </table>
+			    <br>
+			    <div onclick="saveaddVillage()" style="background:#EDF4FF;margin:auto;cursor:pointer;width:75px;height:30px;display:block;border:1px solid #95B8E7;line-height:30px;text-align:center;">保存</div>
 		    </form>
 	    </div>  
 	</div>
-	<div id="wins" class="easyui-window" title="基本信息变更" style="width:800px;height:450px;display:none;"  
+	<div id="wins" class="easyui-window" title="委员信息变更" style="width:800px;height:330px;display:none;"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFlowbg">
 		    	<input type="hidden" id="form_cid" name="country_flow.cid">
 			   <input type="hidden" id="form_cid" name="country_flow.cid">
-			    <table style="line-height:71px;width:100%">
+			   <div style="heigth:20px;display:block;line-height:20px;">&nbsp;</div>
+			    <table style="line-heigth:45px;width:90%" align="center" cellpadding="0" cellspacing="0">
 			    	<tr>
 				    	<th>姓名</th>
 				    	<td>
-				    		<input type="text" name="countrycommittee.name" value="" id="names" style="height:40px"/>
+				    		<input type="text" name="countrycommittee.name" value="" id="names"/>
 				    	</td>
 				    	<th>性别</th>
 				    	<td>
-						    <select name="countrycommittee.sex"  id="sex" style="height:40px;width: 137px;text-align: center;">
+						    <select name="countrycommittee.sex"  id="sex" style="text-align: center;">
 						    	<!-- <option value="">-请选择-</option>
 						    	<option value="1">男</option>
 						    	<option value="2">女</option> -->
@@ -734,11 +798,11 @@ function addFlowbg(){
 			    	<tr>
 				    	<th>出生年月日</th>
 				    	<td>
-				    		<input type="text" name="countrycommittee.birthday" value="" id="birthday" style="height:40px"  onClick="WdatePicker()" class="Wdate"/>
+				    		<input type="text" name="countrycommittee.birthday" value="" id="birthday"  onClick="WdatePicker()" class="Wdate"/>
 				    	</td>
 				    	<th>文化程度</th>
 				    	<td>
-				    		<select name="countrycommittee.whcd" id="whcd" style="height:40px;width: 137px;text-align: center;">
+				    		<select name="countrycommittee.whcd" id="whcd" style="text-align: center;">
 				    			<!-- <option value="">-请选择-</option>
 				    			<option value="0">文盲</option>
 				    			<option value="1">小学</option>
@@ -751,27 +815,27 @@ function addFlowbg(){
 			    	<tr>
 				    	<th>联系方式</th>
 				    	<td>
-				    		<input type="text" name="countrycommittee.lxfs" value="" id="lxfs"style="height:40px"/>
+				    		<input type="text" name="countrycommittee.lxfs" value="" id="lxfs"/>
 				    	</td>
 				    	<th>入职时间</th>
 				    	<td>
-				    		<input type="text" name="countrycommittee.rxzsj" value="" id="rxzsj" style="height:40px"  onClick="WdatePicker()" class="Wdate"/>
+				    		<input type="text" name="countrycommittee.rxzsj" value="" id="rxzsj" onClick="WdatePicker()" class="Wdate"/>
 				    	</td>
 			    	</tr>
 			    	<tr>
 				    	<th>离职时间</th>
 				    	<td>
-				    		<input type="text" name="countrycommittee.rznx" value="" id="rznx" style="height:40px"  onClick="WdatePicker()" class="Wdate"/>
+				    		<input type="text" name="countrycommittee.rznx" value="" id="rznx" onClick="WdatePicker()" class="Wdate"/>
 				    	</td>
 				    	<th>村党组织委员姓名</th>
 				    	<td>
-				    		<input type="text" name="countrycommittee.wyxm" value="" id="wyxm" style="height:40px"/>
+				    		<input type="text" name="countrycommittee.wyxm" value="" id="wyxm" />
 				    	</td>
 			    	</tr>
 			    	<tr>
 				    	<th>状态</th>
 			    		<td>
-			    			<select name="countrycommittee.state" id="state" style="height:40px;width: 137px;text-align: center;">
+			    			<select name="countrycommittee.state" id="state" style="text-align: center;">
 			    				<!-- <option value="">-请选择-</option>
 			    				<option value="1">在职</option>
 			    				<option value="2">离职</option> -->
@@ -780,14 +844,16 @@ function addFlowbg(){
 			    		<th>职位</th>
 				    	<td>
 				    		<!-- <input type="text" name="countrycommittee.zw" value="" id="zw" style="height:40px"/> -->
-				    		<select name="countrycommittee.zw" id="zw"  style="height:40px;width: 137px;text-align: center;">
+				    		<select name="countrycommittee.zw" id="zw"  style="text-align: center;">
 				    		</select>
 				    	</td>
 			    	</tr>
-			    	<tr>
+			    	<!-- <tr>
 			    		<th colspan="4"><a href="javascript:addFlowbg()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a></th>
-			    	</tr>
+			    	</tr> -->
 			    </table>
+			    <br>
+			    <div onclick="addFlowbg()" style="background:#EDF4FF;margin:auto;cursor:pointer;width:75px;height:30px;display:block;border:1px solid #95B8E7;line-height:30px;text-align:center;">保存</div>
 		    </form>
 		</div>
 	</div>

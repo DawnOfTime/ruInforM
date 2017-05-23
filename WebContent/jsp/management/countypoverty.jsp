@@ -436,6 +436,66 @@ function savelishi(){
 	}
 }
 </script>
+<style type="text/css">
+/*添加*/
+	#win input{
+		width: 150px;
+		border: 1px solid #e0e0e0;
+	}
+	#win select{
+		width:150px;
+		border: 1px solid #e0e0e0;
+	}
+	#win textarea{
+		width:150px;
+		border: 1px solid #e0e0e0;
+	}
+	#win{
+		background-color: #F4F4F4;
+	}
+	#win tr{
+		height: 45px;
+	}
+	#win th,td{
+		border-bottom: 2px solid #DDDDDD;
+	}
+	#win .easyui-linkbutton{
+		width: 100px;
+		height: 30px;
+	}
+	#win .l-btn-text{
+		font-size: 15px;
+	}
+/*变更*/
+	#wins input{
+		width: 150px;
+		border: 1px solid #e0e0e0;
+	}
+	#wins select{
+		width:150px;
+		border: 1px solid #e0e0e0;
+	}
+	#wins textarea{
+		width:150px;
+		border: 1px solid #e0e0e0;
+	}
+	#wins{
+		background-color: #F4F4F4;
+	}
+	#wins tr{
+		height: 45px;
+	}
+	#wins th,td{
+		border-bottom: 2px solid #DDDDDD;
+	}
+	#wins .easyui-linkbutton{
+		width: 100px;
+		height: 30px;
+	}
+	#wins .l-btn-text{
+		font-size: 15px;
+	}
+</style>
 </head>
 <body class="easyui-layout">
 	<div data-options="region:'west',title:'组织机构',split:true" style="width:220px;">
@@ -466,29 +526,32 @@ function savelishi(){
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addPoverty">
 		    	<input type="hidden" id="form_cid" name="country_flow.cid">
-			    <table style="line-height: 50px;width:100%">
+		    	<div style="heigth:20px;display:block;line-height:20px;">&nbsp;</div>
+			    <table style="line-heigth:45px;width:90%" align="center" cellpadding="0" cellspacing="0">
 			    	<tr>
-				    	<th>是否为贫困村</th>
+				    	<td>是否为贫困村</td>
 				    	<td>
-				    		<select name="countrypoverty.is_pkc"  class="easyui-validatebox" data-options="required:true" style="height: 39px;width: 147px;text-align: center;">
+				    		<select name="countrypoverty.is_pkc"  class="easyui-validatebox" style="text-align: center;">
 				    			<option value="0">--请选择--</option>
 				    			<option value="1">是</option>
 				    			<option value="2">否</option>
 				    		</select>
 				    	</td>
-				    	<th>贫困户数</th>
+				    	<td>贫困户数</td>
 				    	<td>
-				    		<textarea rows="1" cols="14"  class="easyui-validatebox" data-options="required:true"  name="countrypoverty.pk_number"></textarea>
+				    		<input type="text" class="easyui-validatebox"  name="countrypoverty.pk_number"/>
+				    		<!-- <textarea rows="1" cols="14"  class="easyui-validatebox"  name="countrypoverty.pk_number"></textarea> -->
 				    	</td>
 			    	</tr>
 			    	<tr>
-			    		<th>脱贫措施</th>
+			    		<td>脱贫措施</td>
 				    	<td>
-				    		<textarea rows="1" cols="14"  class="easyui-validatebox" data-options="required:true" name="countrypoverty.tpcs"></textarea>
+				    		<input type="text" class="easyui-validatebox" name="countrypoverty.tpcs"/>
+				    		<!-- <textarea rows="1" cols="14"  class="easyui-validatebox" name="countrypoverty.tpcs"></textarea> -->
 				    	</td>
-				    	<th>是否移民搬迁</th>
+				    	<td>是否移民搬迁</td>
 				    	<td>
-				    		<select name="countrypoverty.is_ymbq"   class="easyui-validatebox" data-options="required:true" style="height: 39px;width: 147px;text-align: center;">
+				    		<select name="countrypoverty.is_ymbq"   class="easyui-validatebox" style="text-align: center;">
 				    			<option value="0">--请选择--</option>
 				    			<option value="1">是</option>
 				    			<option value="2">否</option>
@@ -497,85 +560,105 @@ function savelishi(){
 				    	</td>
 			    	</tr>
 			    	<tr>
-				    	<th>进城入镇搬迁户数</th>
+				    	<td>进城入镇搬迁户数</td>
 				    	<td>
-				    		<textarea rows="1" cols="14" name="countrypoverty.jcrzbqhs"  class="easyui-validatebox" data-options="required:true"></textarea></td>
-				    	<th>依托村庄搬迁户数</th>
+				    		<input type="text" class="easyui-validatebox" name="countrypoverty.jcrzbqhs"/>
+				    		<!-- <textarea rows="1" cols="14" name="countrypoverty.jcrzbqhs"  class="easyui-validatebox"></textarea> -->
+				    	</td>
+				    	<td>依托村庄搬迁户数</td>
 				    	<td>
-				    		<textarea rows="1" cols="14" name="countrypoverty.ytczbqhs" class="easyui-validatebox" data-options="required:true"></textarea>
+				    		<input type="text" class="easyui-validatebox" name="countrypoverty.ytczbqhs"/>
+				    		<!-- <textarea rows="1" cols="14" name="countrypoverty.ytczbqhs" class="easyui-validatebox"></textarea> -->
 				    	</td>
 			    	</tr>
 			    	<tr>
-				    	<th>新建村庄搬迁户数</th>
+				    	<td>新建村庄搬迁户数</td>
 				    	<td>
-				    		<textarea rows="1" cols="14" name="countrypoverty.xjcabqhs"  class="easyui-validatebox" data-options="required:true"></textarea></td>
-				    	<th>跨区域安置搬迁户数</th>
+				    		<input type="text" class="easyui-validatebox" name="countrypoverty.xjcabqhs"/>
+				    		<!-- <textarea rows="1" cols="14" name="countrypoverty.xjcabqhs"  class="easyui-validatebox"></textarea> -->
+				    	</td>
+				    	<td>跨区域安置搬迁户数</td>
 				    	<td>
-				    		<textarea rows="1" cols="14" name="countrypoverty.kqyazbqhs"  class="easyui-validatebox" data-options="required:true"></textarea>
+				    		<input type="text" name="countrypoverty.kqyazbqhs"  class="easyui-validatebox"/>
+				    		<!-- <textarea rows="1" cols="14" name="countrypoverty.kqyazbqhs"  class="easyui-validatebox"></textarea> -->
 				    	</td>
 			    	</tr>
 			    	<tr>
-				    	<th>派驻第一书记姓名</th>
+				    	<td>派驻第一书记姓名</td>
 				    	<td>
-				    		<textarea rows="1" cols="14" name="countrypoverty.zpdysjname"  class="easyui-validatebox" data-options="required:true"></textarea></td>
-				    	<th>派驻第一书记派出单位及职务</th>
+				    		<input type="text" name="countrypoverty.zpdysjname"  class="easyui-validatebox"/>
+				    		<!-- <textarea rows="1" cols="14" name="countrypoverty.zpdysjname"  class="easyui-validatebox"></textarea> -->
+				    	</td>
+				    	<td>派驻第一书记派出单位及职务</td>
 				    	<td>
-				    		<textarea rows="1" cols="14" name="countrypoverty.zpdysjpcdwjzw"  class="easyui-validatebox" data-options="required:true" ></textarea>
+				    		<input type="text" name="countrypoverty.zpdysjpcdwjzw"  class="easyui-validatebox"/>
+				    		<!-- <textarea rows="1" cols="14" name="countrypoverty.zpdysjpcdwjzw"  class="easyui-validatebox" ></textarea> -->
 				    	</td>
 			    	</tr>
 			    	<tr>
-				    	<th>派驻第一书记联系方式</th>
+				    	<td>派驻第一书记联系方式</td>
 				    	<td>
-				    		<textarea rows="1" cols="14" name="countrypoverty.zpdysjphonenumber"  class="easyui-validatebox" data-options="required:true"></textarea></td>
-				    	<th>扶贫队长姓名</th>
+				    		<input type="text" name="countrypoverty.zpdysjphonenumber"  class="easyui-validatebox"/>
+				    		<!-- <textarea rows="1" cols="14" name="countrypoverty.zpdysjphonenumber"  class="easyui-validatebox"></textarea> -->
+				    	</td>
+				    	<td>扶贫队长姓名</td>
 				    	<td>
-				    		<textarea rows="1" cols="14" name="countrypoverty.fpbzxm"  class="easyui-validatebox" data-options="required:true"></textarea>
+				    		<input type="text" name="countrypoverty.fpbzxm"  class="easyui-validatebox"/>
+				    		<!-- <textarea rows="1" cols="14" name="countrypoverty.fpbzxm"  class="easyui-validatebox"></textarea> -->
 				    	</td>
 			    	</tr>
 			    	<tr>
-				    	<th>扶贫队长派出单位及职务</th>
+				    	<td>扶贫队长派出单位及职务</td>
 				    	<td>
-				    		<textarea rows="1" cols="14" name="countrypoverty.fpdzpcdwjzw"  class="easyui-validatebox" data-options="required:true"></textarea></td>
-				    	<th>扶贫队长联系方式</th>
+				    		<input type="text" name="countrypoverty.fpdzpcdwjzw"  class="easyui-validatebox"/>
+				    		<!-- <textarea rows="1" cols="14" name="countrypoverty.fpdzpcdwjzw"  class="easyui-validatebox"></textarea> -->
+				    	</td>
+				    	<td>扶贫队长联系方式</td>
 				    	<td>
-				    		<textarea rows="1" cols="14" name="countrypoverty.fpdzphonenumber"  class="easyui-validatebox" data-options="required:true"></textarea>
+				    		<input type="text" name="countrypoverty.fpdzphonenumber"  class="easyui-validatebox"/>
+				    		<!-- <textarea rows="1" cols="14" name="countrypoverty.fpdzphonenumber"  class="easyui-validatebox"></textarea> -->
 				    	</td>
 			    	</tr>
-			    	<tr>
+			    	<!-- <tr>
 			    		<th colspan="4"><a href="javascript:saveaddPoverty()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a></th>
-			    	</tr>
+			    	</tr> -->
 			    </table>
+			    <br>
+			    <div onclick="saveaddPoverty()" style="background:#EDF4FF;margin:auto;cursor:pointer;width:75px;height:30px;display:block;border:1px solid #95B8E7;line-height:30px;text-align:center;">保存</div>
 		    </form>
 	    </div>  
 	</div>
-	<div id="wins" class="easyui-window" title="基本信息变更" style="width:850px;height:450px;display:none;"  
+	<div id="wins" class="easyui-window" title="脱贫信息变更" style="width:850px;height:450px;display:none;"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFlowbg">
 		    	<input type="hidden" id="form_cid" name="country_flow.cid">
-		    	 <table style="line-height: 50px;width:100%">
+		    	<div style="heigth:20px;display:block;line-height:20px;">&nbsp;</div>
+		    	 <table style="line-heigth:45px;width:90%" align="center" cellpadding="0" cellspacing="0">
 			    	<tr>
-				    	<th>是否为贫困村</th>
+				    	<td>是否为贫困村</td>
 				    	<td>
-				    		<select name="countrypoverty.is_pkc" id="is_pkc" style="height: 39px;width: 147px;text-align: center;">
+				    		<select name="countrypoverty.is_pkc" id="is_pkc" style="text-align: center;">
 				    			<!-- <option value="0">--请选择--</option>
 				    			<option value="1">是</option>
 				    			<option value="2">否</option> -->
 				    		</select>
 				    	</td>
-				    	<th>贫困户数</th>
+				    	<td>贫困户数</td>
 				    	<td>
-				    		<textarea rows="1" cols="14"  name="countrypoverty.pk_number"  id="pk_number"></textarea>
+				    		<input type="text" name="countrypoverty.pk_number"  class="easyui-validatebox" id="pk_number"/>
+				    		<!-- <textarea rows="1" cols="14"  name="countrypoverty.pk_number"  id="pk_number"></textarea> -->
 				    	</td>
 			    	</tr>
 			    	<tr>
-			    		<th>脱贫措施</th>
+			    		<td>脱贫措施</td>
 				    	<td>
-				    		<textarea rows="1" cols="14" name="countrypoverty.tpcs" id="tpcs"></textarea>
+				    		<input type="text" name="countrypoverty.tpcs"  class="easyui-validatebox" id="tpcs"/>
+				    		<!-- <textarea rows="1" cols="14" name="countrypoverty.tpcs" id="tpcs"></textarea> -->
 				    	</td>
-				    	<th>是否移民搬迁</th>
+				    	<td>是否移民搬迁</td>
 				    	<td>
-				    		<select name="countrypoverty.is_ymbq"   id="is_ymbq" style="height: 39px;width: 147px;text-align: center;">
+				    		<select name="countrypoverty.is_ymbq"   id="is_ymbq" style="text-align: center;">
 				    			<!-- <option value="0">--请选择--</option>
 				    			<option value="1">是</option>
 				    			<option value="2">否</option> -->
@@ -584,54 +667,71 @@ function savelishi(){
 				    	</td>
 			    	</tr>
 			    	<tr>
-				    	<th>进城入镇搬迁户数</th>
+				    	<td>进城入镇搬迁户数</td>
 				    	<td>
-				    		<textarea rows="1" cols="14" name="countrypoverty.jcrzbqhs"   id="jcrzbqhs"></textarea></td>
-				    	<th>依托村庄搬迁户数</th>
+				    		<input type="text" name="countrypoverty.jcrzbqhs"  class="easyui-validatebox" id="jcrzbqhs"/>
+				    		<!-- <textarea rows="1" cols="14" name="countrypoverty.jcrzbqhs"   id="jcrzbqhs"></textarea> -->
+				    	</td>
+				    	<td>依托村庄搬迁户数</td>
 				    	<td>
-				    		<textarea rows="1" cols="14" name="countrypoverty.ytczbqhs" id="ytczbqhs"></textarea>
+				    		<input type="text" name="countrypoverty.ytczbqhs"  class="easyui-validatebox" id="ytczbqhs"/>
+				    		<!-- <textarea rows="1" cols="14" name="countrypoverty.ytczbqhs" id="ytczbqhs"></textarea> -->
 				    	</td>
 			    	</tr>
 			    	<tr>
-				    	<th>新建村庄搬迁户数</th>
+				    	<td>新建村庄搬迁户数</td>
 				    	<td>
-				    		<textarea rows="1" cols="14" name="countrypoverty.xjcabqhs"  id="xjcabqhs"></textarea></td>
-				    	<th>跨区域安置搬迁户数</th>
+				    		<input type="text" name="countrypoverty.xjcabqhs"  class="easyui-validatebox" id="xjcabqhs"/>
+				    		<!-- <textarea rows="1" cols="14" name="countrypoverty.xjcabqhs"  id="xjcabqhs"></textarea> -->
+				    	</td>
+				    	<td>跨区域安置搬迁户数</td>
 				    	<td>
-				    		<textarea rows="1" cols="14" name="countrypoverty.kqyazbqhs" id="kqyazbqhs"></textarea>
+				    		<input type="text" name="countrypoverty.kqyazbqhs"  class="easyui-validatebox" id="kqyazbqhs"/>
+				    		<!-- <textarea rows="1" cols="14" name="countrypoverty.kqyazbqhs" id="kqyazbqhs"></textarea> -->
 				    	</td>
 			    	</tr>
 			    	<tr>
-				    	<th>派驻第一书记姓名</th>
+				    	<td>派驻第一书记姓名</td>
 				    	<td>
-				    		<textarea rows="1" cols="14" name="countrypoverty.zpdysjname"  id="zpdysjname"></textarea></td>
-				    	<th>派驻第一书记派出单位及职务</th>
+				    		<input type="text" name="countrypoverty.zpdysjname"  class="easyui-validatebox" id="zpdysjname"/>
+				    		<!-- <textarea rows="1" cols="14" name="countrypoverty.zpdysjname"  id="zpdysjname"></textarea> -->
+				    	</td>
+				    	<td>派驻第一书记派出单位及职务</td>
 				    	<td>
-				    		<textarea rows="1" cols="14" name="countrypoverty.zpdysjpcdwjzw" id="zpdysjpcdwjzw"></textarea>
+				    		<input type="text" name="countrypoverty.zpdysjpcdwjzw"  class="easyui-validatebox" id="zpdysjpcdwjzw"/>
+				    		<!-- <textarea rows="1" cols="14" name="countrypoverty.zpdysjpcdwjzw" id="zpdysjpcdwjzw"></textarea> -->
 				    	</td>
 			    	</tr>
 			    	<tr>
-				    	<th>派驻第一书记联系方式</th>
+				    	<td>派驻第一书记联系方式</td>
 				    	<td>
-				    		<textarea rows="1" cols="14" name="countrypoverty.zpdysjphonenumber" id="zpdysjphonenumber"></textarea></td>
-				    	<th>扶贫队长姓名</th>
+				    		<input type="text" name="countrypoverty.zpdysjphonenumber"  class="easyui-validatebox" id="zpdysjphonenumber"/>
+				    		<!-- <textarea rows="1" cols="14" name="countrypoverty.zpdysjphonenumber" id="zpdysjphonenumber"></textarea> -->
+				    	</td>
+				    	<td>扶贫队长姓名</td>
 				    	<td>
-				    		<textarea rows="1" cols="14" name="countrypoverty.fpbzxm" id="fpbzxm"></textarea>
+				    		<input type="text" name="countrypoverty.fpbzxm"  class="easyui-validatebox" id="fpbzxm"/>
+				    		<!-- <textarea rows="1" cols="14" name="countrypoverty.fpbzxm" id="fpbzxm"></textarea> -->
 				    	</td>
 			    	</tr>
 			    	<tr>
-				    	<th>扶贫队长派出单位及职务</th>
+				    	<td>扶贫队长派出单位及职务</td>
 				    	<td>
-				    		<textarea rows="1" cols="14" name="countrypoverty.fpdzpcdwjzw" id="fpdzpcdwjzw"></textarea></td>
-				    	<th>扶贫队长联系方式</th>
+				    		<input type="text" name="countrypoverty.fpdzpcdwjzw"  class="easyui-validatebox" id="fpdzpcdwjzw"/>
+				    		<!-- <textarea rows="1" cols="14" name="countrypoverty.fpdzpcdwjzw" id="fpdzpcdwjzw"></textarea> -->
+				    	</td>
+				    	<td>扶贫队长联系方式</td>
 				    	<td>
-				    		<textarea rows="1" cols="14" name="countrypoverty.fpdzphonenumber" id="fpdzphonenumber" ></textarea>
+				    		<input type="text" name="countrypoverty.fpdzphonenumber"  class="easyui-validatebox" id="fpdzphonenumber"/>
+				    		<!-- <textarea rows="1" cols="14" name="countrypoverty.fpdzphonenumber" id="fpdzphonenumber" ></textarea> -->
 				    	</td>
 			    	</tr>
-			    	<tr>
+			    	<!-- <tr>
 			    		<th colspan="4"><a href="javascript:addFlowbg()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a></th>
-			    	</tr>
+			    	</tr> -->
 			    </table>
+			    <br>
+			    <div onclick="addFlowbg()" style="background:#EDF4FF;margin:auto;cursor:pointer;width:75px;height:30px;display:block;border:1px solid #95B8E7;line-height:30px;text-align:center;">保存</div>
 		    </form>
 	    </div>  
 	</div>

@@ -50,7 +50,31 @@
 						 	}]
 		pagecomm(tabTop,rowurl,posturl,newRow,hidcolumns,id,"",formartColumns);
 	});
-	
+	//保存新密码
+	function savePassword(){
+		var oldpwd = $("#oldPassword").val();
+		var newpwd = $("#newPassword").val();
+		if(oldpwd=='' || newpwd==''){
+			$.messager.alert('警告','请填写完整!','warning');
+		}else{
+			if(oldpwd==newpwd){
+				$.messager.alert('警告','新密码不能与旧密码相同!','warning');
+				return;
+			}else{
+				$.post("<c:url value='/pws/ispwd.m?acc.password='/>"+oldpwd,function(data){
+					if(data != "ok"){
+						$.messager.alert('警告','旧密码输入错误!','warning');
+						return;
+					}else{
+						$.post("<c:url value='/pws/savepwd.m?acc.password='/>"+newpwd,function(data){
+							$('#win').window("close");
+							$('#dg').datagrid("load");
+						});
+					}
+				},"text");
+			}
+		}
+	}
 </script>
 <style type="text/css">
 	#pwd tr{

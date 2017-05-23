@@ -334,6 +334,64 @@ function searchHistory(){
 	.baocun{
 		text-align: center;
 	}
+/*添加*/
+	#win input{
+		width: 150px;
+		border: 1px solid #e0e0e0;
+	}
+	#win select{
+		width:150px;
+		border: 1px solid #e0e0e0;
+	}
+	#win textarea{
+		width:150px;
+		border: 1px solid #e0e0e0;
+	}
+	#win{
+		background-color: #F4F4F4;
+	}
+	#win tr{
+		/* height: 45px; */
+	}
+	#win th,td{
+		border-bottom: 2px solid #DDDDDD;
+	}
+	#win .easyui-linkbutton{
+		width: 100px;
+		height: 30px;
+	}
+	#win .l-btn-text{
+		font-size: 15px;
+	}
+/*变更*/
+	#wins input{
+		width: 150px;
+		border: 1px solid #e0e0e0;
+	}
+	#wins select{
+		width:150px;
+		border: 1px solid #e0e0e0;
+	}
+	#wins textarea{
+		width:150px;
+		border: 1px solid #e0e0e0;
+	}
+	#wins{
+		background-color: #F4F4F4;
+	}
+	#wins tr{
+		/* height: 45px; */
+	}
+	#wins th,td{
+		border-bottom: 2px solid #DDDDDD;
+	}
+	#wins .easyui-linkbutton{
+		width: 100px;
+		height: 30px;
+	}
+	#wins .l-btn-text{
+		font-size: 15px;
+	}
 </style>
 </head>
 <body class="easyui-layout">
@@ -456,10 +514,11 @@ function searchHistory(){
 		    				<input type="text" name="land_industry.gxclg"/>
 		    			</td>
 		    		</tr>
-		    		<tr>
+		    		<!-- <tr>
 		    			<td colspan="4" class="baocun"><a href="javascript:saveaddCommunication()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a></td>
-		    		</tr>
+		    		</tr> -->
 		    	</table>
+			    <div onclick="saveaddOutgoing()()" style="background:#EDF4FF;margin:auto;cursor:pointer;width:75px;height:30px;display:block;border:1px solid #95B8E7;line-height:30px;text-align:center;">保存</div>
 		    </form>
 	    </div>  
 	</div> 
@@ -569,10 +628,11 @@ function searchHistory(){
 		    				<input type="text" name="land_industry.gxclg" id="gxclg"/>
 		    			</td>
 		    		</tr>
-		    		<tr>
+		    		<!-- <tr>
 		    			<td colspan="4" class="baocun"><a href="javascript:addFlowbg()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a></td>
-		    		</tr>
+		    		</tr> -->
 		    	</table>
+			    <div onclick="saveaddOutgoing()()" style="background:#EDF4FF;margin:auto;cursor:pointer;width:75px;height:30px;display:block;border:1px solid #95B8E7;line-height:30px;text-align:center;">保存</div>
 		    </form>
 	    </div>  
 	</div> 

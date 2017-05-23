@@ -538,7 +538,64 @@ function savelishi(){
 	.juzhong{
 		height:80px;
 	}
-	
+/*添加*/
+	#win input{
+		width: 150px;
+		border: 1px solid #e0e0e0;
+	}
+	#win select{
+		width:150px;
+		border: 1px solid #e0e0e0;
+	}
+	#win textarea{
+		width:150px;
+		border: 1px solid #e0e0e0;
+	}
+	#win{
+		background-color: #F4F4F4;
+	}
+	#win tr{
+		height: 45px;
+	}
+	#win th,td{
+		border-bottom: 2px solid #DDDDDD;
+	}
+	#win .easyui-linkbutton{
+		width: 100px;
+		height: 30px;
+	}
+	#win .l-btn-text{
+		font-size: 15px;
+	}
+/*变更*/
+	#wins input{
+		width: 150px;
+		border: 1px solid #e0e0e0;
+	}
+	#wins select{
+		width:150px;
+		border: 1px solid #e0e0e0;
+	}
+	#wins textarea{
+		width:150px;
+		border: 1px solid #e0e0e0;
+	}
+	#wins{
+		background-color: #F4F4F4;
+	}
+	#wins tr{
+		height: 45px;
+	}
+	#wins th,td{
+		border-bottom: 2px solid #DDDDDD;
+	}
+	#wins .easyui-linkbutton{
+		width: 100px;
+		height: 30px;
+	}
+	#wins .l-btn-text{
+		font-size: 15px;
+	}
 </style>
 </head>
 <body class="easyui-layout">
@@ -555,12 +612,12 @@ function savelishi(){
     		<input type="hidden" id="cid"><!-- 村id -->
 	    </div>
  </div>
- <div id="win" class="easyui-window" title="通讯添加" style="width:500px;height:250px;display:none;"  
+ <div id="win" class="easyui-window" title="通讯添加" style="width:500px;height:310px;display:none;"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFlowPerson">
 		    	<input type="hidden" id="form_cid" name="country_flow.cid">
-		    	<table id="tables">
+		    	<table id="tables" style="line-heigth:45px;width:90%" align="center" cellpadding="0" cellspacing="0">
 		    		<tr>
 		    			<td>是否有移动信号:</td>
 		    			<td>
@@ -569,6 +626,8 @@ function savelishi(){
 		    					<option value="0">否</option>
 		    				</select>
 		    			</td>
+		    		</tr>
+		    		<tr>
 		    			<td>是否有联通信号:</td>
 		    			<td>
 		    				<select name="communication.is_ltxh">
@@ -577,7 +636,7 @@ function savelishi(){
 		    				</select>
 		    			</td>
 		    		</tr>
-		    		<tr class="juzhong">
+		    		<tr>
 		    			<td>是否有电信信号:</td>
 		    			<td>
 		    				<select name="communication.is_dxxh">
@@ -585,6 +644,8 @@ function savelishi(){
 		    					<option value="0">否</option>
 		    				</select>
 		    			</td>
+		    		</tr>
+		    		<tr>
 		    			<td>是否全村覆盖:</td>
 		    			<td>
 		    				<select name="communication.is_qcfg">
@@ -593,11 +654,12 @@ function savelishi(){
 		    				</select>
 		    			</td>
 		    		</tr>
-		    		
-		    		<tr>
+		    		<!-- <tr>
 		    			<td colspan="4" class="baocun"><a href="javascript:saveaddCommunication()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a></td>
-		    		</tr>
+		    		</tr> -->
 		    	</table>
+		    	<br>
+			    <div onclick="saveaddCommunication()" style="background:#EDF4FF;margin:auto;cursor:pointer;width:75px;height:30px;display:block;border:1px solid #95B8E7;line-height:30px;text-align:center;">保存</div>
 		    </form>
 	    </div>  
 	</div>
@@ -607,12 +669,12 @@ function savelishi(){
 		    <table id="ls" toolbar="#seach"></table>
 	    </div>  
 	</div>
-	<div id="wins" class="easyui-window" title="通讯信息变更" style="width:500px;height:250px;display:none;"  
+	<div id="wins" class="easyui-window" title="通讯信息变更" style="width:500px;height:310px;display:none;"  
          data-options="iconCls:'icon-save',modal:true">  
 	   <div class="easyui-layout" data-options="fit:true">  
 		    <form method="post" id="addFlowbg">
 		    	<input type="hidden" id="form_cid" name="country_flow.cid">
-		    	<table id="tabless">
+		    	<table id="tabless" style="line-heigth:45px;width:90%" align="center" cellpadding="0" cellspacing="0">
 		    		<tr>
 		    			<td>是否有移动信号:</td>
 		    			<td>
@@ -620,6 +682,8 @@ function savelishi(){
 		    					
 		    				</select>
 		    			</td>
+		    		</tr>
+		    		<tr>
 		    			<td>是否有联通信号:</td>
 		    			<td>
 		    				<select name="communication.is_ltxh" id="is_ltxh">
@@ -627,13 +691,15 @@ function savelishi(){
 		    				</select>
 		    			</td>
 		    		</tr>
-		    		<tr class="juzhong">
+		    		<tr>
 		    			<td>是否有电信信号:</td>
 		    			<td>
 		    				<select name="communication.is_dxxh" id="is_dxxh">
 		    					
 		    				</select>
 		    			</td>
+		    		</tr>
+		    		<tr>
 		    			<td>是否全村覆盖:</td>
 		    			<td>
 		    				<select name="communication.is_qcfg" id="is_qcfg">
@@ -641,10 +707,12 @@ function savelishi(){
 		    				</select>
 		    			</td>
 		    		</tr>
-		    		<tr>
+		    		<!-- <tr>
 		    			<td colspan="4" class="baocun"><a href="javascript:saveadd()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a></td>
-		    		</tr>
+		    		</tr> -->
 		    	</table>
+		    	<br>
+			    <div onclick="saveadd()" style="background:#EDF4FF;margin:auto;cursor:pointer;width:75px;height:30px;display:block;border:1px solid #95B8E7;line-height:30px;text-align:center;">保存</div>
 		    </form>
 	    </div>  
 	</div>

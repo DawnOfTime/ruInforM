@@ -14,10 +14,10 @@
 	</select>
 	<!-- 查询数据 -->
 	<select id="queryList" resultType="Country_officer" parameterType="java.util.HashMap">
-		<!-- select * from country_officer where cid=#{countryofficer.cid} <include refid="where_name"/> ORDER BY operate_time DESC 
-		limit #{pageBean.startNum},#{pageBean.pagesize} -->
-		select * from country_officer where operate_time = 
-		(select MAX(operate_time) from country_officer where cid=#{countryofficer.cid})
+		select * from country_officer where cid=#{countryofficer.cid} <include refid="where_name"/> ORDER BY operate_time DESC 
+		limit #{pageBean.startNum},#{pageBean.pagesize}
+		<!-- select * from country_officer where operate_time = 
+		(select MAX(operate_time) from country_officer where cid=#{countryofficer.cid}) -->
 	</select>
 	
 	<update id="updateofficer">

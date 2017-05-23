@@ -319,6 +319,66 @@ function lishiVillage(){
 		  $("#lishi").window('open');
 }
 </script>
+<style type="text/css">
+/*添加*/
+	#win input{
+		width: 150px;
+		border: 1px solid #e0e0e0;
+	}
+	#win select{
+		width:150px;
+		border: 1px solid #e0e0e0;
+	}
+	#win textarea{
+		width:150px;
+		border: 1px solid #e0e0e0;
+	}
+	#win{
+		background-color: #F4F4F4;
+	}
+	#win tr{
+		height: 45px;
+	}
+	#win th,td{
+		border-bottom: 2px solid #DDDDDD;
+	}
+	#win .easyui-linkbutton{
+		width: 100px;
+		height: 30px;
+	}
+	#win .l-btn-text{
+		font-size: 15px;
+	}
+/*变更*/
+	#wins input{
+		width: 150px;
+		border: 1px solid #e0e0e0;
+	}
+	#wins select{
+		width:150px;
+		border: 1px solid #e0e0e0;
+	}
+	#wins textarea{
+		width:150px;
+		border: 1px solid #e0e0e0;
+	}
+	#wins{
+		background-color: #F4F4F4;
+	}
+	#wins tr{
+		height: 45px;
+	}
+	#wins th,td{
+		border-bottom: 2px solid #DDDDDD;
+	}
+	#wins .easyui-linkbutton{
+		width: 100px;
+		height: 30px;
+	}
+	#wins .l-btn-text{
+		font-size: 15px;
+	}
+</style>
 </head>
 <body class="easyui-layout">
 	<div data-options="region:'west',title:'组织机构',split:true" style="width:220px;">
@@ -349,106 +409,112 @@ function lishiVillage(){
 	    </div>  
 	</div>
 	
-    <div id="win" class="easyui-window" title="基本信息添加" style="width:800px;height:450px;display:none;"  
+    <div id="win" class="easyui-window" title="基本信息添加" style="width:800px;height:300px;display:none;"  
          data-options="iconCls:'icon-save',modal:true">  
-	   <div class="easyui-layout" data-options="fit:true">  
+	   <div class="easyui-layout" data-options="fit:true" style="text-align:center;">  
 		    <form method="post" id="addFlowPerson">
 		    	<input type="hidden" id="form_cid" name="country_flow.cid">
-			    <table style="line-height:87px;width:100%">
+		    	<div style="heigth:20px;display:block;line-height:20px;">&nbsp;</div>
+			    <table style="line-heigth:45px;width:90%" align="center" cellpadding="0" cellspacing="0">
 			    	<tr>
-				    	<th>村党支部书记</th>
+				    	<td>村党支部书记</td>
 				    	<td>
-				    		<input type="text" name="countrymessage.cdzbsj"  class="easyui-validatebox" data-options="required:true,validType:'cdzbsj'" style="height:50px"/>
+				    		<input type="text" name="countrymessage.cdzbsj"  class="easyui-validatebox" data-options="validType:'cdzbsj'"/>
 				    	</td>
-				    	<th>包片领导</th>
+				    	<td>包片领导</td>
 				    	<td>
-				    		<input type="text" name="countrymessage.bpld" class="easyui-validatebox" data-options="required:true,validType:'bpld'" style="height:50px"/>
-				    	</td>
-			    	</tr>
-			    	<tr>
-				    	<th>精神文明建设情况</th>
-				    	<td>
-				    		<textarea rows="1" cols="14" name="countrymessage.jswmjsqk"  class="easyui-validatebox" data-options="required:true"></textarea></td>
-				    	<th>村党组织情况</th>
-				    	<td>
-				    		<textarea rows="1" cols="14" name="countrymessage.cdzzqk"  class="easyui-validatebox" data-options="required:true"></textarea>
+				    		<input type="text" name="countrymessage.bpld" class="easyui-validatebox" data-options="validType:'bpld'"/>
 				    	</td>
 			    	</tr>
 			    	<tr>
-				    	<th>村级阵地情况</th>
+				    	<td>精神文明建设情况</td>
 				    	<td>
-				    		<textarea rows="1" cols="14" name="countrymessage.cjzdqk"  class="easyui-validatebox" data-options="required:true"></textarea></td>
-				    	<th>企业，专业合作社情况</th>
+				    		<textarea rows="1" cols="14" name="countrymessage.jswmjsqk"  class="easyui-validatebox"></textarea></td>
+				    	<td>村党组织情况</td>
 				    	<td>
-				    		<textarea rows="1" cols="14" name="countrymessage.qyhzsqk"  class="easyui-validatebox" data-options="required:true"></textarea>
+				    		<textarea rows="1" cols="14" name="countrymessage.cdzzqk"  class="easyui-validatebox"></textarea>
 				    	</td>
 			    	</tr>
 			    	<tr>
-				    	<th>财政投资情况</th>
+				    	<td>村级阵地情况</td>
 				    	<td>
-				    		<textarea rows="1" cols="14" name="countrymessage.cztzqk"  class="easyui-validatebox" data-options="required:true"></textarea></td>
-				    	<th>本村存在的主要问题</th>
+				    		<textarea rows="1" cols="14" name="countrymessage.cjzdqk"  class="easyui-validatebox"></textarea></td>
+				    	<td>企业，专业合作社情况</td>
 				    	<td>
-				    		<textarea rows="1" cols="14" name="countrymessage.bcczdzywt"  class="easyui-validatebox" data-options="required:true"></textarea>
+				    		<textarea rows="1" cols="14" name="countrymessage.qyhzsqk"  class="easyui-validatebox"></textarea>
 				    	</td>
 			    	</tr>
 			    	<tr>
-			    		<th colspan="4"><a href="javascript:saveaddVillage()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a></th>
+				    	<td>财政投资情况</td>
+				    	<td>
+				    		<textarea rows="1" cols="14" name="countrymessage.cztzqk"  class="easyui-validatebox"></textarea></td>
+				    	<td>本村存在的主要问题</td>
+				    	<td>
+				    		<textarea rows="1" cols="14" name="countrymessage.bcczdzywt"  class="easyui-validatebox"></textarea>
+				    	</td>
 			    	</tr>
+			    	<!-- <tr>
+			    		<td colspan="4"><a href="javascript:saveaddVillage()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a></td>
+			    	</tr> -->
 			    </table>
+			    <br>
+			    <div onclick="saveaddVillage()" style="background:#EDF4FF;margin:auto;cursor:pointer;width:75px;height:30px;display:block;border:1px solid #95B8E7;line-height:30px;text-align:center;">保存</div>
 		    </form>
 	    </div>  
 	</div>
-	<div id="wins" class="easyui-window" title="基本信息变更" style="width:800px;height:450px;display:none;"  
+	<div id="wins" class="easyui-window" title="基本信息变更" style="width:800px;height:300px;display:none;"  
          data-options="iconCls:'icon-save',modal:true">  
-	   <div class="easyui-layout" data-options="fit:true">  
+	   <div class="easyui-layout" data-options="fit:true" style="text-align:center;">  
 		    <form method="post" id="addFlowbg">
 		    	<input type="hidden" id="form_cid" name="country_flow.cid">
-			    <table style="line-height:87px;width:100%">
+		    	<div style="heigth:20px;display:block;line-height:20px;">&nbsp;</div>
+			    <table style="line-heigth:45px;width:90%" align="center" cellpadding="0" cellspacing="0">
 			    	<tr>
-				    	<th>村党支部书记</th>
+				    	<td>村党支部书记</td>
 				    	<td>
-				    		<input type="text" name="countrymessage.cdzbsj" value="" id="cdzbsj" style="height:50px"/>
+				    		<input type="text" name="countrymessage.cdzbsj" value="" id="cdzbsj"/>
 				    	</td>
-				    	<th>包片领导</th>
+				    	<td>包片领导</td>
 				    	<td>
-				    		<input type="text" name="countrymessage.bpld" value="" id="bpld" style="height:50px"/>
+				    		<input type="text" name="countrymessage.bpld" value="" id="bpld"/>
 				    	</td>
 			    	</tr>
 			    	<tr>
-				    	<th>精神文明建设情况</th>
+				    	<td>精神文明建设情况</td>
 				    	<td>
 				    		<textarea rows="1" cols="14" name="countrymessage.jswmjsqk" id="jswmjsqk"  ></textarea>
 				    	</td>
-				    	<th>村党组织情况</th>
+				    	<td>村党组织情况</td>
 				    	<td>
 				    		<textarea rows="1" cols="14" name="countrymessage.cdzzqk"  id="cdzzqk" ></textarea>
 				    	</td>
 			    	</tr>
 			    	<tr>
-				    	<th>村级阵地情况</th>
+				    	<td>村级阵地情况</td>
 				    	<td>
 				    		<textarea rows="1" cols="14" name="countrymessage.cjzdqk" id="cjzdqk" ></textarea>
 				    	</td>
-				    	<th>企业，专业合作社情况</th>
+				    	<td>企业，专业合作社情况</td>
 				    	<td>
 				    		<textarea rows="1" cols="14" name="countrymessage.qyhzsqk" id="qyhzsqk"  ></textarea>
 				    	</td>
 			    	</tr>
 			    	<tr>
-				    	<th>财政投资情况</th>
+				    	<td>财政投资情况</td>
 				    	<td>
 				    		<textarea rows="1" cols="14" name="countrymessage.cztzqk" id="cztzqk"  ></textarea>
 				    	</td>
-				    	<th>本村存在的主要问题</th>
+				    	<td>本村存在的主要问题</td>
 				    	<td>
 				    		<textarea rows="1" cols="14" name="countrymessage.bcczdzywt" id="bcczdzywt"></textarea>
 				    	</td>
 			    	</tr>
-			    	<tr>
-			    		<th colspan="4"><a href="javascript:addFlowbg()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a></th>
-			    	</tr>
+			    	<!-- <tr>
+			    		<td colspan="4"><a href="javascript:addFlowbg()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a></td>
+			    	</tr> -->
 			    </table>
+			    <br>
+			    <div onclick="addFlowbg()" style="background:#EDF4FF;margin:auto;cursor:pointer;width:75px;height:30px;display:block;border:1px solid #95B8E7;line-height:30px;text-align:center;">保存</div>
 		    </form>
 		</div>
 	</div>

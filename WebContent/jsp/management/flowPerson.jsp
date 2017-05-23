@@ -357,6 +357,36 @@ function updateFlowPerson(){
 	}
 }
 </script>
+<style type="text/css">
+	#win input{
+		width: 150px;
+		border: 1px solid #e0e0e0;
+	}
+	#win select{
+		width:150px;
+		border: 1px solid #e0e0e0;
+	}
+	#win textarea{
+		width:150px;
+		border: 1px solid #e0e0e0;
+	}
+	#win{
+		background-color: #F4F4F4;
+	}
+	#win tr{
+		height: 45px;
+	}
+	#win th,td{
+		border-bottom: 2px solid #DDDDDD;
+	}
+	#win .easyui-linkbutton{
+		width: 100px;
+		height: 30px;
+	}
+	#win .l-btn-text{
+		font-size: 15px;
+	}
+</style>
 </head>
 <body class="easyui-layout">
 	<div data-options="region:'west',title:'组织机构',split:true" style="width:220px;">
@@ -374,18 +404,19 @@ function updateFlowPerson(){
 	        <a href="javascript:findFlowPersonWhere()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a> 
 	    </div>
     </div>
-    <div id="win" class="easyui-window" title="添加流动人口记录" style="width:700px;height:450px;display:none;"  
+    <div id="win" class="easyui-window" title="添加流动人口记录" style="width:800px;height:420px;display:none;"  
         data-options="iconCls:'icon-save',modal:true">  
-	    <div class="easyui-layout" data-options="fit:true">  
-		    <form method="post" id="addFlowPerson">
+	    <div class="easyui-layout" data-options="fit:true" style="text-align:center;">  
+		    <form method="post" id="addFlowPerson" style="outline:none;">
 		    	<input type="hidden" id="form_cid" name="country_flow.cid"><!-- 村id -->
-			    <table style="line-height: 55px;width: 100%;">
+		    	<div style="heigth:20px;display:block;line-height:20px;">&nbsp;</div>
+			    <table style="width: 700px;" align="center" cellpadding="0" cellspacing="0">
 			    	<tr>
-				    	<th>姓名</th>
-				    	<td><input type="text" name="country_flow.name" class="easyui-validatebox" data-options="required:true,validType:'name'"/></td>
-				    	<th>性别</th>
+				    	<td>姓名</td>
+				    	<td><input type="text" name="country_flow.name" class="easyui-validatebox" data-options="validType:'name'"/></td>
+				    	<td>性别</td>
 				    	<td>
-				    		<select name="country_flow.sex" class="easyui-validatebox" data-options="required:true">
+				    		<select name="country_flow.sex" class="easyui-validatebox">
 				    			<option value="">-请选择-</option>
 				    			<option value="1">男</option>
 				    			<option value="0">女</option>
@@ -393,17 +424,17 @@ function updateFlowPerson(){
 				    	</td>
 			    	</tr>
 			    	<tr>
-				    	<th>年龄</th>
-				    	<td><input type="text" name="country_flow.age" class="easyui-validatebox" data-options="required:true"/></td>
-				    	<th>身份证号</th>
-				    	<td><input type="text" name="country_flow.id_card" class="easyui-validatebox" data-options="required:true,validType:'id_card'"/></td>
+				    	<td>年龄</td>
+				    	<td><input type="text" name="country_flow.age" class="easyui-validatebox"/></td>
+				    	<td>身份证号</td>
+				    	<td><input type="text" name="country_flow.id_card" class="easyui-validatebox" data-options="validType:'id_card'"/></td>
 			    	</tr>
 			    	<tr>
-				    	<th>户籍地</th>
-				    	<td><input name="country_flow.hjd" class="easyui-validatebox" data-options="required:true"></input></td>
-				    	<th>婚姻状况</th>
+				    	<td>户籍地</td>
+				    	<td><input name="country_flow.hjd" class="easyui-validatebox"></input></td>
+				    	<td>婚姻状况</td>
 				    	<td>
-				    		<select name="country_flow.hyzk" class="easyui-validatebox" data-options="required:true">
+				    		<select name="country_flow.hyzk" class="easyui-validatebox">
 				    			<option value="">-请选择-</option>
 				    			<option value="0">已婚</option>
 				    			<option value="1">未婚</option>
@@ -411,21 +442,21 @@ function updateFlowPerson(){
 				    	</td>
 			    	</tr>
 			    	<tr>
-			    		<th>政治面貌</th>
+			    		<td>政治面貌</td>
 				    	<td>
-				    		<select name="country_flow.zzmm" class="easyui-validatebox" data-options="required:true">
+				    		<select name="country_flow.zzmm" class="easyui-validatebox">
 				    			<option value="">-请选择-</option>
 				    			<option value="0">群众</option>
 				    			<option value="1">党员</option>
 				    		</select>
 				    	</td>
-			    		<th>流入/流出时间</th>
-				    	<td><input type="text" name="country_flow.totime" class="easyui-datebox" data-options="required:true,validType:'date'"/></td>
+			    		<td>流入/流出时间</td>
+				    	<td><input type="text" name="country_flow.totime" class="easyui-datebox" data-options="validType:'date'" style="outline:none;"/></td>
 			    	</tr>
 			    	<tr>
-			    		<th>文化程度</th>
+			    		<td>文化程度</td>
 				    	<td>
-				    		<select name="country_flow.whcd" class="easyui-validatebox" data-options="required:true">
+				    		<select name="country_flow.whcd" class="easyui-validatebox">
 				    			<option value="">-请选择-</option>
 				    			<option value="0">文盲</option>
 				    			<option value="1">小学</option>
@@ -434,26 +465,31 @@ function updateFlowPerson(){
 				    			<option value="4">大专及以上</option>
 				    		</select>
 				    	</td>
-				    	<th>流入流出原因</th>
-				    	<td><input type="text" name="country_flow.towhy" class="easyui-validatebox" data-options="required:true"/></td>
-			    	</tr>
-			    	<tr>
-			    		<th rowspan="2">暂住地及从事行业</th>
-				    	<td rowspan="2"><input  name="country_flow.zzdjcshy" class="easyui-validatebox" data-options="required:true"></input></td>
-				    	<th>流动状态</th>
+				    	<td>流动状态</td>
 				    	<td>
-				    		<select name="country_flow.state" class="easyui-validatebox" data-options="required:true">
+				    		<select name="country_flow.state" class="easyui-validatebox">
 				    			<option value="">-请选择-</option>
 				    			<option value="0">流入</option>
 				    			<option value="1">流出</option>
 				    		</select>
 				    	</td>
 			    	</tr>
-			    	
 			    	<tr>
-			    		<td colspan="4"><a href="javascript:svaeAddFlowPerson()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a></td>
+			    		<td>暂住地及从事行业</td>
+				    	<td>
+				    		<!-- <input name="country_flow.zzdjcshy" class="easyui-validatebox" data-options="required:true"></input> -->
+				    		<textarea cols="14" name="country_flow.zzdjcshy" class="easyui-validatebox"></textarea>
+				    	</td>
+				    	<td>流入流出原因</td>
+				    	<td>
+				    		<!-- <input type="text" name="country_flow.towhy" class="easyui-validatebox" data-options="required:true"/> -->
+				    		<textarea cols="14" name="country_flow.towhy" class="easyui-validatebox"></textarea>
+				    	</td>
 			    	</tr>
 			    </table>
+			    <br>
+			    <!-- <a href="javascript:svaeAddFlowPerson()" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a> -->
+			    <div onclick="svaeAddFlowPerson()" style="background:#EDF4FF;margin:auto;cursor:pointer;width:75px;height:30px;display:block;border:1px solid #95B8E7;line-height:30px;">保存</div>
 		    </form>
 	    </div>  
 	</div>

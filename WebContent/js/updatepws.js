@@ -293,28 +293,5 @@ function saveDataGrid(posturl){
 function updatePassword(){
 	$('#win').window("open");
 }
-//保存新密码
-function savePassword(){
-	var oldpwd = $("#oldPassword").val();
-	var newpwd = $("#newPassword").val();
-	if(oldpwd=='' || newpwd==''){
-		$.messager.alert('警告','请填写完整!','warning');
-	}else{
-		if(oldpwd==newpwd){
-			$.messager.alert('警告','新密码不能与旧密码相同!','warning');
-			return;
-		}else{
-			$.post("/ruInforM/pws/ispwd.m?acc.password="+oldpwd,function(data){
-				if(data != "ok"){
-					$.messager.alert('警告','旧密码输入错误!','warning');
-					return;
-				}else{
-					$.post("/ruInforM/pws/savepwd.m?acc.password="+newpwd);
-					$('#win').window("close");
-					$('#dg').datagrid("load");
-				}
-			},"text");
-		}
-	}
-}
+
 
