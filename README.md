@@ -1,18 +1,18 @@
 **2022-04-22**
 
-* ����Ŀ������2017�꣬Ŀ������Ϊ��ҵ��������õģ���������ڣ���Ŀʹ�õļ��������˵�Ѿ���Ϊ�¾��ˣ������ڵ�ʱ��ʶ���㣬jar����δʹ��maven���й�����
+* 本项目创建于2017年，目的是作为毕业设计练手用的，相较于现在，项目使用的技术相对来说已经较为陈旧了，且由于当时知储备不足，jar包并未使用maven进行管理。
 
->���ü�����struts2+spring+mybatis
+>所用技术：struts2+spring+mybatis
 
-**Ŀ¼�ṹ��**
+**目录结构：**
 
->src��Դ�뼰�����ļ�
+>src：源码及配置文件
 
->WebContent����̬��Դ
+>WebContent：静态资源
 
->WebContent.WEB-INF.lib��������jar��
+>WebContent.WEB-INF.lib：所依赖jar包
 
->WebContent.sql�����ݿ���ṹ(ruInforM.sql)
+>WebContent.sql：数据库表结构(ruInforM.sql)
 
-**ע����ʹ��tomcat��������ĿʱӦ��ǰ��javax.servlet-api-4.0.1.jar�Ƴ�����Ϊtomcat���Ѿ����ڸ�jar��������ͬ�´������ײ�����ͻ��**
+**注：在使用tomcat启动该项目时应提前将javax.servlet-api-4.0.1.jar移除！（原理：因为tomcat中已经存在该jar包，两个同时存在会冲突）**
 
