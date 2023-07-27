@@ -22,28 +22,28 @@
 
 **idea启动和打包配置**
 
-![项目结构-项目设置-项目](D:\eclipse_workspase\ruInforM\README_IMAGE\项目结构-项目设置-项目.png)
+![项目结构-项目设置-项目](.\README_IMAGE\项目结构-项目设置-项目.png)
 
-![项目结构-项目设置-模块-源](D:\eclipse_workspase\ruInforM\README_IMAGE\项目结构-项目设置-模块-源.png)
+![项目结构-项目设置-模块-源](.\README_IMAGE\项目结构-项目设置-模块-源.png)
 
-![项目结构-项目设置-模块-路径](D:\eclipse_workspase\ruInforM\README_IMAGE\项目结构-项目设置-模块-路径.png)
+![项目结构-项目设置-模块-路径](.\README_IMAGE\项目结构-项目设置-模块-路径.png)
 
-![项目结构-项目设置-模块-依赖](D:\eclipse_workspase\ruInforM\README_IMAGE\项目结构-项目设置-模块-依赖.png)
+![项目结构-项目设置-模块-依赖](.\README_IMAGE\项目结构-项目设置-模块-依赖.png)
 
-![项目结构-项目设置-模块-web](D:\eclipse_workspase\ruInforM\README_IMAGE\项目结构-项目设置-模块-web.png)
+![项目结构-项目设置-模块-web](.\README_IMAGE\项目结构-项目设置-模块-web.png)
 
-![项目结构-项目设置-库](D:\eclipse_workspase\ruInforM\README_IMAGE\项目结构-项目设置-库.png)
+![项目结构-项目设置-库](.\README_IMAGE\项目结构-项目设置-库.png)
 
-![项目结构-项目设置-Facet](D:\eclipse_workspase\ruInforM\README_IMAGE\项目结构-项目设置-Facet.png)
+![项目结构-项目设置-Facet](.\README_IMAGE\项目结构-项目设置-Facet.png)
 
-![项目结构-项目设置-工件-展开](D:\eclipse_workspase\ruInforM\README_IMAGE\项目结构-项目设置-工件-展开.png)
+![项目结构-项目设置-工件-展开](.\README_IMAGE\项目结构-项目设置-工件-展开.png)
 
-![项目结构-项目设置-工件-归档](D:\eclipse_workspase\ruInforM\README_IMAGE\项目结构-项目设置-工件-归档.png)
+![项目结构-项目设置-工件-归档](.\README_IMAGE\项目结构-项目设置-工件-归档.png)
 
-![tomcat配置](D:\eclipse_workspase\ruInforM\README_IMAGE\tomcat配置.png)
+![tomcat配置](.\README_IMAGE\tomcat配置.png)
 
-![tomcat配置2](D:\eclipse_workspase\ruInforM\README_IMAGE\tomcat配置2.png)
+![tomcat配置2](.\README_IMAGE\tomcat配置2.png)
 
-![打包1](D:\eclipse_workspase\ruInforM\README_IMAGE\打包1.png)
+![打包1](.\README_IMAGE\打包1.png)
 
-![打包2](D:\eclipse_workspase\ruInforM\README_IMAGE\打包2.png)
+![打包2](.\README_IMAGE\打包2.png)
